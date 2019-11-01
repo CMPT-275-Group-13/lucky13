@@ -125,11 +125,11 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--My Doctors View Controller-->
         <scene sceneID="aJN-RO-THl">
             <objects>
-                <viewController id="UXF-DH-BDd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n5x-Jn-ht9">
+                <viewController id="UXF-DH-BDd" customClass="MyDoctorsViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n5x-Jn-ht9" customClass="MyDoctor">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -228,8 +228,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNz-gH-gob">
+                                <rect key="frame" x="25" y="69" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="UXF-DH-BDd" kind="show" id="IAi-qu-L7u"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-2D-hDX" userLabel="MessageTextfield">
-                                <rect key="frame" x="50" y="797" width="314" height="30"/>
+                                <rect key="frame" x="25" y="797" width="329" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -239,21 +246,22 @@
                                     <action selector="messageTextfield:" destination="ge3-sZ-B94" eventType="editingDidEnd" id="YBM-qa-Pr1"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNz-gH-gob">
-                                <rect key="frame" x="25" y="69" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agf-tb-tg8">
+                                <rect key="frame" x="362" y="797" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send"/>
                                 <connections>
-                                    <segue destination="UXF-DH-BDd" kind="show" id="IAi-qu-L7u"/>
+                                    <action selector="Send:" destination="ge3-sZ-B94" eventType="touchUpInside" id="ole-0c-Pg8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b3X-XE-Oqh" firstAttribute="trailing" secondItem="OX3-2D-hDX" secondAttribute="trailing" constant="50" id="Gye-ax-Csu"/>
-                            <constraint firstItem="OX3-2D-hDX" firstAttribute="leading" secondItem="b3X-XE-Oqh" secondAttribute="leading" constant="50" id="WfB-tD-aml"/>
+                            <constraint firstItem="OX3-2D-hDX" firstAttribute="leading" secondItem="b3X-XE-Oqh" secondAttribute="leading" constant="25" id="0t1-na-8lH"/>
+                            <constraint firstItem="b3X-XE-Oqh" firstAttribute="trailing" secondItem="OX3-2D-hDX" secondAttribute="trailing" constant="60" id="6td-z6-0dE"/>
                             <constraint firstItem="wNz-gH-gob" firstAttribute="leading" secondItem="b3X-XE-Oqh" secondAttribute="leading" constant="25" id="XJG-W7-MDq"/>
-                            <constraint firstItem="b3X-XE-Oqh" firstAttribute="bottom" secondItem="OX3-2D-hDX" secondAttribute="bottom" constant="35" id="YeN-tG-lZs"/>
                             <constraint firstItem="wNz-gH-gob" firstAttribute="top" secondItem="b3X-XE-Oqh" secondAttribute="top" constant="25" id="eni-ip-DWE"/>
+                            <constraint firstItem="b3X-XE-Oqh" firstAttribute="bottom" secondItem="OX3-2D-hDX" secondAttribute="bottom" constant="35" id="xvE-ch-e53"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b3X-XE-Oqh"/>
                     </view>
@@ -263,7 +271,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="906"/>
+            <point key="canvasLocation" x="840.57971014492762" y="905.35714285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aaT-UI-DEu">
+            <objects>
+                <viewController id="oQz-zp-h0z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WKt-OW-RIK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wUK-0p-QM1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="etU-aF-dHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

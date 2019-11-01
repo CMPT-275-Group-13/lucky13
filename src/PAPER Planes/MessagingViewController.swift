@@ -12,10 +12,8 @@ class MessagingViewController: UIViewController, UITextFieldDelegate {
     // MARK: Properties
     @IBOutlet weak var MsgTxtField: UITextField!
     
+    //var activeTextField = UITextField()
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,22 +29,31 @@ class MessagingViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
    
-    // MARK: UITextFieldDelegate
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        // Hide the keyboard
-        textField.resignFirstResponder()
-        return true
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.MsgTxtField = textField
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        view.endEditing(true)
+    @IBAction func Send(_ sender: Any) {
+        hideKeyboard()
     }
-    
-    // MARK: Actions
-    @IBAction func MsgTxtField(_ sender: Any) {
-        
+    //    // MARK: UITextFieldDelegate
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        // Hide the keyboard
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        view.endEditing(true)
+//    }
+//
+//    // MARK: Actions
+//    @IBAction func MsgTxtField(_ sender: Any) {
+//
+//    }
+    func hideKeyboard(){
+        MsgTxtField.resignFirstResponder()
     }
-    
     
     deinit {
          //Stop listening to keyboard hide/show events
@@ -64,8 +71,12 @@ class MessagingViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        view.frame.origin.y = -keyboardRect.height
-
+        if (notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification) && self.MsgTxtField.frame.origin.y > keyboardRect.height  {
+            view.frame.origin.y = -keyboardRect.height
+        }
+        else {
+            view.frame.origin.y = 0
+        }
     }
     
     
