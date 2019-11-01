@@ -233,12 +233,17 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="MsgTxtField:" destination="ge3-sZ-B94" eventType="editingDidEnd" id="daL-sj-g4Q"/>
+                                    <action selector="messageTextField:" destination="ge3-sZ-B94" eventType="editingDidEnd" id="OT7-Ti-edt"/>
+                                    <action selector="messageTextfield:" destination="ge3-sZ-B94" eventType="editingDidEnd" id="YBM-qa-Pr1"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNz-gH-gob">
                                 <rect key="frame" x="25" y="69" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="UXF-DH-BDd" kind="show" id="isq-Vh-OYA"/>
+                                    <segue destination="UXF-DH-BDd" kind="show" id="IAi-qu-L7u"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -252,6 +257,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b3X-XE-Oqh"/>
                     </view>
+                    <connections>
+                        <outlet property="MsgTxtField" destination="OX3-2D-hDX" id="qmm-H2-36G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -260,6 +268,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="73Z-Z1-yRi"/>
-        <segue reference="isq-Vh-OYA"/>
+        <segue reference="IAi-qu-L7u"/>
     </inferredMetricsTieBreakers>
 </document>
