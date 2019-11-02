@@ -15,6 +15,10 @@
 		86DD0B2C236BBD6600EDC0E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */; };
 		86DD0B37236BBD6600EDC0E2 /* PAPER_PlanesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B36236BBD6600EDC0E2 /* PAPER_PlanesTests.swift */; };
 		86DD0B42236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */; };
+		A69016DF236CEFA40043E1CE /* brain-test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016DE236CEFA40043E1CE /* brain-test.swift */; };
+		A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */; };
+		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
+		A69016E9236D07DF0043E1CE /* BrainTestButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		86DD0B3D236BBD6600EDC0E2 /* PAPER PlanesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PAPER PlanesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPER_PlanesUITests.swift; sourceTree = "<group>"; };
 		86DD0B43236BBD6600EDC0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A69016DE236CEFA40043E1CE /* brain-test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "brain-test.swift"; sourceTree = "<group>"; };
+		A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTest.swift; sourceTree = "<group>"; };
+		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,12 @@
 			children = (
 				86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */,
 				86DD0B23236BBD6500EDC0E2 /* ViewController.swift */,
+				A69016DE236CEFA40043E1CE /* brain-test.swift */,
+				A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
 				86DD0B25236BBD6500EDC0E2 /* Main.storyboard */,
+				A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */,
+				A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */,
 				86DD0B28236BBD6600EDC0E2 /* Assets.xcassets */,
 				86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */,
 				86DD0B2D236BBD6600EDC0E2 /* Info.plist */,
@@ -259,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A69016DF236CEFA40043E1CE /* brain-test.swift in Sources */,
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
+				A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */,
+				A69016E9236D07DF0043E1CE /* BrainTestButtons.swift in Sources */,
 				869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */,
+				A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
