@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="QM7-ap-IyH" userLabel="all">
-                                <rect key="frame" x="35" y="79" width="344" height="748"/>
+                                <rect key="frame" x="35" y="35" width="344" height="738"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="qxe-07-obe" userLabel="Message ">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="356.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="351.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="XFQ-1w-JNI" userLabel="Message view">
                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="75"/>
@@ -51,7 +49,7 @@
                                                 </constraints>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e6T-pE-e9o">
-                                                <rect key="frame" x="0.0" y="110" width="344" height="246.5"/>
+                                                <rect key="frame" x="0.0" y="110" width="344" height="241.5"/>
                                                 <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="e6T-pE-e9o" secondAttribute="height" multiplier="172:123" id="odC-DK-6aO"/>
@@ -63,13 +61,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="IOJ-zN-QJg" userLabel="Button Stack">
-                                        <rect key="frame" x="0.0" y="391.5" width="344" height="356.5"/>
+                                        <rect key="frame" x="0.0" y="386.5" width="344" height="351.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="5Xm-Mh-HTF" userLabel="Row 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="344" height="161"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="158.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-ud-uZm">
-                                                        <rect key="frame" x="0.0" y="0.0" width="154.5" height="161"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="154.5" height="158.5"/>
                                                         <color key="backgroundColor" red="0.29187194275497352" green="0.4474319182025368" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Doctors">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -79,7 +77,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzv-02-Dg3">
-                                                        <rect key="frame" x="189.5" y="0.0" width="154.5" height="161"/>
+                                                        <rect key="frame" x="189.5" y="0.0" width="154.5" height="158.5"/>
                                                         <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Check-ups">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,17 +86,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="VWD-Si-0wo" userLabel="Row 2">
-                                                <rect key="frame" x="0.0" y="196" width="344" height="160.5"/>
+                                                <rect key="frame" x="0.0" y="193.5" width="344" height="158"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvN-5S-fKI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="154.5" height="160.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="154.5" height="158"/>
                                                         <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Medication">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC8-hJ-BFb">
-                                                        <rect key="frame" x="189.5" y="0.0" width="154.5" height="160.5"/>
+                                                        <rect key="frame" x="189.5" y="0.0" width="154.5" height="158"/>
                                                         <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Stabilizer">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,12 +128,11 @@
             <objects>
                 <viewController id="UXF-DH-BDd" customClass="MyDoctorsViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n5x-Jn-ht9" customClass="MyDoctor">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kg5-st-nko" userLabel="All Doctors">
                                 <rect key="frame" x="75" y="194" width="264" height="441"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-De-ag6" userLabel="Doctor 1">
                                         <rect key="frame" x="0.0" y="0.0" width="264" height="127"/>
@@ -201,7 +198,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avF-lG-r31" userLabel="Back">
-                                <rect key="frame" x="25" y="69" width="34" height="30"/>
+                                <rect key="frame" x="25" y="25" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="mJz-xf-jHm"/>
@@ -225,19 +222,18 @@
             <objects>
                 <viewController id="ge3-sZ-B94" customClass="MessagingViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dwr-0I-g3h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNz-gH-gob">
-                                <rect key="frame" x="25" y="69" width="34" height="30"/>
+                                <rect key="frame" x="25" y="25" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <segue destination="UXF-DH-BDd" kind="show" id="IAi-qu-L7u"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-2D-hDX" userLabel="MessageTextfield">
-                                <rect key="frame" x="25" y="797" width="329" height="30"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="25" y="739" width="329" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -291,6 +287,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="73Z-Z1-yRi"/>
-        <segue reference="IAi-qu-L7u"/>
+        <segue reference="kia-F0-8lQ"/>
     </inferredMetricsTieBreakers>
 </document>
