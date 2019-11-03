@@ -10,35 +10,49 @@ import Foundation
 
 class BrainTest {
     
-    var number_key_taps = 0
-    var time_held = 0.0
-    var time_var_between = 0.0
-    var taps_acc = 0.0
-    let date_taken = Date()
+    var numberCorrectTaps = 0
+    var numberWrongTaps = 0
     
-    var buttons = [BrainTestButton]()
+    var avgTimeOnButton = 0.0
+    var timeOnButton = 0.0
     
-    func tapButton (at index: Int) {
-        
+    var timeVarBetweenTaps = 0.0
+    
+    var tapsAccuracy = 0.0
+    let dataTaken = Date()
+    
+    var correctButtons = [BrainTestButton]()
+    //var wrongButtonsLeft = [BrainTestWrongButton]()
+    
+    func tapDownButton (at index: Int) {
+        // When the user taps down the button
+        // Start the timer, increment time_held
     }
     
-    func startTest() {
-        
+    func tapUpButton (at index: Int) {
+        numberCorrectTaps += 1
     }
     
-    func countDownOneMinute() {
-        
-    }
+    /*func startTest() {
+        // Set up the test
+    }*/
+    
     
     func outputTestData() {
+        // Output test data to terminal
         
     }
     
-    init() {
-        for _ in 1...2 {
+    func takeTimeOnButton (at index: Int) {
+        // take the time on button time from the controller
+        
+    }
+    
+    init(numberOfCorrectButtons: Int) {
+        for _ in 1...numberOfCorrectButtons {
             // Initializing buttons
             let testButton = BrainTestButton()
-            buttons.append(testButton)
+            correctButtons.append(testButton)
         }
         // Initializing result placeholders
         

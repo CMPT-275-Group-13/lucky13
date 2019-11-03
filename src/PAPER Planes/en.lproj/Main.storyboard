@@ -143,27 +143,120 @@
                                         <rect key="frame" x="0.0" y="0.0" width="99.5" height="100"/>
                                         <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="TAP"/>
+                                        <connections>
+                                            <action selector="TouchDownTapLeft:" destination="ygg-25-As4" eventType="touchDown" id="E7N-Ir-t5u"/>
+                                            <action selector="TouchUpTapLeft:" destination="ygg-25-As4" eventType="touchUpInside" id="pF1-kI-AUZ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iR9-de-gQK">
                                         <rect key="frame" x="329.5" y="0.0" width="99" height="100"/>
                                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Stop"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="w84-30-22w"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="k5f-GA-bOV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jys-V1-IOg">
                                         <rect key="frame" x="658.5" y="0.0" width="99.5" height="100"/>
                                         <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="TAP"/>
+                                        <connections>
+                                            <action selector="TouchDownTapRight:" destination="ygg-25-As4" eventType="touchDown" id="czN-3g-DYg"/>
+                                            <action selector="TouchUpTapRight:" destination="ygg-25-As4" eventType="touchUpInside" id="fxq-cG-QIn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="CfP-oI-fhj"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Np-Ry-ID8">
+                                <rect key="frame" x="170" y="85" width="212" height="244"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="7zJ-y0-TaW"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wrong count: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mp7-pe-Asx">
-                                <rect key="frame" x="390" y="108" width="116" height="21"/>
+                                <rect key="frame" x="377" y="56" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b64-9w-GU2">
+                                <rect key="frame" x="69" y="85" width="99" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="Sbz-Va-yQs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aH-bo-xSi">
+                                <rect key="frame" x="514" y="85" width="214" height="244"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="mJT-ft-H8k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PDa-DK-mTm">
+                                <rect key="frame" x="69" y="257" width="99" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="6Q2-Dn-QfE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLV-td-FEL">
+                                <rect key="frame" x="728" y="257" width="99" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="Wng-t5-rod"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln6-dN-I3i">
+                                <rect key="frame" x="0.0" y="85" width="69" height="243"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="txO-g4-MNx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwU-7S-w7A">
+                                <rect key="frame" x="827" y="85" width="69" height="244"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="7mt-cd-c1Q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timer: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-Hi-qZv">
+                                <rect key="frame" x="377" y="27" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sK4-Yb-TMM">
+                                <rect key="frame" x="728" y="85" width="99" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="WrongTap:" destination="ygg-25-As4" eventType="touchUpInside" id="eXR-DS-fb3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please tap the buttons alternatively" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8It-HW-MxD">
+                                <rect key="frame" x="242" y="288" width="412" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown: 60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r33-bY-bSc">
+                                <rect key="frame" x="381" y="337" width="134" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -179,6 +272,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NyA-Co-sic"/>
                     </view>
+                    <connections>
+                        <outlet property="TimerLabel" destination="b4v-Hi-qZv" id="B0g-BT-diP"/>
+                        <outlet property="countdownLabel" destination="r33-bY-bSc" id="XOJ-zw-WkK"/>
+                        <outlet property="wrongTabLabel" destination="Mp7-pe-Asx" id="QEq-jS-rNu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9y-qu-U9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,6 +426,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="66p-J9-H1f"/>
         <segue reference="kia-F0-8lQ"/>
-        <segue reference="w84-30-22w"/>
+        <segue reference="k5f-GA-bOV"/>
     </inferredMetricsTieBreakers>
 </document>
