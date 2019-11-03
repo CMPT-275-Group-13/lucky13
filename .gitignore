@@ -68,3 +68,12 @@ fastlane/screenshots/**/*.png
 fastlane/test_output
 src/lucky13/test-bootstrap
 src/.firebase
+src/lucky13/about.php
+src/lucky13/test-bootstrap
+src/lucky13/contact.php
+src/lucky13/index.php
+src/lucky13/landing.php
+src/lucky13/login-result.php
+src/lucky13/includes/config.php
+src/lucky13/includes/design-top.php
+src/lucky13/includes/helper.php
