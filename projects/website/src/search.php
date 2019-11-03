@@ -20,6 +20,14 @@ if (isset($_GET)) {
 }
 
 // Grab stuff and place it into $searchResults
+// Currently, we just have a placeholder
+$searchResults = [
+	0 => [
+		id => '276',
+		name => 'Herb',
+	],
+	
+];
 
 ?>
 
@@ -73,7 +81,15 @@ if (isset($_GET)) {
 					<span><?php print $searchResultIndex; ?></span>
 				</div>
 				<div>
-					<?php // Needs work ?>
+					<?php $patientUrl = 'patient-profile.php?patient-id=' . urlencode($searchResult['id']); ?>
+					<div style="cursor: pointer;" onclick="window.location='<?php print $patientUrl; ?>'">
+						<div>
+							<?php // show patient's image ?>
+						</div>
+						<div>
+							<?php print($searchResult['name']); ?>
+						</div>
+					</div>
 				</div>
 			<?php endforeach; ?>
 		</div>
