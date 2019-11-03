@@ -15,7 +15,6 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 	case "/about.php":
 		$CURRENT_PAGE = "About"; 
 		$PAGE_TITLE = "About Us";
-		redirect("https://github.com/CMPT-275-Group-13/lucky13/wiki");
 		break;
 	case "/profile.php":
 		$CURRENT_PAGE = "Profile"; 

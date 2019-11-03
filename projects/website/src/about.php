@@ -1,4 +1,6 @@
 <?php include("includes/config.php");?>
+<?php redirect("https://github.com/CMPT-275-Group-13/lucky13/wiki"); ?>
+
 <!DOCTYPE html>
 <html>
 <head>

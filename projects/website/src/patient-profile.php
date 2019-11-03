@@ -15,6 +15,8 @@ if (isset($_GET) && isset($_GET['patient-id'])) {
 	}
 }
 
+?>
+
 
 
 <!DOCTYPE html>
@@ -26,8 +28,6 @@ if (isset($_GET) && isset($_GET['patient-id'])) {
 
 <?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
-
-<?php 
 
 <?php var_dump($_GET); ?>
 
