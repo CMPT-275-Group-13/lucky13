@@ -1,6 +1,16 @@
 <?php
 require_once("helper.php");
 
+/**
+ * CONSTANTS
+ *
+ * Please don't change this
+ */
+$HASH_PASSWORD_COST = 10;
+
+/**
+ * VARIABLES
+ */
 switch ($_SERVER["SCRIPT_NAME"]) {
 	case "/about.php":
 		$CURRENT_PAGE = "About"; 
