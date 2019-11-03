@@ -33,6 +33,10 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 		$CURRENT_PAGE = "Index"; 
 		$PAGE_TITLE = "Paper Plane";
 		break;
+	case "/landing.php":
+		$CURRENT_PAGE = "Landing"; 
+		$PAGE_TITLE = "Paper Plane";
+		break;
 	default:
 		$CURRENT_PAGE = "Default";
 		$PAGE_TITLE = "Paper Plane";

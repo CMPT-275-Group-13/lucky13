@@ -1,6 +1,28 @@
-<?php include("includes/helper.php");?>
+<?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
-<?php $searchResults = []; ?>
+<?php
+
+$firstNameFilter = '';
+$lastNameFilter = '';
+
+if (isset($_GET)) {
+	if (isset($_GET['first-name'])) {
+		$firstNameFilter = sanitiseUserInput($_GET['first-name']);
+	}
+
+	if (isset($_GET['last-name'])) {
+		$lastNameFilter = sanitiseUserInput($_GET['last-name']);
+	}
+
+	if (isset($_GET['paired-to-patient'])) {
+		$pairedDoctorToPatientFilter = True;
+	}
+}
+
+// Grab stuff and place it into $searchResults
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,22 +38,30 @@
 		<form action="" method="_GET">
 			<div class="container">
 				<div>
-					<input type="textbox" name="first-name"/>
+					<input type="textbox" name="first-name" <?php print 'value="' . $firstNameFilter . '"'; ?> />
 				</div>
 			</div>
 			<div class="container">
 				<div>
-					<input type="textbox" name="last-name"/>
+					<input type="textbox" name="last-name" <?php print 'value="' . $lastNameFilter . '"'; ?> />
 				</div>
 			</div>
 			<div class="container">
 				<div>
-					<input type="textbox" name="first-name"/>
+					<div>
+						<span>Paired?</span>
+					</div>
+					<input type="checkbox" name="paired-to-patient" <?php if (isset($pairedDoctorToPatientFilter) && $pairedDoctorToPatientFilter) {print("checked");} ?> />
 				</div>
 			</div>
 			<div class="container">
 				<div>
-					<input type="submit" name="search-filter-submit" value="filter"/>
+					<input type="submit" name="search-filter-submit" value="Filter"/>
+				</div>
+			</div>
+			<div class="container">
+				<div>
+					<input type="reset" name="reset-filter" value="Reset"/>
 				</div>
 			</div>
 		</form>
