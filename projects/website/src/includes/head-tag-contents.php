@@ -1,5 +1,7 @@
 <title><?php print $PAGE_TITLE;?></title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <?php if ($CURRENT_PAGE == "Index") { ?>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" /> 
