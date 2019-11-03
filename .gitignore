@@ -66,3 +66,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+src/.firebaserc
+src/database.rules.json
+src/firebase.json
+src/functions/.eslintrc.json
