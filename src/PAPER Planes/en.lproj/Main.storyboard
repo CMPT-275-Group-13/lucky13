@@ -131,7 +131,7 @@
         <!--View Controller Brain Test-->
         <scene sceneID="HU8-Fv-Azc">
             <objects>
-                <viewController id="ygg-25-As4" customClass="ViewControllerBrainTest" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerBrainTest" id="ygg-25-As4" customClass="ViewControllerBrainTest" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="poo-lU-NSW">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -249,14 +249,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please tap the buttons alternatively" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8It-HW-MxD">
-                                <rect key="frame" x="242" y="288" width="412" height="27"/>
+                                <rect key="frame" x="242" y="302" width="412" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown: 60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r33-bY-bSc">
-                                <rect key="frame" x="381" y="337" width="134" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown: 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r33-bY-bSc">
+                                <rect key="frame" x="381" y="349" width="134" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Switch Timer: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVO-MD-rcR">
+                                <rect key="frame" x="377" y="85" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -275,6 +282,7 @@
                     <connections>
                         <outlet property="TimerLabel" destination="b4v-Hi-qZv" id="B0g-BT-diP"/>
                         <outlet property="countdownLabel" destination="r33-bY-bSc" id="XOJ-zw-WkK"/>
+                        <outlet property="inBetweenTimerLabel" destination="KVO-MD-rcR" id="Dga-wC-q6B"/>
                         <outlet property="wrongTabLabel" destination="Mp7-pe-Asx" id="QEq-jS-rNu"/>
                     </connections>
                 </viewController>
@@ -421,6 +429,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="842" y="906"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ACZ-qk-Icm">
+            <objects>
+                <viewController id="jAH-oV-USE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h7I-Wr-APb">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g8G-4z-vb0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIj-if-vHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-200" y="1678"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

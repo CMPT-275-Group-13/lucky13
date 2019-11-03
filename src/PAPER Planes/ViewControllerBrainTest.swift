@@ -21,33 +21,49 @@ class ViewControllerBrainTest: UIViewController {
    
     @IBOutlet var correctButtons: [UIButton]!
     
+    @IBOutlet weak var wrongTabLabel: UILabel!
+    
+    let timeIncrementMS = 0.001
+    let timeIncrementS = 1
+    let timeReset = Double(0)
+    
+    
     // Time on buttons functions
     //----------------------------------------------------------
     var tapTimer = Timer()
+    var seconds = 0.0
     @IBOutlet weak var TimerLabel: UILabel!
     
     func schedulingTimeOnButton() {
-        tapTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        tapTimer = Timer.scheduledTimer(timeInterval: timeIncrementMS, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
-        seconds += 0.001
+        seconds += timeIncrementMS
         TimerLabel.text = "Timer: \(seconds)"
+    }
+    
+    func saveSecondsOnButton() {
+        print("Milliseconds on button left: \(seconds)")
+        // saving seconds on Button to get the average
+        sumOfSecondsOnButton += seconds
     }
     
     func resetTimerOnButton() {
         tapTimer.invalidate()
-        seconds = 0
+        seconds = timeReset
         TimerLabel.text = "Timer: \(seconds)"
     }
     //----------------------------------------------------------
     // End
     
+    
     // Minute countdown functions
     //----------------------------------------------------------
     @IBOutlet weak var countdownLabel: UILabel!
     
-    var totalTime = 60
+    //let testLength = 60
+    var totalTime = 15
     var countdownTimer = Timer()
     
     func startCountdown() {
@@ -58,7 +74,7 @@ class ViewControllerBrainTest: UIViewController {
         countdownLabel.text = "Countdown: \(totalTime)"
         
         if totalTime != 0 {
-            totalTime -= 1
+            totalTime -= timeIncrementS
         } else {
             endCountdown()
         }
@@ -71,31 +87,61 @@ class ViewControllerBrainTest: UIViewController {
     //----------------------------------------------------------
     // End
     
+    
+    // Timer for in between taps
+    //----------------------------------------------------------
+    var inBetweenTimer = Timer()
+    @IBOutlet weak var inBetweenTimerLabel: UILabel!
+    var secondsBetweenTaps = 0.0
+    
+    func startInBetweenTimer() {
+        inBetweenTimer = Timer.scheduledTimer(timeInterval: timeIncrementMS, target: self, selector: #selector(updateInBetweenTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateInBetweenTime() {
+        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+        secondsBetweenTaps += timeIncrementMS
+        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+    }
+    
+    func endInBetweenTimer() {
+        
+        inBetweenTimer.invalidate()
+        secondsBetweenTaps = timeReset
+        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+    }
+    
+    //----------------------------------------------------------
+    // End
+    
     var wrongTapCount = 0
     var correctTapCount = 0
     var sumOfSecondsOnButton = 0.0
     var isLeftButtonPressed = false
     var isRightButtonPressed = false
     
-    var seconds = 0.0
-    var secondsForMinuteCountdown = 0
-    var secondsForTimeBetweenTaps = 0.0
+    
+    // If both buttons are not pressed, then the test hasn't started yet
+    // Start the 1 minute countdown when the user press the first button
     
     
-    var inBetweenTapsTimer = Timer()
-    // TODO: timer won't be accurate when the app is running hard and slowing down
-    var timerIsOn = false
+    // Reminder: timer won't be accurate when the app is running hard and slowing down
     
-    @IBOutlet weak var wrongTabLabel: UILabel!
+    
     
     @IBAction func WrongTap(_ sender: UIButton) {
-        wrongTapCount += 1
-        wrongTabLabel.text = "wrong count: \(wrongTapCount)"
+        incrementWrongTap()
     }
     
     @IBAction func TouchDownTapLeft(_ sender: UIButton) {
         if !isLeftButtonPressed && !isRightButtonPressed {
             startCountdown()
+        } else {
+            endInBetweenTimer()
+        }
+        
+        if isLeftButtonPressed {
+            incrementWrongTap()
         }
         
         schedulingTimeOnButton()
@@ -106,6 +152,12 @@ class ViewControllerBrainTest: UIViewController {
     @IBAction func TouchDownTapRight(_ sender: UIButton) {
         if !isLeftButtonPressed && !isRightButtonPressed {
             startCountdown()
+        } else {
+            endInBetweenTimer()
+        }
+        
+        if isRightButtonPressed {
+            incrementWrongTap()
         }
         schedulingTimeOnButton()
         
@@ -115,9 +167,10 @@ class ViewControllerBrainTest: UIViewController {
     
     @IBAction func TouchUpTapLeft(_ sender: UIButton) {
         
-        print("Milliseconds on button left: \(seconds)")
-        sumOfSecondsOnButton += seconds
+        saveSecondsOnButton()
         resetTimerOnButton()
+        
+        startInBetweenTimer()
         
         /*if !isRightButtonPressed && !isLeftButtonPressed {
             // Increment correct key taps
@@ -134,9 +187,10 @@ class ViewControllerBrainTest: UIViewController {
     
     @IBAction func TouchUpTapRight(_ sender: UIButton) {
         
-        print("Milliseconds on button right: \(seconds)")
-        sumOfSecondsOnButton += seconds
+        saveSecondsOnButton()
         resetTimerOnButton()
+        
+        startInBetweenTimer()
         
         /*if !isRightButtonPressed && !isLeftButtonPressed {
             // Increment correct key taps
@@ -151,27 +205,40 @@ class ViewControllerBrainTest: UIViewController {
         }*/
     }
     
+    
+    
     // Supporting functions
     
+    // TODO: Transfer the results to the result view
+//    func transitionToResult() {
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        guard let brainTestResultViewController = mainStoryboard.instantiateViewController(withIdentifier: "BrainTestResultViewController") as? BrainTestResultViewController else {
+//            print("Couldn't find BrainTestResultViewController")
+//            return
+//        }
+//
+//    }
+    
+    func incrementWrongTap() {
+        wrongTapCount += 1
+        wrongTabLabel.text = "wrong count: \(wrongTapCount)"
+    }
     
     func getAverageSecondsOnButton() -> Double {
         return sumOfSecondsOnButton/Double(correctTapCount)
     }
     
     func getTapAccuracy() -> Double {
-        return Double(correctTapCount / (correctTapCount + wrongTapCount))
+        let totalTaps = correctTapCount
+        return Double(correctTapCount / totalTaps)
     }
     
     func getTotalKeyTaps() -> Int {
         return correctTapCount + wrongTapCount
     }
     
-    
+    // TODO: Implement the MVC design for the BRAIN test in rev 2
     func updateViewFromModel() {
-        
-    }
-    
-    func countDownOneMinute() {
         
     }
 }
