@@ -35,29 +35,34 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container" id="main-content">
 	<div>
 		<div class="" id="">
-			<form action="index.php" method="POST">
-				<div>
+			<form class="form-inline" action="index.php" method="POST">
+				<div class="form-group">
 					<div>
-						<span>Username</span>
+						<label><b>Username</b></label>
 					</div>
 					<div>
-						<input type="textbox" name="username"/>
+						<input class="form-control" type="textbox" name="username" id="username"/>
 					</div>
 				</div>
-				<div>
-					<span>Password</span>
+				<div class="form-group">
+					<div>
+						<label><b>Password</b></label>
+					</div>
+					<div>
+						<input class="form-control" type="password" name="password" id="password"/>
+					</div>
 				</div>
-				<div>
-					<input type="password" name="password"/>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">Submit</button>
 				</div>
-				<div>
-					<input type="submit" name="submit" value="Submit"/>
+				<div class="form-group">
+					<a href="register.php">Register</a>
 				</div>
 			</form>
 		</div>
 		<div>
 			<div>
-				<span><a href="register.php" target="">Register</a></span>
+				
 			</div>
 		</div>
 	</div>
