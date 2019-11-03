@@ -11,25 +11,9 @@
 
 <div class="container" id="main-content">
 	<div>
-		<form action="login-result.php" method="post">
-		<div>
-			<div>
-				<div>
-					<div><p>Username</p></div>
-					<input type="text" name="username"/>
-				</div>
-				<div>
-					<div><p>Password</p></div>
-					<input type="text" name="password"/>
-				</div>
-			</div>
-			<div>
-				<input type="submit"/>
-			</div>
-		</div>
-		</form>
+		Welcome <?php echo $_POST["username"]; ?><br>
+Your email address is: <?php echo $_POST["password"]; ?>
 	</div>
-
 </div>
 
 <?php include("includes/footer.php");?>
