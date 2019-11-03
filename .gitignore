@@ -66,5 +66,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-src/lucky13/startbootstrap-heroic-features-gh-pages
+src/lucky13/test-bootstrap
 src/.firebase
