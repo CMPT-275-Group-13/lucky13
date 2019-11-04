@@ -31,28 +31,30 @@
 	    <a class="nav-link">Profile</a>
 	  </li>
 	  <li class="nav-item">
-	    <a class="nav-link">Search</a>
+	    <a class="nav-link active">Search</a>
 	  </li>
 	</ul>
 </div>
 
 <div class="container" id="main-content">
 	<div>
-		<h3 id="patients"></h3>
+		<h3>Search</h3>
 		<span id = "details"></span>
 			<p>
 				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 					<span id="message"></span>  
-					View Latest Note
+					Search
 				</button>
 		  	</p>
-		  		<div class="collapse" id="collapseExample">
-					<div class="card card-body">
-						
-					</div>
-		  		</div>
-			</div>
-		</div>
+              <div>
+                    <input class="form-control" type="textbox" name="username" id="inputSearch"/>
+              </div>
+            <p>
+                <div id = "results"></div>
+            </p>	
+		  		
+			
+		
 	</div>
 	<div>
 		<!-- Chat with patient -->
