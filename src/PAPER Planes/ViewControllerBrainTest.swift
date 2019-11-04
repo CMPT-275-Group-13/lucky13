@@ -126,6 +126,7 @@ class ViewControllerBrainTest: UIViewController {
     
     var isLeftButtonPressed = false
     var isRightButtonPressed = false
+    var isCurrentlyPressed = false
     
     
     // If both buttons are not pressed, then the test hasn't started yet
@@ -154,8 +155,6 @@ class ViewControllerBrainTest: UIViewController {
         
         schedulingTimeOnButton()
         correctTapCount += 1
-        isLeftButtonPressed = true
-        isRightButtonPressed = false
     }
     
     @IBAction func TouchDownTapRight(_ sender: UIButton) {
@@ -171,8 +170,6 @@ class ViewControllerBrainTest: UIViewController {
         }
         schedulingTimeOnButton()
         correctTapCount += 1
-        isRightButtonPressed = true
-        isLeftButtonPressed = false
     }
     
     @IBAction func TouchUpTapLeft(_ sender: UIButton) {
@@ -181,6 +178,7 @@ class ViewControllerBrainTest: UIViewController {
         resetTimerOnButton()
         
         startInBetweenTimer()
+        updateIsPressedFlags(isLeft: true)
         
         /*if !isRightButtonPressed && !isLeftButtonPressed {
             // Increment correct key taps
@@ -201,6 +199,7 @@ class ViewControllerBrainTest: UIViewController {
         resetTimerOnButton()
         
         startInBetweenTimer()
+        updateIsPressedFlags(isLeft: false)
         
         /*if !isRightButtonPressed && !isLeftButtonPressed {
             // Increment correct key taps
@@ -218,8 +217,18 @@ class ViewControllerBrainTest: UIViewController {
     
     
     // Supporting functions
+    func updateIsPressedFlags(isLeft: Bool) {
+        if isLeft {
+            isLeftButtonPressed = true
+            isRightButtonPressed = false
+
+        } else {
+            isRightButtonPressed = true
+            isLeftButtonPressed = false
+
+        }
+    }
     
-    // TODO: Transfer the results to the result view
     func transitionToResult() {
 //        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 //        guard let viewControllerBrainTestResult = mainStoryboard.instantiateViewController(withIdentifier: "ViewControllerBrainTestResult") as? ViewControllerBrainTestResult else {
