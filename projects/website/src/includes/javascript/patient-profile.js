@@ -31,6 +31,6 @@ getRealtimeUpdates = function(){
             
     //     }}
     // });
-}
+};
 
 getRealtimeUpdates();
