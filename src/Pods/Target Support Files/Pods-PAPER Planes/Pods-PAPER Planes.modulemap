@@ -1,0 +1,6 @@
+framework module Pods_PAPER_Planes {
+  umbrella header "Pods-PAPER Planes-umbrella.h"
+
+  export *
+  module * { export * }
+}
