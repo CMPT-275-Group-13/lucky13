@@ -11,6 +11,7 @@
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
 
 
 // buttonSignIn.addEventListener("click", function() {
