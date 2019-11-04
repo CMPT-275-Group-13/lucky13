@@ -45,7 +45,7 @@ function sanitiseUserInput($userInput) {
 	$result = trim($userInput);
 	$result = stripslashes($result);
 	$result = htmlspecialchars($result, ENT_NOQUOTES);
-	$result = mysql_real_escape_string($result);
+	// $result = mysql_real_escape_string($result);
 	return $result;
 }
 
