@@ -138,13 +138,13 @@
                                 <rect key="frame" x="75" y="282" width="264" height="407"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-De-ag6" userLabel="Doctor 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="264" height="115.66666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="115.33333333333333"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n89-x2-qzU">
-                                                <rect key="frame" x="0.0" y="0.0" width="132" height="115.66666666666667"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="115.33333333333333"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-H7-wPI">
-                                                <rect key="frame" x="132" y="0.0" width="132" height="115.66666666666667"/>
+                                                <rect key="frame" x="132" y="0.0" width="132" height="115.33333333333333"/>
                                                 <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Doctor 1">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -156,7 +156,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="84L-Od-ZkJ" userLabel="Doctor 2">
-                                        <rect key="frame" x="0.0" y="125.66666666666669" width="264" height="116.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="125.33333333333331" width="264" height="116.66666666666669"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r1v-XJ-HTW">
                                                 <rect key="frame" x="0.0" y="0.0" width="132" height="116.66666666666667"/>
@@ -171,13 +171,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nvk-mv-mP6" userLabel="Doctor 3">
-                                        <rect key="frame" x="0.0" y="252.3333333333334" width="264" height="115.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="252" width="264" height="115"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="irk-mC-vFX">
-                                                <rect key="frame" x="0.0" y="0.0" width="132" height="115.33333333333333"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="115"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vA-85-Od4">
-                                                <rect key="frame" x="132" y="0.0" width="132" height="115.33333333333333"/>
+                                                <rect key="frame" x="132" y="0.0" width="132" height="115"/>
                                                 <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Doctor 3">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -186,7 +186,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e23-ep-6sl">
-                                        <rect key="frame" x="0.0" y="377.66666666666663" width="264" height="29.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="377" width="264" height="30"/>
                                         <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -225,7 +225,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OX3-2D-hDX" userLabel="MessageTextfield">
-                                                <rect key="frame" x="21" y="710" width="300" height="34"/>
+                                                <rect key="frame" x="21" y="440" width="300" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="Nl6-ig-QVT"/>
                                                     <constraint firstAttribute="width" constant="300" id="ghD-8G-XaL"/>
@@ -238,29 +238,30 @@
                                                     <action selector="messageTextfield:" destination="ge3-sZ-B94" eventType="editingDidEnd" id="YBM-qa-Pr1"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agf-tb-tg8">
-                                                <rect key="frame" x="341" y="712" width="40" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdU-9g-od6">
+                                                <rect key="frame" x="340" y="442" width="36" height="30"/>
                                                 <state key="normal" title="Send"/>
                                                 <connections>
-                                                    <action selector="Send:" destination="ge3-sZ-B94" eventType="touchUpInside" id="ole-0c-Pg8"/>
+                                                    <action selector="sendMsgWithSender:" destination="ge3-sZ-B94" eventType="touchUpInside" id="MfD-02-6Hf"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tez-jz-K3r">
-                                                <rect key="frame" x="186" y="30" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dek-4Z-llM">
+                                                <rect key="frame" x="343" y="489" width="30" height="30"/>
+                                                <state key="normal" title="Get"/>
+                                                <connections>
+                                                    <action selector="getMsgWithSender:" destination="ge3-sZ-B94" eventType="touchUpInside" id="WHh-kZ-bB1"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="agf-tb-tg8" firstAttribute="centerY" secondItem="OX3-2D-hDX" secondAttribute="centerY" id="2Nm-7M-p9Z"/>
-                                            <constraint firstItem="tez-jz-K3r" firstAttribute="centerX" secondItem="rgT-ef-zNQ" secondAttribute="centerX" id="8sI-ah-y9P"/>
+                                            <constraint firstItem="EdU-9g-od6" firstAttribute="centerY" secondItem="OX3-2D-hDX" secondAttribute="centerY" id="DEN-gI-6gF"/>
                                             <constraint firstItem="OX3-2D-hDX" firstAttribute="leading" secondItem="rgT-ef-zNQ" secondAttribute="leading" constant="21" id="Dkb-9i-2jX"/>
-                                            <constraint firstItem="tez-jz-K3r" firstAttribute="top" secondItem="rgT-ef-zNQ" secondAttribute="top" constant="30" id="XiX-g8-72S"/>
-                                            <constraint firstItem="agf-tb-tg8" firstAttribute="leading" secondItem="OX3-2D-hDX" secondAttribute="trailing" constant="20" id="jib-4D-QNs"/>
-                                            <constraint firstAttribute="trailing" secondItem="agf-tb-tg8" secondAttribute="trailing" constant="33" id="plD-WK-GGp"/>
-                                            <constraint firstAttribute="bottom" secondItem="OX3-2D-hDX" secondAttribute="bottom" constant="30" id="zOD-gV-4nm"/>
+                                            <constraint firstAttribute="bottom" secondItem="OX3-2D-hDX" secondAttribute="bottom" constant="300" id="Hh9-zC-LTM"/>
+                                            <constraint firstAttribute="trailing" secondItem="EdU-9g-od6" secondAttribute="trailing" constant="38" id="Mr3-7H-3Lv"/>
+                                            <constraint firstItem="dek-4Z-llM" firstAttribute="top" secondItem="EdU-9g-od6" secondAttribute="bottom" constant="17" id="Rhg-sI-t8Z"/>
+                                            <constraint firstItem="dek-4Z-llM" firstAttribute="centerX" secondItem="EdU-9g-od6" secondAttribute="centerX" id="asv-vZ-AFt"/>
+                                            <constraint firstItem="EdU-9g-od6" firstAttribute="leading" secondItem="OX3-2D-hDX" secondAttribute="trailing" constant="19" id="uCE-2I-xJm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -288,14 +289,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="Oag-yM-7ep"/>
                     <connections>
-                        <outlet property="MsgTxtField" destination="OX3-2D-hDX" id="qmm-H2-36G"/>
                         <outlet property="contentView" destination="rgT-ef-zNQ" id="03A-fx-MZs"/>
+                        <outlet property="msgTxtField" destination="OX3-2D-hDX" id="qmm-H2-36G"/>
                         <outlet property="scrollView" destination="tGZ-23-L6d" id="kQG-2r-SNY"/>
+                        <outlet property="sendButton" destination="EdU-9g-od6" id="hpB-s9-q2Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="139"/>
+            <point key="canvasLocation" x="1724.6376811594205" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
