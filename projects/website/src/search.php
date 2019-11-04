@@ -61,6 +61,30 @@ $searchResults = [
 					</div>
 					<input type="checkbox" name="paired-to-patient" <?php if (isset($pairedDoctorToPatientFilter) && $pairedDoctorToPatientFilter) {print("checked");} ?> />
 				</div>
+
+				<div>
+					<h3>Search</h3>
+					<span id = "details"></span>
+					<p>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" id="searchButton"> 
+					Search
+				</button>
+		  	</p>
+
+            <p>
+                <div id = "results"></div>
+            </p>	
+
+				<div>
+                    <input class="form-control" type="textbox" name="username" id="inputSearch"/>
+                </div>
+
+
+
+		  		
+			
+		
+	</div>
 			</div>
 			<div class="container">
 				<div>
@@ -96,6 +120,7 @@ $searchResults = [
 	</div>
 </div>
 
+<script src="includes/javascript/search.js"></script>
 <?php include("includes/footer.php");?>
 
 </body>
