@@ -32,6 +32,7 @@ class ViewControllerBrainTest: UIViewController {
     //----------------------------------------------------------
     var tapTimer = Timer()
     var seconds = 0.0
+    var sumOfSecondsOnButton = 0.0
     @IBOutlet weak var TimerLabel: UILabel!
     
     func schedulingTimeOnButton() {
@@ -63,7 +64,7 @@ class ViewControllerBrainTest: UIViewController {
     @IBOutlet weak var countdownLabel: UILabel!
     
     //let testLength = 60
-    var totalTime = 15
+    var totalTime = 5
     var countdownTimer = Timer()
     
     func startCountdown() {
@@ -83,6 +84,7 @@ class ViewControllerBrainTest: UIViewController {
     func endCountdown() {
         countdownTimer.invalidate()
         // TODO: display the test result and go back to the menu page
+        transitionToResult()
     }
     //----------------------------------------------------------
     // End
@@ -93,7 +95,7 @@ class ViewControllerBrainTest: UIViewController {
     var inBetweenTimer = Timer()
     @IBOutlet weak var inBetweenTimerLabel: UILabel!
     var secondsBetweenTaps = 0.0
-    
+    var sumOfSecondsBetweenTaps = 0.0
     func startInBetweenTimer() {
         inBetweenTimer = Timer.scheduledTimer(timeInterval: timeIncrementMS, target: self, selector: #selector(updateInBetweenTime), userInfo: nil, repeats: true)
     }
@@ -102,6 +104,10 @@ class ViewControllerBrainTest: UIViewController {
         inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
         secondsBetweenTaps += timeIncrementMS
         inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+    }
+    
+    func saveInBetweenTaps() {
+        sumOfSecondsBetweenTaps += secondsBetweenTaps
     }
     
     func endInBetweenTimer() {
@@ -116,7 +122,8 @@ class ViewControllerBrainTest: UIViewController {
     
     var wrongTapCount = 0
     var correctTapCount = 0
-    var sumOfSecondsOnButton = 0.0
+    var testCurrentDate = Date()
+    
     var isLeftButtonPressed = false
     var isRightButtonPressed = false
     
@@ -137,6 +144,7 @@ class ViewControllerBrainTest: UIViewController {
         if !isLeftButtonPressed && !isRightButtonPressed {
             startCountdown()
         } else {
+            saveInBetweenTaps()
             endInBetweenTimer()
         }
         
@@ -145,6 +153,7 @@ class ViewControllerBrainTest: UIViewController {
         }
         
         schedulingTimeOnButton()
+        correctTapCount += 1
         isLeftButtonPressed = true
         isRightButtonPressed = false
     }
@@ -153,6 +162,7 @@ class ViewControllerBrainTest: UIViewController {
         if !isLeftButtonPressed && !isRightButtonPressed {
             startCountdown()
         } else {
+            saveInBetweenTaps()
             endInBetweenTimer()
         }
         
@@ -160,7 +170,7 @@ class ViewControllerBrainTest: UIViewController {
             incrementWrongTap()
         }
         schedulingTimeOnButton()
-        
+        correctTapCount += 1
         isRightButtonPressed = true
         isLeftButtonPressed = false
     }
@@ -210,14 +220,30 @@ class ViewControllerBrainTest: UIViewController {
     // Supporting functions
     
     // TODO: Transfer the results to the result view
-//    func transitionToResult() {
+    func transitionToResult() {
 //        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        guard let brainTestResultViewController = mainStoryboard.instantiateViewController(withIdentifier: "BrainTestResultViewController") as? BrainTestResultViewController else {
-//            print("Couldn't find BrainTestResultViewController")
+//        guard let viewControllerBrainTestResult = mainStoryboard.instantiateViewController(withIdentifier: "ViewControllerBrainTestResult") as? ViewControllerBrainTestResult else {
+//            print("Couldn't find ViewControllerBrainTestResult")
 //            return
 //        }
-//
-//    }
+   
+        //present(viewControllerBrainTestResult, animated: true, completion: nil)
+        
+        
+        //_ = getTestResultText()
+        performSegue(withIdentifier: "resultTransition", sender: self)
+        //navigationController?.pushViewController(viewControllerBrainTestResult, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "resultTransition" {
+            let testResultText = getTestResultText()
+            let vc = segue.destination as! ViewControllerBrainTestResult
+            vc.resultText = testResultText
+        } else {
+            return
+        }
+    }
     
     func incrementWrongTap() {
         wrongTapCount += 1
@@ -225,16 +251,47 @@ class ViewControllerBrainTest: UIViewController {
     }
     
     func getAverageSecondsOnButton() -> Double {
-        return sumOfSecondsOnButton/Double(correctTapCount)
+        let totalTaps = getTotalKeyTaps()
+        return sumOfSecondsOnButton/Double(totalTaps)
+    }
+    
+    func getAverageTimeInBetweenTaps() -> Double {
+        let totalTaps = getTotalKeyTaps()
+        return sumOfSecondsBetweenTaps/Double(totalTaps)
     }
     
     func getTapAccuracy() -> Double {
-        let totalTaps = correctTapCount
-        return Double(correctTapCount / totalTaps)
+        let totalTaps = getTotalKeyTaps()
+        print(correctTapCount)
+        print(totalTaps)
+        print(correctTapCount/totalTaps)
+        return Double(correctTapCount) / Double(totalTaps) * 100
     }
     
     func getTotalKeyTaps() -> Int {
         return correctTapCount + wrongTapCount
+    }
+    
+    func getTestResultText() -> String {
+        var testResultText = ""
+        
+        var tempText = "Date taken: \(testCurrentDate)\n"
+        testResultText.append(tempText)
+        
+        tempText = "Kinesia score: \(String(getTotalKeyTaps()))\n"
+        testResultText.append(tempText)
+        
+        tempText = "Akinesia score: \(String(getAverageSecondsOnButton()))\n"
+        testResultText.append(tempText)
+        
+        tempText = "Incorrdination score: \(String(getAverageTimeInBetweenTaps()))\n"
+        testResultText.append(tempText)
+        
+        tempText = "Dysmetria score: \((String(getTapAccuracy())))\n"
+        testResultText.append(tempText)
+        
+        print(testResultText)
+        return testResultText
     }
     
     // TODO: Implement the MVC design for the BRAIN test in rev 2

@@ -19,6 +19,7 @@
 		A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */; };
 		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
 		A69016E9236D07DF0043E1CE /* BrainTestButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */; };
+		E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTest.swift; sourceTree = "<group>"; };
 		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestButtons.swift; sourceTree = "<group>"; };
+		E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTestResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		86DD0B20236BBD6500EDC0E2 /* PAPER Planes */ = {
 			isa = PBXGroup;
 			children = (
+				E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */,
 				86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */,
 				86DD0B23236BBD6500EDC0E2 /* ViewController.swift */,
 				A69016DE236CEFA40043E1CE /* brain-test.swift */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */,
 				A69016DF236CEFA40043E1CE /* brain-test.swift in Sources */,
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,

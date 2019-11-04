@@ -85,7 +85,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="ygg-25-As4" kind="show" id="Xqy-Ou-dp0"/>
+                                                            <segue destination="ygg-25-As4" kind="show" id="Vio-WL-WpI"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -279,16 +279,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NyA-Co-sic"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UjY-Fu-kky"/>
                     <connections>
                         <outlet property="TimerLabel" destination="b4v-Hi-qZv" id="B0g-BT-diP"/>
                         <outlet property="countdownLabel" destination="r33-bY-bSc" id="XOJ-zw-WkK"/>
                         <outlet property="inBetweenTimerLabel" destination="KVO-MD-rcR" id="Dga-wC-q6B"/>
                         <outlet property="wrongTabLabel" destination="Mp7-pe-Asx" id="QEq-jS-rNu"/>
+                        <segue destination="jAH-oV-USE" kind="presentation" identifier="resultTransition" id="klj-mx-ntK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9y-qu-U9X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-200.22321428571428" y="904.34782608695662"/>
+            <point key="canvasLocation" x="317" y="904"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aJN-RO-THl">
@@ -428,22 +430,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="906"/>
+            <point key="canvasLocation" x="1585.0446428571429" y="905.79710144927549"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Brain Test Result-->
         <scene sceneID="ACZ-qk-Icm">
             <objects>
-                <viewController id="jAH-oV-USE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerBrainTestResult" id="jAH-oV-USE" customClass="ViewControllerBrainTestResult" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h7I-Wr-APb">
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUk-jR-Qpr">
+                                <rect key="frame" x="64" y="32" width="137" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Return"/>
+                                <connections>
+                                    <action selector="returnToTest:" destination="jAH-oV-USE" eventType="touchUpInside" id="v7x-4h-X5R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVE-9C-sZh">
+                                <rect key="frame" x="106" y="138" width="356" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g8G-4z-vb0"/>
                     </view>
+                    <connections>
+                        <outlet property="resultTextLabel" destination="EVE-9C-sZh" id="WB2-Iu-ZBw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIj-if-vHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-200" y="1678"/>
+            <point key="canvasLocation" x="-200.22321428571428" y="1676.8115942028987"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
