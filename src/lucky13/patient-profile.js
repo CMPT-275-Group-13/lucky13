@@ -18,13 +18,11 @@ getRealtimeUpdates = function(){
         }
     });
 
-    messageRef.onSnapshot(function(doc){
-        if(doc && doc.exists){
-            const myData = doc.data();
-
-            myData.collection()
-        }
-    });
+    // messageRef.onSnapshot(function(doc){
+    //     if(doc && doc.exists){
+    //         const myData = doc.data();
+    //     }
+    // });
 
     // patientRef.onSnapshot(function(doc){
     //     if(doc && doc.exists){{
