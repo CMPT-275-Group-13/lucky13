@@ -63,7 +63,8 @@ $searchResults = [
 
 				<div>
 					<span id = "details"></span><p></p>
-					<?php $patientUrl = 'patient-profile.php?patient-id=' . urlencode("csmith"); // Placeholder for now ?>
+					<?php //$patientUrl = 'patient-profile.php?patient-id=' . urlencode("csmith"); ?>
+					<?php $patientUrl = 'patient-profile.php'; // Placeholder for now ?>
 					<div style="cursor: pointer;" onclick="window.location='<?php print $patientUrl; ?>'">
 						<div id = "results"></div>
 					</div>
@@ -84,26 +85,26 @@ $searchResults = [
 			</div>
 		</form>
 	</div>
-	<div class="container" id="search-results">
+<!-- 	<div class="container" id="search-results">
 		<div>
-			<?php foreach ($searchResults as $searchResultIndex => $searchResult): ?>
+			<?php //foreach ($searchResults as $searchResultIndex => $searchResult): ?>
 				<div>
-					<span><?php print $searchResultIndex; ?></span>
+					<span><?php //print $searchResultIndex; ?></span>
 				</div>
 				<div>
 					
-					<div style="cursor: pointer;" onclick="window.location='<?php print $patientUrl; ?>'">
+					<div style="cursor: pointer;" onclick="window.location='<?php //print $patientUrl; ?>'">
 						<div>
 							<?php // show patient's image ?>
 						</div>
 						<div>
-							<?php print($searchResult['name']); ?>
+							<?php //print($searchResult['name']); ?>
 						</div>
 					</div>
 				</div>
-			<?php endforeach; ?>
+			<?php //endforeach; ?>
 		</div>
-	</div>
+	</div> -->
 </div>
 
 <script src="includes/javascript/search.js"></script>
