@@ -1,9 +1,10 @@
 var firestore = firebase.firestore();
 const patientName = document.querySelector("#patients");
 const profile = document.querySelector("#details");
-const message = document.querySelector("#message"); 
+const message = document.querySelector("#messageBody"); 
 const patientRef = firestore.doc("/patient/csmith");
-const messageRef = firestore.doc("/messages/csmith");
+const messageRef = firestore.collection("/messages/csmith/John_Doe");
+
 
 getRealtimeUpdates = function(){
     patientRef.onSnapshot(function(doc){
@@ -17,11 +18,11 @@ getRealtimeUpdates = function(){
         }
     });
 
-    // messageRef.onSnapshot(function(doc){
-    //     if(doc && doc.exists){
-    //         const myData = doc.data();
-    //     }
-    // });
+    messageRef.get().then(querySnapshot => {
+        const queryDocumentSnapshot = querySnapshot.docs[0].data().Body;
+        message.innerText = queryDocumentSnapshot;
+    });
+   
 
     // patientRef.onSnapshot(function(doc){
     //     if(doc && doc.exists){{
