@@ -63,9 +63,10 @@ $searchResults = [
 
 				<div>
 					<span id = "details"></span><p></p>
-					<p>
+					<?php $patientUrl = 'patient-profile.php?patient-id=' . urlencode("csmith"); // Placeholder for now ?>
+					<div style="cursor: pointer;" onclick="window.location='<?php print $patientUrl; ?>'">
 						<div id = "results"></div>
-					</p>	
+					</div>
 					<div>
 						<input class="form-control" type="textbox" name="username" id="inputSearch"/>
 					</div>
@@ -87,7 +88,7 @@ $searchResults = [
 					<span><?php print $searchResultIndex; ?></span>
 				</div>
 				<div>
-					<?php $patientUrl = 'patient-profile.php?patient-id=' . urlencode($searchResult['id']); ?>
+					
 					<div style="cursor: pointer;" onclick="window.location='<?php print $patientUrl; ?>'">
 						<div>
 							<?php // show patient's image ?>
