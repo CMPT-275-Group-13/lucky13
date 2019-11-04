@@ -11,6 +11,7 @@ $HASH_PASSWORD_COST = 10;
 /**
  * VARIABLES
  */
+
 switch ($_SERVER["SCRIPT_NAME"]) {
 	case "/about.php":
 		$CURRENT_PAGE = "About"; 
@@ -35,6 +36,22 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 	case "/landing.php":
 		$CURRENT_PAGE = "Landing"; 
 		$PAGE_TITLE = "Paper Plane";
+		break;
+	case "/message.php":
+		$CURRENT_PAGE = "Message"; 
+		$PAGE_TITLE = "Paper Plane";
+		break;
+	case "/tests.php":
+		$CURRENT_PAGE = "Tests"; 
+		$PAGE_TITLE = "Tests";
+		break;
+	case "/brain-test-results.php":
+		$CURRENT_PAGE = "Brain Test Results"; 
+		$PAGE_TITLE = "Brain Test Results";
+		break;
+	case "/tremor-test-results.php":
+		$CURRENT_PAGE = "Tremor Test Results"; 
+		$PAGE_TITLE = "Tremor Test Results";
 		break;
 	default:
 		$CURRENT_PAGE = "Default";
