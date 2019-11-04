@@ -1,6 +1,8 @@
 <?php include("includes/config.php");?>
 <?php require_once("includes/helper.php");?>
 
+<script src="includes/javascript/patient-profile.js"></script>
+
 <?php
 
 if (isset($_GET) && isset($_GET['patient-id'])) {
