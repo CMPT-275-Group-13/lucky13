@@ -22,11 +22,10 @@ if (isset($_GET)) {
 // Grab stuff and place it into $searchResults
 // Currently, we just have a placeholder
 $searchResults = [
-	0 => [
-		id => '276',
-		name => 'Herb',
-	],
-	
+	// 0 => [
+	// 	id => '276',
+	// 	name => 'Herb',
+	// ],
 ];
 
 ?>
@@ -44,56 +43,39 @@ $searchResults = [
 <div class="container" id="main-content">
 	<div class="container" id="search-filter-form">
 		<form action="" method="_GET">
-			<div class="container">
+<!-- 			<div class="container">
 				<div>
-					<input type="textbox" name="first-name" <?php print 'value="' . $firstNameFilter . '"'; ?> />
+					<input type="textbox" name="first-name" <?php //print 'value="' . $firstNameFilter . '"'; ?> />
 				</div>
 			</div>
 			<div class="container">
 				<div>
-					<input type="textbox" name="last-name" <?php print 'value="' . $lastNameFilter . '"'; ?> />
+					<input type="textbox" name="last-name" <?php //print 'value="' . $lastNameFilter . '"'; ?> />
 				</div>
-			</div>
+			</div> -->
 			<div class="container">
-				<div>
+<!-- 				<div>
 					<div>
 						<span>Paired?</span>
 					</div>
-					<input type="checkbox" name="paired-to-patient" <?php if (isset($pairedDoctorToPatientFilter) && $pairedDoctorToPatientFilter) {print("checked");} ?> />
-				</div>
+					<input type="checkbox" name="paired-to-patient" <?php //if (isset($pairedDoctorToPatientFilter) && $pairedDoctorToPatientFilter) {print("checked");} ?> />
+				</div> -->
 
 				<div>
-					<h3>Search</h3>
-					<span id = "details"></span>
+					<span id = "details"></span><p></p>
 					<p>
-				<button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" id="searchButton"> 
-					Search
-				</button>
-		  	</p>
-
-            <p>
-                <div id = "results"></div>
-            </p>	
-
-				<div>
-                    <input class="form-control" type="textbox" name="username" id="inputSearch"/>
-                </div>
-
-
-
-		  		
-			
-		
-	</div>
+						<div id = "results"></div>
+					</p>	
+					<div>
+						<input class="form-control" type="textbox" name="username" id="inputSearch"/>
+					</div>
+            	</div>
 			</div>
 			<div class="container">
 				<div>
-					<input type="submit" name="search-filter-submit" value="Filter"/>
-				</div>
-			</div>
-			<div class="container">
-				<div>
-					<input type="reset" name="reset-filter" value="Reset"/>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" id="searchButton"> 
+						Search
+					</button>
 				</div>
 			</div>
 		</form>
