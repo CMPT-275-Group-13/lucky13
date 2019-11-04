@@ -68,6 +68,9 @@ $searchResults = [
 						<div id = "results"></div>
 					</div>
 					<div>
+						<div>
+							<label>Username</label>
+						</div>
 						<input class="form-control" type="textbox" name="username" id="inputSearch"/>
 					</div>
             	</div>
