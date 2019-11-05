@@ -2,7 +2,8 @@
 //  TableViewController.swift
 //  PAPER Planes
 //
-//  Created by Marco Liang on 2019-11-03.
+//  Created by Angus Kan on 2019-10-31.
+//  Worked on by: Angus Kan, Marco Liang
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
