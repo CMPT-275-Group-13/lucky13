@@ -82,3 +82,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+src/PAPER Planes/en.lproj/.DS_Store
+src/PAPER Planes/.DS_Store
+src/.DS_Store
+.DS_Store
