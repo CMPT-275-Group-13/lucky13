@@ -1,4 +1,26 @@
 <?php include("includes/config.php");?>
+
+<?php
+
+$username = '';
+$password = '';
+
+if (isset($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
+	if (isset($_POST['username']) && isset($_POST['password'])) {
+		$username = sanitiseUserInput($_POST['username']);
+		$password = sanitiseUserInput($_POST['password']);
+		//  $password = hashPassword($password);
+
+		// TO-DO: Check User authentication
+		// If valid, redirect to landing page
+		if (true) {
+			redirect('landing.php'); // Do we want index.php to be the landing page?
+		}
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +37,10 @@
 			<form action="" method="POST">
 				<div>
 					<div>
-						<span>Username</span>
+						<span>Email Address</span>
 					</div>
 					<div>
-						<input type="textbox" name="username"/>
+						<input type="textbox" name="Email Address"/>
 					</div>
 				</div>
 				<div>

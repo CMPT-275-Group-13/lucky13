@@ -10,7 +10,9 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
 	if (isset($_POST['username']) && isset($_POST['password'])) {
 		$username = sanitiseUserInput($_POST['username']);
 		$password = sanitiseUserInput($_POST['password']);
-		$password = hashPassword($password);
+		// $password = hashPassword($password);
+
+		
 
 		// TO-DO: Check User authentication
 		// If valid, redirect to landing page

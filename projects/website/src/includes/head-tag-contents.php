@@ -13,6 +13,9 @@
 <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 <script src="includes/javascript/firebase-config.js"></script>
 
+<script src="https://www.gstatic.com/firebasejs/ui/4.2.0/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.2.0/firebase-ui-auth.css" />
+
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
