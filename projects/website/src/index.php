@@ -27,9 +27,12 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<script src="includes/javascript/account-login.js"></script>
+<script type="text/javascript" src="includes/javascript/account-login.js"></script>
 <body>
-<div id="server-results"><!-- For server results --></div>
+
+<script type="text/javascript">
+	checkUserAuthentication();
+</script>
 
 <?php include("includes/design-top.php");?>
 <?php //include("includes/navigation.php");?>
@@ -37,6 +40,9 @@ if (isset($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container" id="main-content">
 	<div>
 		<div class="" id="">
+			<div class="" id="login-status">
+			</div>
+
 			<form id="login-form" class="form-inline" action="" method="POST">
 				<div class="form-group">
 					<div>
