@@ -2,7 +2,7 @@
 //  ViewControllerBrainTest.swift
 //  PAPER Planes
 //
-//  Created by Quang minh Dinh on 2019-11-01.
+//  Created by Quang Minh Dinh on 2019-11-01.
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
@@ -21,7 +21,7 @@ class ViewControllerBrainTest: UIViewController {
    
     @IBOutlet var correctButtons: [UIButton]!
     
-    @IBOutlet weak var wrongTabLabel: UILabel!
+    //@IBOutlet weak var wrongTabLabel: UILabel!
     
     let timeIncrementMS = 0.001
     let timeIncrementS = 1
@@ -33,7 +33,7 @@ class ViewControllerBrainTest: UIViewController {
     var tapTimer = Timer()
     var seconds = 0.0
     var sumOfSecondsOnButton = 0.0
-    @IBOutlet weak var TimerLabel: UILabel!
+    //@IBOutlet weak var TimerLabel: UILabel!
     
     func schedulingTimeOnButton() {
         tapTimer = Timer.scheduledTimer(timeInterval: timeIncrementMS, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -41,7 +41,7 @@ class ViewControllerBrainTest: UIViewController {
     
     @objc func updateTimer() {
         seconds += timeIncrementMS
-        TimerLabel.text = "Timer: \(seconds)"
+        //TimerLabel.text = "Timer: \(seconds)"
     }
     
     func saveSecondsOnButton() {
@@ -53,7 +53,7 @@ class ViewControllerBrainTest: UIViewController {
     func resetTimerOnButton() {
         tapTimer.invalidate()
         seconds = timeReset
-        TimerLabel.text = "Timer: \(seconds)"
+        //TimerLabel.text = "Timer: \(seconds)"
     }
     //----------------------------------------------------------
     // End
@@ -93,7 +93,7 @@ class ViewControllerBrainTest: UIViewController {
     // Timer for in between taps
     //----------------------------------------------------------
     var inBetweenTimer = Timer()
-    @IBOutlet weak var inBetweenTimerLabel: UILabel!
+    //@IBOutlet weak var inBetweenTimerLabel: UILabel!
     var secondsBetweenTaps = 0.0
     var sumOfSecondsBetweenTaps = 0.0
     func startInBetweenTimer() {
@@ -101,9 +101,9 @@ class ViewControllerBrainTest: UIViewController {
     }
     
     @objc func updateInBetweenTime() {
-        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+        //inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
         secondsBetweenTaps += timeIncrementMS
-        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+        //inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
     }
     
     func saveInBetweenTaps() {
@@ -114,15 +114,20 @@ class ViewControllerBrainTest: UIViewController {
         
         inBetweenTimer.invalidate()
         secondsBetweenTaps = timeReset
-        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
+        //inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
     }
     
     //----------------------------------------------------------
     // End
+    let correctTapScore = 1
+    let wrongTapScore = 2
+    let reallyWrongTapScore = 3
+    var sumOfAccScore = 0
     
-    var wrongTapCount = 0
-    var correctTapCount = 0
+    var totalTapCount = 0
+    
     var testCurrentDate = Date()
+    let timestamp = NSDate().timeIntervalSince1970  // timestamp for Google firebase
     
     var isLeftButtonPressed = false
     var isRightButtonPressed = false
@@ -137,9 +142,15 @@ class ViewControllerBrainTest: UIViewController {
     
     
     @IBAction func WrongTap(_ sender: UIButton) {
-        incrementWrongTap()
+        incrementTotalTap()
+        updateScoreWrongTap()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        incrementTotalTap()
+        updateScoreReallyWrongTap()
+    }
+    // Correct tap left touch down action
     @IBAction func TouchDownTapLeft(_ sender: UIButton) {
         if !isLeftButtonPressed && !isRightButtonPressed {
             startCountdown()
@@ -149,15 +160,18 @@ class ViewControllerBrainTest: UIViewController {
         }
         
         if isLeftButtonPressed {
-            incrementWrongTap()
+            updateScoreWrongTap()
         }
         
         schedulingTimeOnButton()
-        correctTapCount += 1
+        incrementTotalTap()
+        updateScoreCorrectTap()
+        
         isLeftButtonPressed = true
         isRightButtonPressed = false
     }
     
+    // Correct tap right touch down action
     @IBAction func TouchDownTapRight(_ sender: UIButton) {
         if !isLeftButtonPressed && !isRightButtonPressed {
             startCountdown()
@@ -167,52 +181,32 @@ class ViewControllerBrainTest: UIViewController {
         }
         
         if isRightButtonPressed {
-            incrementWrongTap()
+            updateScoreWrongTap()
         }
         schedulingTimeOnButton()
-        correctTapCount += 1
+        incrementTotalTap()
+        updateScoreCorrectTap()
+        
         isRightButtonPressed = true
         isLeftButtonPressed = false
     }
     
+    // Correct tap left touch up action
     @IBAction func TouchUpTapLeft(_ sender: UIButton) {
         
         saveSecondsOnButton()
         resetTimerOnButton()
         
         startInBetweenTimer()
-        
-        /*if !isRightButtonPressed && !isLeftButtonPressed {
-            // Increment correct key taps
-            correctTapCount += 1
-            
-            // Updating flags
-            isLeftButtonPressed = true
-            isRightButtonPressed = false
-        } else {
-            wrongTapCount += 1
-            wrongTabLabel.text = "wrong count: \(wrongTapCount)"
-        }*/
     }
     
+    // Correct tap right touch up action
     @IBAction func TouchUpTapRight(_ sender: UIButton) {
         
         saveSecondsOnButton()
         resetTimerOnButton()
         
         startInBetweenTimer()
-        
-        /*if !isRightButtonPressed && !isLeftButtonPressed {
-            // Increment correct key taps
-            correctTapCount += 1
-            
-            // Updating flags
-            isRightButtonPressed = true
-            isLeftButtonPressed = false
-        } else {
-            wrongTapCount += 1
-            wrongTabLabel.text = "wrong count: \(wrongTapCount)"
-        }*/
     }
     
     
@@ -245,9 +239,20 @@ class ViewControllerBrainTest: UIViewController {
         }
     }
     
-    func incrementWrongTap() {
-        wrongTapCount += 1
-        wrongTabLabel.text = "wrong count: \(wrongTapCount)"
+    func incrementTotalTap() {
+        totalTapCount += 1
+    }
+    
+    func updateScoreCorrectTap() {
+        sumOfAccScore += correctTapScore
+    }
+    
+    func updateScoreWrongTap() {
+        sumOfAccScore += wrongTapScore
+    }
+    
+    func updateScoreReallyWrongTap() {
+        sumOfAccScore += reallyWrongTapScore
     }
     
     func getAverageSecondsOnButton() -> Double {
@@ -262,20 +267,22 @@ class ViewControllerBrainTest: UIViewController {
     
     func getTapAccuracy() -> Double {
         let totalTaps = getTotalKeyTaps()
-        print(correctTapCount)
-        print(totalTaps)
-        print(correctTapCount/totalTaps)
-        return Double(correctTapCount) / Double(totalTaps) * 100
+        let totalScore = getTotalAccScore()
+        return Double(totalScore) / Double(totalTaps)
     }
     
     func getTotalKeyTaps() -> Int {
-        return correctTapCount + wrongTapCount
+        return totalTapCount
+    }
+    
+    func getTotalAccScore() -> Int {
+        return sumOfAccScore
     }
     
     func getTestResultText() -> String {
         var testResultText = ""
         
-        var tempText = "Date taken: \(testCurrentDate)\n"
+        var tempText = "Date taken: \(timestamp)\n"
         testResultText.append(tempText)
         
         tempText = "Kinesia score: \(String(getTotalKeyTaps()))\n"
