@@ -26,12 +26,12 @@ function googleSignout() {
 
 // Only when document is ready
 $(document).ready(function(){
-
 	$("#login-status").text();
 	$("#login-status").hide();
 
 	$("#login-btn").click(function() {
-		var loginSuccess = false;
+		$("#login-status").text();
+		$("#login-status").hide();
 
 		var email = $("input#email").val();
 		var password = $("input#password").val();
@@ -41,7 +41,7 @@ $(document).ready(function(){
 			$("#login-status").text("Invalid email address format");
 		}
 
-		if (!validatePassword(password)) {
+		else if (!validatePassword(password)) {
 			$("#login-status").show();
 			$("#login-status").text("Invalid password");
 		}
@@ -73,23 +73,6 @@ $(document).ready(function(){
 					window.location.redirect = "index.php";
 				}
 			});
-
-			// firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-			// 	// Handle Errors here.
-			// 	var errorCode = error.code;
-			// 	var errorMessage = error.message;
-			// 	console.log('Error Code: ' + errorCode);
-			// 	console.log('Error Message: ' + errorMessage);
-
-			// 	if (errorCode) {
-			// 		$("#login-status").show();
-			// 		$("#login-status").text(errorMessage);
-			// 	}
-
-			// 	else {
-			// 		window.location.redirect = "index.php";
-			// 	}
-			// });
 		}
 
 		var dataString = 'email=' + email + '&password=' + password;
