@@ -9,9 +9,9 @@ getRealtimeUpdates = function() {
             const myData = doc.data();
             //const myPatient = firestore.doc("/patient/tuUosuerNtfNzOCksRj7");
             //console.log("Patient Name: " + myData.patient[0]);
-            doctorTitle.innerText = "Welcome! " + myData.title + " " + myData.firstName + " " + myData.lastName;
-            profile.innerText = "Phone Number: " + myData.phoneNumber + "\n"
-                                + "Email: " + myData.emailAddress + "\n";
+            // doctorTitle.innerText = "Welcome! " + myData.title + " " + myData.firstName + " " + myData.lastName;
+            // profile.innerText = "Phone Number: " + myData.phoneNumber + "\n"
+            //                     + "Email: " + myData.emailAddress + "\n";
         }
     });
 

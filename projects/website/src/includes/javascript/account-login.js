@@ -1,6 +1,9 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 
 function googleSignin() {
+	$("#login-status").text();
+	$("#login-status").hide();
+
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 	  var token = result.credential.accessToken;
 	  var user = result.user;
@@ -8,24 +11,21 @@ function googleSignin() {
 	  console.log(token)
 	  console.log(user)
 	}).catch(function(error) {
-	  var errorCode = error.code;
-	  var errorMessage = error.message;
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		console.log('Error Code: ' + errorCode);
+		console.log('Error Message: ' + errorMessage);
 
-	  console.log(error.code)
-	  console.log(error.message)
-	});
-}
-
-function googleSignout() {
-	firebase.auth().signOut().then(function() {
-	  console.log('Signout Succesfull')
-	}, function(error) {
-	  console.log('Signout Failed')  
+		if (errorCode) {
+			$("#login-status").show();
+			$("#login-status").text(errorMessage);
+		}
 	});
 }
 
 // Only when document is ready
-$(document).ready(function(){
+$(document).ready(function() {
 	$("#login-status").text();
 	$("#login-status").hide();
 
@@ -66,17 +66,14 @@ $(document).ready(function(){
 					$("#login-status").show();
 					$("#login-status").text(errorMessage);
 				}
-
-				else {
-					$("#login-status").text();
-					$("#login-status").hide();
-					window.location.redirect = "index.php";
-				}
 			});
-		}
 
+
+		}
 		var dataString = 'email=' + email + '&password=' + password;
 		console.log(dataString);
+		redirectToIndexPage();
+
 		return false;
 	});
 });

@@ -61,42 +61,55 @@ firebase.initializeApp(firebaseConfig);
 // // The start method will wait until the DOM is loaded.
 // ui.start('#firebaseui-auth-container', uiConfig);
 
-
 // Check Authentication State
-checkUserAuthentication = function() {
+function checkUserAuthentication() {
   firebase.auth().onAuthStateChanged(function(user) {
+    // User is sign in
     if (user) {
-    	console.log("Signed in");
-      // User is signed in.
-      // var displayName = user.displayName;
-      // var email = user.email;
-      // var emailVerified = user.emailVerified;
-      // var photoURL = user.photoURL;
-      // var uid = user.uid;
-      // var phoneNumber = user.phoneNumber;
-      // var providerData = user.providerData;
-      // user.getIdToken().then(function(accessToken) {
-      //   document.getElementById('sign-in-status').textContent = 'Signed in';
-      //   document.getElementById('sign-in').textContent = 'Sign out';
-      //   document.getElementById('account-details').textContent = JSON.stringify({
-      //     displayName: displayName,
-      //     email: email,
-      //     emailVerified: emailVerified,
-      //     phoneNumber: phoneNumber,
-      //     photoURL: photoURL,
-      //     uid: uid,
-      //     accessToken: accessToken,
-      //     providerData: providerData
-      //   }, null, '  ');
-      // });
-    } else {
-    	console.log("Signed out");
-      // User is signed out.
-      // document.getElementById('sign-in-status').textContent = 'Signed out';
-      // document.getElementById('sign-in').textContent = 'Sign in';
-      // document.getElementById('account-details').textContent = 'null';
+      console.log("Signed in");
+      return true;
+    }
+
+    // User is signed out.
+    else {
+      console.log("Signed out");
+      return false;
     }
   }, function(error) {
     console.log(error);
   });
 };
+
+function redirectToSignIn() {
+  var currentPathName = window.location.pathname;
+  console.log("Checking if redirect to SignIn page is valid");
+  console.log("Current Location: " + currentPathName);
+
+  // User is not signed in or creating an account
+  if (!checkUserAuthentication() && 
+    !currentPathName.includes("login.php") && 
+    !currentPathName.includes("register.php")) {
+    console.log("Redirect to login.php");       
+    window.location.replace("login.php");
+  }
+}
+
+function redirectToIndexPage() {
+  var currentPathName = window.location.pathname;
+  console.log("Checking if redirect to Index page is valid");
+  console.log("Current Location: " + currentPathName);
+
+  if (checkUserAuthentication() && 
+    !currentPathName.includes("index.php")) {
+    console.log("Redirect to index.php");       
+    window.location.replace("index.php");
+  }
+}
+
+function accountSignOut() {
+  firebase.auth().signOut().then(function() {
+    console.log('Signout Succesfull')
+  }, function(error) {
+    console.log('Signout Failed')  
+  });
+}

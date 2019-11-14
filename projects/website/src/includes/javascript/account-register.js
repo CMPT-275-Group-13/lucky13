@@ -46,6 +46,8 @@ $(document).ready(function(){
 
 		var dataString = 'email=' + email + '&password=' + password;
 		console.log(dataString);
+
+		redirectToIndexPage();
 		return false;
 	});
 });
