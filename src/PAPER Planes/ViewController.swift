@@ -10,13 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var doctor1: UILabel!
-
+    @IBOutlet weak var profileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        profileImage.layer.masksToBounds = true
+        profileImage.layer.cornerRadius = profileImage.bounds.width/2
         //Listen for Keyboard Events
         
     }
