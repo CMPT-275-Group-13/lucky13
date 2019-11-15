@@ -9,57 +9,10 @@ var firebaseConfig = {
 	appId: "1:966137780544:web:e47f06392c5ff59ab042a5",
 	measurementId: "G-LB5N6B52DP"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-
-
-// buttonSignIn.addEventListener("click", function() {
-//     // console.log(username.value);
-//     // const docRef = firestore.doc("/doctors/jdoe");
-
-    
-//     // docRef.get().then(function(doc){
-//     //     if(doc && doc.exists){
-//     //         const myData = doc.data();
-//     //         Console.log(doc.firstName);
-//     //     }
-//     // });
-
-//     if(username.value === "jdoe" && password.value === "t3st0rder"){
-//         console.log("Good Job");
-//         location.href = "profile.html";
-//     }
-// });
-
-
-// FirebaseUI config.
-// var uiConfig = {
-//   signInSuccessUrl: 'landing.php',
-//   signInOptions: [
-//     // Leave the lines as is for the providers you want to offer your users.
-//     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//     // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-//     // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-//     // firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-//     // firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-//   ],
-//   // tosUrl and privacyPolicyUrl accept either url string or a callback
-//   // function.
-//   // Terms of service url/callback.
-//   tosUrl: '<your-tos-url>',
-//   // Privacy policy url/callback.
-//   privacyPolicyUrl: function() {
-//     window.location.assign('<your-privacy-policy-url>');
-//   }
-// };
-
-// // Initialize the FirebaseUI Widget using Firebase.
-// var ui = new firebaseui.auth.AuthUI(firebase.auth());
-// // The start method will wait until the DOM is loaded.
-// ui.start('#firebaseui-auth-container', uiConfig);
+firebase.analytics();
 
 // Check Authentication State
 function checkUserAuthentication() {
