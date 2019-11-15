@@ -22,6 +22,9 @@
 	    <a class="nav-link <?php if ($CURRENT_PAGE == "Patient Tests") {?>active<?php }?>" href="tests.php" target="">Message</a>
 	  </li>
 	  <?php endif; ?>
+	  <li class="nav item">
+	  	<a class="nav-link" onclick="firebaseAccountSignOut()" target="">Sign Out</a>
+	  </li>
 
 	  <li class="nav-item"><div id="sign-in-status"></div></li>
 	  <li class="nav-item"><div id="sign-in"></div></li>

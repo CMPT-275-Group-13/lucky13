@@ -18,6 +18,5 @@
 
 <?php include("includes/footer.php");?>
 
-<!-- <script src="includes/javascript/doctor-profile.js"></script> -->
 </body>
 </html>

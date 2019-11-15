@@ -5,9 +5,6 @@
 <head>
 	<?php include("includes/head-tag-contents.php");?>
 	<script type="text/javascript" src="includes/javascript/account-register.js"></script>
-	<script type="text/javascript">
-		checkUserAuthentication();
-	</script>
 </head>
 <body>
 

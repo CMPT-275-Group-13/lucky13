@@ -43,7 +43,7 @@
 		</div>
 		<div>
 			<div>
-				<button onclick = "googleSignin()">Google Signin</button>
+				<button onclick="googleSignin()">Google Signin</button>
 			</div>
 		</div>
 	</div>

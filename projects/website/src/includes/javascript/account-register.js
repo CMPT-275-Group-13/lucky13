@@ -33,21 +33,9 @@ $(document).ready(function(){
 					$("#register-status").show();
 					$("#register-status").text(errorMessage);
 				}
-
-				else {
-					$("#register-status").text();
-					$("#register-status").hide();
-					alert("Your registeration is successful!");
-					console.log('Your registeration is successful!');
-					// window.location.redirect = "index.php";
-				}
 			});
 		}
 
-		var dataString = 'email=' + email + '&password=' + password;
-		console.log(dataString);
-
-		redirectToIndexPage();
 		return false;
 	});
 });

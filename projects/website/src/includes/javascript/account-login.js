@@ -1,29 +1,5 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 
-function googleSignin() {
-	$("#login-status").text();
-	$("#login-status").hide();
-
-	firebase.auth().signInWithPopup(provider).then(function(result) {
-	  var token = result.credential.accessToken;
-	  var user = result.user;
-
-	  console.log(token)
-	  console.log(user)
-	}).catch(function(error) {
-		// Handle Errors here.
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		console.log('Error Code: ' + errorCode);
-		console.log('Error Message: ' + errorMessage);
-
-		if (errorCode) {
-			$("#login-status").show();
-			$("#login-status").text(errorMessage);
-		}
-	});
-}
-
 // Only when document is ready
 $(document).ready(function() {
 	$("#login-status").text();
@@ -67,13 +43,7 @@ $(document).ready(function() {
 					$("#login-status").text(errorMessage);
 				}
 			});
-
-
 		}
-		var dataString = 'email=' + email + '&password=' + password;
-		console.log(dataString);
-		redirectToIndexPage();
-
 		return false;
 	});
 });

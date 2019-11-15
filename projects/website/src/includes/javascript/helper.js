@@ -14,3 +14,19 @@ function validatePassword(password) {
    // Needs work
    return true;
 }
+
+function redirectPath(path="/index.php", method="replace") {
+	console.log("Path: " + path);
+	switch(method) {
+		case "href":
+		case "assign":		
+			window.location.assign = path;
+		default:
+			console.log("Default redirection");
+		case "replace":
+			window.location.replace = path;
+			break;
+	}
+
+	return false; // should not be called
+}
