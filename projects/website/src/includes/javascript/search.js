@@ -12,13 +12,15 @@ btnSearch.addEventListener("click", function() {
     var exists = 0;
     patientRef.get().then(querySnapshot =>{
         let docs = querySnapshot.docs;
-        
+
+        //get all docs in patient
         for (doc in docs){
             let keywords = docs[doc].data().keywords;
+
+            //verify if the patient's name exists
             if(jQuery.inArray(txtSearchInput, keywords) >= 0){
                 docArray.push(docs[doc].data());
                 displayPatient();
-                console.log(exists);
             }
             
         }
@@ -26,12 +28,16 @@ btnSearch.addEventListener("click", function() {
         if(docArray.length == 0){
             results.innerText = "User doesn't exist";
         }
+
+        //clear array
         docArray = [];
 
     });
 });
 
 displayPatient = function (){
+
+    //displays the values of the object parameters
     var newHTML = [];
     $.each(docArray, function (index, value){
         newHTML.push('<div>' + value.firstName + ' '
