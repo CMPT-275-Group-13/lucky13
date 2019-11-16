@@ -18,19 +18,19 @@ function firestoreCreateUser(email, firstName, lastName) {
 	});
 }
 
+function firestoreDisplaySinglePatientAttributes(patientData) {
+	$('#profile-email').val(patientData["email"]);
+	$('#profile-first-name').val(patientData["firstName"]);
+	$('#profile-last-name').val(patientData["lastName"]);
+	$('#profile-phone').val(patientData["phone"]);
+}
+
 function firestoreDisplaySingleDoctorAttributes(doctorData) {
-	$('#profile-email').val(doctorData["emailAddress"]);
+	$('#profile-email').val(doctorData["email"]);
 	$('#profile-first-name').val(doctorData["firstName"]);
 	$('#profile-last-name').val(doctorData["lastName"]);
 	$('#profile-title').val(doctorData["title"]);
 	$('#profile-phone').val(doctorData["phone"]);
-}
-
-function firestoreDisplaySinglePatientAttributes(patientData) {
-	$('#profile-email').val(patientData["emailAddress"]);
-	$('#profile-first-name').val(patientData["firstName"]);
-	$('#profile-last-name').val(patientData["lastName"]);
-	$('#profile-phone').val(patientData["phone"]);
 }
 
 function firestoreDisplayUser(email, userType="doctors") {
@@ -43,11 +43,11 @@ function firestoreDisplayUser(email, userType="doctors") {
 
 			switch(userType) {
 				case "patients":
-					firestoreDisplaySingleDoctorAttributes(doc.data());
+					firestoreDisplaySinglePatientAttributes(doc.data());
 					break;
 				default:
 				case "doctors":
-					firestoreDisplaySinglePatientAttributes(doc.data());
+					firestoreDisplaySingleDoctorAttributes(doc.data());
 					break;
 			}
 		}
@@ -59,4 +59,27 @@ function firestoreDisplayUser(email, userType="doctors") {
 	}).catch(function(error) {
     console.log("Error getting document:", error);
   });
+}
+
+function firestoreUpdateUser(docData, userType="doctors") {
+  firebase.auth().onAuthStateChanged(function(user) {
+  var db = firebase.firestore();
+
+  if (user) {
+  	var oldEmail = user.email;
+    if (oldEmail != "" && docData['email'] != oldEmail) {
+      var oldEmail = user.email;
+
+      user.updateEmail(docData['email']).then(function() {
+      }).catch(function(error) {
+      });
+
+      // Delete old document
+    }
+
+    db.collection(userType).doc(docData['email']).set(docData).then(function() {
+      console.log("Document successfully written!");
+    });
+  }
+	});
 }
