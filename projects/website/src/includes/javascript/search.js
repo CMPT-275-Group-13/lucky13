@@ -3,7 +3,7 @@ var btnSearch = document.querySelector("#searchButton");
 var txtSearch = document.querySelector("#inputSearch");
 var results = document.querySelector("#results");
 
-var collectionRef = db.collection('patient');
+var patientRef = db.collection('patient');
 var docArray = []
 
 
