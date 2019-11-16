@@ -4,7 +4,7 @@ var txtSearch = document.querySelector("#inputSearch");
 var results = document.querySelector("#results");
 
 var patientRef = db.collection('patient');
-var docArray = []
+var docArray = [];
 
 
 btnSearch.addEventListener("click", function() {
@@ -13,7 +13,7 @@ btnSearch.addEventListener("click", function() {
     patientRef.get().then(querySnapshot =>{
         let docs = querySnapshot.docs;
         
-        for (doc in docs){
+        for (doc in docs) {
             let keywords = docs[doc].data().keywords;
             if(jQuery.inArray(txtSearchInput, keywords) >= 0){
                 docArray.push(docs[doc].data());
