@@ -35,7 +35,3 @@
 <script src="includes/javascript/firebase-functions.js" text="text/javascript"></script>
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> --> <!-- Needs work -->
 <script src="includes/javascript/main.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-	firebaseCheckAuthState();
-</script>
