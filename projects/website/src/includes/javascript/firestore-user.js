@@ -66,16 +66,21 @@ function firestoreUpdateUser(docData, userType="doctors") {
   var db = firebase.firestore();
 
   if (user) {
-  	var oldEmail = user.email;
-    if (oldEmail != "" && docData['email'] != oldEmail) {
-      var oldEmail = user.email;
+  	// To-do: Change profile picture
 
-      user.updateEmail(docData['email']).then(function() {
-      }).catch(function(error) {
-      });
+  	// To-do: Update email
+  	// var oldEmail = user.email;
+   //  if (oldEmail != "" && docData['email'] != oldEmail) {
+   //    var oldEmail = user.email;
 
-      // Delete old document
-    }
+   //    user.updateEmail(docData['email']).then(function() {
+   //    }).catch(function(error) {
+   //    });
+
+   //    // Delete old document
+   //  }
+
+   // To-do: Reset password
 
     db.collection(userType).doc(docData['email']).set(docData).then(function() {
       console.log("Document successfully written!");
