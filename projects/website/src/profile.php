@@ -4,6 +4,7 @@
 <html>
 <head>
 	<?php include("includes/head-tag-contents.php");?>
+	<script src="includes/javascript/doctor-profile.js" text="text/javascript"></script>
 </head>
 <body>
 
@@ -15,13 +16,13 @@
 		<form action="">
 			<div><h1>Main Profile</h1></div>
 			<div>
-				<a href="upload-profile-picture.php" onclick="firebaseResetUserPassword('jinn@sfu.ca')">
+				<a href="upload-profile-picture.php" onclick="//firebaseResetUserPassword('jinn@sfu.ca')"/>
 					<img src="images/users/user-template.png" alt="profile-picture" height="100" width="100"/>
 				</a>
 			</div>
 			<div>
 				<label>Email Address: </label>
-				<input id="profile-email-address" value=""/>
+				<input id="profile-email" value=""/>
 			</div>
 			<div>
 				<label>Title: </label>
@@ -37,7 +38,7 @@
 			</div>
 			<div>
 				<label>Phone Number: </label>
-				<input id="profile-phone-number" value=""/>
+				<input id="profile-phone" value=""/>
 			</div>
 
 			<div>

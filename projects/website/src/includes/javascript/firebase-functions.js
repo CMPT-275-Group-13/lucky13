@@ -3,7 +3,6 @@
  *
  * Main collection of firebase functions
  */
-
 function firebaseCheckAuthState() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
