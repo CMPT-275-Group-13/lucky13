@@ -6,7 +6,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     firestoreDisplayUser(user.email);
   }
-})
+});
 
 $(document).ready(function() {
   $("#profile-change-status").text();

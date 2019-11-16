@@ -33,9 +33,9 @@ function firebaseCheckAuthState() {
 
 function firebaseAccountSignOut() {
   firebase.auth().signOut().then(function() {
-    console.log('Signout Succesfull')
+    console.log('Signout Succesfull');
   }, function(error) {
-    console.log('Signout Failed')  
+    console.log('Signout Failed');
   });
   redirectPath("index.php");
 }
@@ -48,8 +48,8 @@ function googleSignin() {
 	  var token = result.credential.accessToken;
 	  var user = result.user;
 
-	  console.log(token)
-	  console.log(user)
+	  console.log(token);
+	  console.log(user);
 	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
