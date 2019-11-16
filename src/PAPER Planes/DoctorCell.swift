@@ -9,7 +9,13 @@
 import UIKit
 
 class DoctorCell: UITableViewCell {
+    struct Doctorname{
+        var FirstName:String
+        var LastName:String
+    }
 
+    var tabledata:[Doctorname] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

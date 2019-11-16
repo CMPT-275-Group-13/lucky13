@@ -1,34 +1,53 @@
 //
-//  TableViewController.swift
+//  PopUpAddDoctorTableViewController.swift
 //  PAPER Planes
 //
-//  Created by Marco Liang on 2019-11-03.
+//  Created by Angus Kan on 2019-11-15.
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
-class TableViewController: UITableViewController {
+struct NewDoctor{
+    var FirstName: String
+    var LastName: String
+    var Email:String
+}
 
-    struct DoctorName {
-        var FirstName: String
-        var LastName: String
-    }
-    var tabledata:[DoctorName]=[]
+
+class PopUpAddDoctorTableViewController: UITableViewController {
+
+    @IBOutlet weak var Firstname: UITextField!
+    @IBOutlet weak var Lastname: UITextField!
+    @IBOutlet weak var Emailentry: UITextField!
+    @IBOutlet weak var Save: UIButton!
     
+    var messageArr = [Message]()
+    var db:Firestore!
+    var currentuser: String = "Akan"
+    
+    var docRef: DocumentReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        docRef = db.collection("patient").document(currentuser)
     }
 
-    @IBAction func AddButton(_ sender: Any) {
-    }
+//    @IBAction func addDoctor(sender: UIButton){
+//    print ("sent new doctor")
+//    guard let Firstnamebody = Firstname,!Firstnamebody.isEmpty else{return}
+//    guard let Lastnamebody = Lastname,!Lastnamebody.isEmpty else{return}
+//    guard let Emailbody = Emailentry,!Emailbody.isEmpty else{return}
+//    sendMessage(FirstName: Firstnamebody, LastName: Lastnamebody, Email: Emailbody)
+//
+//    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,6 +60,34 @@ class TableViewController: UITableViewController {
         return 0
     }
 
+//    private func sendMessage(body: String, from: Bool){
+//    //var ref: DocumentReference? = nil
+//    let dataToSave: [String: Any] = ["FirstName": FirstName, "LastName": LastName, "Email": Email]
+//    docRef.addCollection(data: dataToSave){err in
+//    if let err = err {
+//    print("Error adding document: \(err)")
+//    } else {
+//    print("Document added with ID:")
+//    }
+//
+//
+//
+//
+//    }
+//    //        ref = colRef.addDocument(data: [
+//    //            "Body": body, "From": from]) { err in
+//    //            if let err = err {
+//    //                print("Error adding document: \(err)")
+//    //            } else {
+//    //                print("Document added with ID: \(ref!.documentID)")
+//    //            }
+//    //        }
+//
+//    }
+    
+    
+    
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
@@ -61,7 +108,7 @@ class TableViewController: UITableViewController {
 
     /*
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -71,6 +118,7 @@ class TableViewController: UITableViewController {
     }
     */
 
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
