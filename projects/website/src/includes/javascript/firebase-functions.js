@@ -14,7 +14,7 @@ function firebaseCheckAuthState() {
 	    if (currentPathName.includes("register.php") || 
 		  	currentPathName.includes("login.php")) {
 		    console.log("Redirect to index.php");
-		    redirectPath("/index.php");    
+		    redirectPath("index.php");    
 		  } 
 	  }
 
@@ -24,7 +24,7 @@ function firebaseCheckAuthState() {
 	    if (!currentPathName.includes("login.php") && 
 		    !currentPathName.includes("register.php")) {
 		    console.log("Redirect to login.php");  
-		    redirectPath("/login.php");
+		    redirectPath("login.php");
 		  }
 	  }
 	}, function(error) {
@@ -38,7 +38,7 @@ function firebaseAccountSignOut() {
   }, function(error) {
     console.log('Signout Failed')  
   });
-  redirectPath("/index.php"); 
+  redirectPath("index.php");
 }
 
 function googleSignin() {
