@@ -13,7 +13,7 @@ btnSearch.addEventListener("click", function() {
     patientRef.get().then(querySnapshot =>{
         let docs = querySnapshot.docs;
         
-        for (doc in docs) {
+        for (var doc in docs) {
             let keywords = docs[doc].data().keywords;
             if(jQuery.inArray(txtSearchInput, keywords) >= 0){
                 docArray.push(docs[doc].data());
