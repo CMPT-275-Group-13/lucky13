@@ -9,6 +9,8 @@ $(document).ready(function(){
 
 		var email = $("input#email").val();
 		var password = $("input#password").val();
+		var firstName = $("input#first-name").val();
+		var lastName = $("input#last-name").val();
 
 		if (!validateEmail(email)) {
 			$("#register-status").show();
@@ -34,6 +36,8 @@ $(document).ready(function(){
 					$("#register-status").text(errorMessage);
 				}
 			});
+
+			
 		}
 
 		return false;

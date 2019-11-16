@@ -31,6 +31,18 @@
 				<div>
 					<input class="form-control" type="password" name="password" id="password" required/>
 				</div>
+				<div>
+					<label><b>First Name</b></label>
+				</div>
+				<div>
+					<input class="form-control" type="text" name="first-name" id="first-name" required/>
+				</div>
+				<div>
+					<label><b>Last Name</b></label>
+				</div>
+				<div>
+					<input class="form-control" type="text" name="last-name" id="last-name" required/>
+				</div>
 				<div class="form-group">
 					<button id="register-btn" class="btn btn-default">Register</button>
 				</div>
