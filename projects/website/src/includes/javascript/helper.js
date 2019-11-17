@@ -15,16 +15,17 @@ function validatePassword(password) {
    return true;
 }
 
-function redirectPath(path="/index.php", method="replace") {
+function redirectPath(path="index.php", method="replace") {
 	console.log("Path: " + path);
 	switch(method) {
 		case "href":
 		case "assign":		
-			window.location.assign = path;
+			window.location.assign(path);
+			break;
 		default:
 			console.log("Default redirection");
 		case "replace":
-			window.location.replace = path;
+			window.location.replace(path);
 			break;
 	}
 

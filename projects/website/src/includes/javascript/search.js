@@ -3,17 +3,16 @@ var btnSearch = document.querySelector("#searchButton");
 var txtSearch = document.querySelector("#inputSearch");
 var results = document.querySelector("#results");
 
-var collectionRef = db.collection('patient');
-var docArray = []
+var patientRef = db.collection('patient');
+var docArray = [];
 
 
 btnSearch.addEventListener("click", function() {
     var txtSearchInput = txtSearch.value.toLowerCase();
     patientRef.get().then(querySnapshot =>{
         let docs = querySnapshot.docs;
-
-        //get all docs in patient
-        for (doc in docs){
+        
+        for (var doc in docs) {
             let keywords = docs[doc].data().keywords;
 
             //verify if the patient's name exists

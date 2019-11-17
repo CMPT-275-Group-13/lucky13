@@ -3,7 +3,6 @@
  *
  * Main collection of firebase functions
  */
-
 function firebaseCheckAuthState() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
@@ -14,7 +13,7 @@ function firebaseCheckAuthState() {
 	    if (currentPathName.includes("register.php") || 
 		  	currentPathName.includes("login.php")) {
 		    console.log("Redirect to index.php");
-		    redirectPath("/index.php");    
+		    redirectPath("index.php");    
 		  } 
 	  }
 
@@ -24,7 +23,7 @@ function firebaseCheckAuthState() {
 	    if (!currentPathName.includes("login.php") && 
 		    !currentPathName.includes("register.php")) {
 		    console.log("Redirect to login.php");  
-		    redirectPath("/login.php");
+		    redirectPath("login.php");
 		  }
 	  }
 	}, function(error) {
@@ -34,11 +33,11 @@ function firebaseCheckAuthState() {
 
 function firebaseAccountSignOut() {
   firebase.auth().signOut().then(function() {
-    console.log('Signout Succesfull')
+    console.log('Signout Succesfull');
   }, function(error) {
-    console.log('Signout Failed')  
+    console.log('Signout Failed');
   });
-  redirectPath("/index.php"); 
+  redirectPath("index.php");
 }
 
 function googleSignin() {
@@ -49,8 +48,8 @@ function googleSignin() {
 	  var token = result.credential.accessToken;
 	  var user = result.user;
 
-	  console.log(token)
-	  console.log(user)
+	  console.log(token);
+	  console.log(user);
 	}).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
