@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,7 +44,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="348" height="114"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dvd-3k-zbQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="224.66666666666666" height="114.00000000000001"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="224.66666666666666" height="113.99999999999999"/>
                                                         <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -143,13 +143,13 @@
                                 <rect key="frame" x="75" y="214" width="264" height="349"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X6K-De-ag6" userLabel="Doctor 1">
-                                        <rect key="frame" x="0.0" y="0.0" width="264" height="83"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="93.666666666666671"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n89-x2-qzU">
-                                                <rect key="frame" x="0.0" y="0.0" width="132" height="83"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="93.666666666666671"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3J-H7-wPI">
-                                                <rect key="frame" x="132" y="0.0" width="132" height="83"/>
+                                                <rect key="frame" x="132" y="0.0" width="132" height="93.666666666666671"/>
                                                 <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Doctor 1">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,13 +161,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="84L-Od-ZkJ" userLabel="Doctor 2">
-                                        <rect key="frame" x="0.0" y="93" width="264" height="83.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="103.66666666666669" width="264" height="94"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r1v-XJ-HTW">
-                                                <rect key="frame" x="0.0" y="0.0" width="132" height="83.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="94"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-Lg-0Ll">
-                                                <rect key="frame" x="132" y="0.0" width="132" height="83.333333333333329"/>
+                                                <rect key="frame" x="132" y="0.0" width="132" height="94"/>
                                                 <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Doctor 2">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,13 +176,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nvk-mv-mP6" userLabel="Doctor 3">
-                                        <rect key="frame" x="0.0" y="186.33333333333331" width="264" height="83"/>
+                                        <rect key="frame" x="0.0" y="207.66666666666669" width="264" height="93.666666666666686"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="irk-mC-vFX">
-                                                <rect key="frame" x="0.0" y="0.0" width="132" height="83"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="93.666666666666671"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vA-85-Od4">
-                                                <rect key="frame" x="132" y="0.0" width="132" height="83"/>
+                                                <rect key="frame" x="132" y="0.0" width="132" height="93.666666666666671"/>
                                                 <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Doctor 3">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,7 +191,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e23-ep-6sl">
-                                        <rect key="frame" x="0.0" y="279.33333333333331" width="264" height="69.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="311.33333333333337" width="264" height="37.666666666666686"/>
                                         <color key="backgroundColor" red="0.29187194280000001" green="0.4474319182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Add Doctor">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,7 +393,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="gQd-PS-DyQ"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="X99-Nz-Zes"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T92-BE-Pa7">
@@ -404,7 +404,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="BR0-gQ-WCF"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="1PA-9z-ETM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-d1-J8N">
@@ -416,8 +416,8 @@
                                 </constraints>
                                 <state key="normal" title="TAP R"/>
                                 <connections>
-                                    <action selector="TouchDownTapRight:" destination="w7i-QR-M59" eventType="touchDown" id="nKy-Fc-M6u"/>
-                                    <action selector="TouchUpTapRight:" destination="w7i-QR-M59" eventType="touchUpInside" id="RxU-zJ-agj"/>
+                                    <action selector="touchDownCorrectButtons:" destination="w7i-QR-M59" eventType="touchDown" id="Wad-NE-baw"/>
+                                    <action selector="touchUpInsideCorrectButtons:" destination="w7i-QR-M59" eventType="touchUpInside" id="iak-kf-OIs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhb-Ow-Ts2">
@@ -428,7 +428,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="pmd-Df-AjY"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="44G-8o-rQ1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3e-AK-lVU">
@@ -439,7 +439,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="jd3-AG-MwL"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="12G-mf-lH3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0A9-sH-oAJ">
@@ -451,8 +451,8 @@
                                 </constraints>
                                 <state key="normal" title="TAP L"/>
                                 <connections>
-                                    <action selector="TouchDownTapLeft:" destination="w7i-QR-M59" eventType="touchDown" id="N10-Pt-5uu"/>
-                                    <action selector="TouchUpTapLeft:" destination="w7i-QR-M59" eventType="touchUpInside" id="brV-MO-b01"/>
+                                    <action selector="touchDownCorrectButtons:" destination="w7i-QR-M59" eventType="touchDown" id="OHW-Yu-9eP"/>
+                                    <action selector="touchUpInsideCorrectButtons:" destination="w7i-QR-M59" eventType="touchUpInside" id="FgH-nC-tyu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrd-pd-PD0">
@@ -463,7 +463,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="KdP-10-LLN"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="Ydx-ku-q6e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-Rb-pON">
@@ -485,7 +485,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="aXk-zA-ShU"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="0PK-Gv-DNz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prm-2M-1nn">
@@ -496,7 +496,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="iYA-TI-bd2"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="hX5-cY-IVY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please tap the buttons alternatively" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UE-c7-Ejk">
@@ -523,7 +523,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="WrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="BQW-oO-n1a"/>
+                                    <action selector="wrongTap:" destination="w7i-QR-M59" eventType="touchUpInside" id="I4a-2K-ifb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -561,6 +561,8 @@
                     <navigationItem key="navigationItem" id="j5G-dM-fyc"/>
                     <connections>
                         <outlet property="countdownLabel" destination="BqI-Cj-uck" id="Nge-kY-9XG"/>
+                        <outletCollection property="correctButtons" destination="0A9-sH-oAJ" collectionClass="NSMutableArray" id="bfk-li-7Q5"/>
+                        <outletCollection property="correctButtons" destination="KNW-d1-J8N" collectionClass="NSMutableArray" id="Foc-fT-8Oj"/>
                         <segue destination="KMG-GH-BAx" kind="presentation" identifier="resultTransition" id="85m-7f-Do2"/>
                     </connections>
                 </viewController>
