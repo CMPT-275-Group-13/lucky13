@@ -9,7 +9,6 @@ var docArray = []
 
 btnSearch.addEventListener("click", function() {
     var txtSearchInput = txtSearch.value.toLowerCase();
-    var exists = 0;
     patientRef.get().then(querySnapshot =>{
         let docs = querySnapshot.docs;
 
@@ -39,7 +38,7 @@ displayPatient = function (){
 
     //displays the values of the object parameters
     var newHTML = [];
-    $.each(docArray, function (index, value){
+    $.each(docArray, function (value){
         newHTML.push('<div>' + value.firstName + ' '
                             + value.lastName + '<br>' + value.emailAddress 
                             + '<br>' + value.phoneNumber + '</div>');
