@@ -2,7 +2,8 @@
 //  TableViewController.swift
 //  PAPER Planes
 //
-//  Created by Marco Liang on 2019-11-03.
+//  Created by Angus Kan on 2019-10-31.
+//  Worked on by: Angus Kan, Marco Liang
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
@@ -10,13 +11,6 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
-    struct DoctorName {
-        var FirstName: String
-        var LastName: String
-    }
-    var tabledata:[DoctorName]=[]
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,8 +21,6 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    @IBAction func AddButton(_ sender: Any) {
-    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

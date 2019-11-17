@@ -6,6 +6,15 @@
 build/
 DerivedData/
 
+## Packages
+# It's best to unpackage these files and commut the raw source
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
@@ -21,6 +30,13 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
+## OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 
 ## Obj-C/Swift specific
 *.hmap
@@ -66,3 +82,8 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+src/PAPER Planes/en.lproj/.DS_Store
+src/PAPER Planes/.DS_Store
+src/.DS_Store
+.DS_Store
+.DS_Store
