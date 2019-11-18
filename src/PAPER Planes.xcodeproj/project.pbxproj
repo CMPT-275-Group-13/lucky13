@@ -13,17 +13,24 @@
 		86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */; };
 		86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */; };
 		86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B23236BBD6500EDC0E2 /* ViewController.swift */; };
-		86DD0B27236BBD6500EDC0E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DD0B25236BBD6500EDC0E2 /* Main.storyboard */; };
 		86DD0B29236BBD6600EDC0E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DD0B28236BBD6600EDC0E2 /* Assets.xcassets */; };
 		86DD0B2C236BBD6600EDC0E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */; };
 		86DD0B37236BBD6600EDC0E2 /* PAPER_PlanesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B36236BBD6600EDC0E2 /* PAPER_PlanesTests.swift */; };
 		86DD0B42236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */; };
-		A69016DF236CEFA40043E1CE /* brain-test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016DE236CEFA40043E1CE /* brain-test.swift */; };
+		A6170EF7238239B800948415 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6170EF6238239B800948415 /* AppUtility.swift */; };
+		A65C3A142383483500F45193 /* ViewControllerTremorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */; };
+		A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E72381DFEC004EF918 /* BrainTestClass.swift */; };
+		A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */; };
+		A67D66EE2381EED5004EF918 /* TremorTestClas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClas.swift */; };
 		A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */; };
 		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
-		A69016E9236D07DF0043E1CE /* BrainTestButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */; };
+		A956D3E62381F795007072A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A956D3E42381F794007072A0 /* Main.storyboard */; };
+		A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */; };
+		A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */; };
+		A97D7E062382355C00EB7647 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D7E052382355C00EB7647 /* Message.swift */; };
 		A9B59853236FB37200095D31 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B59852236FB37200095D31 /* TableViewController.swift */; };
 		A9C50938236CEECB001899FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C50937236CEECA001899FB /* GoogleService-Info.plist */; };
+		A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */; };
 		DE139128520565CB5714CB5F /* Pods_PAPER_PlanesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */; };
 		E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +60,6 @@
 		54E784EED2DD25533BE95D17 /* Pods-PAPER PlanesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER PlanesTests.debug.xcconfig"; path = "Target Support Files/Pods-PAPER PlanesTests/Pods-PAPER PlanesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		55338DCB9A5431F5E974C81B /* Pods-PAPER Planes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes.release.xcconfig"; path = "Target Support Files/Pods-PAPER Planes/Pods-PAPER Planes.release.xcconfig"; sourceTree = "<group>"; };
 		84774A015C647094699FE618 /* Pods-PAPER Planes-PAPER PlanesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes-PAPER PlanesUITests.release.xcconfig"; path = "Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests.release.xcconfig"; sourceTree = "<group>"; };
-		869AF52F236CB06900F83C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		869AF537236CBFFA00F83C7B /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDoctorsViewController.swift; sourceTree = "<group>"; };
 		86DD0B1E236BBD6500EDC0E2 /* PAPER Planes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAPER Planes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,12 +74,20 @@
 		86DD0B3D236BBD6600EDC0E2 /* PAPER PlanesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PAPER PlanesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPER_PlanesUITests.swift; sourceTree = "<group>"; };
 		86DD0B43236BBD6600EDC0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A69016DE236CEFA40043E1CE /* brain-test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "brain-test.swift"; sourceTree = "<group>"; };
+		A6170EF6238239B800948415 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTremorTest.swift; sourceTree = "<group>"; };
+		A67D66E72381DFEC004EF918 /* BrainTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrainTestClass.swift; path = BrainTestModel/BrainTestClass.swift; sourceTree = "<group>"; };
+		A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrainTestCorrectButton.swift; path = BrainTestModel/BrainTestCorrectButton.swift; sourceTree = "<group>"; };
+		A67D66ED2381EED5004EF918 /* TremorTestClas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TremorTestClas.swift; path = TremorTestModel/TremorTestClas.swift; sourceTree = "<group>"; };
 		A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTest.swift; sourceTree = "<group>"; };
 		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestButtons.swift; sourceTree = "<group>"; };
+		A956D3E52381F794007072A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorTableViewController.swift; sourceTree = "<group>"; };
+		A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorsViewController.swift; sourceTree = "<group>"; };
+		A97D7E052382355C00EB7647 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A9B59852236FB37200095D31 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A9C50937236CEECA001899FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
 		CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAPER_PlanesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTestResult.swift; sourceTree = "<group>"; };
 		F986128EC99CA02D3DB58887 /* Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig"; path = "Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,21 +159,28 @@
 		86DD0B20236BBD6500EDC0E2 /* PAPER Planes */ = {
 			isa = PBXGroup;
 			children = (
+				A67D66ED2381EED5004EF918 /* TremorTestClas.swift */,
 				E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */,
 				A9C50937236CEECA001899FB /* GoogleService-Info.plist */,
 				86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */,
 				86DD0B23236BBD6500EDC0E2 /* ViewController.swift */,
-				A69016DE236CEFA40043E1CE /* brain-test.swift */,
-				A69016E8236D07DF0043E1CE /* BrainTestButtons.swift */,
+				A956D3E42381F794007072A0 /* Main.storyboard */,
+				A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */,
+				A97D7E052382355C00EB7647 /* Message.swift */,
+				A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
 				A9B59852236FB37200095D31 /* TableViewController.swift */,
+				A6170EF6238239B800948415 /* AppUtility.swift */,
 				86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */,
-				86DD0B25236BBD6500EDC0E2 /* Main.storyboard */,
 				A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */,
+				A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */,
 				A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */,
 				86DD0B28236BBD6600EDC0E2 /* Assets.xcassets */,
 				86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */,
 				86DD0B2D236BBD6600EDC0E2 /* Info.plist */,
+				A67D66E72381DFEC004EF918 /* BrainTestClass.swift */,
+				A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */,
+				A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */,
 			);
 			path = "PAPER Planes";
 			sourceTree = "<group>";
@@ -302,9 +323,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DD0B2C236BBD6600EDC0E2 /* LaunchScreen.storyboard in Resources */,
+				A956D3E62381F795007072A0 /* Main.storyboard in Resources */,
 				A9C50938236CEECB001899FB /* GoogleService-Info.plist in Resources */,
 				86DD0B29236BBD6600EDC0E2 /* Assets.xcassets in Resources */,
-				86DD0B27236BBD6500EDC0E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,16 +453,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6170EF7238239B800948415 /* AppUtility.swift in Sources */,
 				E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */,
-				A69016DF236CEFA40043E1CE /* brain-test.swift in Sources */,
+				A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */,
+				A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */,
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
 				A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */,
-				A69016E9236D07DF0043E1CE /* BrainTestButtons.swift in Sources */,
 				869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */,
 				A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */,
+				A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */,
+				A67D66EE2381EED5004EF918 /* TremorTestClas.swift in Sources */,
+				A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */,
+				A65C3A142383483500F45193 /* ViewControllerTremorTest.swift in Sources */,
+				A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */,
 				A9B59853236FB37200095D31 /* TableViewController.swift in Sources */,
 				86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */,
+				A97D7E062382355C00EB7647 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,20 +505,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		86DD0B25236BBD6500EDC0E2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				869AF52F236CB06900F83C7B /* en */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				86DD0B2B236BBD6600EDC0E2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A956D3E42381F794007072A0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A956D3E52381F794007072A0 /* en */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -617,18 +645,20 @@
 			baseConfigurationReference = 2EB8FA91B6056FCF1CFB64F1 /* Pods-PAPER Planes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YB2CH8LMF6;
+				DEVELOPMENT_TEAM = 8PL6VQ48LV;
 				INFOPLIST_FILE = "PAPER Planes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Planes";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minhdinh.PAPER-Planes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -637,18 +667,20 @@
 			baseConfigurationReference = 55338DCB9A5431F5E974C81B /* Pods-PAPER Planes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YB2CH8LMF6;
+				DEVELOPMENT_TEAM = 8PL6VQ48LV;
 				INFOPLIST_FILE = "PAPER Planes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Planes";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.minhdinh.PAPER-Planes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -667,7 +699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-PlanesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PAPER Planes.app/PAPER Planes";
 			};
@@ -688,7 +720,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-PlanesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PAPER Planes.app/PAPER Planes";
 			};
@@ -708,7 +740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-PlanesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "PAPER Planes";
 			};
@@ -728,7 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-PlanesUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "PAPER Planes";
 			};
