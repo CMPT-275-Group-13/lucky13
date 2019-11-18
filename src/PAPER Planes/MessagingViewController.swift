@@ -22,13 +22,19 @@ class MessagingViewController: MessagesViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
 
+        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout{
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+
+        }
+        
     }
     
     //MARK: Helpers
@@ -59,6 +65,7 @@ class MessagingViewController: MessagesViewController {
       let testMessage = Message(member: member, text: "I love pizza, what is your favorite kind?")
       insertNewMessage(testMessage)
     }
+    
 }
     
 extension MessagingViewController: MessagesDataSource {
@@ -78,12 +85,12 @@ extension MessagingViewController: MessagesDataSource {
     func cellTopLabelAttributedText(for message: MessageType,
        at indexPath: IndexPath) -> NSAttributedString? {
 
-       let name = message.sender.displayName
-       return NSAttributedString(
+        let name = message.sender.displayName
+        return NSAttributedString(
          string: name,
          attributes: [
-           .font: UIFont.systemFont(ofSize: 12),
-           .foregroundColor: UIColor(white: 0.3, alpha:1)
+            .font: UIFont.preferredFont(forTextStyle: .caption1),
+            .foregroundColor: UIColor(white: 0.3, alpha:1),
          ]
        )
      }
@@ -93,7 +100,7 @@ extension MessagingViewController: MessagesDisplayDelegate {
     func backgroundColor(for message: MessageType, at indexPath: IndexPath,
       in messagesCollectionView: MessagesCollectionView) -> UIColor {
       
-        return isFromCurrentSender(message: message) ? .blue : .gray
+        return isFromCurrentSender(message: message) ? UIColor(hex: "#A7CED9", alpha: 1) : UIColor(hex: "#DCDCDC", alpha: 1)
     }
 
     func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath,
@@ -108,6 +115,10 @@ extension MessagingViewController: MessagesDisplayDelegate {
       let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
 
       return .bubbleTail(corner, .curved)
+    }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        avatarView.isHidden = true
     }
 }
 
@@ -129,6 +140,10 @@ extension MessagingViewController: MessagesLayoutDelegate {
 
         return 0
       }
+    
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 15
+    }
 }
 
 extension UIScrollView{
