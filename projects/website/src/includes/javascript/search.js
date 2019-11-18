@@ -3,22 +3,40 @@ var btnSearch = document.querySelector("#searchButton");
 var txtSearch = document.querySelector("#inputSearch");
 var results = document.querySelector("#results");
 
-var collectionRef = db.collection('patient');
+var patientRef = db.collection('patient');
+var docArray = [];
 
-btnSearch.addEventListener("click", function(){
-    var searchInput = txtSearch.value;
-    var docRef = collectionRef.doc(searchInput);
-    docRef.get().then(function(doc){
-        if(doc && doc.exists){
-            const myData = doc.data();
-            results.innerText = myData.firstName + " " + myData.lastName + "\n" +
-                                "email: " + myData.emailAddress + "\n" +
-                                "phone number: " + myData.phoneNumber + "\n"
-                                + "Doctor: " + myData.doctor;
+
+btnSearch.addEventListener("click", function() {
+    var txtSearchInput = txtSearch.value.toLowerCase();
+    var exists = 0;
+    patientRef.get().then(querySnapshot =>{
+        let docs = querySnapshot.docs;
+        
+        for (var doc in docs) {
+            let keywords = docs[doc].data().keywords;
+            if(jQuery.inArray(txtSearchInput, keywords) >= 0){
+                docArray.push(docs[doc].data());
+                displayPatient();
+                console.log(exists);
+            }
+            
         }
-        else{
-            results.innerText = "User does not exist";
+
+        if(docArray.length == 0){
+            results.innerText = "User doesn't exist";
         }
+        docArray = [];
+
     });
-    
 });
+
+displayPatient = function (){
+    var newHTML = [];
+    $.each(docArray, function (index, value){
+        newHTML.push('<div>' + value.firstName + ' '
+                            + value.lastName + '<br>' + value.emailAddress 
+                            + '<br>' + value.phoneNumber + '</div>');
+    });
+    $("#results").html(newHTML.join("<p>"));
+}
