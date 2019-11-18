@@ -51,6 +51,7 @@ The project was developed with the following:
 ## Firebase
 At time of writing, our Google Firebase database allows read and writes from any user. This is intentional for development purposes. It will be closed for the production release.
 
+<<<<<<< HEAD
 ## iOS App
 The test account username is "jinn@sfu.ca". The password is "helloworld".
 
