@@ -280,9 +280,6 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.10.0)
-  - Scaledrone (0.5.0):
-    - Starscream (~> 3.1.0)
-  - Starscream (3.1.1)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -290,7 +287,6 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Messaging
   - MessageKit
-  - Scaledrone (~> 0.5.0)
 
 SPEC REPOS:
   trunk:
@@ -317,8 +313,6 @@ SPEC REPOS:
     - MessageKit
     - nanopb
     - Protobuf
-    - Scaledrone
-    - Starscream
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -344,9 +338,7 @@ SPEC CHECKSUMS:
   MessageKit: e892a9ca49ebe6d82684d3a93ad84021fa23e2c6
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
-  Scaledrone: 7fc6a9ab8e969b0df53fe14b54217db8ddf0715a
-  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 2d82f1c541bfddf8cfb8ac4f7fafc08115e5f053
+PODFILE CHECKSUM: ac651376e587d187df243791ef739c77c42af1e6
 
 COCOAPODS: 1.8.4

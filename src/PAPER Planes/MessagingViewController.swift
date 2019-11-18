@@ -8,7 +8,7 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 import MessageKit
 
 //struct Message{
@@ -16,101 +16,132 @@ import MessageKit
 //    var body: String
 //}
 
-
 class MessagingViewController: MessagesViewController {
     var messages: [Message] = []
-    var member: Member!
-
+    var member: Member = Member(name: "John")
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        member = Member(name: "bluemoon", color: .blue)
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
-        messageInputBar.delegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+
+    }
+    
+    //MARK: Helpers
+    private func insertNewMessage(_ message: Message) {
+      guard !messages.contains(message) else {
+        return
+      }
+      
+      messages.append(message)
+      messages.sort{$0.sentDate < $1.sentDate}
+      
+      let isLatestMessage = messages.index(of: message) == (messages.count - 1)
+      let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
+      
+      messagesCollectionView.reloadData()
+      
+      if shouldScrollToBottom {
+        DispatchQueue.main.async {
+          self.messagesCollectionView.scrollToBottom(animated: true)
+        }
+      }
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+      super.viewDidAppear(animated)
+      
+      let testMessage = Message(member: member, text: "I love pizza, what is your favorite kind?")
+      insertNewMessage(testMessage)
     }
 }
     
 extension MessagingViewController: MessagesDataSource {
-    
     func currentSender() -> SenderType {
         return Sender(id: member.name, displayName: member.name)
     }
     
-    func currentSender() -> Sender {
-        return Sender(id: member.name, displayName: member.name)
-    }
-    
-    func numberOfSections(
-        in messagesCollectionView: MessagesCollectionView) -> Int {
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
     }
 
-
-    func messageForItem(
-        at indexPath: IndexPath,
-        in messagesCollectionView: MessagesCollectionView) -> MessageType {
-
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType
+    {
         return messages[indexPath.section]
     }
+    
+    func cellTopLabelAttributedText(for message: MessageType,
+       at indexPath: IndexPath) -> NSAttributedString? {
 
-    func messageTopLabelHeight(
-        for message: MessageType,
-        at indexPath: IndexPath,
-        in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+       let name = message.sender.displayName
+       return NSAttributedString(
+         string: name,
+         attributes: [
+           .font: UIFont.systemFont(ofSize: 12),
+           .foregroundColor: UIColor(white: 0.3, alpha:1)
+         ]
+       )
+     }
+}
 
-        return 12
+extension MessagingViewController: MessagesDisplayDelegate {
+    func backgroundColor(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> UIColor {
+      
+        return isFromCurrentSender(message: message) ? .blue : .gray
     }
 
-    func messageTopLabelAttributedText(
-        for message: MessageType,
-        at indexPath: IndexPath) -> NSAttributedString? {
+    func shouldDisplayHeader(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> Bool {
 
-        return NSAttributedString(
-          string: message.sender.displayName,
-          attributes: [.font: UIFont.systemFont(ofSize: 12)])
+      return false
+    }
+
+    func messageStyle(for message: MessageType, at indexPath: IndexPath,
+      in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
+
+      let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
+
+      return .bubbleTail(corner, .curved)
     }
 }
 
 extension MessagingViewController: MessagesLayoutDelegate {
-  func heightForLocation(message: MessageType,
-    at indexPath: IndexPath,
-    with maxWidth: CGFloat,
-    in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-    
-    return 0
-  }
+      func avatarSize(for message: MessageType, at indexPath: IndexPath,
+        in messagesCollectionView: MessagesCollectionView) -> CGSize {
+
+        return .zero
+      }
+
+      func footerViewSize(for message: MessageType, at indexPath: IndexPath,
+        in messagesCollectionView: MessagesCollectionView) -> CGSize {
+
+        return CGSize(width: 0, height: 8)
+      }
+
+      func heightForLocation(message: MessageType, at indexPath: IndexPath,
+        with maxWidth: CGFloat, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+
+        return 0
+      }
 }
 
-extension MessagingViewController: MessagesDisplayDelegate {
-  func configureAvatarView(
-    _ avatarView: AvatarView,
-    for message: MessageType,
-    at indexPath: IndexPath,
-    in messagesCollectionView: MessagesCollectionView) {
+extension UIScrollView{
+    var isAtBottom: Bool{
+        return contentOffset.y >= verticalOffsetForBottom
+    }
     
-    let message = messages[indexPath.section]
-    let color = message.member.color
-    avatarView.backgroundColor = color
-  }
+    var verticalOffsetForBottom: CGFloat{
+        let scrollViewHeight = bounds.height
+        let scrollContentSizeHeight = contentSize.height
+        let bottomInset = contentInset.bottom
+        let scrollViewBottomOffset = scrollContentSizeHeight + bottomInset - scrollViewHeight
+        return scrollViewBottomOffset
+    }
 }
 
-extension MessagingViewController: MessageInputBarDelegate {
-  func messageInputBar(
-    _ inputBar: MessageInputBar,
-    didPressSendButtonWith text: String) {
-    
-    let newMessage = Message(
-      member: member,
-      text: text,
-      messageId: UUID().uuidString)
-      
-    messages.append(newMessage)
-    inputBar.inputTextView.text = ""
-    messagesCollectionView.reloadData()
-    messagesCollectionView.scrollToBottom(animated: true)
-  }
-}

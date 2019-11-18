@@ -11,27 +11,47 @@ import UIKit
 import MessageKit
 
 struct Member {
+//TODO: Add UID
   let name: String
-  let color: UIColor
 }
 
 struct Message {
-  let member: Member
-  let text: String
-  let messageId: String
+    let member: Member
+    let text: String
+    let id: String?
+    let sentDate: Date
+//    let sender: Sender
+    
+    init(member: Member, text: String){
+        self.member = member
+        self.text = text
+        sentDate = Date()
+        id = nil
+    }
+    
 }
 
 extension Message: MessageType {
-  var sender: SenderType {
-    return Sender(id: member.name, displayName: member.name)
-  }
-  
-  var sentDate: Date {
-    return Date()
-  }
-  
-  var kind: MessageKind {
-    return .text(text)
-  }
+    var messageId: String{
+        return UUID().uuidString
+    }
+    
+    var sender: SenderType {
+      return Sender(id: member.name, displayName: member.name)
+    }
+
+//    var sentDate: Date {
+//        return Date()
+//    }
+
+    var kind: MessageKind {
+        return .text(text)
+    }
+    
 }
 
+extension Message: Equatable{
+    static func == (lhs: Message, rhs: Message) -> Bool {
+        return lhs.messageId == rhs.messageId
+    }
+}
