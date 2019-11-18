@@ -2,65 +2,127 @@
 //  ViewControllerBrainTest.swift
 //  PAPER Planes
 //
-//  Created by Quang minh Dinh on 2019-11-01.
+//  Created by Quang Minh Dinh on 2019-11-01.
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
 class ViewControllerBrainTest: UIViewController {
-    // Don't allow auto rotate
-    override open var shouldAutorotate: Bool {
-        return true
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AppUtility.lockOrientation(.landscape)
+        // Or to rotate and lock
+        AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
+        
     }
     
-    // Make sure the test are run in Landscape mode
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Don't forget to reset when view is being removed
+        AppUtility.lockOrientation(.all)
+        countdownTimer.invalidate() // Stop the test timer so that we won't load the result view if the test is stopped abrubtly
     }
-   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    var chosenHand = ""
+    @IBOutlet var chooseHandLeft: UIButton!
+    @IBOutlet var chooseHandRight: UIButton!
+    
+    @IBAction func chooseHand(_ sender: UIButton) {
+        if !BrainTest.getGameState() {
+            
+            if sender == chooseHandLeft {
+                chosenHand = "Left"
+            } else {
+                chosenHand = "Right"
+            }
+            BrainTest.startGame(hand: chosenHand)
+            startCountdown()
+            // Make both button disapper and start test count down
+            chooseHandLeft.setTitle("", for: UIControl.State.normal)
+            chooseHandRight.setTitle("", for: UIControl.State.normal)
+            
+            chooseHandLeft.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            chooseHandRight.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        } else {
+            // Treat as very wrong tap
+            BrainTest.reallyWrongButtonTapped()
+        }
+    }
+    
+    
+    
+    lazy var BrainTest = BrainTestClass(handChosen: "Right", numberOfCorrectButtons: correctButtons.count)
+    
     @IBOutlet var correctButtons: [UIButton]!
     
-    @IBOutlet weak var wrongTabLabel: UILabel!
-    
-    let timeIncrementMS = 0.001
-    let timeIncrementS = 1
-    let timeReset = Double(0)
-    
-    
-    // Time on buttons functions
-    //----------------------------------------------------------
-    var tapTimer = Timer()
-    var seconds = 0.0
-    var sumOfSecondsOnButton = 0.0
-    @IBOutlet weak var TimerLabel: UILabel!
-    
-    func schedulingTimeOnButton() {
-        tapTimer = Timer.scheduledTimer(timeInterval: timeIncrementMS, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    @IBAction func touchDownCorrectButtons(_ sender: UIButton) {
+        if BrainTest.getGameState() {
+            if let correctButtonNumber = correctButtons.index(of: sender) {
+                BrainTest.correctButtonTappedIn(at: correctButtonNumber)
+            }
+        } else {
+            // Ignore button touch down
+        }
+        
     }
     
-    @objc func updateTimer() {
-        seconds += timeIncrementMS
-        TimerLabel.text = "Timer: \(seconds)"
+    @IBAction func touchUpInsideCorrectButtons(_ sender: UIButton) {
+        if let correctButtonNumber = correctButtons.index(of: sender) {
+            BrainTest.correctButtonTappedOut(at: correctButtonNumber)
+        }
     }
     
-    func saveSecondsOnButton() {
-        print("Milliseconds on button left: \(seconds)")
-        // saving seconds on Button to get the average
-        sumOfSecondsOnButton += seconds
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if BrainTest.getGameState() {
+            BrainTest.reallyWrongButtonTapped()
+        }
+        
     }
     
-    func resetTimerOnButton() {
-        tapTimer.invalidate()
-        seconds = timeReset
-        TimerLabel.text = "Timer: \(seconds)"
+    @IBAction func wrongTap(_ sender: UIButton) {
+        if BrainTest.getGameState() {
+            BrainTest.wrongButtonTapped()
+        }
     }
-    //----------------------------------------------------------
-    // End
     
+    func getTestResultText() -> String {
+        let (timestamp, handChosen, totalTaps, timeHeldAvg, timeBetweenAvg, accScore) = BrainTest.getResult()
+        var testResultText = ""
+        
+        var tempText = "Date taken: \(timestamp)\n"
+        testResultText.append(tempText)
+        
+        tempText = "Test on \(handChosen) Hand\n"
+        testResultText.append(tempText)
+        
+        tempText = "Kinesia score: \(String(totalTaps))\n"
+        testResultText.append(tempText)
+        
+        tempText = "Akinesia score: \(String(timeHeldAvg))\n"
+        testResultText.append(tempText)
+        
+        tempText = "Incorrdination score: \(String(timeBetweenAvg))\n"
+        testResultText.append(tempText)
+        
+        tempText = "Dysmetria score: \((String(accScore)))\n"
+        testResultText.append(tempText)
+        
+        print(testResultText)
+        uploadBrainTestData()
+        return testResultText
+    }
     
-    // Minute countdown functions
-    //----------------------------------------------------------
     @IBOutlet weak var countdownLabel: UILabel!
     
     //let testLength = 60
@@ -75,7 +137,7 @@ class ViewControllerBrainTest: UIViewController {
         countdownLabel.text = "Countdown: \(totalTime)"
         
         if totalTime != 0 {
-            totalTime -= timeIncrementS
+            totalTime -= 1
         } else {
             endCountdown()
         }
@@ -86,151 +148,9 @@ class ViewControllerBrainTest: UIViewController {
         // TODO: display the test result and go back to the menu page
         transitionToResult()
     }
-    //----------------------------------------------------------
-    // End
     
-    
-    // Timer for in between taps
-    //----------------------------------------------------------
-    var inBetweenTimer = Timer()
-    @IBOutlet weak var inBetweenTimerLabel: UILabel!
-    var secondsBetweenTaps = 0.0
-    var sumOfSecondsBetweenTaps = 0.0
-    func startInBetweenTimer() {
-        inBetweenTimer = Timer.scheduledTimer(timeInterval: timeIncrementMS, target: self, selector: #selector(updateInBetweenTime), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateInBetweenTime() {
-        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
-        secondsBetweenTaps += timeIncrementMS
-        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
-    }
-    
-    func saveInBetweenTaps() {
-        sumOfSecondsBetweenTaps += secondsBetweenTaps
-    }
-    
-    func endInBetweenTimer() {
-        
-        inBetweenTimer.invalidate()
-        secondsBetweenTaps = timeReset
-        inBetweenTimerLabel.text = "Switch Timer: \(secondsBetweenTaps)"
-    }
-    
-    //----------------------------------------------------------
-    // End
-    
-    var wrongTapCount = 0
-    var correctTapCount = 0
-    var testCurrentDate = Date()
-    
-    var isLeftButtonPressed = false
-    var isRightButtonPressed = false
-    
-    
-    // If both buttons are not pressed, then the test hasn't started yet
-    // Start the 1 minute countdown when the user press the first button
-    
-    
-    // Reminder: timer won't be accurate when the app is running hard and slowing down
-    
-    
-    
-    @IBAction func WrongTap(_ sender: UIButton) {
-        incrementWrongTap()
-    }
-    
-    @IBAction func TouchDownTapLeft(_ sender: UIButton) {
-        if !isLeftButtonPressed && !isRightButtonPressed {
-            startCountdown()
-        } else {
-            saveInBetweenTaps()
-            endInBetweenTimer()
-        }
-        
-        if isLeftButtonPressed {
-            incrementWrongTap()
-        }
-        
-        schedulingTimeOnButton()
-        correctTapCount += 1
-        isLeftButtonPressed = true
-        isRightButtonPressed = false
-    }
-    
-    @IBAction func TouchDownTapRight(_ sender: UIButton) {
-        if !isLeftButtonPressed && !isRightButtonPressed {
-            startCountdown()
-        } else {
-            saveInBetweenTaps()
-            endInBetweenTimer()
-        }
-        
-        if isRightButtonPressed {
-            incrementWrongTap()
-        }
-        schedulingTimeOnButton()
-        correctTapCount += 1
-        isRightButtonPressed = true
-        isLeftButtonPressed = false
-    }
-    
-    @IBAction func TouchUpTapLeft(_ sender: UIButton) {
-        
-        saveSecondsOnButton()
-        resetTimerOnButton()
-        
-        startInBetweenTimer()
-        
-        /*if !isRightButtonPressed && !isLeftButtonPressed {
-            // Increment correct key taps
-            correctTapCount += 1
-            
-            // Updating flags
-            isLeftButtonPressed = true
-            isRightButtonPressed = false
-        } else {
-            wrongTapCount += 1
-            wrongTabLabel.text = "wrong count: \(wrongTapCount)"
-        }*/
-    }
-    
-    @IBAction func TouchUpTapRight(_ sender: UIButton) {
-        
-        saveSecondsOnButton()
-        resetTimerOnButton()
-        
-        startInBetweenTimer()
-        
-        /*if !isRightButtonPressed && !isLeftButtonPressed {
-            // Increment correct key taps
-            correctTapCount += 1
-            
-            // Updating flags
-            isRightButtonPressed = true
-            isLeftButtonPressed = false
-        } else {
-            wrongTapCount += 1
-            wrongTabLabel.text = "wrong count: \(wrongTapCount)"
-        }*/
-    }
-    
-    
-    
-    // Supporting functions
-    
-    // TODO: Transfer the results to the result view
     func transitionToResult() {
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        guard let viewControllerBrainTestResult = mainStoryboard.instantiateViewController(withIdentifier: "ViewControllerBrainTestResult") as? ViewControllerBrainTestResult else {
-//            print("Couldn't find ViewControllerBrainTestResult")
-//            return
-//        }
-   
-        //present(viewControllerBrainTestResult, animated: true, completion: nil)
         
-        
-        //_ = getTestResultText()
         performSegue(withIdentifier: "resultTransition", sender: self)
         //navigationController?.pushViewController(viewControllerBrainTestResult, animated: true)
     }
@@ -244,58 +164,36 @@ class ViewControllerBrainTest: UIViewController {
             return
         }
     }
+    // FirebaseApp.configure()
     
-    func incrementWrongTap() {
-        wrongTapCount += 1
-        wrongTabLabel.text = "wrong count: \(wrongTapCount)"
+    let db = Firestore.firestore()
+    
+    func getSelfPatientData() {
+        // TODO: For rev 3
     }
     
-    func getAverageSecondsOnButton() -> Double {
-        let totalTaps = getTotalKeyTaps()
-        return sumOfSecondsOnButton/Double(totalTaps)
-    }
-    
-    func getAverageTimeInBetweenTaps() -> Double {
-        let totalTaps = getTotalKeyTaps()
-        return sumOfSecondsBetweenTaps/Double(totalTaps)
-    }
-    
-    func getTapAccuracy() -> Double {
-        let totalTaps = getTotalKeyTaps()
-        print(correctTapCount)
-        print(totalTaps)
-        print(correctTapCount/totalTaps)
-        return Double(correctTapCount) / Double(totalTaps) * 100
-    }
-    
-    func getTotalKeyTaps() -> Int {
-        return correctTapCount + wrongTapCount
-    }
-    
-    func getTestResultText() -> String {
-        var testResultText = ""
-        
-        var tempText = "Date taken: \(testCurrentDate)\n"
-        testResultText.append(tempText)
-        
-        tempText = "Kinesia score: \(String(getTotalKeyTaps()))\n"
-        testResultText.append(tempText)
-        
-        tempText = "Akinesia score: \(String(getAverageSecondsOnButton()))\n"
-        testResultText.append(tempText)
-        
-        tempText = "Incorrdination score: \(String(getAverageTimeInBetweenTaps()))\n"
-        testResultText.append(tempText)
-        
-        tempText = "Dysmetria score: \((String(getTapAccuracy())))\n"
-        testResultText.append(tempText)
-        
-        print(testResultText)
-        return testResultText
+    func uploadBrainTestData() {
+        var ref: DocumentReference? = nil
+        getSelfPatientData()
+        let (timestamp, handChosen, totalTaps, timeHeldAvg, timeBetweenAvg, accScore) = BrainTest.getResult()
+        ref = db.collection("tests/csmith@gmail.com/brain-test").addDocument(data: [
+            "timeStamp": timestamp,
+            "chosenHand": handChosen,
+            "KinesiaScore": totalTaps,
+            "AkinesiaScore": timeHeldAvg,
+            "IncorrdinationScore": timeBetweenAvg,
+            "DysmetriaScore": accScore
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
     }
     
     // TODO: Implement the MVC design for the BRAIN test in rev 2
-    func updateViewFromModel() {
+    func updateViewFromHandChoice() {
         
     }
 }
