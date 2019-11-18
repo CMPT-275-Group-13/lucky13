@@ -283,13 +283,16 @@
 				TargetAttributes = {
 					86DD0B1D236BBD6500EDC0E2 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1110;
 					};
 					86DD0B31236BBD6600EDC0E2 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1110;
 						TestTargetID = 86DD0B1D236BBD6500EDC0E2;
 					};
 					86DD0B3C236BBD6600EDC0E2 = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1110;
 						TestTargetID = 86DD0B1D236BBD6500EDC0E2;
 					};
 				};
