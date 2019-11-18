@@ -25,6 +25,7 @@
 		A956D3E62381F795007072A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A956D3E42381F794007072A0 /* Main.storyboard */; };
 		A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */; };
 		A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */; };
+		A97D7E062382355C00EB7647 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D7E052382355C00EB7647 /* Message.swift */; };
 		A9B59853236FB37200095D31 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B59852236FB37200095D31 /* TableViewController.swift */; };
 		A9C50938236CEECB001899FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C50937236CEECA001899FB /* GoogleService-Info.plist */; };
 		DE139128520565CB5714CB5F /* Pods_PAPER_PlanesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */; };
@@ -78,6 +79,7 @@
 		A956D3E52381F794007072A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorTableViewController.swift; sourceTree = "<group>"; };
 		A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorsViewController.swift; sourceTree = "<group>"; };
+		A97D7E052382355C00EB7647 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A9B59852236FB37200095D31 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A9C50937236CEECA001899FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAPER_PlanesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 				86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */,
 				86DD0B23236BBD6500EDC0E2 /* ViewController.swift */,
 				A956D3E42381F794007072A0 /* Main.storyboard */,
+				A97D7E052382355C00EB7647 /* Message.swift */,
 				A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
 				A9B59852236FB37200095D31 /* TableViewController.swift */,
@@ -454,6 +457,7 @@
 				A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */,
 				A9B59853236FB37200095D31 /* TableViewController.swift in Sources */,
 				86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */,
+				A97D7E062382355C00EB7647 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
