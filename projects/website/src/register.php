@@ -1,34 +1,50 @@
 <?php include("includes/config.php");?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<?php include("includes/head-tag-contents.php");?>
+	<script type="text/javascript" src="includes/javascript/account-register.js"></script>
 </head>
 <body>
 
 <?php include("includes/design-top.php");?>
-<?php include("includes/navigation.php");?>
+<?php //include("includes/navigation.php");?>
 
 <div class="container" id="main-content">
 	<div>
 		<div class="" id="">
-			<form action="" method="POST">
-				<div>
+			<div class="" id="register-status">
+			</div>
+			<form id="register-form" class="form-inline" action="" method="POST">
+				<div class="form-group">
 					<div>
-						<span>Username</span>
+						<label><b>Email</b></label>
 					</div>
 					<div>
-						<input type="textbox" name="username"/>
+						<input class="form-control" type="textbox" name="email" id="email" required/>
 					</div>
 				</div>
 				<div>
-					<span>Password</span>
+					<label><b>Password</b></label>
 				</div>
 				<div>
-					<input type="textbox" name="Password"/>
+					<input class="form-control" type="password" name="password" id="password" required/>
 				</div>
 				<div>
-					<input type="submit" name="submit" value="Register"/>
+					<label><b>First Name</b></label>
+				</div>
+				<div>
+					<input class="form-control" type="text" name="first-name" id="first-name" required/>
+				</div>
+				<div>
+					<label><b>Last Name</b></label>
+				</div>
+				<div>
+					<input class="form-control" type="text" name="last-name" id="last-name" required/>
+				</div>
+				<div class="form-group">
+					<button id="register-btn" class="btn btn-default">Register</button>
 				</div>
 			</form>
 		</div>
