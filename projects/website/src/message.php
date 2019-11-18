@@ -18,7 +18,13 @@
 		<div>
 			<form action="" method="POST">
 				<div>
-					<input type="textarea" name="message"/>
+					<h1>Messages from CSMTIH</h1>
+					<div id="messages">
+						
+					</div>
+				</div>
+				<div>
+					<input id="doctor-message" type="textarea" name="message"/>
 				</div>
 				<div>
 					<button id="message-btn" class="btn btn-default">Send</button>

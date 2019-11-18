@@ -31,3 +31,16 @@ function redirectPath(path="index.php", method="replace") {
 
 	return false; // should not be called
 }
+
+function convertDateToTimestamp(date) {
+	var year = String(date.getFullYear());
+	var month = String(date.getMonth());
+	var day = String(date.getDate());
+	var hours = String(date.getHours());
+	var minutes = String("0" + date.getMinutes());
+	var seconds = String("0" + date.getSeconds());
+	// var milliseconds = String(date.getMilliseconds());
+
+	var result = year + month + day + hours + minutes + seconds;
+	return result;
+}
