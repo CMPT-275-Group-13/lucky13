@@ -57,12 +57,18 @@ struct Message: MessageType {
 //    var downloadURL: URL? = nil
 
     init?(document: QueryDocumentSnapshot) {
+        print("0")
         let data = document.data()
-      
-    guard let sentDate = data["sentDate"] as? Date else {
-        print("1")
-        return nil
-    }
+
+        let timestamp : Timestamp = data["sentDate"] as! Timestamp
+        let sentDate = Date(timeIntervalSince1970: TimeInterval(timestamp.seconds))
+
+        
+//        guard let sentDate = Date(timeIntervalSince1970: TimeInterval(timestamp.seconds)) as? Date else {
+//        print(date)
+//        print("1")
+//        return nil
+//    }
     guard let senderID = data["author"] as? String else {
         print("2")
         return nil
@@ -105,7 +111,8 @@ extension Message: DatabaseRepresentation {
     let rep: [String : Any] = [
         "author": sender.senderId,
         "sentDate": sentDate,
-        "body": text
+        "body": text,
+        "authorName" : sender.displayName
     ]
 //
 //    if let url = downloadURL {
