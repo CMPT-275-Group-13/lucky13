@@ -53,8 +53,8 @@ getMostRecentTests = function (){
                 if(!querySnapshot.empty){
                     var docs = querySnapshot.docs;
                               
-                    for(i in docs){
-                        docArray.push(docs[i].data())
+                    for(var i in docs){
+                        docArray.push(docs[i].data());
 
                     }
                     displayTests();
