@@ -37,7 +37,7 @@ displayPatient = function (){
 
     //displays the values of the object parameters
     var newHTML = [];
-    $.each(docArray, function (value){
+    $.each(docArray, function (index, value){
         newHTML.push('<div>' + value.firstName + ' '
                             + value.lastName + '<br>' + value.emailAddress 
                             + '<br>' + value.phoneNumber + '</div>');
