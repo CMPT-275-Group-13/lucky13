@@ -17,6 +17,7 @@
 		86DD0B2C236BBD6600EDC0E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */; };
 		86DD0B37236BBD6600EDC0E2 /* PAPER_PlanesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B36236BBD6600EDC0E2 /* PAPER_PlanesTests.swift */; };
 		86DD0B42236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */; };
+		A6170EF7238239B800948415 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6170EF6238239B800948415 /* AppUtility.swift */; };
 		A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E72381DFEC004EF918 /* BrainTestClass.swift */; };
 		A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */; };
 		A67D66EE2381EED5004EF918 /* TremorTestClas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClas.swift */; };
@@ -70,6 +71,7 @@
 		86DD0B3D236BBD6600EDC0E2 /* PAPER PlanesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PAPER PlanesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPER_PlanesUITests.swift; sourceTree = "<group>"; };
 		86DD0B43236BBD6600EDC0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6170EF6238239B800948415 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		A67D66E72381DFEC004EF918 /* BrainTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrainTestClass.swift; path = BrainTestModel/BrainTestClass.swift; sourceTree = "<group>"; };
 		A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrainTestCorrectButton.swift; path = BrainTestModel/BrainTestCorrectButton.swift; sourceTree = "<group>"; };
 		A67D66ED2381EED5004EF918 /* TremorTestClas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TremorTestClas.swift; path = TremorTestModel/TremorTestClas.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
 				A9B59852236FB37200095D31 /* TableViewController.swift */,
+				A6170EF6238239B800948415 /* AppUtility.swift */,
 				86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */,
 				A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */,
 				A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */,
@@ -441,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6170EF7238239B800948415 /* AppUtility.swift in Sources */,
 				E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */,
 				A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */,
 				A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */,

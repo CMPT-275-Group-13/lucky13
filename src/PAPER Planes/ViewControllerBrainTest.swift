@@ -10,48 +10,90 @@ import UIKit
 import Firebase
 
 class ViewControllerBrainTest: UIViewController {
-    override open var shouldAutorotate: Bool {
-        return true
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AppUtility.lockOrientation(.landscape)
+        // Or to rotate and lock
+        AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
+        
     }
     
-    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Don't forget to reset when view is being removed
+        AppUtility.lockOrientation(.all)
+        countdownTimer.invalidate() // Stop the test timer so that we won't load the result view if the test is stopped abrubtly
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        startCountdown()
+        
     }
+    
+    var chosenHand = ""
+    @IBOutlet var chooseHandLeft: UIButton!
+    @IBOutlet var chooseHandRight: UIButton!
+    
+    @IBAction func chooseHand(_ sender: UIButton) {
+        if !BrainTest.getGameState() {
+            
+            if sender == chooseHandLeft {
+                chosenHand = "Left"
+            } else {
+                chosenHand = "Right"
+            }
+            BrainTest.startGame(hand: chosenHand)
+            startCountdown()
+            // Make both button disapper and start test count down
+            chooseHandLeft.setTitle("", for: UIControl.State.normal)
+            chooseHandRight.setTitle("", for: UIControl.State.normal)
+            
+            chooseHandLeft.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            chooseHandRight.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        } else {
+            // Treat as very wrong tap
+            BrainTest.reallyWrongButtonTapped()
+        }
+    }
+    
+    
     
     lazy var BrainTest = BrainTestClass(handChosen: "Right", numberOfCorrectButtons: correctButtons.count)
     
     @IBOutlet var correctButtons: [UIButton]!
     
     @IBAction func touchDownCorrectButtons(_ sender: UIButton) {
-        if let correctButtonNumber = correctButtons.index(of: sender) {
-            if !BrainTest.getGameState() {
-                BrainTest.startGame(hand: "Right")
+        if BrainTest.getGameState() {
+            if let correctButtonNumber = correctButtons.index(of: sender) {
+                BrainTest.correctButtonTappedIn(at: correctButtonNumber)
             }
-            BrainTest.correctButtonTappedIn(at: correctButtonNumber)
+        } else {
+            // Ignore button touch down
         }
+        
     }
     
     @IBAction func touchUpInsideCorrectButtons(_ sender: UIButton) {
         if let correctButtonNumber = correctButtons.index(of: sender) {
-            BrainTest.startGame(hand: "Right")
             BrainTest.correctButtonTappedOut(at: correctButtonNumber)
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        BrainTest.startGame(hand: "Right")
-        BrainTest.reallyWrongButtonTapped()
+        if BrainTest.getGameState() {
+            BrainTest.reallyWrongButtonTapped()
+        }
+        
     }
     
     @IBAction func wrongTap(_ sender: UIButton) {
-        BrainTest.startGame(hand: "Right")
-        BrainTest.wrongButtonTapped()
+        if BrainTest.getGameState() {
+            BrainTest.wrongButtonTapped()
+        }
     }
     
     func getTestResultText() -> String {
@@ -77,6 +119,7 @@ class ViewControllerBrainTest: UIViewController {
         testResultText.append(tempText)
         
         print(testResultText)
+        uploadBrainTestData()
         return testResultText
     }
     
@@ -107,16 +150,7 @@ class ViewControllerBrainTest: UIViewController {
     }
     
     func transitionToResult() {
-        //        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        //        guard let viewControllerBrainTestResult = mainStoryboard.instantiateViewController(withIdentifier: "ViewControllerBrainTestResult") as? ViewControllerBrainTestResult else {
-        //            print("Couldn't find ViewControllerBrainTestResult")
-        //            return
-        //        }
         
-        //present(viewControllerBrainTestResult, animated: true, completion: nil)
-        
-        
-        //_ = getTestResultText()
         performSegue(withIdentifier: "resultTransition", sender: self)
         //navigationController?.pushViewController(viewControllerBrainTestResult, animated: true)
     }
@@ -130,9 +164,36 @@ class ViewControllerBrainTest: UIViewController {
             return
         }
     }
+    // FirebaseApp.configure()
+    
+    let db = Firestore.firestore()
+    
+    func getSelfPatientData() {
+        // TODO: For rev 3
+    }
+    
+    func uploadBrainTestData() {
+        var ref: DocumentReference? = nil
+        getSelfPatientData()
+        let (timestamp, handChosen, totalTaps, timeHeldAvg, timeBetweenAvg, accScore) = BrainTest.getResult()
+        ref = db.collection("tests/csmith@gmail.com/brain-test").addDocument(data: [
+            "timeStamp": timestamp,
+            "chosenHand": handChosen,
+            "KinesiaScore": totalTaps,
+            "AkinesiaScore": timeHeldAvg,
+            "IncorrdinationScore": timeBetweenAvg,
+            "DysmetriaScore": accScore
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+    }
     
     // TODO: Implement the MVC design for the BRAIN test in rev 2
-    func updateViewFromModel() {
+    func updateViewFromHandChoice() {
         
     }
 }
