@@ -121,9 +121,9 @@ class TableViewController: UITableViewController {
     }
     
     @objc private func textFieldDidChange (_field: UITextField){
-//        guard let ac = currentChannelAlertController else{
-//            return
-//        }
+        guard let ac = currentChannelAlertController else{
+            return
+        }
         //ac.preferredAction?.isEnabled = field.hasText
     }
 
@@ -135,8 +135,8 @@ class TableViewController: UITableViewController {
         guard let channelName = ac.textFields?.first?.text else{
             return
         }
-//        let channel = Channel(name: channelName)
-//        channel
+        let channel = Channel(name: channelName)
+        channel
     }
     private func addChannelToTable(_ channel: Channel){
         guard !channels.contains(channel)else {
