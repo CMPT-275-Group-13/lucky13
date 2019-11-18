@@ -12,7 +12,7 @@ import CoreMotion
 class TremorTestClass {
     
     var dateTaken = Date()
-    var timestamp = NSDate().timeIntervalSince1970
+    private var timestamp = NSDate().timeIntervalSince1970
     
     
     //    var timer = Timer()
@@ -31,24 +31,28 @@ class TremorTestClass {
     //    }
     
     var waitTestStart = 10 // Default: wait 10 seconds before starting test
-    var dataTakenInterval = 1.0/60.0 // Default: have a 1/60 seconds interval to taken data
-    var testDuration = 30 // Default: have the tremor test run for 30 seconds
+    var dataTakenInterval = 0.5 // Default: have a 1/60 seconds interval to taken data
+    var testDuration = 5 // Default: have the tremor test run for 30 seconds
     
-    var xAccelRawDatas: [Double] = []
-    var yAccelRawDatas: [Double] = []
-    var zAccelRawDatas: [Double] = []
+    private var xDMPitchDatas: [Double] = []
+    private var yDMRollDatas: [Double] = []
+    private var zDMYawDatas: [Double] = []
     
-    var xGyroRawDatas: [Double] = []
-    var yGyroRawDatas: [Double] = []
-    var zGyroRawDatas: [Double] = []
+    private var xAccelRawDatas: [Double] = []
+    private var yAccelRawDatas: [Double] = []
+    private var zAccelRawDatas: [Double] = []
+    
+    private var xGyroRawDatas: [Double] = []
+    private var yGyroRawDatas: [Double] = []
+    private var zGyroRawDatas: [Double] = []
     
     var motion = CMMotionManager()
     
-    init(waitTime: Int, dataInterval: Double, testDuration: Int) {
-        self.waitTestStart = waitTime
-        self.dataTakenInterval = dataInterval
-        self.testDuration = testDuration
-    }
+    //    init(waitTime: Int, dataInterval: Double, testDuration: Int) {
+    //        self.waitTestStart = waitTime
+    //        self.dataTakenInterval = dataInterval
+    //        self.testDuration = testDuration
+    //    }
     
     
     // Start recording raw accelerometer data into the class's accelerometer array
@@ -68,6 +72,8 @@ class TremorTestClass {
                 self.yAccelRawDatas.append(trueData.acceleration.y)
                 self.zAccelRawDatas.append(trueData.acceleration.z)
             }
+        } else {
+            print("Don't have accelerometer")
         }
     }
     
@@ -75,10 +81,14 @@ class TremorTestClass {
         self.motion.stopAccelerometerUpdates()
     }
     
-    func recordAccelerometerFor(seconds duration: Int) {
+    func getAccelerometerData() -> (Any ,[Double], [Double], [Double]) {
+        return (self.timestamp, self.xAccelRawDatas, self.yAccelRawDatas, self.zAccelRawDatas)
+    }
+    
+    func recordAccelerometer() {
         startAccelerometer()
         // Wait for 'duration' seconds
-        waitFor(seconds: duration)
+        waitFor(seconds: testDuration)
         stopAccelerometer()
     }
     
@@ -111,10 +121,10 @@ class TremorTestClass {
         self.motion.stopGyroUpdates()
     }
     
-    func recordGyroscopeFor(seconds duration: Int) {
+    func recordGyroscope() {
         startGyroscope()
         // Wait for 'duration' seconds
-        waitFor(seconds: duration)
+        waitFor(seconds: testDuration)
         stopGyroscope()
     }
     
@@ -124,18 +134,67 @@ class TremorTestClass {
         zAccelRawDatas.removeAll()
     }
     
-    func waitFor(seconds wait: Int) {
-        Timer.scheduledTimer(withTimeInterval: Double(wait), repeats: false) { (timer) in
+    func startDeviceMotion() {
+        if motion.isDeviceMotionActive {
+            // Might want to reset the array first
+            clearAccerlerometerArrayData()
+            
+            motion.deviceMotionUpdateInterval = dataTakenInterval
+            motion.startDeviceMotionUpdates(to: .main) { (data, error) in
+                guard let trueData = data, error == nil else {
+                    return
+                }
+                
+                // Saving current accelerometer data for use
+                self.xAccelRawDatas.append(trueData.attitude.pitch)
+                self.yAccelRawDatas.append(trueData.attitude.roll)
+                self.zAccelRawDatas.append(trueData.attitude.yaw)
+            }
+        } else {
+            print("Don't have Device Motion")
         }
     }
     
+    func stopDeviceMotion() {
+        self.motion.stopDeviceMotionUpdates()
+    }
+    
+    func recordDeviceMotion() {
+        startDeviceMotion()
+        // Wait for 'duration' seconds
+        waitFor(seconds: self.testDuration)
+        stopDeviceMotion()
+    }
+    
+    func clearDeviceMotionData() {
+        xDMPitchDatas.removeAll()
+        yDMRollDatas.removeAll()
+        zDMYawDatas.removeAll()
+    }
+    
+    
+    private func waitFor(seconds wait: Int) {
+        var countDown = wait
+        Timer.scheduledTimer(withTimeInterval: Double(wait), repeats: false) { (timer) in
+            print("\(countDown)")
+            countDown -= 1
+        }
+    }
     
     func waitForStartTest() {
         waitFor(seconds: waitTestStart)
     }
     
-    func stopTestAbrupt() {
-        
+    func getDeviceMotionResult() -> (Any ,[Double], [Double], [Double]) {
+        return (self.timestamp, self.xDMPitchDatas, self.yDMRollDatas, self.zDMYawDatas)
     }
     
+    func stopTestAbrupt() {
+        self.stopAccelerometer()
+        self.stopGyroscope()
+        self.stopDeviceMotion()
+        self.clearGyroscopeArrayData()
+        self.clearAccerlerometerArrayData()
+        self.clearDeviceMotionData()
+    }
 }
