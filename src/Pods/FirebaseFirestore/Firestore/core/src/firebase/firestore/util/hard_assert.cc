@@ -26,27 +26,58 @@
 namespace firebase {
 namespace firestore {
 namespace util {
-namespace internal {
 
-void FailAssertion(const char* file,
-                   const char* func,
-                   const int line,
-                   const std::string& message) {
-  Throw(ExceptionType::AssertionFailure, file, func, line, message);
+ABSL_ATTRIBUTE_NORETURN void DefaultFailureHandler(const char* file,
+                                                   const char* func,
+                                                   const int line,
+                                                   const std::string& message) {
+  std::string failure =
+      StringFormat("ASSERT: %s(%s) %s: %s", file, line, func, message);
+
+#if ABSL_HAVE_EXCEPTIONS
+  throw std::logic_error(failure);
+
+#else
+  fprintf(stderr, "%s\n", failure.c_str());
+  std::terminate();
+#endif
 }
 
-void FailAssertion(const char* file,
-                   const char* func,
-                   const int line,
-                   const std::string& message,
-                   const char* condition) {
+namespace {
+FailureHandler failure_handler = DefaultFailureHandler;
+}  // namespace
+
+FailureHandler SetFailureHandler(FailureHandler callback) {
+  FailureHandler previous = failure_handler;
+  failure_handler = callback;
+  return previous;
+}
+
+namespace internal {
+
+void Fail(const char* file,
+          const char* func,
+          const int line,
+          const std::string& message) {
+  failure_handler(file, func, line, message);
+
+  // It's expected that the failure handler above does not return. But if it
+  // does, just terminate.
+  std::terminate();
+}
+
+void Fail(const char* file,
+          const char* func,
+          const int line,
+          const std::string& message,
+          const char* condition) {
   std::string failure;
   if (message.empty()) {
     failure = condition;
   } else {
     failure = StringFormat("%s (expected %s)", message, condition);
   }
-  FailAssertion(file, func, line, failure);
+  Fail(file, func, line, failure);
 }
 
 }  // namespace internal

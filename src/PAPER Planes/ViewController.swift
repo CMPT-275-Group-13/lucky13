@@ -11,6 +11,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var doctor1: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
