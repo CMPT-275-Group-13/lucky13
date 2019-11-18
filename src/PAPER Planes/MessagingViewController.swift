@@ -8,61 +8,62 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
+import MessageKit
 
-struct Message{
-    var user: String
-    var body: String
-}
+//struct Message{
+//    var user: String
+//    var body: String
+//}
 
 
-class MessagingViewController: UIViewController {
+class MessagingViewController: MessagesViewController {
     // MARK: Properties
-    @IBOutlet weak var msgTxtField: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var sendButton: UIButton!
-//    @IBOutlet weak var tableView: UITableView!
-    
-    var messageArr = [Message]()
-    
-    var db: Firestore!
-    var currentuser : String = "csmith"
-    var currentdoctor : String = "John_Doe"
-    
-    var colRef: CollectionReference!
-
-    @IBAction func sendMsg(sender: UIButton){
-        print("BUTT")
-        guard let msgBody = msgTxtField.text, !msgBody.isEmpty else{return}
-        sendMessage(body: msgBody, from: true)
-    }
-    
-    @IBAction func getMsg(sender: UIButton){
-        print("RECEIVE")
-        getMessages()
-    }
-
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        colRef.addSnapshotListener{ (docSnapShot, error)in
-//            guard let docSnapShot = docSnapShot, docSnapShot.isEmpty else {return}
-//            let myData = docSnapShot
-//        }
+//    @IBOutlet weak var msgTxtField: UITextField!
+//    @IBOutlet weak var scrollView: UIScrollView!
+//    @IBOutlet weak var contentView: UIView!
+//    @IBOutlet weak var sendButton: UIButton!
+////    @IBOutlet weak var tableView: UITableView!
+//
+//    var messageArr = [Message]()
+//
+//    var db: Firestore!
+//    var currentuser : String = "csmith"
+//    var currentdoctor : String = "John_Doe"
+//
+//    var colRef: CollectionReference!
+//
+//    @IBAction func sendMsg(sender: UIButton){
+//        print("BUTT")
+//        guard let msgBody = msgTxtField.text, !msgBody.isEmpty else{return}
+//        sendMessage(body: msgBody, from: true)
 //    }
 //
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
-
-        db = Firestore.firestore()
-        
-        colRef = db.collection("messages").document(currentuser).collection(currentdoctor)
-        
+//    @IBAction func getMsg(sender: UIButton){
+//        print("RECEIVE")
+//        getMessages()
+//    }
+//
+//
+////    override func viewWillAppear(_ animated: Bool) {
+////        super.viewWillAppear(animated)
+////        colRef.addSnapshotListener{ (docSnapShot, error)in
+////            guard let docSnapShot = docSnapShot, docSnapShot.isEmpty else {return}
+////            let myData = docSnapShot
+////        }
+////    }
+////
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // Do any additional setup after loading the view.
+//        let settings = FirestoreSettings()
+//        Firestore.firestore().settings = settings
+//
+//        db = Firestore.firestore()
+//
+//        colRef = db.collection("messages").document(currentuser).collection(currentdoctor)
+//
     }
         // Set textfield delegate
 //        msgTxtField.delegate = self
@@ -154,17 +155,17 @@ class MessagingViewController: UIViewController {
 //        }
 //    }
     
-    private func sendMessage(body: String, from: Bool){
-        //var ref: DocumentReference? = nil
-        let dataToSave: [String: Any] = ["Body": body, "From": from]
-        colRef.addDocument(data: dataToSave){err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID:")
-            }
-            
-        }
+//    private func sendMessage(body: String, from: Bool){
+//        //var ref: DocumentReference? = nil
+//        let dataToSave: [String: Any] = ["Body": body, "From": from]
+//        colRef.addDocument(data: dataToSave){err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            } else {
+//                print("Document added with ID:")
+//            }
+//
+//        }
 //        ref = colRef.addDocument(data: [
 //            "Body": body, "From": from]) { err in
 //            if let err = err {
@@ -174,12 +175,11 @@ class MessagingViewController: UIViewController {
 //            }
 //        }
 
-    }
+//    }
     
-    private func getMessages()
-    {
-        
-    }
-    
-}
+//    private func getMessages()
+//    {
+//
+//    }
+//}
 

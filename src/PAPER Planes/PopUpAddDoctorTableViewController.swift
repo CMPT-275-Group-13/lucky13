@@ -23,7 +23,7 @@ class PopUpAddDoctorTableViewController: UITableViewController {
     @IBOutlet weak var Emailentry: UITextField!
     @IBOutlet weak var Save: UIButton!
     
-    var messageArr = [Message]()
+//    var messageArr = [Message]()
     var db:Firestore!
     var currentuser: String = "Akan"
     
