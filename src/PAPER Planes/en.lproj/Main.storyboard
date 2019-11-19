@@ -476,7 +476,7 @@
             </objects>
             <point key="canvasLocation" x="1725" y="-575"/>
         </scene>
-        <!--Doctor Name-->
+        <!--Dr. Jin-->
         <scene sceneID="z5M-eK-mLL">
             <objects>
                 <viewController id="ge3-sZ-B94" customClass="MessagingViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
@@ -486,7 +486,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="b3X-XE-Oqh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Doctor Name" id="Oag-yM-7ep"/>
+                    <navigationItem key="navigationItem" title="Dr. Jin" id="Oag-yM-7ep"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
