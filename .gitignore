@@ -87,3 +87,7 @@ src/PAPER Planes/.DS_Store
 src/.DS_Store
 .DS_Store
 src/lucky13/firebase-debug.log
+/projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/.vs/PaperPlane.UITest/v15
+/projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/PaperPlane.UITest/bin/Debug
+/projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/packages
+/projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/PaperPlane.UITest/obj/Debug
