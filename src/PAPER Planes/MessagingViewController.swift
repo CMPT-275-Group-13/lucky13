@@ -33,7 +33,7 @@ class MessagingViewController: MessagesViewController {
         // Do any additional setup after loading the view.
         
         messageListener = reference?.addSnapshotListener { querySnapshot, error in
-            print ("messageListener")
+//            print ("messageListener")
           guard let snapshot = querySnapshot else {
             print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
             return
@@ -41,7 +41,7 @@ class MessagingViewController: MessagesViewController {
 //          print("LISTENER LISTENING")
           snapshot.documentChanges.forEach { change in
             self.handleDocumentChange(change)
-            print("CHANGED")
+//            print("CHANGED")
           }
         }
         
@@ -65,17 +65,17 @@ class MessagingViewController: MessagesViewController {
       }
       
       messages.append(message)
-        print ("insertNewMessage1")
+//        print ("insertNewMessage1")
       messages.sort{$0.sentDate < $1.sentDate}
-        print ("insertNewMessage2")
+//        print ("insertNewMessage2")
       
       let isLatestMessage = messages.index(of: message) == (messages.count - 1)
       let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
-      print ("insertNewMessage3")
+//      print ("insertNewMessage3")
       messagesCollectionView.reloadData()
-      print ("insertNewMessage4")
+//      print ("insertNewMessage4")
       if shouldScrollToBottom {
-        print ("insertNewMessage")
+//        print ("insertNewMessage")
         DispatchQueue.main.async {
           self.messagesCollectionView.scrollToBottom(animated: true)
         }
@@ -83,16 +83,16 @@ class MessagingViewController: MessagesViewController {
     }
     
     private func handleDocumentChange(_ change: DocumentChange) {
-        print("handle3")
+//        print("handle3")
 //      guard var message = Message(document: change.document) else {
 //        return
 //      }
         guard let message = Message(document: change.document) else { return  }
         
-        print ("handle1")
+//        print ("handle1")
       switch change.type {
       case .added:
-        print ("handle2")
+//        print ("handle2")
 
         insertNewMessage(message)
       default:
@@ -115,7 +115,7 @@ class MessagingViewController: MessagesViewController {
     
 extension MessagingViewController: MessagesDataSource {
     func currentSender() -> SenderType {
-        return Sender(id: member.name, displayName: member.name)
+        return Sender(id: member.email, displayName: member.name)
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {

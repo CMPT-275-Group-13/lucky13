@@ -57,7 +57,7 @@ struct Message: MessageType {
 //    var downloadURL: URL? = nil
 
     init?(document: QueryDocumentSnapshot) {
-        print("0")
+//        print("0")
         let data = document.data()
 
         let timestamp : Timestamp = data["sentDate"] as! Timestamp
@@ -70,11 +70,11 @@ struct Message: MessageType {
 //        return nil
 //    }
     guard let senderID = data["author"] as? String else {
-        print("2")
+//        print("2")
         return nil
     }
     guard let displayName = data["authorName"] as? String else{
-        print("3")
+//        print("3")
         return nil
     }
       
@@ -83,7 +83,7 @@ struct Message: MessageType {
       self.sentDate = sentDate
       sender = Sender(id: senderID, displayName: displayName)
         
-        print("4")
+//        print("4")
       if let body = data["body"] as? String {
         self.text = body
 //        downloadURL = nil
