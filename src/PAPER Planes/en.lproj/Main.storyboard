@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -59,7 +57,7 @@
                                                 <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="207" maxY="0.0"/>
-                                                <state key="normal" image="text.bubble.fill">
+                                                <state key="normal" image="text.bubble.fill" catalog="system">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Doctors">
                                                             <attributes>
@@ -85,7 +83,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="titleEdgeInsets" minX="6" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="190" maxY="0.0"/>
-                                                <state key="normal" image="checkmark.square.fill">
+                                                <state key="normal" image="checkmark.square.fill" catalog="system">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Check-up">
                                                             <attributes>
@@ -110,7 +108,7 @@
                                                 <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="175" maxY="0.0"/>
-                                                <state key="normal" image="tag.fill">
+                                                <state key="normal" image="tag.fill" catalog="system">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Medication">
                                                             <attributes>
@@ -131,7 +129,7 @@
                                                 <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="200" maxY="0.0"/>
-                                                <state key="normal" image="hand.raised.fill">
+                                                <state key="normal" image="hand.raised.fill" catalog="system">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Stabilizer">
                                                             <attributes>
@@ -181,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cum-rz-W9H" id="P0m-nR-DpE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="74.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CS-WO-xpr">
@@ -247,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YFq-fq-3W2" userLabel="Information stack">
-                                <rect key="frame" x="50" y="64" width="314" height="241"/>
+                                <rect key="frame" x="50" y="64" width="314" height="253"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITv-Og-aZ8">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="20.333333333333332"/>
@@ -256,34 +254,34 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZyI-mh-rEr" userLabel="First Name Text Field">
-                                        <rect key="frame" x="0.0" y="30.333333333333329" width="314" height="30"/>
+                                        <rect key="frame" x="0.0" y="30.333333333333329" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdE-0s-DuK" userLabel="Last Name">
-                                        <rect key="frame" x="0.0" y="70.333333333333343" width="314" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="74.333333333333343" width="314" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oNC-DQ-1Wn" userLabel="Last Name Text Field">
-                                        <rect key="frame" x="0.0" y="100.66666666666666" width="314" height="30"/>
+                                        <rect key="frame" x="0.0" y="104.66666666666666" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qv-Ju-SRM" userLabel="Email">
-                                        <rect key="frame" x="0.0" y="140.66666666666666" width="314" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="148.66666666666666" width="314" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6g7-bt-fyh" userLabel="Email Text Field">
-                                        <rect key="frame" x="0.0" y="171" width="314" height="30"/>
+                                        <rect key="frame" x="0.0" y="179" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ai-Tz-R2E">
-                                        <rect key="frame" x="0.0" y="211" width="314" height="30"/>
+                                        <rect key="frame" x="0.0" y="223" width="314" height="30"/>
                                         <state key="normal" title="Save"/>
                                     </button>
                                 </subviews>
@@ -478,7 +476,7 @@
             </objects>
             <point key="canvasLocation" x="1725" y="-575"/>
         </scene>
-        <!--Doctor Name-->
+        <!--Dr. Jin-->
         <scene sceneID="z5M-eK-mLL">
             <objects>
                 <viewController id="ge3-sZ-B94" customClass="MessagingViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
@@ -488,7 +486,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="b3X-XE-Oqh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Doctor Name" id="Oag-yM-7ep"/>
+                    <navigationItem key="navigationItem" title="Dr. Jin" id="Oag-yM-7ep"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,7 +497,7 @@
             <objects>
                 <viewController storyboardIdentifier="ViewControllerBrainTestResult" id="KMG-GH-BAx" customClass="ViewControllerBrainTestResult" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q5X-LN-NCW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd9-te-AGE">
@@ -901,10 +899,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.square.fill" width="64" height="56"/>
-        <image name="hand.raised.fill" width="64" height="64"/>
-        <image name="tag.fill" width="64" height="58"/>
-        <image name="text.bubble.fill" width="64" height="54"/>
+        <image name="checkmark.square.fill" catalog="system" width="64" height="56"/>
+        <image name="hand.raised.fill" catalog="system" width="64" height="64"/>
+        <image name="tag.fill" catalog="system" width="64" height="58"/>
+        <image name="text.bubble.fill" catalog="system" width="64" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BGp-AG-iBV"/>

@@ -31,6 +31,7 @@
 		A9B59853236FB37200095D31 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B59852236FB37200095D31 /* TableViewController.swift */; };
 		A9C50938236CEECB001899FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C50937236CEECA001899FB /* GoogleService-Info.plist */; };
 		A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */; };
+		A9EE63CF23833DFF008CD1CB /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */; };
 		DE139128520565CB5714CB5F /* Pods_PAPER_PlanesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */; };
 		E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		A9B59852236FB37200095D31 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A9C50937236CEECA001899FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
+		A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAPER_PlanesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTestResult.swift; sourceTree = "<group>"; };
 		F986128EC99CA02D3DB58887 /* Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig"; path = "Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				A956D3E42381F794007072A0 /* Main.storyboard */,
 				A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */,
 				A97D7E052382355C00EB7647 /* Message.swift */,
+				A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */,
 				A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
 				A9B59852236FB37200095D31 /* TableViewController.swift */,
@@ -462,6 +465,7 @@
 				A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */,
 				869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */,
 				A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */,
+				A9EE63CF23833DFF008CD1CB /* DatabaseRepresentation.swift in Sources */,
 				A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */,
 				A67D66EE2381EED5004EF918 /* TremorTestClas.swift in Sources */,
 				A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */,
@@ -647,14 +651,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8PL6VQ48LV;
+				DEVELOPMENT_TEAM = YB2CH8LMF6;
 				INFOPLIST_FILE = "PAPER Planes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.minhdinh.PAPER-Planes";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Planes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -669,14 +673,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8PL6VQ48LV;
+				DEVELOPMENT_TEAM = YB2CH8LMF6;
 				INFOPLIST_FILE = "PAPER Planes/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.minhdinh.PAPER-Planes";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Planes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -690,7 +694,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YB2CH8LMF6;
 				INFOPLIST_FILE = "PAPER PlanesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -711,7 +717,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YB2CH8LMF6;
 				INFOPLIST_FILE = "PAPER PlanesTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -732,6 +740,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YB2CH8LMF6;
 				INFOPLIST_FILE = "PAPER PlanesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -752,6 +761,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YB2CH8LMF6;
 				INFOPLIST_FILE = "PAPER PlanesUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

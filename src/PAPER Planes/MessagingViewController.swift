@@ -10,21 +10,42 @@
 import UIKit
 import Firebase
 import MessageKit
+import FirebaseFirestore
 
-//struct Message{
-//    var user: String
-//    var body: String
-//}
 
 class MessagingViewController: MessagesViewController {
+    private let db = Firestore.firestore()
+    private var reference: CollectionReference?
+    private let docId: String = "jinn@sfu.ca"
+    
     var messages: [Message] = []
-    var member: Member = Member(name: "John")
-        
+    var member: Member = Member(name: "John", email: "csmith@gmail.com")
+    private var messageListener: ListenerRegistration?
+
+    deinit {
+      messageListener?.remove()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        reference = db.collection(["messages", docId, member.email].joined(separator: "/"))
         // Do any additional setup after loading the view.
         
+        messageListener = reference?.addSnapshotListener { querySnapshot, error in
+//            print ("messageListener")
+          guard let snapshot = querySnapshot else {
+            print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
+            return
+          }
+//          print("LISTENER LISTENING")
+          snapshot.documentChanges.forEach { change in
+            self.handleDocumentChange(change)
+//            print("CHANGED")
+          }
+        }
+        
+        messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -44,33 +65,57 @@ class MessagingViewController: MessagesViewController {
       }
       
       messages.append(message)
+//        print ("insertNewMessage1")
       messages.sort{$0.sentDate < $1.sentDate}
+//        print ("insertNewMessage2")
       
       let isLatestMessage = messages.index(of: message) == (messages.count - 1)
       let shouldScrollToBottom = messagesCollectionView.isAtBottom && isLatestMessage
-      
+//      print ("insertNewMessage3")
       messagesCollectionView.reloadData()
-      
+//      print ("insertNewMessage4")
       if shouldScrollToBottom {
+//        print ("insertNewMessage")
         DispatchQueue.main.async {
           self.messagesCollectionView.scrollToBottom(animated: true)
         }
       }
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-      super.viewDidAppear(animated)
-      
-      let testMessage = Message(member: member, text: "I love pizza, what is your favorite kind?")
-      insertNewMessage(testMessage)
+    private func handleDocumentChange(_ change: DocumentChange) {
+//        print("handle3")
+//      guard var message = Message(document: change.document) else {
+//        return
+//      }
+        guard let message = Message(document: change.document) else { return  }
+        
+//        print ("handle1")
+      switch change.type {
+      case .added:
+//        print ("handle2")
+
+        insertNewMessage(message)
+      default:
+        break
+      }
     }
     
+    private func save(_ message: Message) {
+      reference?.addDocument(data: message.representation) { error in
+        if let e = error {
+          print("Error sending message: \(e.localizedDescription)")
+          return
+        }
+        
+        self.messagesCollectionView.scrollToBottom()
+      }
+    }
+
 }
     
 extension MessagingViewController: MessagesDataSource {
     func currentSender() -> SenderType {
-        return Sender(id: member.name, displayName: member.name)
+        return Sender(id: member.email, displayName: member.name)
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -145,6 +190,23 @@ extension MessagingViewController: MessagesLayoutDelegate {
         return 15
     }
 }
+
+extension MessagingViewController: MessageInputBarDelegate{
+    
+    func inputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+
+//    print("hello")
+      // 1
+      let message = Message(member: member, text: text)
+
+      // 2
+      save(message)
+
+      // 3
+      inputBar.inputTextView.text = ""
+    }
+}
+
 
 extension UIScrollView{
     var isAtBottom: Bool{
