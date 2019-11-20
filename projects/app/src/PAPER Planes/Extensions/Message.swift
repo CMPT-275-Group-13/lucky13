@@ -13,68 +13,47 @@ import Firebase
 import FirebaseFirestore
 
 struct Member {
-//TODO: Add UID
+    // creating a structure that has variables for the member's name and email
     let name: String
     let email: String
 }
 
 struct Message: MessageType {
-//    var messageId: String
+    //creating a structure that has the variables for the contents and labels of the message
     var sender: SenderType
     var sentDate: Date
-    
-//    let member: Member
     let text: String
     let id: String?
-//    let sentDate: Date
-//    let sender: Sender
-    
+
     init(member: Member, text: String){
-//        member = member
+        // initializing the message contents, who sent the message, and when the message was sent
         self.text = text
         sender = Sender(id: member.email, displayName: member.name)
         sentDate = Date()
-//        messageId = UUID().uuidString
         id = nil
     }
     
     var messageId: String{
         return id ?? UUID().uuidString
     }
-    
-//    var sender: SenderType {
-//      return Sender(id: member.email, displayName: member.name)
-//    }
-
-//    var sentDate: Date {
-//        return Date()
-//    }
 
     var kind: MessageKind {
         return .text(text)
     }
     
-//    var downloadURL: URL? = nil
 
     init?(document: QueryDocumentSnapshot) {
-//        print("0")
+        //takes a snapshot of the data in our database
         let data = document.data()
-
         let timestamp : Timestamp = data["sentDate"] as! Timestamp
         let sentDate = Date(timeIntervalSince1970: TimeInterval(timestamp.seconds))
 
-        
-//        guard let sentDate = Date(timeIntervalSince1970: TimeInterval(timestamp.seconds)) as? Date else {
-//        print(date)
-//        print("1")
-//        return nil
-//    }
+    //checking if there is data inside the field author
     guard let senderID = data["author"] as? String else {
-//        print("2")
         return nil
     }
+    //checking if there is data inside the field authorName
     guard let displayName = data["authorName"] as? String else{
-//        print("3")
         return nil
     }
       
@@ -83,13 +62,8 @@ struct Message: MessageType {
       self.sentDate = sentDate
       sender = Sender(id: senderID, displayName: displayName)
         
-//        print("4")
       if let body = data["body"] as? String {
         self.text = body
-//        downloadURL = nil
-//      } else if let urlString = data["url"] as? String, let url = URL(string: urlString) {
-//        downloadURL = url
-//        content = ""
       } else {
         return nil
       }
@@ -99,6 +73,7 @@ struct Message: MessageType {
 }
 
 extension Message: Equatable{
+    // defining what == means
     static func == (lhs: Message, rhs: Message) -> Bool {
         return lhs.messageId == rhs.messageId
     }
@@ -106,7 +81,7 @@ extension Message: Equatable{
 
 
 extension Message: DatabaseRepresentation {
-  
+  //returns field values from the data base as variables for our program to use
   var representation: [String : Any] {
     let rep: [String : Any] = [
         "author": sender.senderId,
@@ -114,13 +89,6 @@ extension Message: DatabaseRepresentation {
         "body": text,
         "authorName" : sender.displayName
     ]
-//
-//    if let url = downloadURL {
-//      rep["url"] = url.absoluteString
-//    } else {
-//      rep["body"] = text
-//    }
-    
     return rep
   }
   
