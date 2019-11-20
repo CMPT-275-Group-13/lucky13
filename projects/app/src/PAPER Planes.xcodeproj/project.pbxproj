@@ -165,7 +165,6 @@
 				86DD0B2D236BBD6600EDC0E2 /* Info.plist */,
 				A9EE63D42385E568008CD1CB /* Classes */,
 				A9EE63D12385E448008CD1CB /* Extensions */,
-				A9EE63D62385E59C008CD1CB /* Info Files */,
 				A9EE63D52385E588008CD1CB /* Storyboards */,
 				A9EE63D72385E5B6008CD1CB /* Utilities */,
 				A9EE63D02385E40D008CD1CB /* ViewControllers */,
@@ -235,13 +234,6 @@
 				86DD0B2A236BBD6600EDC0E2 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		A9EE63D62385E59C008CD1CB /* Info Files */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Info Files";
 			sourceTree = "<group>";
 		};
 		A9EE63D72385E5B6008CD1CB /* Utilities */ = {
