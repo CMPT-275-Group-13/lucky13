@@ -125,14 +125,17 @@ class MessagingViewController: MessagesViewController {
     //Helper function that saves new messages as a document on the DB
     //
     private func save(_ message: Message) {
-      reference?.addDocument(data: message.representation) { error in
-        if let e = error {
-          print("Error sending message: \(e.localizedDescription)")
-          return
+        reference?.document(message.messageId).setData(
+            message.representation
+            ) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
         }
-        
+            
         self.messagesCollectionView.scrollToBottom()
-      }
     }
 
 }
