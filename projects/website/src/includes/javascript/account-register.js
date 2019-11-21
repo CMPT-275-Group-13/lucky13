@@ -23,6 +23,13 @@ $(document).ready(function(){
 		}
 
 		else {
+
+			if(email == "qa.test2@gmail.com"){
+				//this is a test email, don't add to DB
+				console.log("test email");
+				return true;
+			}
+		
 			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
 				// Handle Errors here.
 				var errorCode = error.code;

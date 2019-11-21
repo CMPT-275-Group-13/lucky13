@@ -3,6 +3,8 @@
  */
 
 function firestoreCreateUser(email, firstName, lastName) {
+
+
 	var db = firebase.firestore();
 
 	db.collection("doctors").doc(email).add({
