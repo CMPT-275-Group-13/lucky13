@@ -24,12 +24,14 @@
 		A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClass.swift */; };
 		A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */; };
 		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
+		A92E7F15238665F00002543D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E7F14238665F00002543D /* HomeViewController.swift */; };
 		A956D3E62381F795007072A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A956D3E42381F794007072A0 /* Main.storyboard */; };
 		A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */; };
 		A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */; };
 		A97D7E062382355C00EB7647 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D7E052382355C00EB7647 /* Message.swift */; };
 		A9B59853236FB37200095D31 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B59852236FB37200095D31 /* TableViewController.swift */; };
 		A9C50938236CEECB001899FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9C50937236CEECA001899FB /* GoogleService-Info.plist */; };
+		A9D4AA222386521A004ED403 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D4AA212386521A004ED403 /* LoginViewController.swift */; };
 		A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */; };
 		A9EE63CF23833DFF008CD1CB /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */; };
 		DE139128520565CB5714CB5F /* Pods_PAPER_PlanesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */; };
@@ -82,12 +84,14 @@
 		A67D66ED2381EED5004EF918 /* TremorTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremorTestClass.swift; sourceTree = "<group>"; };
 		A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTest.swift; sourceTree = "<group>"; };
 		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		A92E7F14238665F00002543D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A956D3E52381F794007072A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorTableViewController.swift; sourceTree = "<group>"; };
 		A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorsViewController.swift; sourceTree = "<group>"; };
 		A97D7E052382355C00EB7647 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A9B59852236FB37200095D31 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		A9C50937236CEECA001899FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9D4AA212386521A004ED403 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
 		A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAPER_PlanesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +206,8 @@
 				A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */,
 				A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */,
 				A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */,
+				A9D4AA212386521A004ED403 /* LoginViewController.swift */,
+				A92E7F14238665F00002543D /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				86DD0B1B236BBD6500EDC0E2 /* Frameworks */,
 				86DD0B1C236BBD6500EDC0E2 /* Resources */,
 				F2A06F3EB8E1AB40FD962408 /* [CP] Embed Pods Frameworks */,
+				90F17B0B8D2187745C0D4703 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,6 +313,7 @@
 				86DD0B3A236BBD6600EDC0E2 /* Frameworks */,
 				86DD0B3B236BBD6600EDC0E2 /* Resources */,
 				A7A13A9C3A6DE9F6190A474D /* [CP] Embed Pods Frameworks */,
+				E158446755027532F72E9F9F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -433,6 +441,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		90F17B0B8D2187745C0D4703 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes/Pods-PAPER Planes-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes/Pods-PAPER Planes-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes/Pods-PAPER Planes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A7A13A9C3A6DE9F6190A474D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +473,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E158446755027532F72E9F9F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F2A06F3EB8E1AB40FD962408 /* [CP] Embed Pods Frameworks */ = {
@@ -500,6 +542,8 @@
 				E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */,
 				A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */,
 				A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */,
+				A9D4AA222386521A004ED403 /* LoginViewController.swift in Sources */,
+				A92E7F15238665F00002543D /* HomeViewController.swift in Sources */,
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
 				A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */,

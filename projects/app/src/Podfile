@@ -8,11 +8,13 @@ target 'PAPER Planes' do
   # Pods for PAPER Planes
 
 # add the Firebase pod for Google Analytics
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Email'
+pod 'FirebaseUI/Google'
 pod 'Firebase/Analytics'
-pod 'Firebase/Messaging'
 pod 'Firebase/Core'
 pod 'Firebase/Firestore'
-#pod 'Firebase/Auth'
+pod 'Firebase/Auth'
 pod 'MessageKit'
 
 

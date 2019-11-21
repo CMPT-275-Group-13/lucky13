@@ -8,26 +8,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--View Controller-->
         <scene sceneID="QX9-lT-crg">
             <objects>
-                <navigationController id="F4d-ee-uOf" sceneMemberID="viewController">
+                <navigationController id="F4d-ee-uOf" customClass="ViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zdG-yr-5Ox">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4H9-uv-B3I"/>
+                        <segue destination="3YU-is-f06" kind="relationship" relationship="rootViewController" id="LCe-Or-buT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFg-Uh-l3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1275" y="139"/>
+            <point key="canvasLocation" x="-2049" y="139"/>
         </scene>
-        <!--Home-->
+        <!--Login View Controller-->
+        <scene sceneID="anf-HJ-Zdp">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="3YU-is-f06" customClass="LoginViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wD8-Nb-88l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LfF-PN-X26"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qme-VM-bEF"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goHome" id="SPV-Ln-rn7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8BS-bU-7WJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1188" y="139"/>
+        </scene>
+        <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +93,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="vMy-Kz-L39" kind="show" id="TFT-cT-IhZ"/>
+                                                    <segue destination="vMy-Kz-L39" kind="show" identifier="" id="TFT-cT-IhZ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mzv-02-Dg3">
@@ -164,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-239.13043478260872" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-239" y="139"/>
         </scene>
         <!--Doctors-->
         <scene sceneID="fHL-g0-Ynd">
@@ -305,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gQH-xR-Avd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="735" y="-627"/>
+            <point key="canvasLocation" x="735" y="-575"/>
         </scene>
         <!--Doctors-->
         <scene sceneID="aJN-RO-THl">
@@ -577,6 +596,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Uou-kw-bep"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fwq-mE-1D7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csq-7R-qfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -665,6 +685,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vhW-9o-A94"/>
                     </view>
+                    <navigationItem key="navigationItem" id="duw-gh-gtc"/>
                     <connections>
                         <outlet property="testCountDownLabel" destination="ZWn-cZ-O7b" id="lMd-bP-5ow"/>
                         <outlet property="uploadStatusLabel" destination="fwv-nr-smv" id="Jzp-iU-12Y"/>

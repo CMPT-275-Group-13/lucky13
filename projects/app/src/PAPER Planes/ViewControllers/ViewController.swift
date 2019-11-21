@@ -9,11 +9,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.navigationBar.barStyle = .blackTranslucent
         // Do any additional setup after loading the view.
 
         //Listen for Keyboard Events
