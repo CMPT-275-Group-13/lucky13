@@ -24,7 +24,7 @@
 		A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClass.swift */; };
 		A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */; };
 		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
-		A92E7F15238665F00002543D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E7F14238665F00002543D /* HomeViewController.swift */; };
+		A92E7F1B238685CB0002543D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E7F1A238685CB0002543D /* HomeViewController.swift */; };
 		A956D3E62381F795007072A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A956D3E42381F794007072A0 /* Main.storyboard */; };
 		A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */; };
 		A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */; };
@@ -84,7 +84,7 @@
 		A67D66ED2381EED5004EF918 /* TremorTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremorTestClass.swift; sourceTree = "<group>"; };
 		A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTest.swift; sourceTree = "<group>"; };
 		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		A92E7F14238665F00002543D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A92E7F1A238685CB0002543D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A956D3E52381F794007072A0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A956D3E72381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorTableViewController.swift; sourceTree = "<group>"; };
 		A956D3E9238202DF007072A0 /* PopUpAddDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpAddDoctorsViewController.swift; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */,
 				A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */,
 				A9D4AA212386521A004ED403 /* LoginViewController.swift */,
-				A92E7F14238665F00002543D /* HomeViewController.swift */,
+				A92E7F1A238685CB0002543D /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -543,7 +543,6 @@
 				A956D3EA238202DF007072A0 /* PopUpAddDoctorsViewController.swift in Sources */,
 				A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */,
 				A9D4AA222386521A004ED403 /* LoginViewController.swift in Sources */,
-				A92E7F15238665F00002543D /* HomeViewController.swift in Sources */,
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
 				A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */,
@@ -554,6 +553,7 @@
 				A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */,
 				A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */,
 				A65C3A142383483500F45193 /* ViewControllerTremorTest.swift in Sources */,
+				A92E7F1B238685CB0002543D /* HomeViewController.swift in Sources */,
 				A956D3E82381FBE8007072A0 /* PopUpAddDoctorTableViewController.swift in Sources */,
 				A9B59853236FB37200095D31 /* TableViewController.swift in Sources */,
 				86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */,

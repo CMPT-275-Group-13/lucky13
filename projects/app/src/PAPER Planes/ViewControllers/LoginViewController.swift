@@ -11,8 +11,8 @@ import FirebaseUI
 
 class LoginViewController: UIViewController, FUIAuthDelegate {
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         
         let authViewController = authUI!.authViewController()
         authViewController.modalPresentationStyle = .fullScreen
-        authViewController.popToRootViewController(animated: false)
+//        authViewController.popToRootViewController(animated: false)
         self.present(authViewController, animated: true, completion: nil)
         
     }
@@ -50,9 +50,12 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             if let user = user {
                 print(user.uid)
 //                 DispatchQueue.main.async {
-//                self.performSegue(withIdentifier: "goHome", sender: self)
 //                self.present(HomeViewController, animated: true, completion: nil)
 //                }
+//                User.setCurrent(user!, writeToUser)
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "goHome", sender: self)
+
             }
             
         }
