@@ -1,3 +1,4 @@
+<?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
 
 <!DOCTYPE html>
@@ -21,12 +22,12 @@
 				<div class="form-row">
 					<div class="col form-group">
 						<label>First Name</label>
-						<input type="text" id="first-name" class="form-control" placeholder="First Name" required autofocus>
+						<input type="text" id="first-name" class="form-control" placeholder="First Name" required>
 							
 						</div>
 					<div class="col form-group">
 							<label>Last Name</label>
-							<input type="text" id="last-name" class="form-control" placeholder="Last Name" required autofocus>
+							<input type="text" id="last-name" class="form-control" placeholder="Last Name" required>
 									
 						</div>
 					</div>
@@ -49,9 +50,6 @@
 					<label class="custom-control-label" for="customCheck1">I agree to the Terms & Conditions.</label>
 				  </div>
 				  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="register-btn">Register</button>
-				  <hr class="my-4">
-				  <button class="btn btn-block btn-social btn-google" onclick="googleSignin()" type="submit">
-					<i class="fab fa-google"></i> Sign in with Google</button>
 				  <div class="modal-footer">
 					<div class="options text-center text-md-right mt-1">
 						Have an account? <a href="login.php" class="blue-text">Sign In</a>

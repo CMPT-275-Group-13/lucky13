@@ -16,14 +16,16 @@
                   <div class="card-body">
                     <h5 class="card-title text-center">Sign In</h5>
                     <form class="form-signin">
-                      <div class="form-label-group">
+                      <div class="mb-3 form-label-group">
+                        <label for="email">Email address</label>
                         <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
-                        <label for="inputEmail">Email address</label>
+                        <small><span class="text-danger" id="email-status"></span></small> 
                       </div>
         
-                      <div class="form-label-group">
+                      <div class="mb-3 form-label-group">
+                        <label for="password">Password</label>
                         <input type="password" id="password" class="form-control" placeholder="Password" required>
-                        <label for="inputPassword">Password</label>
+                        <small><span class="text-danger" id="password-status"></span></small> 
                       </div>
         
                       <div class="custom-control custom-checkbox mb-3">

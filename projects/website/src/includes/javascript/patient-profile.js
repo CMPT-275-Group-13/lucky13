@@ -6,6 +6,7 @@ const patientRef = firestore.doc("/patient/csmith");
 const messageRef = firestore.collection("/messages/csmith/John_Doe");
 
 
+
 getRealtimeUpdates = function(){
     patientRef.onSnapshot(function(doc){
         if(doc && doc.exists) {
@@ -23,14 +24,6 @@ getRealtimeUpdates = function(){
         message.innerText = queryDocumentSnapshot;
     });
    
-
-    // patientRef.onSnapshot(function(doc){
-    //     if(doc && doc.exists){{
-    //         const myData = doc.data();
-    //         patient2.innerText = "Email: " + myData.emailAddress + "\n" + "Phone Number: " + myData.phoneNumber;
-            
-    //     }}
-    // });
 };
 
 getRealtimeUpdates();

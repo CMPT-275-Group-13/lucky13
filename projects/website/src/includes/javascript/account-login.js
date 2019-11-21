@@ -5,16 +5,19 @@ $(document).ready(function() {
 	$("#login-status").text();
 	$("#login-status").hide();
 
+
 	$("#login-btn").click(function() {
-		$("#login-status").text();
-		$("#login-status").hide();
+		$("#email-status").text();
+		$("#email-status").hide();
 
 		var email = $("input#email").val();
 		var password = $("input#password").val();
 
+		console.log("email:" + email);
+
 		if (!validateEmail(email)) {
-			$("#login-status").show();
-			$("#login-status").text("Invalid email address format");
+			$("#email-status").show();
+			$("#email-status").text("Invalid email address format");
 		}
 
 		else if (!validatePassword(password)) {
@@ -38,9 +41,14 @@ $(document).ready(function() {
 				console.log('Error Code: ' + errorCode);
 				console.log('Error Message: ' + errorMessage);
 
-				if (errorCode) {
-					$("#login-status").show();
-					$("#login-status").text(errorMessage);
+				if (errorCode == "auth/wrong-password") {
+					$("#password-status").show();
+					$("#password-status").text("Incorrect password");
+				}
+
+				if(errorCode == "auth/user-not-found"){
+					$('#email-status').show();
+					$('#email-status').text("User does not exist");
 				}
 			});
 		}
