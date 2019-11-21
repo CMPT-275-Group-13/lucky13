@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseUI
 
+//TODO: Edit firebaseUI
 class LoginViewController: UIViewController, FUIAuthDelegate {
     
     override func viewDidLoad() {
@@ -48,16 +49,21 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 print("Login error: \(error.localizedDescription)")
             case .none:
             if let user = user {
-                print(user.uid)
-//                 DispatchQueue.main.async {
-//                self.present(HomeViewController, animated: true, completion: nil)
-//                }
-//                User.setCurrent(user!, writeToUser)
+                //TODO: Login User
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "goHome", sender: self)
-
             }
             
         }
+    }
+    
+
+
+}
+
+extension FUIAuthBaseViewController{
+    open override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.title = "Login"
     }
 }
