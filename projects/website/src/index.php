@@ -5,6 +5,7 @@
 <html>
 <head>
 	<?php include("includes/head-tag-contents.php");?>
+	<title id="titleHomePage">Welcome Doctor!</title>
 </head>
 <body>
 <div class ="jumbotron jumbotron-fluid">

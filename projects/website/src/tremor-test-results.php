@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titleTremorTests">Tremor Test Results</title>
 	<?php include("includes/head-tag-contents.php");?>
 </head>
 <body>

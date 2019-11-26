@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titleProfilePage">Profile</title>
 	<?php include("includes/head-tag-contents.php");?>
 	<script src="includes/javascript/doctor-profile.js" text="text/javascript"></script>
 </head>

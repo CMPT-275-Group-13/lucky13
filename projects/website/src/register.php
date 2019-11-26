@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titleRegisterPage">Register</title>
 	<?php include("includes/head-tag-contents.php");?>
 	<script type="text/javascript" src="includes/javascript/account-register.js"></script>
 </head>
