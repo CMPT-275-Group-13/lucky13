@@ -12,6 +12,8 @@
 <?php include("includes/design-top.php");?>
 <?php //include("includes/navigation.php");?>
 
+<!--register page modified using this template: https://startbootstrap.com/snippets/login/"-->
+
 <div class="container">
 		<div class="row">
 		  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
