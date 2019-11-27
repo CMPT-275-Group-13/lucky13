@@ -26,7 +26,7 @@ class MessagingViewController: MessagesViewController {
     private let docId: String = "jinn@sfu.ca"
     
     //TODO: Member needs to work with the login, not hardcoded
-    var member: Member = Member(name: "John", email: "csmith@gmail.com")
+    var member: Member = Member(name: "", email: localUserEmail)
     
     //Remove listener on function exit
     deinit {

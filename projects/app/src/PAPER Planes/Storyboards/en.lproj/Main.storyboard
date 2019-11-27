@@ -188,7 +188,7 @@
         <!--Doctors-->
         <scene sceneID="fHL-g0-Ynd">
             <objects>
-                <tableViewController id="vMy-Kz-L39" customClass="TableViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
+                <tableViewController id="vMy-Kz-L39" customClass="DoctorTableViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VaA-WV-f0T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,38 +200,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cum-rz-W9H" id="P0m-nR-DpE">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CS-WO-xpr">
-                                            <rect key="frame" x="304" y="10" width="90" height="17"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Specialization">
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="menu" size="14"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYj-9V-QjB">
-                                            <rect key="frame" x="286" y="32" width="108" height="21"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Doctor Name">
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system" size="18"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="3CS-WO-xpr" secondAttribute="trailing" constant="20" id="NkD-58-W8z"/>
-                                        <constraint firstAttribute="trailing" secondItem="sYj-9V-QjB" secondAttribute="trailing" constant="20" id="mUF-Ac-Kop"/>
-                                        <constraint firstItem="sYj-9V-QjB" firstAttribute="top" secondItem="3CS-WO-xpr" secondAttribute="bottom" constant="5" id="pnl-BW-Eb1"/>
-                                        <constraint firstItem="3CS-WO-xpr" firstAttribute="top" secondItem="P0m-nR-DpE" secondAttribute="top" constant="10" id="zaB-0h-Tlp"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="ge3-sZ-B94" kind="show" id="BGp-AG-iBV"/>
@@ -243,13 +211,10 @@
                             <outlet property="delegate" destination="vMy-Kz-L39" id="r90-Fj-ohG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Doctors" id="vHx-xB-ik3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ph2-ol-1vi">
-                            <connections>
-                                <segue destination="ge3-sZ-B94" kind="show" id="YyF-Xv-3D9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Doctors" id="vHx-xB-ik3"/>
+                    <connections>
+                        <outlet property="myTableView" destination="VaA-WV-f0T" id="mpI-A5-iju"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqY-66-jbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -925,7 +890,4 @@
         <image name="tag.fill" catalog="system" width="64" height="58"/>
         <image name="text.bubble.fill" catalog="system" width="64" height="54"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="BGp-AG-iBV"/>
-    </inferredMetricsTieBreakers>
 </document>

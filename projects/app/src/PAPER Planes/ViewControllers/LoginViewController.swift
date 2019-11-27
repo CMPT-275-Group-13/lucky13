@@ -18,15 +18,15 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         
+        
         let providers: [FUIAuthProvider] = [
-          FUIEmailAuth(),
-          FUIGoogleAuth(),
+            FUIEmailAuth(),
+            FUIGoogleAuth(),
         ]
         authUI?.providers = providers
         
         let authViewController = authUI!.authViewController()
         authViewController.modalPresentationStyle = .fullScreen
-//        authViewController.popToRootViewController(animated: false)
         self.present(authViewController, animated: true, completion: nil)
         
     }
@@ -48,8 +48,8 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
             case .some(let error):
                 print("Login error: \(error.localizedDescription)")
             case .none:
-            if let user = user {
-                //TODO: Login User
+            if let USER = user {
+                localUserEmail = (USER.email)!
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "goHome", sender: self)
             }
