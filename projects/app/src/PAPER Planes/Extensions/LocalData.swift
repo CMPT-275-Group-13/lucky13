@@ -10,3 +10,4 @@ import Foundation
 
 var localUserEmail : String = ""
 var localDoctorEmail : String = ""
+var localDoctorName : String = ""

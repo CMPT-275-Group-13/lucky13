@@ -38,6 +38,8 @@ class MessagingViewController: MessagesViewController {
         
         print(localDoctorEmail)
         let docId = localDoctorEmail
+        self.title = localDoctorName
+        
         //Specifying the DB collection to pull messages from
         reference = db.collection(["messages", docId, member.email].joined(separator: "/"))
         

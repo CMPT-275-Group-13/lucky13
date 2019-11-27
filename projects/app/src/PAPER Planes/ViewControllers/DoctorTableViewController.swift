@@ -105,7 +105,7 @@ class DoctorTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         localDoctorEmail = self.DoctorEmailArray[indexPath.row]
-        print (localDoctorEmail)
+        localDoctorName = self.DoctorNameArray[indexPath.row]
     }
   
 }

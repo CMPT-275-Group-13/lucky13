@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,14 +60,8 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSI-YB-rOW">
                                                 <rect key="frame" x="0.0" y="0.0" width="348" height="113.66666666666667"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling today?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rg-we-Ycl">
-                                                        <rect key="frame" x="0.0" y="0.0" width="227.66666666666666" height="113.66666666666667"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-Kf-Dto">
-                                                        <rect key="frame" x="227.66666666666671" y="0.0" width="120.33333333333334" height="113.66666666666667"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-Kf-Dto">
+                                                        <rect key="frame" x="0.0" y="0.0" width="348" height="113.66666666666667"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -460,7 +454,7 @@
             </objects>
             <point key="canvasLocation" x="1725" y="-575"/>
         </scene>
-        <!--Dr. Jin-->
+        <!--Doctor-->
         <scene sceneID="z5M-eK-mLL">
             <objects>
                 <viewController id="ge3-sZ-B94" customClass="MessagingViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
@@ -470,7 +464,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="b3X-XE-Oqh"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dr. Jin" id="Oag-yM-7ep"/>
+                    <navigationItem key="navigationItem" title="Doctor" id="Oag-yM-7ep"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk6-3z-qDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -885,6 +879,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="App Icon" width="60" height="60"/>
         <image name="checkmark.square.fill" catalog="system" width="64" height="56"/>
         <image name="hand.raised.fill" catalog="system" width="64" height="64"/>
         <image name="tag.fill" catalog="system" width="64" height="58"/>
