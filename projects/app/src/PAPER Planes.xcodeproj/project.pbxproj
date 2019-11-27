@@ -18,11 +18,11 @@
 		86DD0B37236BBD6600EDC0E2 /* PAPER_PlanesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B36236BBD6600EDC0E2 /* PAPER_PlanesTests.swift */; };
 		86DD0B42236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */; };
 		A6170EF7238239B800948415 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6170EF6238239B800948415 /* AppUtility.swift */; };
-		A65C3A142383483500F45193 /* ViewControllerTremorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */; };
+		A65C3A142383483500F45193 /* TremorTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65C3A132383483500F45193 /* TremorTestViewController.swift */; };
 		A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E72381DFEC004EF918 /* BrainTestClass.swift */; };
 		A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */; };
 		A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClass.swift */; };
-		A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */; };
+		A69016E1236CF1D80043E1CE /* BrainTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */; };
 		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
 		A92A9322238C93E400FC5EF6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A9321238C93E400FC5EF6 /* Channel.swift */; };
 		A92A9324238C945800FC5EF6 /* DoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */; };
@@ -35,7 +35,8 @@
 		A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */; };
 		A9EE63CF23833DFF008CD1CB /* DatabaseRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */; };
 		DE139128520565CB5714CB5F /* Pods_PAPER_PlanesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */; };
-		E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */; };
+		E52290AA238F0DC3002C55C5 /* MedicationScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52290A9238F0DC3002C55C5 /* MedicationScheduleTableViewController.swift */; };
+		E5ADE1EA236F8E5100054713 /* BrainTestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ADE1E9236F8E5100054713 /* BrainTestResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,11 +79,11 @@
 		86DD0B41236BBD6600EDC0E2 /* PAPER_PlanesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAPER_PlanesUITests.swift; sourceTree = "<group>"; };
 		86DD0B43236BBD6600EDC0E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6170EF6238239B800948415 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
-		A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTremorTest.swift; sourceTree = "<group>"; };
+		A65C3A132383483500F45193 /* TremorTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremorTestViewController.swift; sourceTree = "<group>"; };
 		A67D66E72381DFEC004EF918 /* BrainTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestClass.swift; sourceTree = "<group>"; };
 		A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestCorrectButton.swift; sourceTree = "<group>"; };
 		A67D66ED2381EED5004EF918 /* TremorTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremorTestClass.swift; sourceTree = "<group>"; };
-		A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTest.swift; sourceTree = "<group>"; };
+		A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestViewController.swift; sourceTree = "<group>"; };
 		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A92A9321238C93E400FC5EF6 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +96,8 @@
 		A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
 		A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		CC208627A39E1FF53629920D /* Pods_PAPER_PlanesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PAPER_PlanesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBrainTestResult.swift; sourceTree = "<group>"; };
+		E52290A9238F0DC3002C55C5 /* MedicationScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationScheduleTableViewController.swift; sourceTree = "<group>"; };
+		E5ADE1E9236F8E5100054713 /* BrainTestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestResultViewController.swift; sourceTree = "<group>"; };
 		F986128EC99CA02D3DB58887 /* Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig"; path = "Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,12 +199,13 @@
 		A9EE63D02385E40D008CD1CB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E52290A9238F0DC3002C55C5 /* MedicationScheduleTableViewController.swift */,
 				86DD0B23236BBD6500EDC0E2 /* ViewController.swift */,
-				E5ADE1E9236F8E5100054713 /* ViewControllerBrainTestResult.swift */,
+				E5ADE1E9236F8E5100054713 /* BrainTestResultViewController.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
 				86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */,
-				A65C3A132383483500F45193 /* ViewControllerTremorTest.swift */,
-				A69016E0236CF1D80043E1CE /* ViewControllerBrainTest.swift */,
+				A65C3A132383483500F45193 /* TremorTestViewController.swift */,
+				A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */,
 				A9D4AA212386521A004ED403 /* LoginViewController.swift */,
 				A92E7F1A238685CB0002543D /* HomeViewController.swift */,
 				A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */,
@@ -539,13 +542,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6170EF7238239B800948415 /* AppUtility.swift in Sources */,
-				E5ADE1EA236F8E5100054713 /* ViewControllerBrainTestResult.swift in Sources */,
+				E5ADE1EA236F8E5100054713 /* BrainTestResultViewController.swift in Sources */,
 				A67D66E82381DFEC004EF918 /* BrainTestClass.swift in Sources */,
 				A9D4AA222386521A004ED403 /* LoginViewController.swift in Sources */,
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
+				E52290AA238F0DC3002C55C5 /* MedicationScheduleTableViewController.swift in Sources */,
 				A92A9322238C93E400FC5EF6 /* Channel.swift in Sources */,
-				A69016E1236CF1D80043E1CE /* ViewControllerBrainTest.swift in Sources */,
+				A69016E1236CF1D80043E1CE /* BrainTestViewController.swift in Sources */,
 				869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */,
 				A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */,
 				A9EE63CF23833DFF008CD1CB /* DatabaseRepresentation.swift in Sources */,
@@ -554,7 +558,7 @@
 				A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */,
 				A92A9324238C945800FC5EF6 /* DoctorTableViewController.swift in Sources */,
 				A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */,
-				A65C3A142383483500F45193 /* ViewControllerTremorTest.swift in Sources */,
+				A65C3A142383483500F45193 /* TremorTestViewController.swift in Sources */,
 				A92E7F1B238685CB0002543D /* HomeViewController.swift in Sources */,
 				86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */,
 				A97D7E062382355C00EB7647 /* Message.swift in Sources */,

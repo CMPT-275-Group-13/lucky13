@@ -136,6 +136,9 @@
                                                         <integer key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="979-Ya-fRg" kind="show" id="d7U-ip-OPt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SC8-hJ-BFb">
                                                 <rect key="frame" x="0.0" y="594" width="348" height="113.66666666666663"/>
@@ -213,6 +216,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZqY-66-jbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="735" y="139"/>
+        </scene>
+        <!--Medication Schedule Table View Controller-->
+        <scene sceneID="tYM-7c-ZPk">
+            <objects>
+                <tableViewController id="979-Ya-fRg" customClass="MedicationScheduleTableViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XJc-37-I9i">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yoc-bz-06y">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoc-bz-06y" id="vkr-Gw-YSh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="979-Ya-fRg" id="LlL-uC-iG3"/>
+                            <outlet property="delegate" destination="979-Ya-fRg" id="x58-tx-zmQ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="7Ll-Lb-j0U"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9MP-hu-Xdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-251" y="-576"/>
         </scene>
         <!--Pop Up Add Doctors View Controller-->
         <scene sceneID="flt-gi-FtU">
@@ -470,10 +502,10 @@
             </objects>
             <point key="canvasLocation" x="1724.6376811594205" y="138.61607142857142"/>
         </scene>
-        <!--View Controller Brain Test Result-->
+        <!--Brain Test Result View Controller-->
         <scene sceneID="fBb-Jr-aoJ">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerBrainTestResult" id="KMG-GH-BAx" customClass="ViewControllerBrainTestResult" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrainTestResultViewController" id="KMG-GH-BAx" customClass="BrainTestResultViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q5X-LN-NCW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -561,10 +593,10 @@
             </objects>
             <point key="canvasLocation" x="-1304.3478260869567" y="972.99107142857133"/>
         </scene>
-        <!--View Controller Tremor Test-->
+        <!--Tremor Test View Controller-->
         <scene sceneID="I2T-gb-pe9">
             <objects>
-                <viewController id="SuH-L8-JwY" customClass="ViewControllerTremorTest" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TremorTestViewController" id="SuH-L8-JwY" customClass="TremorTestViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyZ-g8-rwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -657,10 +689,10 @@
             </objects>
             <point key="canvasLocation" x="-1304.3478260869567" y="1701.5625"/>
         </scene>
-        <!--View Controller Brain Test-->
+        <!--Brain Test View Controller-->
         <scene sceneID="Npo-eL-7xo">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerBrainTest" id="DTf-hR-QDg" customClass="ViewControllerBrainTest" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrainTestViewController" id="DTf-hR-QDg" customClass="BrainTestViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PXr-ba-OCV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

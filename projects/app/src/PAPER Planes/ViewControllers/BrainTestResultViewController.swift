@@ -1,14 +1,14 @@
 //
-//  ViewControllerBrainTestResult.swift
+//  BrainTestResultViewController.swift
 //  PAPER Planes
 //
-//  Created by Trần Thịnh on 2019-11-03.
+//  Created by Minh Dinh on 2019-11-03.
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
 import UIKit
 
-class ViewControllerBrainTestResult: UIViewController {
+class BrainTestResultViewController: UIViewController {
 
     var resultText = "Test\nNewline\nSomething"
     

@@ -1,5 +1,5 @@
 //
-//  ViewControllerBrainTest.swift
+//  BrainTestViewController.swift
 //  PAPER Planes
 //
 //  Created by Quang Minh Dinh on 2019-11-01.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewControllerBrainTest: UIViewController {
+class BrainTestViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -152,13 +152,13 @@ class ViewControllerBrainTest: UIViewController {
     func transitionToResult() {
         
         performSegue(withIdentifier: "resultTransition", sender: self)
-        //navigationController?.pushViewController(viewControllerBrainTestResult, animated: true)
+        //navigationController?.pushViewController(BrainTestResultViewController, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultTransition" {
             let testResultText = getTestResultText()
-            let vc = segue.destination as! ViewControllerBrainTestResult
+            let vc = segue.destination as! BrainTestResultViewController
             vc.resultText = testResultText
         } else {
             return

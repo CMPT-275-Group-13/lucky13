@@ -1,5 +1,5 @@
 //
-//  ViewControllerTremorTest.swift
+//  TremorTestViewController.swift
 //  PAPER Planes
 //
 //  Created by Quang minh Dinh on 2019-11-17.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import AudioToolbox
 
-class ViewControllerTremorTest: UIViewController {
+class TremorTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
