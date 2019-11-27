@@ -23,10 +23,10 @@ class MessagingViewController: MessagesViewController {
     private var messageListener: ListenerRegistration?
     
     //TODO: change docID from hardcoded email once myDoctorsView is complete
-    private let docId: String = "jinn@sfu.ca"
+    private var docId: String = ""
     
     //TODO: Member needs to work with the login, not hardcoded
-    var member: Member = Member(name: "", email: localUserEmail)
+    var member: Member = Member(name: "You", email: localUserEmail)
     
     //Remove listener on function exit
     deinit {
@@ -36,6 +36,8 @@ class MessagingViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(localDoctorEmail)
+        let docId = localDoctorEmail
         //Specifying the DB collection to pull messages from
         reference = db.collection(["messages", docId, member.email].joined(separator: "/"))
         

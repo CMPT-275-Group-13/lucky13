@@ -23,6 +23,7 @@ class DoctorTableViewController: UITableViewController {
   private var ChannelArray = [Channel]()
   let hahaArray = ["Dog", "cat", "bird", "what" ]
   var DoctorNameArray = [String]()
+  var DoctorEmailArray = [String]()
     private var NameListener: ListenerRegistration?
   private var channelListener: ListenerRegistration?
   deinit {
@@ -50,11 +51,12 @@ class DoctorTableViewController: UITableViewController {
     self.DoctorNameArray = []
     for dataarray in dataArray {
         self.GetDoctorName(Name: dataarray as! String)
-//        self.DoctorNameArray.append(DoctorNameEntry)
+        self.DoctorEmailArray.append(dataarray as! String)
     }
-//    print(self.DoctorNameArray)
     
-//    self.myTableView.reloadData()
+    self.DoctorEmailArray.reverse()
+    print(self.DoctorEmailArray)
+    
     }
     
   }
@@ -64,14 +66,6 @@ class DoctorTableViewController: UITableViewController {
          var NameReference : DocumentReference{
              return db.collection("doctors").document(Name)
          }
-//         NameListener = NameReference.addSnapshotListener { querySnapshot, error in
-//
-////             print("test2")
-//             guard let snapshot = querySnapshot else {
-//               print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
-//               return
-//             }
-//             print(snapshot.data())
         NameReference.getDocument{ (document, error) in
             if let document = document, document.exists {
             let firstName = document.get("firstName") as! String
@@ -109,7 +103,10 @@ class DoctorTableViewController: UITableViewController {
     return cell
   }
     
-   
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        localDoctorEmail = self.DoctorEmailArray[indexPath.row]
+        print (localDoctorEmail)
+    }
   
 }
 
