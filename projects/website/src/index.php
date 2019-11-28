@@ -12,6 +12,7 @@
 	<div class="container">
 		<h1>Welcome Doctor!<h1>
 		<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
+		<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
 	</div>
 </div>
 <!-- <?php //include("includes/design-top.php");?>
@@ -58,7 +59,7 @@
 			<button type="submit" onclick="window.location.href='patient-profile.php'" class="btn btn-primary">Profiles</button>
 		</div>
 	</div>
-	
+
 	</div>
 </div>
 

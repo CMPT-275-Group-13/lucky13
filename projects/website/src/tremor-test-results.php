@@ -15,6 +15,7 @@
 </div>
 
 <?php include("includes/footer.php");?>
+<?php include("includes/javascript/tremor-test-results.js");?>
 
 </body>
 </html>
