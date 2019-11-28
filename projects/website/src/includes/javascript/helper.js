@@ -44,3 +44,8 @@ function convertDateToTimestamp(date) {
 	var result = year + month + day + hours + minutes + seconds;
 	return result;
 }
+
+// function getURLParameters(){
+// 	var urlParams = new URLSearchParams(window.location.search);
+// 	return urlParams.get('index');
+// }

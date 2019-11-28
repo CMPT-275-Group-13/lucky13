@@ -1,6 +1,7 @@
 <?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <body>
 <div class ="jumbotron jumbotron-fluid">
 	<div class="container">
-		<h1>Welcome Doctor!<h1>
+		<h1 id="welcomeMessage">Welcome Doctor!<h1>
 		<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
 		<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
 	</div>
@@ -29,7 +30,7 @@
 			<p class="card-text">Check the latest notes from your patients.</p>
 		</div>
 		<div class="card-footer">
-			<button type="submit" onclick="window.location.href='message.php'" class="btn btn-primary">Messages</button>
+			<button type="submit" onclick="window.location.href='message.php?index='+  firebaseGetUID()" class="btn btn-primary">Messages</button>
 		</div>
 	</div>
 	<div class="card">
@@ -38,7 +39,7 @@
 			<p class="card-text">View the latest BRAIN Test and Tremor test results from your patients.</p>
 		</div>
 		<div class="card-footer">
-			<button  type="submit" onclick="window.location.href='tests.php'" class="btn btn-primary">Tests</button>
+			<button  type="submit" onclick="window.location.href='tests.php?index='+  firebaseGetUID()" class="btn btn-primary">Tests</button>
 		</div>
 	</div>
 	<div class="card">
@@ -47,7 +48,7 @@
 			<p class="card-text">See all the patients using PAPER PLANE</p>
 		</div>
 		<div class="card-footer">
-			<button  type="submit" onclick="window.location.href='search.php'" class="btn btn-primary">Search</button>
+			<button  type="submit" onclick="window.location.href='search.php?index='+  firebaseGetUID()" class="btn btn-primary">Search</button>
 		</div>
 	</div>
 	<div class="card">
@@ -56,7 +57,7 @@
 			<p class="card-text">See patients information</p>
 		</div>
 		<div class="card-footer">
-			<button type="submit" onclick="window.location.href='patient-profile.php'" class="btn btn-primary">Profiles</button>
+			<button type="submit" onclick="window.location.href='patient-profile.php'+  firebaseGetUID()" class="btn btn-primary">Profiles</button>
 		</div>
 	</div>
 
@@ -64,6 +65,8 @@
 </div>
 
 <?php include("includes/footer.php");?>
+<script src="includes/javascript/index.js"></script>
+<script type="module" src="includes/javascript/helper.js"></script>
 
 </body>
 </html>

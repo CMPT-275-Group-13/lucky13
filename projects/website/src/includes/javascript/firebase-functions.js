@@ -18,8 +18,7 @@ function firebaseCheckAuthState() {
 		  }
 		  else if(currentPathName.includes("login.php")) {
 			console.log("Redirect to index.php");
-			var uri = encodeURIComponent(user.uid);
-		    redirectPath("index.php?id=" + uri);    
+		    redirectPath("index.php?index=" + user.uid);    
 		  }
 	  }
 
@@ -77,3 +76,9 @@ function firebaseResetUserPassword(emailAddress) {
 	  // An error happened.
 	});
 }
+
+function firebaseGetUID(){
+	var user = firebase.auth().currentUser;
+	return user.uid;
+}
+
