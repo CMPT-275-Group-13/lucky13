@@ -33,7 +33,7 @@ displayWelcome = function() {
             welcomeMessageStr.trim();
             welcomeMessageStr += "!";
         }
-        else{
+        else {
             console.error("User does not exist");
             welcomeMessageStr = "Welcome Doctor!";
         }
