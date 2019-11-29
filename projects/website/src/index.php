@@ -11,7 +11,7 @@
 <body>
 <div class ="jumbotron jumbotron-fluid">
 	<div class="container">
-		<h1 id="welcomeMessage">Welcome Doctor!<h1>
+		<h1 id="welcomeMessage"><h1>
 		<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
 		<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
 	</div>
