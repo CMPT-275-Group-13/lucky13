@@ -14,22 +14,6 @@ class TremorTestClass {
     var dateTaken = Date()
     private var timestamp = NSDate().timeIntervalSince1970
     
-    
-    //    var timer = Timer()
-    //    var timerSeconds = 0
-    //    func initializeTimer() {
-    //        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TremorTestClass.updateTimer), userInfo: nil, repeats: true)
-    //    }
-    //
-    //    @objc func updateTimer() {
-    //        timerSeconds += 1
-    //    }
-    //
-    //    func resetTimer() {
-    //        timer.invalidate()
-    //        timerSeconds = 0
-    //    }
-    
     var waitTestStart = 10 // Default: wait 10 seconds before starting test
     var dataTakenInterval = 0.5 // Default: have a 1/60 seconds interval to taken data
     var testDuration = 5 // Default: have the tremor test run for 30 seconds
@@ -47,12 +31,6 @@ class TremorTestClass {
     private var zGyroRawDatas: [Double] = []
     
     var motion = CMMotionManager()
-    
-    //    init(waitTime: Int, dataInterval: Double, testDuration: Int) {
-    //        self.waitTestStart = waitTime
-    //        self.dataTakenInterval = dataInterval
-    //        self.testDuration = testDuration
-    //    }
     
     
     // Start recording raw accelerometer data into the class's accelerometer array
@@ -81,15 +59,8 @@ class TremorTestClass {
         self.motion.stopAccelerometerUpdates()
     }
     
-    func getAccelerometerData() -> (Any ,[Double], [Double], [Double]) {
-        return (self.timestamp, self.xAccelRawDatas, self.yAccelRawDatas, self.zAccelRawDatas)
-    }
-    
-    func recordAccelerometer() {
-        startAccelerometer()
-        // Wait for 'duration' seconds
-        waitFor(seconds: testDuration)
-        stopAccelerometer()
+    func getAccelerometerData() -> (Any ,Double, Double, Double) {
+        return (self.timestamp, standardDeviation(arr: self.xAccelRawDatas), standardDeviation(arr: self.yAccelRawDatas), standardDeviation(arr: self.zAccelRawDatas))
     }
     
     func clearAccerlerometerArrayData() {
@@ -172,7 +143,18 @@ class TremorTestClass {
         zDMYawDatas.removeAll()
     }
     
+    // Support function: calculate the standard deviation of an array
+    func standardDeviation(arr : [Double]) -> Double {
+        var length = Double(arr.count)
+        if length == 0 {
+            length += 1
+        }
+        let avg = arr.reduce(0, {$0 + $1}) / length
+        let sumOfSquaredAvgDiff = arr.map { pow($0 - avg, 2.0)}.reduce(0, {$0 + $1})
+        return sqrt(sumOfSquaredAvgDiff / length)
+    }
     
+    // Support function: wait of a number of seconds
     private func waitFor(seconds wait: Int) {
         var countDown = wait
         Timer.scheduledTimer(withTimeInterval: Double(wait), repeats: false) { (timer) in
@@ -181,6 +163,8 @@ class TremorTestClass {
         }
     }
     
+    // Support function: wait a small amount of time before running the test
+    // May not be applied
     func waitForStartTest() {
         waitFor(seconds: waitTestStart)
     }

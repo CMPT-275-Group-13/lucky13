@@ -65,24 +65,6 @@ class TremorTestViewController: UIViewController {
         // TODO: For rev 3
     }
     
-    func uploadDeviceMotionData() {
-        var ref: DocumentReference? = nil
-        getSelfPatientData()
-        let (timestamp, pitchDatas, rollDatas, yawDatas) = TremorTest.getDeviceMotionResult()
-        ref = db.collection("tests/csmith@gmail.com/tremor-test").addDocument(data: [
-            "timeStamp": timestamp,
-            "pitchData": pitchDatas,
-            "rollData": rollDatas,
-            "yawData": yawDatas
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
-    }
-    
     func uploadAcclerometerData() {
         var ref: DocumentReference? = nil
         getSelfPatientData()
@@ -99,15 +81,10 @@ class TremorTestViewController: UIViewController {
             } else {
                 print("Document added with ID: \(ref!.documentID)")
                 self.uploadStatusLabel.text = "Upload Status: Uploaded to the doctors!"
-                if let lastNumberX = xAccel.last {
-                    self.xValueLabel.text = "X Value: \(lastNumberX)"
-                }
-                if let lastNumberY = yAccel.last {
-                    self.yValueLabel.text = "Y Value: \(lastNumberY)"
-                }
-                if let lastNumberZ = zAccel.last {
-                    self.zValueLabel.text = "Z Value: \(lastNumberZ)"
-                }
+                
+                self.xValueLabel.text = "X Value: \(xAccel)"
+                self.yValueLabel.text = "Y Value: \(yAccel)"
+                self.zValueLabel.text = "Z Value: \(zAccel)"
             }
         }
     }

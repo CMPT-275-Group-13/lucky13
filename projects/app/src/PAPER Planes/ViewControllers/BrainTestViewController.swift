@@ -24,7 +24,7 @@ class BrainTestViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         // Don't forget to reset when view is being removed
-        AppUtility.lockOrientation(.all)
+        AppUtility.lockOrientation(.portrait)
         countdownTimer.invalidate() // Stop the test timer so that we won't load the result view if the test is stopped abrubtly
     }
     
