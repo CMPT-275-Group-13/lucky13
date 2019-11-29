@@ -9,12 +9,10 @@ function firebaseCheckAuthState() {
 
 	  // User is signed in
 	  if (user) {
-		var user = firebase.auth().currentUser;
-		//var uri = encodeURIComponent(user.uid);
 		console.log("User is signed in");
-		if (currentPathName.includes("register.php")){
+		if (currentPathName.includes("register.php")) {
 			console.log(user.uid);
-			redirectPath("index.php")
+			redirectPath("index.php");
 		  }
 		  else if(currentPathName.includes("login.php")) {
 			console.log("Redirect to index.php");

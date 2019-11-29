@@ -14,31 +14,31 @@ displayWelcome = function() {
         if (!querySnapshot.empty) {
             var docs = querySnapshot.docs[0].data();
            
-            var title = ''
-            var firstName = ''
-            var lastName = ''
+            var title = '';
+            var firstName = '';
+            var lastName = '';
 
             if (docs.title) {
-                title = docs.title
+                title = docs.title;
             }
             if (docs.firstName) {
                 firstName = docs.firstName
                 console.log("Doctor's first name: " + firstName);
             }
             if (docs.lastName) {
-                lastName = docs.lastName
+                lastName = docs.lastName;
             }
 
             welcomeMessageStr = "Welcome " + title + " " + firstName + " " + lastName;
             welcomeMessageStr.trim();
-            welcomeMessageStr += "!"
+            welcomeMessageStr += "!";
         }
         else{
             console.error("User does not exist");
             welcomeMessageStr = "Welcome Doctor!"
         }
 
-        welcomeMessage.innerText = welcomeMessageStr
+        welcomeMessage.innerText = welcomeMessageStr;
     });
 }
 
