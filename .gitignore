@@ -98,5 +98,9 @@ projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/.vs/PaperPlane.UITe
 projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/.vs/PaperPlane.UITest/v16/TestStore/0/000-0000.testlog
 projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/.vs/PaperPlane.UITest/v16/Server/sqlite3/storage.ide
 projects/website/testing/PaperPlane.UITest/PaperPlane.UITest/.vs/PaperPlane.UITest/v16/.suo
-website/includes/packages
-projects/website/src/includes/packages/
+projects/website/src/includes/packages/node_modules/chartjs-color
+projects/website/src/includes/packages/node_modules/chartjs-color-string
+projects/website/src/includes/packages/node_modules/color-convert
+projects/website/src/includes/packages/node_modules/color-name
+
+

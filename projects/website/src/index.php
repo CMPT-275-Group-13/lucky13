@@ -57,7 +57,7 @@
 			<p class="card-text">See patients information</p>
 		</div>
 		<div class="card-footer">
-			<button type="submit" onclick="window.location.href='patient-profile.php'+  firebaseGetUID()" class="btn btn-primary">Profiles</button>
+			<button type="submit" onclick="window.location.href='patient-profile.php?index='+  firebaseGetUID()" class="btn btn-primary">Profiles</button>
 		</div>
 	</div>
 
