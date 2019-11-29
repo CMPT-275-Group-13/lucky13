@@ -22,7 +22,7 @@ displayWelcome = function() {
                 title = docs.title;
             }
             if (docs.firstName) {
-                firstName = docs.firstName
+                firstName = docs.firstName;
                 console.log("Doctor's first name: " + firstName);
             }
             if (docs.lastName) {
@@ -35,7 +35,7 @@ displayWelcome = function() {
         }
         else{
             console.error("User does not exist");
-            welcomeMessageStr = "Welcome Doctor!"
+            welcomeMessageStr = "Welcome Doctor!";
         }
 
         welcomeMessage.innerText = welcomeMessageStr;
