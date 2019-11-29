@@ -10,7 +10,6 @@
 		2CED7F875298CA6036225112 /* Pods_PAPER_Planes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A2DBC63A041132CD63074DC /* Pods_PAPER_Planes.framework */; };
 		4173B3AE854D03E338010377 /* Pods_PAPER_Planes_PAPER_PlanesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2250B45F08BFEC9431DD4960 /* Pods_PAPER_Planes_PAPER_PlanesUITests.framework */; };
 		869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869AF537236CBFFA00F83C7B /* MessagingViewController.swift */; };
-		86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */; };
 		86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */; };
 		86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD0B23236BBD6500EDC0E2 /* ViewController.swift */; };
 		86DD0B29236BBD6600EDC0E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DD0B28236BBD6600EDC0E2 /* Assets.xcassets */; };
@@ -66,7 +65,6 @@
 		55338DCB9A5431F5E974C81B /* Pods-PAPER Planes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes.release.xcconfig"; path = "Target Support Files/Pods-PAPER Planes/Pods-PAPER Planes.release.xcconfig"; sourceTree = "<group>"; };
 		84774A015C647094699FE618 /* Pods-PAPER Planes-PAPER PlanesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PAPER Planes-PAPER PlanesUITests.release.xcconfig"; path = "Target Support Files/Pods-PAPER Planes-PAPER PlanesUITests/Pods-PAPER Planes-PAPER PlanesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		869AF537236CBFFA00F83C7B /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
-		86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDoctorsViewController.swift; sourceTree = "<group>"; };
 		86DD0B1E236BBD6500EDC0E2 /* PAPER Planes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAPER Planes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DD0B21236BBD6500EDC0E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86DD0B23236BBD6500EDC0E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 				86DD0B23236BBD6500EDC0E2 /* ViewController.swift */,
 				E5ADE1E9236F8E5100054713 /* BrainTestResultViewController.swift */,
 				869AF537236CBFFA00F83C7B /* MessagingViewController.swift */,
-				86CAB018236CE8F2005F1AE0 /* MyDoctorsViewController.swift */,
 				A65C3A132383483500F45193 /* TremorTestViewController.swift */,
 				A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */,
 				A9D4AA212386521A004ED403 /* LoginViewController.swift */,
@@ -564,7 +561,6 @@
 				A9EE63CD23829EF4008CD1CB /* UIColorHelper.swift in Sources */,
 				A65C3A142383483500F45193 /* TremorTestViewController.swift in Sources */,
 				A92E7F1B238685CB0002543D /* HomeViewController.swift in Sources */,
-				86CAB019236CE8F2005F1AE0 /* MyDoctorsViewController.swift in Sources */,
 				A97D7E062382355C00EB7647 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
