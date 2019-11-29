@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         
         let providers: [FUIAuthProvider] = [
             FUIEmailAuth(),
+//            FUIEmailAuth(authAuthUI: authUI!, signInMethod: EmailPasswordAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: false, actionCodeSetting: ActionCodeSettings()),
             FUIGoogleAuth(),
         ]
         authUI?.providers = providers
