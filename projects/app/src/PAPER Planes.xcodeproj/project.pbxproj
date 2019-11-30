@@ -22,7 +22,6 @@
 		A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */; };
 		A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClass.swift */; };
 		A69016E1236CF1D80043E1CE /* BrainTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */; };
-		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
 		A92A9324238C945800FC5EF6 /* DoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */; };
 		A92E7F1B238685CB0002543D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E7F1A238685CB0002543D /* HomeViewController.swift */; };
 		A942783A2391E28500EE4DCF /* MedicationScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94278392391E28500EE4DCF /* MedicationScheduleTableViewController.swift */; };
@@ -82,7 +81,6 @@
 		A67D66E92381E03F004EF918 /* BrainTestCorrectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestCorrectButton.swift; sourceTree = "<group>"; };
 		A67D66ED2381EED5004EF918 /* TremorTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremorTestClass.swift; sourceTree = "<group>"; };
 		A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestViewController.swift; sourceTree = "<group>"; };
-		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewController.swift; sourceTree = "<group>"; };
 		A92E7F1A238685CB0002543D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A94278392391E28500EE4DCF /* MedicationScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationScheduleTableViewController.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 				A97D7E052382355C00EB7647 /* Message.swift */,
 				A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */,
 				A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */,
-				A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */,
 				A955882E238DFA73003DA106 /* LocalData.swift */,
 			);
 			path = Extensions;
@@ -548,7 +545,6 @@
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
 				A69016E1236CF1D80043E1CE /* BrainTestViewController.swift in Sources */,
 				869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */,
-				A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */,
 				A9EE63CF23833DFF008CD1CB /* DatabaseRepresentation.swift in Sources */,
 				A955882F238DFA73003DA106 /* LocalData.swift in Sources */,
 				A67D66EA2381E03F004EF918 /* BrainTestCorrectButton.swift in Sources */,
@@ -742,7 +738,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Plane";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Planes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -764,7 +760,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Plane";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.anguskan.PAPER-Planes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

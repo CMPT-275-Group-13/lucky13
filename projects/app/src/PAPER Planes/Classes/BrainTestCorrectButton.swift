@@ -25,12 +25,4 @@ class BrainTestCorrectButton {
         BrainTestCorrectButton.identifierFactory += 1
         return BrainTestCorrectButton.identifierFactory
     }
-    
-    // Initialization of button
-    // Will accept the index of the correct buttons as the identifier
-    // NOTE: make the correct buttons and array of UIButton
-    //    init(correctButtonIndex buttonIndex: Int) {
-    //        self.identifier = buttonIndex
-    //    }
-    
 }
