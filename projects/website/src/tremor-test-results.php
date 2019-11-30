@@ -5,7 +5,9 @@
 <head>
 	<title id="titleTremorTests"></title>
 	<?php include("includes/head-tag-contents.php");?>
-	<script src="includes/packages/node-modules/chart.js"></script>
+	<script src="includes/packages/node_modules/moment/moment.js" type="text/javascript"></script>
+	<script src="includes/packages/node_modules/chart.js/dist/Chart.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -13,6 +15,8 @@
 <?php include("includes/navigation.php");?>
 
 <div class="container" id="main-content">
+	<canvas id="tremorChart">
+	</canvas>
 </div>
 
 <?php include("includes/footer.php");?>
