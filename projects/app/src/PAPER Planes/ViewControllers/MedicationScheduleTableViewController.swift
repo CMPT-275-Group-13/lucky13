@@ -55,7 +55,8 @@ class MedicationScheduleTableViewController: UITableViewController {
         super.viewDidLoad()
         medTableView.dataSource = self
         medTableView.delegate = self
-        
+        medTableView.allowsSelection = false
+
         MedReference.getDocuments() {(querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")

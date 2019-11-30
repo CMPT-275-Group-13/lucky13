@@ -8,6 +8,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class ViewController: UINavigationController {
 
@@ -16,7 +18,7 @@ class ViewController: UINavigationController {
         
 //        self.navigationBar.barStyle = .blackTranslucent
         // Do any additional setup after loading the view.
-
+        
         //Listen for Keyboard Events
         
     }
