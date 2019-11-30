@@ -77,6 +77,21 @@ function firebaseResetUserPassword(emailAddress) {
 
 function firebaseGetUID(){
 	var user = firebase.auth().currentUser;
-	return user.uid;
+	if (user != null) {
+		return user.uid;
+	}
+
+	console.log("ERROR! Unable to find user!");
+	return null;	
+}
+
+function firebaseGetUserEmail() {
+	var user = firebase.auth().currentUser;
+	if (user != null) {
+		return user.email;
+	}
+
+	console.log("ERROR! Unable to find user!");	
+	return null;
 }
 
