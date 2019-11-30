@@ -18,27 +18,21 @@ class HomeViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         let db = Firestore.firestore()
-        
+        //Get the user's first and last name from the database to display on the homescreen
         db.collection("patient").document(localUserEmail).getDocument{(document, error) in
             if let document = document, document.exists {
                 let firstName = document.get("firstName") as! String
                 let lastName = document.get("lastName") as! String
                 localUserName = firstName + " " + lastName
-                print(localUserName)
             } else {
+                //displays this if no patient profile is found on databse
                 localUserName = "No patient profile found, contact your doctor"
             }
-            
             self.nameLabel.text = localUserName
-            
-        
         }
-        
-
-        
-        // Do any additional setup after loading the view.
     }
     
+    //locking orientation to portrait for home view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

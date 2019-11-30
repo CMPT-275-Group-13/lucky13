@@ -23,7 +23,6 @@
 		A67D66EE2381EED5004EF918 /* TremorTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67D66ED2381EED5004EF918 /* TremorTestClass.swift */; };
 		A69016E1236CF1D80043E1CE /* BrainTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */; };
 		A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */; };
-		A92A9322238C93E400FC5EF6 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A9321238C93E400FC5EF6 /* Channel.swift */; };
 		A92A9324238C945800FC5EF6 /* DoctorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */; };
 		A92E7F1B238685CB0002543D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92E7F1A238685CB0002543D /* HomeViewController.swift */; };
 		A942783A2391E28500EE4DCF /* MedicationScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94278392391E28500EE4DCF /* MedicationScheduleTableViewController.swift */; };
@@ -84,7 +83,6 @@
 		A67D66ED2381EED5004EF918 /* TremorTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremorTestClass.swift; sourceTree = "<group>"; };
 		A69016E0236CF1D80043E1CE /* BrainTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainTestViewController.swift; sourceTree = "<group>"; };
 		A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		A92A9321238C93E400FC5EF6 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		A92A9323238C945800FC5EF6 /* DoctorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorTableViewController.swift; sourceTree = "<group>"; };
 		A92E7F1A238685CB0002543D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A94278392391E28500EE4DCF /* MedicationScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationScheduleTableViewController.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				A97D7E052382355C00EB7647 /* Message.swift */,
-				A92A9321238C93E400FC5EF6 /* Channel.swift */,
 				A9EE63CE23833DFF008CD1CB /* DatabaseRepresentation.swift */,
 				A9EE63CC23829EF4008CD1CB /* UIColorHelper.swift */,
 				A69016E4236CFFEF0043E1CE /* UIButtonExtension.swift */,
@@ -549,7 +546,6 @@
 				86DD0B24236BBD6500EDC0E2 /* ViewController.swift in Sources */,
 				A942783A2391E28500EE4DCF /* MedicationScheduleTableViewController.swift in Sources */,
 				86DD0B22236BBD6500EDC0E2 /* AppDelegate.swift in Sources */,
-				A92A9322238C93E400FC5EF6 /* Channel.swift in Sources */,
 				A69016E1236CF1D80043E1CE /* BrainTestViewController.swift in Sources */,
 				869AF538236CBFFA00F83C7B /* MessagingViewController.swift in Sources */,
 				A69016E5236CFFEF0043E1CE /* UIButtonExtension.swift in Sources */,

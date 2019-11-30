@@ -437,7 +437,7 @@
         <!--Tremor Test-->
         <scene sceneID="I2T-gb-pe9">
             <objects>
-                <viewController storyboardIdentifier="TremorTestViewController" id="SuH-L8-JwY" customClass="TremorTestViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TremorTestViewController" id="SuH-L8-JwY" customClass="TremorTestViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyZ-g8-rwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

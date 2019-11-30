@@ -15,23 +15,26 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set authUI delegate to the ones we define below
         let authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
         
-        
+        //Defines list of authentication providers
+        //Currently, only email and Google Login are enabled
         let providers: [FUIAuthProvider] = [
             FUIEmailAuth(),
-//            FUIEmailAuth(authAuthUI: authUI!, signInMethod: EmailPasswordAuthSignInMethod, forceSameDevice: false, allowNewEmailAccounts: false, actionCodeSetting: ActionCodeSettings()),
             FUIGoogleAuth(),
         ]
         authUI?.providers = providers
         
+        //Present the authView on top of LoginView as fullscreen modal
         let authViewController = authUI!.authViewController()
         authViewController.modalPresentationStyle = .fullScreen
         self.present(authViewController, animated: true, completion: nil)
         
     }
     
+    //required FirebaseUI function
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
@@ -40,7 +43,9 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
         return false
     }
     
+    //Defines authUI behaviour
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        //catches errors
         switch error {
             case .some(let error as NSError) where UInt(error.code) == FUIAuthErrorCode.userCancelledSignIn.rawValue:
                 print("User cancelled sign-in")
@@ -50,6 +55,7 @@ class LoginViewController: UIViewController, FUIAuthDelegate {
                 print("Login error: \(error.localizedDescription)")
             case .none:
             if let USER = user {
+                //if no errors, loads user email into LocalData and segues to home
                 localUserEmail = (USER.email)!
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "goHome", sender: self)

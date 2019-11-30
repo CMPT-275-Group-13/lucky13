@@ -35,10 +35,8 @@ class MessagingViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(localDoctorEmail)
-        let docId = localDoctorEmail
-        self.title = localDoctorName
+        let docId = localDoctorEmail //loads doctor email from localdata
+        self.title = localDoctorName //sets title to doctor's name
         
         //Specifying the DB collection to pull messages from
         reference = db.collection(["messages", docId, member.email].joined(separator: "/"))
@@ -251,7 +249,7 @@ extension MessagingViewController: MessageInputBarDelegate{
     }
 }
 
-
+//UIScrollView Extension that scrolls to bottom
 extension UIScrollView{
     var isAtBottom: Bool{
         return contentOffset.y >= verticalOffsetForBottom
