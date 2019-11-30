@@ -6,31 +6,32 @@
 function firebaseCheckAuthState() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
+		console.log("Auth");
 
-	  // User is signed in
-	  if (user) {
-		console.log("User is signed in");
-		if (currentPathName.includes("register.php")) {
-			console.log(user.uid);
-			redirectPath("index.php");
-		  }
-		  else if(currentPathName.includes("login.php")) {
-			console.log("Redirect to index.php");
-		    redirectPath("index.php?index=" + user.uid);    
-		  }
-	  }
+		// User is signed in
+		if (user) {
+			console.log("User is signed in");
+			if (currentPathName.includes("register.php")) {
+				console.log(user.uid);
+				redirectPath("index.php");
+			}
+			else if (currentPathName.includes("login.php")) {
+				console.log("Redirect to index.php");
+				redirectPath("index.php?index=" + user.uid);    
+			}
+		}
 
-	  // User is signed out.
-	  else {
-	    console.log("User is signed out");
-	    if (!currentPathName.includes("login.php") && 
-		    !currentPathName.includes("register.php")) {
-		    console.log("Redirect to login.php");  
-		    redirectPath("login.php");
-		  }
-	  }
-	}, function(error) {
-	  console.log(error);
+		// User is signed out.
+		else {
+			console.log("User is signed out");
+			if (!currentPathName.includes("login.php") && 
+				!currentPathName.includes("register.php")) {
+				console.log("Redirect to login.php");  
+				redirectPath("login.php");
+			}
+		}
+		}, function(error) {
+		console.log(error);
 	});
 }
 
@@ -75,7 +76,7 @@ function firebaseResetUserPassword(emailAddress) {
 	});
 }
 
-function firebaseGetUID(){
+function firebaseGetUID() {
 	var user = firebase.auth().currentUser;
 	if (user != null) {
 		return user.uid;
@@ -94,4 +95,3 @@ function firebaseGetUserEmail() {
 	console.log("ERROR! Unable to find user!");	
 	return null;
 }
-

@@ -7,6 +7,8 @@
 <head>
 	<?php include("includes/head-tag-contents.php");?>
 	<title id="titleHomePage">Welcome Doctor!</title>
+	<script type="application/javascript" src="includes/javascript/helper.js"></script>
+	<script type="application/javascript" src="includes/javascript/index.js"></script>
 </head>
 <body>
 <div class ="jumbotron jumbotron-fluid">
@@ -65,8 +67,6 @@
 </div>
 
 <?php include("includes/footer.php");?>
-<script src="includes/javascript/index.js"></script>
-<script type="module" src="includes/javascript/helper.js"></script>
 
 </body>
 </html>
