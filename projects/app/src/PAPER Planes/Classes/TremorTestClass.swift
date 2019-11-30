@@ -51,8 +51,6 @@ class TremorTestClass {
                 self.yAccelRawDatas.append(trueData.acceleration.y)
                 self.zAccelRawDatas.append(trueData.acceleration.z)
             }
-        } else {
-            print("Don't have accelerometer")
         }
     }
     
@@ -127,8 +125,6 @@ class TremorTestClass {
                 self.yAccelRawDatas.append(trueData.attitude.roll)
                 self.zAccelRawDatas.append(trueData.attitude.yaw)
             }
-        } else {
-            print("Don't have Device Motion")
         }
     }
     
@@ -164,11 +160,11 @@ class TremorTestClass {
     private func waitFor(seconds wait: Int) {
         var countDown = wait
         Timer.scheduledTimer(withTimeInterval: Double(wait), repeats: false) { (timer) in
-            print("\(countDown)")
             countDown -= 1
         }
     }
     
+    // Stop every sampling device immediately
     func stopTestAbrupt() {
         self.stopAccelerometer()
         self.stopGyroscope()

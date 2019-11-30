@@ -14,9 +14,8 @@ class BrainTestViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Lock orientation to landscape
         AppUtility.lockOrientation(.landscape)
-        // Or to rotate and lock
-        AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
         
         // Disabling swipe back for BRAIN test
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -100,7 +99,7 @@ class BrainTestViewController: UIViewController {
         }
     }
     
-    // When the user taps on anywhere else
+    // When the user taps on anywhere else than the previous two types of buttons
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if BrainTest.getGameState() {
             BrainTest.reallyWrongButtonTapped()
@@ -132,7 +131,6 @@ class BrainTestViewController: UIViewController {
         tempText = "Dysmetria score: \((String(accScore)))\n"
         testResultText.append(tempText)
         
-        print(testResultText)
         // Uploading the test data
         uploadBrainTestData()
         return testResultText
@@ -144,10 +142,12 @@ class BrainTestViewController: UIViewController {
     var totalTime = 30
     var countdownTimer = Timer()
     
+    // Start counting down the test time
     func startCountdown() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
     
+    // Supporting function for startCountdown
     @objc func updateCountdown() {
         countdownLabel.text = "Countdown: \(totalTime)"
         
@@ -164,6 +164,8 @@ class BrainTestViewController: UIViewController {
         transitionToResult()
     }
     
+    // Move the view to BRAIN test result view
+    // Will be called when the countdown is 0
     func transitionToResult() {
         // Calling the segue that transfer to the result view
         performSegue(withIdentifier: "resultTransition", sender: self)
@@ -182,6 +184,7 @@ class BrainTestViewController: UIViewController {
     // Initializing Firestore variable
     let db = Firestore.firestore()
     
+    // Getting user's email from their login
     func getSelfPatientData() -> String {
         return localUserEmail
     }

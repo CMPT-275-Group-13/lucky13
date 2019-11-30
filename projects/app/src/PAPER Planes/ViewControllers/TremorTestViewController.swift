@@ -15,7 +15,6 @@ class TremorTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //uploadTest()
         TremorTest.startAccelerometer()
         startCountdown()
     }
@@ -28,7 +27,9 @@ class TremorTestViewController: UIViewController {
         endCountdown()
     }
     
+    // Setting the tremor test timer
     var totalTime = 30
+    // Initializing timer variable
     var countdownTimer = Timer()
     
     @IBOutlet weak var testCountDownLabel: UILabel!
@@ -64,6 +65,8 @@ class TremorTestViewController: UIViewController {
         uploadAcclerometerData()
     }
     
+    // Initializing Tremor Test object
+    // Initializing the model for the controller
     lazy var TremorTest = TremorTestClass()
     
     // Initializing Firestore variable
@@ -102,11 +105,8 @@ class TremorTestViewController: UIViewController {
     }
     
     @IBOutlet weak var uploadStatusLabel: UILabel!
-    
     @IBOutlet weak var xValueLabel: UILabel!
-    
     @IBOutlet weak var yValueLabel: UILabel!
-    
     @IBOutlet weak var zValueLabel: UILabel!
 }
 
