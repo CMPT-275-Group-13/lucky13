@@ -15,7 +15,7 @@ class TremorTestClass {
     private var timestamp = NSDate().timeIntervalSince1970
     
     var waitTestStart = 10 // Default: wait 10 seconds before starting test
-    var dataTakenInterval = 0.5 // Default: have a 1/60 seconds interval to taken data
+    var dataTakenInterval = 1.00/60.0 // Default: have a 1/60 seconds interval to taken data
     var testDuration = 5 // Default: have the tremor test run for 30 seconds
     
     private var xDMPitchDatas: [Double] = []
@@ -39,7 +39,7 @@ class TremorTestClass {
             // Might want to reset the array first
             clearAccerlerometerArrayData()
             
-            motion.accelerometerUpdateInterval = dataTakenInterval
+            motion.accelerometerUpdateInterval = TimeInterval(dataTakenInterval)
             motion.startAccelerometerUpdates(to: .main) { (data, error) in
                 guard let trueData = data, error == nil else {
                     return
@@ -74,7 +74,7 @@ class TremorTestClass {
             // Might want to reset the gyro array first
             clearAccerlerometerArrayData()
             
-            motion.gyroUpdateInterval = dataTakenInterval
+            motion.gyroUpdateInterval = TimeInterval(dataTakenInterval)
             motion.startGyroUpdates(to: .main) { (data, error) in
                 guard let trueData = data, error == nil else {
                     return
@@ -110,7 +110,7 @@ class TremorTestClass {
             // Might want to reset the array first
             clearAccerlerometerArrayData()
             
-            motion.deviceMotionUpdateInterval = dataTakenInterval
+            motion.deviceMotionUpdateInterval = TimeInterval(dataTakenInterval)
             motion.startDeviceMotionUpdates(to: .main) { (data, error) in
                 guard let trueData = data, error == nil else {
                     return

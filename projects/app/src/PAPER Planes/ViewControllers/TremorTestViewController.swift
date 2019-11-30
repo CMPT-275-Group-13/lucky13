@@ -29,48 +29,57 @@ class TremorTestViewController: UIViewController {
         endCountdown()
     }
     
-    var totalTime = 15
+    var totalTime = 30
     var countdownTimer = Timer()
     
     @IBOutlet weak var testCountDownLabel: UILabel!
+    // Starting the test countdown
     func startCountdown() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
-    
+    // Support function for startCountdown and endCountdown
     @objc func updateCountdown() {
         // countdownLabel.text = "Countdown: \(totalTime)"
         
         if totalTime != 0 {
             totalTime -= 1
-            testCountDownLabel.text = "Countdown: \(totalTime)"
+            testCountDownLabel.text = "Hold your phone for: \(totalTime)"
         } else {
-            endCountdown()
+            endTestCountDown()
         }
     }
     
+    // End the countdown
     func endCountdown() {
         countdownTimer.invalidate()
-        testCountDownLabel.text = "Countdown: 0"
-        // TODO: display the test result and go back to the menu page
+        testCountDownLabel.text = "Test Finished"
         TremorTest.stopAccelerometer()
+    }
+    
+    // This function will be called when the test is finished
+    // It will make the phone vibrate and upload the test data to firebase
+    func endTestCountDown() {
+        endCountdown()
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         uploadAcclerometerData()
     }
     
     lazy var TremorTest = TremorTestClass()
     
+    // Firestore variable
     let db = Firestore.firestore()
-    
-    func getSelfPatientData() {
-        // TODO: For rev 3
+    // Getting the user's email to upload to the correct place
+    func getSelfPatientData() -> String {
+        return localUserEmail
     }
     
+    // Uploading the data to firestore
     func uploadAcclerometerData() {
         var ref: DocumentReference? = nil
-        getSelfPatientData()
+        let userEmail = getSelfPatientData()
         let (timestamp, xAccel, yAccel, zAccel) = TremorTest.getAccelerometerData()
         
-        ref = db.collection("tests/csmith@gmail.com/tremor-test").addDocument(data: [
+        ref = db.collection("tests/\(userEmail)/tremor-test").addDocument(data: [
             "timeStamp": timestamp,
             "xAccel": xAccel,
             "yAccel": yAccel,
@@ -82,6 +91,7 @@ class TremorTestViewController: UIViewController {
                 print("Document added with ID: \(ref!.documentID)")
                 self.uploadStatusLabel.text = "Upload Status: Uploaded to the doctors!"
                 
+                // Outputting the test results to the view
                 self.xValueLabel.text = "X Value: \(xAccel)"
                 self.yValueLabel.text = "Y Value: \(yAccel)"
                 self.zValueLabel.text = "Z Value: \(zAccel)"

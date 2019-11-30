@@ -17,7 +17,7 @@ class BrainTestViewController: UIViewController {
         AppUtility.lockOrientation(.landscape)
         // Or to rotate and lock
         AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
-        
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -26,6 +26,7 @@ class BrainTestViewController: UIViewController {
         // Don't forget to reset when view is being removed
         AppUtility.lockOrientation(.portrait)
         countdownTimer.invalidate() // Stop the test timer so that we won't load the result view if the test is stopped abrubtly
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewDidLoad() {
@@ -47,11 +48,12 @@ class BrainTestViewController: UIViewController {
                 chosenHand = "Right"
             }
             BrainTest.startGame(hand: chosenHand)
+            // Start the test countdown
             startCountdown()
-            // Make both button disapper and start test count down
+            
+            // Make the left right button disaapper
             chooseHandLeft.setTitle("", for: UIControl.State.normal)
             chooseHandRight.setTitle("", for: UIControl.State.normal)
-            
             chooseHandLeft.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
             chooseHandRight.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         } else {
@@ -60,12 +62,12 @@ class BrainTestViewController: UIViewController {
         }
     }
     
-    
-    
+    // Defining the model of the test
     lazy var BrainTest = BrainTestClass(handChosen: "Right", numberOfCorrectButtons: correctButtons.count)
     
     @IBOutlet var correctButtons: [UIButton]!
     
+    // When the user taps down the correct button
     @IBAction func touchDownCorrectButtons(_ sender: UIButton) {
         if BrainTest.getGameState() {
             if let correctButtonNumber = correctButtons.index(of: sender) {
@@ -77,23 +79,27 @@ class BrainTestViewController: UIViewController {
         
     }
     
+    // When the user lifts up their finger from the correct button
     @IBAction func touchUpInsideCorrectButtons(_ sender: UIButton) {
         if let correctButtonNumber = correctButtons.index(of: sender) {
             BrainTest.correctButtonTappedOut(at: correctButtonNumber)
         }
     }
     
+    // When the user taps on the buttons adjacent to the correct buttons
+    // These buttons are transparent
+    @IBAction func wrongTap(_ sender: UIButton) {
+        if BrainTest.getGameState() {
+            BrainTest.wrongButtonTapped()
+        }
+    }
+    
+    // When the user taps on anywhere else
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if BrainTest.getGameState() {
             BrainTest.reallyWrongButtonTapped()
         }
         
-    }
-    
-    @IBAction func wrongTap(_ sender: UIButton) {
-        if BrainTest.getGameState() {
-            BrainTest.wrongButtonTapped()
-        }
     }
     
     func getTestResultText() -> String {
@@ -119,14 +125,15 @@ class BrainTestViewController: UIViewController {
         testResultText.append(tempText)
         
         print(testResultText)
+        // Uploading the test data
         uploadBrainTestData()
         return testResultText
     }
     
     @IBOutlet weak var countdownLabel: UILabel!
     
-    //let testLength = 60
-    var totalTime = 5
+    // Countdown timer for tracking test time length
+    var totalTime = 30
     var countdownTimer = Timer()
     
     func startCountdown() {
@@ -150,11 +157,11 @@ class BrainTestViewController: UIViewController {
     }
     
     func transitionToResult() {
-        
+        // Calling the segue that transfer to the result view
         performSegue(withIdentifier: "resultTransition", sender: self)
-        //navigationController?.pushViewController(BrainTestResultViewController, animated: true)
     }
     
+    // Support function for transitionToResult
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "resultTransition" {
             let testResultText = getTestResultText()
@@ -164,19 +171,18 @@ class BrainTestViewController: UIViewController {
             return
         }
     }
-    // FirebaseApp.configure()
     
     let db = Firestore.firestore()
     
-    func getSelfPatientData() {
-        // TODO: For rev 3
+    func getSelfPatientData() -> String {
+        return localUserEmail
     }
     
     func uploadBrainTestData() {
         var ref: DocumentReference? = nil
-        getSelfPatientData()
+        let userEmail = getSelfPatientData()
         let (timestamp, handChosen, totalTaps, timeHeldAvg, timeBetweenAvg, accScore) = BrainTest.getResult()
-        ref = db.collection("tests/csmith@gmail.com/brain-test").addDocument(data: [
+        ref = db.collection("tests/\(userEmail)/brain-test").addDocument(data: [
             "timeStamp": timestamp,
             "chosenHand": handChosen,
             "KinesiaScore": totalTaps,
@@ -190,10 +196,5 @@ class BrainTestViewController: UIViewController {
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
-    }
-    
-    // TODO: Implement the MVC design for the BRAIN test in rev 2
-    func updateViewFromHandChoice() {
-        
     }
 }

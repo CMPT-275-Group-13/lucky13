@@ -26,7 +26,7 @@ class BrainTestResultViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        AppUtility.lockOrientation(.all)
+        AppUtility.lockOrientation(.landscape)
     }
     
     @IBAction func returnToTest(_ sender: UIButton) {
