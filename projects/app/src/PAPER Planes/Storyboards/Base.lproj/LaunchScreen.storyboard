@@ -16,12 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-JW-HhB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-JW-HhB">
                                 <rect key="frame" x="147" y="388" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.65490196078431373" green="0.80784313725490198" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vLg-JW-HhB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c2P-HJ-T7z"/>
+                            <constraint firstItem="vLg-JW-HhB" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="wZs-id-KxG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

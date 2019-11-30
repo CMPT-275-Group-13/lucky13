@@ -23,10 +23,10 @@ struct Medication{
     
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hhmm"
+        dateFormatter.dateFormat = "HHmm"
         let tempDate = dateFormatter.date(from: String(time))
         
-        dateFormatter.dateFormat = "hh:mma"
+        dateFormatter.dateFormat = "hh:mm a"
         self.time = dateFormatter.string(from: tempDate as! Date)
     }
 }
