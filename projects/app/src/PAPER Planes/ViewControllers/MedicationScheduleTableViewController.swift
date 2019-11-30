@@ -2,89 +2,100 @@
 //  MedicationScheduleTableViewController.swift
 //  PAPER Planes
 //
-//  Created by Minh Dinh on 2019-11-27.
+//  Created by Marco Liang on 2019-11-29.
 //  Copyright © 2019 Angus Kan. All rights reserved.
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+
+struct Medication{
+    var docName : String
+    var amount : String
+    var medName : String
+    var time : String
+    
+    init(docFirst : String, docLast: String, amount: String, medName: String, time: Int){
+        self.docName = docFirst + " " + docLast
+        self.amount = amount
+        self.medName = medName
+    
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hhmm"
+        let tempDate = dateFormatter.date(from: String(time))
+        
+        dateFormatter.dateFormat = "hh:mma"
+        self.time = dateFormatter.string(from: tempDate as! Date)
+    }
+}
+
+class MedicationTableViewCell: UITableViewCell{
+    @IBOutlet weak var medNameLabel: UILabel!
+    @IBOutlet weak var docNameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    
+}
 
 class MedicationScheduleTableViewController: UITableViewController {
 
+    @IBOutlet var medTableView: UITableView!
+   
+    let currentUser = localUserEmail
+    private let MedCellID = "MedicationCell"
+    private let db = Firestore.firestore()
+    private var MedReference: CollectionReference{
+        return db.collection("medication").document(currentUser).collection("dailyMedications")
+    }
+    private var MedArray = [Medication]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        medTableView.dataSource = self
+        medTableView.delegate = self
+        
+        MedReference.getDocuments() {(querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.MedArray.append(Medication(docFirst: document.data()["docFirstName"] as! String, docLast: document.data()["docLastName"] as! String, amount: document.data()["amount"] as! String, medName: document.data()["name"] as! String, time: document.data()["time"] as! Int))
+                }
+                self.medTableView.reloadData()
+            }
+        }
     }
+    
 
     // MARK: - Table view data source
-
+  
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    // #warning Incomplete implementation, return the number of sections
+    return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    //print(DoctorNameArray.count)
+    return MedArray.count
     }
-
-    /*
+  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationCell", for: indexPath) as! MedicationTableViewCell
+      let Medication = MedArray[indexPath.row]
+      cell.medNameLabel?.text = Medication.medName
+      cell.docNameLabel?.text = Medication.docName
+      cell.timeLabel?.text = Medication.time
+      cell.amountLabel?.text = Medication.amount
 
-        // Configure the cell...
-
-        return cell
+      return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+      
+    
 }
+
+
+
+
+

@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="QX9-lT-crg">
             <objects>
-                <navigationController id="F4d-ee-uOf" customClass="ViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="F4d-ee-uOf" customClass="ViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zdG-yr-5Ox">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -46,7 +46,7 @@
         <!--HomeViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" title="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" title="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,7 +186,7 @@
         <!--Doctors-->
         <scene sceneID="fHL-g0-Ynd">
             <objects>
-                <tableViewController id="vMy-Kz-L39" customClass="DoctorTableViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="vMy-Kz-L39" customClass="DoctorTableViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VaA-WV-f0T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,22 +218,58 @@
             </objects>
             <point key="canvasLocation" x="735" y="139"/>
         </scene>
-        <!--Medication Schedule Table View Controller-->
+        <!--Medication Schedule-->
         <scene sceneID="tYM-7c-ZPk">
             <objects>
-                <tableViewController id="979-Ya-fRg" customClass="MedicationScheduleTableViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
+                <tableViewController id="979-Ya-fRg" customClass="MedicationScheduleTableViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XJc-37-I9i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yoc-bz-06y">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicationCell" rowHeight="90" id="yoc-bz-06y" customClass="MedicationTableViewCell" customModule="PAPER_Planes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yoc-bz-06y" id="vkr-Gw-YSh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Medication Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waf-MT-qQ2">
+                                            <rect key="frame" x="20" y="35" width="134" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DocName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFz-Tn-L04">
+                                            <rect key="frame" x="318" y="11" width="76" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0n7-fZ-9U3">
+                                            <rect key="frame" x="318" y="35" width="38" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwl-he-CWr">
+                                            <rect key="frame" x="318" y="58" width="60" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="amountLabel" destination="qwl-he-CWr" id="KWu-7B-JLW"/>
+                                    <outlet property="docNameLabel" destination="jFz-Tn-L04" id="mX8-y1-waS"/>
+                                    <outlet property="medNameLabel" destination="Waf-MT-qQ2" id="V1Y-i0-ZMm"/>
+                                    <outlet property="timeLabel" destination="0n7-fZ-9U3" id="JIC-b1-PDQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -241,16 +277,19 @@
                             <outlet property="delegate" destination="979-Ya-fRg" id="x58-tx-zmQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="7Ll-Lb-j0U"/>
+                    <navigationItem key="navigationItem" title="Medication Schedule" id="7Ll-Lb-j0U"/>
+                    <connections>
+                        <outlet property="medTableView" destination="XJc-37-I9i" id="tqK-u8-Daz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MP-hu-Xdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-251" y="-576"/>
+            <point key="canvasLocation" x="-252.17391304347828" y="-576.5625"/>
         </scene>
         <!--Doctor-->
         <scene sceneID="z5M-eK-mLL">
             <objects>
-                <viewController id="ge3-sZ-B94" customClass="MessagingViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ge3-sZ-B94" customClass="MessagingViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dwr-0I-g3h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,7 +305,7 @@
         <!--Brain Test Result View Controller-->
         <scene sceneID="fBb-Jr-aoJ">
             <objects>
-                <viewController storyboardIdentifier="BrainTestResultViewController" id="KMG-GH-BAx" customClass="BrainTestResultViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrainTestResultViewController" id="KMG-GH-BAx" customClass="BrainTestResultViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q5X-LN-NCW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -303,7 +342,7 @@
         <!--Test Selection-->
         <scene sceneID="Gnv-r3-gWW">
             <objects>
-                <viewController storyboardIdentifier="TestSelectionViewController" id="iB9-pL-6ks" customClass="TestSelectionViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestSelectionViewController" id="iB9-pL-6ks" customClass="TestSelectionViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a5P-ry-nIU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,7 +416,7 @@
         <!--Tremor Test-->
         <scene sceneID="I2T-gb-pe9">
             <objects>
-                <viewController storyboardIdentifier="TremorTestViewController" id="SuH-L8-JwY" customClass="TremorTestViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TremorTestViewController" id="SuH-L8-JwY" customClass="TremorTestViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyZ-g8-rwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -473,7 +512,7 @@
         <!--BRAIN Test-->
         <scene sceneID="Npo-eL-7xo">
             <objects>
-                <viewController storyboardIdentifier="BrainTestViewController" id="DTf-hR-QDg" customClass="BrainTestViewController" customModule="PAPER_Planes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrainTestViewController" id="DTf-hR-QDg" customClass="BrainTestViewController" customModule="PAPER_Planes" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PXr-ba-OCV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

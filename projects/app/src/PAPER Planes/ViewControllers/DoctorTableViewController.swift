@@ -35,7 +35,7 @@ class DoctorTableViewController: UITableViewController {
     super.viewDidLoad()
     myTableView.dataSource = self
     myTableView.delegate = self
-    
+
    channelListener = ChannelReference.addSnapshotListener { querySnapshot, error in
 
 //      print("test2")
@@ -47,43 +47,87 @@ class DoctorTableViewController: UITableViewController {
     let data = snapshot.get("doctor") as! NSArray
 //    var DoctorNameEntry: String = ""
 //    var isDone: Boolean = false
-    let dataArray = (data as Array).filter {$0 is String}
+    let dataArray = (data as! [String])
     self.DoctorNameArray = []
+    self.DoctorEmailArray = dataArray
+    let dispatch = DispatchGroup()
     for dataarray in dataArray {
-        self.GetDoctorName(Name: dataarray as! String)
-        self.DoctorEmailArray.append(dataarray as! String)
+        self.GetDoctorName(dispatch: dispatch, Name: dataarray){
+            (name) in dispatch.notify(queue: .main, execute: {
+                print("Name: ", name)
+                self.DoctorNameArray.append(name)
+                
+                print("Email Array: ", self.DoctorEmailArray)
+                self.myTableView.reloadData()
+
+            })
+        }
     }
-    
-    self.DoctorEmailArray.reverse()
-    print(self.DoctorEmailArray)
-    
+        
     }
     
   }
+
     
-  private func GetDoctorName(Name: String){
-         var fullName: String = ""
-         var NameReference : DocumentReference{
-             return db.collection("doctors").document(Name)
-         }
-        NameReference.getDocument{ (document, error) in
-            if let document = document, document.exists {
-            let firstName = document.get("firstName") as! String
-            let lastName = document.get("lastName") as! String
-                
-                fullName = firstName + " " + lastName
-                self.DoctorNameArray.append(fullName)
-            } else {
-                print("Document does not exist")
-            }
-            self.myTableView.reloadData()
+    private func GetDoctorName(dispatch: DispatchGroup, Name: String, Completed: @escaping (String) -> Void) {
+        var fullName: String = ""
+        var NameReference : DocumentReference{
+            return db.collection("doctors").document(Name)
         }
-    
-//    print(self.DoctorNameArray)
-    //print(fullName)
-//    return fullName
+        
+        dispatch.enter()
+        
+        NameReference.getDocument { (document, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let document = document, document.exists{
+
+                    let firstName = document.get("firstName") as! String
+                    let lastName = document.get("lastName") as! String
+                        
+                    fullName = firstName + " " + lastName
+                }
+                else
+                {
+                    print("Document does not exist")
+                }
+            }
+            dispatch.leave()
+
+        }
+        
+        dispatch.notify(queue: .main, execute: {
+            Completed(fullName)
+
+        })
+
 
     }
+    
+//  private func GetDoctorName(Name: String){
+//         var fullName: String = ""
+//         var NameReference : DocumentReference{
+//             return db.collection("doctors").document(Name)
+//         }
+//        NameReference.getDocument{ (document, error) in
+//            if let document = document, document.exists {
+//            let firstName = document.get("firstName") as! String
+//            let lastName = document.get("lastName") as! String
+//
+//                fullName = firstName + " " + lastName
+//                self.DoctorNameArray.append(fullName)
+//            } else {
+//                print("Document does not exist")
+//            }
+//            self.myTableView.reloadData()
+//        }
+//
+////    print(self.DoctorNameArray)
+//    //print(fullName)
+////    return fullName
+//
+//    }
   
   // MARK: - Table view data source
   
