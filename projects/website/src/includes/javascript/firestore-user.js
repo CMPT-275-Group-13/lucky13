@@ -2,13 +2,17 @@
  * firebase-user.js
  */
 
-function firestoreCreateUser(email, firstName, lastName) {
+function firestoreCreateUser(email, firstName, lastName, uid, phoneNumber) {
+
+
 	var db = firebase.firestore();
 
-	db.collection("doctors").doc(email).add({
+	db.collection("doctors").doc(email).set({
 		email: email,
 		firstName: firstName,
-		lastName: lastName
+		lastName: lastName,
+		//phoneNumber: phoneNumber,
+		uid: uid
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);

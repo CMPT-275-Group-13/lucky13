@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titleMessagePage">Messages</title>
 	<?php include("includes/head-tag-contents.php");?>
 </head>
 <body>

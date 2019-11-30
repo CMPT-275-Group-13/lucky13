@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titlePatientProfile">Patient Profile</title>
 	<?php include("includes/head-tag-contents.php");?>
 </head>
 <body>

@@ -32,6 +32,12 @@ The project was developed with the following:
 ## Database Specifications
 - Firebase
 
+## Automation testing
+The following tools were used to test the project:
+Website
+- Selenium C#
+- NUnit Test
+
 # Building from Source
 ## iOS Instructions
 1. Download the project into a folder.
