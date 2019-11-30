@@ -17,6 +17,8 @@ class BrainTestViewController: UIViewController {
         AppUtility.lockOrientation(.landscape)
         // Or to rotate and lock
         AppUtility.lockOrientation(.landscape, andRotateTo: .landscapeLeft)
+        
+        // Disabling swipe back for BRAIN test
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
@@ -26,19 +28,18 @@ class BrainTestViewController: UIViewController {
         // Don't forget to reset when view is being removed
         AppUtility.lockOrientation(.portrait)
         countdownTimer.invalidate() // Stop the test timer so that we won't load the result view if the test is stopped abrubtly
+        // Enabling swipe back for future views
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
     
     var chosenHand = ""
     @IBOutlet var chooseHandLeft: UIButton!
     @IBOutlet var chooseHandRight: UIButton!
-    
     @IBAction func chooseHand(_ sender: UIButton) {
         if !BrainTest.getGameState() {
             
@@ -66,7 +67,6 @@ class BrainTestViewController: UIViewController {
     lazy var BrainTest = BrainTestClass(handChosen: "Right", numberOfCorrectButtons: correctButtons.count)
     
     @IBOutlet var correctButtons: [UIButton]!
-    
     // When the user taps down the correct button
     @IBAction func touchDownCorrectButtons(_ sender: UIButton) {
         if BrainTest.getGameState() {
@@ -74,15 +74,18 @@ class BrainTestViewController: UIViewController {
                 BrainTest.correctButtonTappedIn(at: correctButtonNumber)
             }
         } else {
-            // Ignore button touch down
+            // Ignore button touch down when the test hasn't started
+            // I.e. the user haven't chosen their testing hand
         }
-        
     }
     
     // When the user lifts up their finger from the correct button
     @IBAction func touchUpInsideCorrectButtons(_ sender: UIButton) {
         if let correctButtonNumber = correctButtons.index(of: sender) {
             BrainTest.correctButtonTappedOut(at: correctButtonNumber)
+        } else {
+            // Ignore button touch down when the test hasn't started
+            // I.e. the user haven't chosen their testing hand
         }
     }
     
@@ -91,6 +94,9 @@ class BrainTestViewController: UIViewController {
     @IBAction func wrongTap(_ sender: UIButton) {
         if BrainTest.getGameState() {
             BrainTest.wrongButtonTapped()
+        } else {
+            // Ignore button touch down when the test hasn't started
+            // I.e. the user haven't chosen their testing hand
         }
     }
     
@@ -98,8 +104,10 @@ class BrainTestViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if BrainTest.getGameState() {
             BrainTest.reallyWrongButtonTapped()
+        } else {
+            // Ignore button touch down when the test hasn't started
+            // I.e. the user haven't chosen their testing hand
         }
-        
     }
     
     func getTestResultText() -> String {
@@ -171,7 +179,7 @@ class BrainTestViewController: UIViewController {
             return
         }
     }
-    
+    // Initializing Firestore variable
     let db = Firestore.firestore()
     
     func getSelfPatientData() -> String {
@@ -180,8 +188,10 @@ class BrainTestViewController: UIViewController {
     
     func uploadBrainTestData() {
         var ref: DocumentReference? = nil
+        // Getting the user's email for sending data to the right place
         let userEmail = getSelfPatientData()
         let (timestamp, handChosen, totalTaps, timeHeldAvg, timeBetweenAvg, accScore) = BrainTest.getResult()
+        // Sending data to Firebase
         ref = db.collection("tests/\(userEmail)/brain-test").addDocument(data: [
             "timeStamp": timestamp,
             "chosenHand": handChosen,
@@ -191,6 +201,7 @@ class BrainTestViewController: UIViewController {
             "DysmetriaScore": accScore
         ]) { err in
             if let err = err {
+                // If there're errors sending data to Firebase
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")

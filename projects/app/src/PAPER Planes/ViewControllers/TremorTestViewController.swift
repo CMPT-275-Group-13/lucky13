@@ -15,7 +15,6 @@ class TremorTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("Enter Tremor Test")
         //uploadTest()
         TremorTest.startAccelerometer()
         startCountdown()
@@ -60,13 +59,14 @@ class TremorTestViewController: UIViewController {
     // It will make the phone vibrate and upload the test data to firebase
     func endTestCountDown() {
         endCountdown()
+        // Vibrating the phone when the test is done
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         uploadAcclerometerData()
     }
     
     lazy var TremorTest = TremorTestClass()
     
-    // Firestore variable
+    // Initializing Firestore variable
     let db = Firestore.firestore()
     // Getting the user's email to upload to the correct place
     func getSelfPatientData() -> String {
@@ -77,8 +77,9 @@ class TremorTestViewController: UIViewController {
     func uploadAcclerometerData() {
         var ref: DocumentReference? = nil
         let userEmail = getSelfPatientData()
-        let (timestamp, xAccel, yAccel, zAccel) = TremorTest.getAccelerometerData()
+        let (timestamp, xAccel, yAccel, zAccel) = TremorTest.getAccelerometerStdDev()
         
+        // Uploading test data to Firestore
         ref = db.collection("tests/\(userEmail)/tremor-test").addDocument(data: [
             "timeStamp": timestamp,
             "xAccel": xAccel,
@@ -86,6 +87,7 @@ class TremorTestViewController: UIViewController {
             "zAccel": zAccel
         ]) { err in
             if let err = err {
+                // If there're errors sending data to Firebase
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")

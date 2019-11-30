@@ -14,18 +14,19 @@ class TremorTestClass {
     var dateTaken = Date()
     private var timestamp = NSDate().timeIntervalSince1970
     
-    var waitTestStart = 10 // Default: wait 10 seconds before starting test
     var dataTakenInterval = 1.00/60.0 // Default: have a 1/60 seconds interval to taken data
-    var testDuration = 5 // Default: have the tremor test run for 30 seconds
     
+    // Holding arrays for Device Motion data
     private var xDMPitchDatas: [Double] = []
     private var yDMRollDatas: [Double] = []
     private var zDMYawDatas: [Double] = []
     
+    // Holding arrays for Accelerometer data
     private var xAccelRawDatas: [Double] = []
     private var yAccelRawDatas: [Double] = []
     private var zAccelRawDatas: [Double] = []
     
+    // Holding arrays for Gyroscope data
     private var xGyroRawDatas: [Double] = []
     private var yGyroRawDatas: [Double] = []
     private var zGyroRawDatas: [Double] = []
@@ -33,7 +34,7 @@ class TremorTestClass {
     var motion = CMMotionManager()
     
     
-    // Start recording raw accelerometer data into the class's accelerometer array
+    // Start sampling and recording raw accelerometer data into the class's accelerometer array
     func startAccelerometer() {
         if motion.isAccelerometerAvailable {
             // Might want to reset the array first
@@ -55,20 +56,24 @@ class TremorTestClass {
         }
     }
     
+    // Stop sampling with the Accelerometer
     func stopAccelerometer() {
         self.motion.stopAccelerometerUpdates()
     }
     
-    func getAccelerometerData() -> (Any ,Double, Double, Double) {
+    // Output Accelerometer Standard Deviation data
+    func getAccelerometerStdDev() -> (Any ,Double, Double, Double) {
         return (self.timestamp, standardDeviation(arr: self.xAccelRawDatas), standardDeviation(arr: self.yAccelRawDatas), standardDeviation(arr: self.zAccelRawDatas))
     }
     
+    // Clear the Accelerometer data arrays
     func clearAccerlerometerArrayData() {
         xAccelRawDatas.removeAll()
         yAccelRawDatas.removeAll()
         zAccelRawDatas.removeAll()
     }
     
+    // Start sampling and recording raw gyroscope data into the class's gyroscope array
     func startGyroscope() {
         if motion.isGyroAvailable {
             // Might want to reset the gyro array first
@@ -88,23 +93,24 @@ class TremorTestClass {
         }
     }
     
+    // Stop sampling with the Gyroscope
     func stopGyroscope() {
         self.motion.stopGyroUpdates()
     }
     
-    func recordGyroscope() {
-        startGyroscope()
-        // Wait for 'duration' seconds
-        waitFor(seconds: testDuration)
-        stopGyroscope()
+    // Output Gyroscope Standard Deviation data
+    func getGyroscopeStdDev() -> (Any ,Double, Double, Double) {
+        return (self.timestamp, standardDeviation(arr: self.xAccelRawDatas), standardDeviation(arr: self.yAccelRawDatas), standardDeviation(arr: self.zAccelRawDatas))
     }
     
+    // Clear the Gyroscope data arrays
     func clearGyroscopeArrayData() {
         xAccelRawDatas.removeAll()
         yAccelRawDatas.removeAll()
         zAccelRawDatas.removeAll()
     }
     
+    // Start sampling and recording raw device motion data
     func startDeviceMotion() {
         if motion.isDeviceMotionActive {
             // Might want to reset the array first
@@ -126,17 +132,17 @@ class TremorTestClass {
         }
     }
     
+    // Stop sampling with Device Motion
     func stopDeviceMotion() {
         self.motion.stopDeviceMotionUpdates()
     }
     
-    func recordDeviceMotion() {
-        startDeviceMotion()
-        // Wait for 'duration' seconds
-        waitFor(seconds: self.testDuration)
-        stopDeviceMotion()
+    // Output Device Motion Standard Deviation data
+    func getDMStdDev() -> (Any ,Double, Double, Double) {
+        return (self.timestamp, standardDeviation(arr: self.xAccelRawDatas), standardDeviation(arr: self.yAccelRawDatas), standardDeviation(arr: self.zAccelRawDatas))
     }
     
+    // Clear the Device Motion data arrays
     func clearDeviceMotionData() {
         xDMPitchDatas.removeAll()
         yDMRollDatas.removeAll()
@@ -144,7 +150,7 @@ class TremorTestClass {
     }
     
     // Support function: calculate the standard deviation of an array
-    func standardDeviation(arr : [Double]) -> Double {
+    private func standardDeviation(arr : [Double]) -> Double {
         var length = Double(arr.count)
         if length == 0 {
             length += 1
@@ -161,16 +167,6 @@ class TremorTestClass {
             print("\(countDown)")
             countDown -= 1
         }
-    }
-    
-    // Support function: wait a small amount of time before running the test
-    // May not be applied
-    func waitForStartTest() {
-        waitFor(seconds: waitTestStart)
-    }
-    
-    func getDeviceMotionResult() -> (Any ,[Double], [Double], [Double]) {
-        return (self.timestamp, self.xDMPitchDatas, self.yDMRollDatas, self.zDMYawDatas)
     }
     
     func stopTestAbrupt() {
