@@ -47,6 +47,11 @@
 						<label for="phoneNumber">Phone Number</label>
 					<input type="text" id="phoneNumber" class="form-control" placeholder="Phone Number" required>
 				  </div>
+
+				  <div class="form-label-group">
+						<label for="title">Title</label>
+					<input type="text" id="title" class="form-control" placeholder="Title" required>
+				  </div>
 	
 				  <div class="custom-control custom-checkbox mb-3">
 					<input type="checkbox" class="custom-control-input" id="customCheck1">

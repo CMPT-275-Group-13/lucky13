@@ -2,16 +2,15 @@
  * firebase-user.js
  */
 
-function firestoreCreateUser(email, firstName, lastName, uid, phoneNumber) {
-
-
+function firestoreCreateUser(email, firstName, lastName, uid, phoneNumber, title) {
 	var db = firebase.firestore();
 
 	db.collection("doctors").doc(email).set({
 		email: email,
 		firstName: firstName,
 		lastName: lastName,
-		//phoneNumber: phoneNumber,
+		phoneNumber: phoneNumber,
+		title: title,
 		uid: uid
 	})
 	.then(function(docRef) {

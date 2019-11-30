@@ -12,7 +12,7 @@ $(document).ready(function(){
 		var firstName = $("input#first-name").val();
 		var lastName = $("input#last-name").val();
 		var phoneNumber = $("input#phoneNumber").val();
-
+		var title = $("input#title").val();
 
 		if (!validateEmail(email)) {
 			$("#register-status").show();
@@ -26,19 +26,16 @@ $(document).ready(function(){
 
 		else {
 
-			if(email == "qa.test2@gmail.com"){
+			if (email == "qa.test2@gmail.com"){
 				//this is a test email, don't add to DB
 				console.log("test email");
 				return true;
 			}
 		
 			firebase.auth().createUserWithEmailAndPassword(email, password).then(function success(userData) {
-				
 				var uid = userData.user.uid;
-				firestoreCreateUser(email, firstName, lastName, uid, phoneNumber);
+				firestoreCreateUser(email, firstName, lastName, uid, phoneNumber, title);
 				// Handle Errors here.
-			
-			
 				
 			}).catch(function(error) {
 				//Error Handling
@@ -53,8 +50,6 @@ $(document).ready(function(){
 					$("#register-status").text(errorMessage);
 				}
 			});
-
-			
 		}
 
 		return false;
