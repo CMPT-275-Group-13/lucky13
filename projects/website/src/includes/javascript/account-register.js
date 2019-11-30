@@ -24,14 +24,7 @@ $(document).ready(function(){
 			$("#register-status").text("Invalid password");
 		}
 
-		else {
-
-			if (email == "qa.test2@gmail.com"){
-				//this is a test email, don't add to DB
-				console.log("test email");
-				return true;
-			}
-		
+		else {		
 			firebase.auth().createUserWithEmailAndPassword(email, password).then(function success(userData) {
 				var uid = userData.user.uid;
 				firestoreCreateUser(email, firstName, lastName, uid, phoneNumber, title);
