@@ -45,7 +45,20 @@ function convertDateToTimestamp(date) {
 	return result;
 }
 
-// function getURLParameters(){
-// 	var urlParams = new URLSearchParams(window.location.search);
-// 	return urlParams.get('index');
-// }
+
+function formatDateAndTime(unixTime) {
+    var date = new Date(unixTime * 1000); //convert to datetime from unix
+    
+    //format date
+    var d = date.getDate().toLocaleString();
+    var m = (date.getMonth() + 1).toLocaleString();
+    var yyyy  = date.getFullYear().toLocaleString();
+
+    //format time
+    var hh = date.getHours().toLocaleString();
+    var mm = date.getMinutes().toLocaleString();
+    var ss = date.getSeconds().toLocaleString();
+
+    yyyy = yyyy.replace(/,/g, "");
+    return yyyy + "-" + m + "-" + d + " " + hh + ":" + mm + ":" + ss;
+}

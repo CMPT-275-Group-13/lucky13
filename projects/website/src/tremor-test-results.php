@@ -8,6 +8,7 @@
 	<script src="includes/packages/node_modules/moment/moment.js" type="text/javascript"></script>
 	<script src="includes/packages/node_modules/chart.js/dist/Chart.js" type="text/javascript"></script>
 	<script src="includes/packages/node_modules/chart.js/dist/Chart.min.js" type="text/javascript"></script>
+	<scipt src="includes/javascript/helper.js" type="text/javascript"></script>
 
 
 </head>
@@ -17,8 +18,13 @@
 <?php include("includes/navigation.php");?>
 
 <div class="container" id="main-content">
-	<canvas id="tremorChart">
-	</canvas>
+	<h3 id="tremorTitle"></h3>
+	<p><h6> The plot shows the standard deviations of the x-y-x coordinates taken from
+		the last five tests on an iPhone gyroscope. </h6> 
+	</p>
+	<div class="jumbotron" id="tremor-results">
+		<canvas id="tremorChart"></canvas>
+	<div>
 </div>
 
 <?php include("includes/footer.php");?>

@@ -1,5 +1,7 @@
-console.log(moment());
-
+/* 
+    tremor-test-results.js
+    Gets the tremor test result from firestore database and loads it in a chart
+*/
 var db = firebase.firestore();
 
 //get patient info from url
@@ -8,55 +10,62 @@ var patient = urlParams.get('index');
 patient = decodeURIComponent(patient);
 
 var tremorTestRef = db.collection('tests').doc(patient).collection('tremor-test');
+var patientRef = db.collection('patient').doc(patient);
 
+var tremorTestTitle = document.querySelector("#tremorTitle");
 
-//from https://stackoverflow.com/questions/22663353/algorithm-to-remove-extreme-outliers-in-array/22663905
-removeAnomalies = function(dataArray) {
-    var l = dataArray.length;
-    var sum=0;     // stores sum of elements
-    for(var i=0;i<dataArray.length;++i) {
-        sum+=dataArray[i];
-       // sumsq+=dataArray[i]*dataArray[i];
-    }
-    var median = dataArray[Math.round(l/2)];
-    var mean = sum/l; 
-    var LQ = dataArray[Math.round(l/4)];
-    var UQ = dataArray[Math.round(3*l/4)];
-    var IQR = UQ-LQ;
-    var data4 = new Array();
-    for(var i=0;i<dataArray.length;++i) {
-        if(dataArray[i]> median - 2 * IQR && dataArray[i] < mean + 2 * IQR)
-            data4.push(dataArray[i]);
-    }
+//generates chart for the tremor test
+generateChart = function(xaccel,yaccel, zaccel, tStamp) {
+    var ctx = document.getElementById('tremorChart');
+    console.log(yaccel);
 
-    console.log(data4);
-    return data4;
-}
-
-generateChart = function(xaccel, yaccel, zaccel) {
-    var ctx = document.getElementById("tremorChart");
-    // var chart = new Chart(ctx, {
-    //     type: 'line',
-    //     data: xaccel
-    // }, 
-    // );
-    var chart = new Chart(ctx, {
+    var myChart = new Chart(ctx, {
         type: 'line',
-        data: xaccel,
-        options: {
+        data: {
+            labels: tStamp,
+            datasets: [{
+                label: 'x',
+                data: xaccel,
+                fill: false,
+                borderColor: "#3e95cd",
+                fill: false,
+                borderWidth: 2
+            },
+            {
+                label: 'y',
+                data: yaccel,
+                borderColor: "#8e5ea2",
+                fill: false,
+                borderWidth: 2
+            },
+
+            {
+                label: 'z',
+                data: zaccel,
+                borderColor: "#3cba9f",
+                fill: false,
+                borderWidth: 2
+            }
+        
+        ]
+        },
+        options:  {
             scales: {
                 xAxes: [{
-                    type: 'time',
-                    time: {
-                        displayFofrmat: {
-                            millisecond: 'mm:ss:SSSS'
-                        }
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date and Time the Test was taken'
                     }
                     
                 }],
                 yAxes: [{
+                    scaleLabel:{
+                        display: true,
+                        labelString: 'Standard Deviation'
+                    },
                     ticks: {
-                        beginAtZero:true
+                        
+                        beginAtZero: true
                     }
                 }]
             }
@@ -65,15 +74,39 @@ generateChart = function(xaccel, yaccel, zaccel) {
 
 }
 
+//show the 5 most recent tests for remor tests
 getMostRecentTests = function() {
-     tremorTestRef.get().then( querySnapshot => {
-        var tremorData = querySnapshot.docs[0].data();
-        console.log("data: " + removeAnomalies(tremorData.xAccel));
+    var xAccelArray = [];
+    var yAccelArray = [];
+    var timeStampArray = [];
+    var zAccelArray = [];
 
-        //console.log("length" + removeAnomalies(tremorData).legth);
-        generateChart(removeAnomalies(tremorData.xAccel), tremorData.yAccel, tremorData.zAccel);
+    //loads patient information into the main page
+    patientRef.onSnapshot(function (doc) {
+        var myData = doc.data();
+        tremorTestTitle.innerText = "Tremor Test results for " + myData.firstName + " " + myData.lastName;
+    });       
+
+    tremorTestRef.orderBy("timeStamp", "desc").limit(5).
+     onSnapshot( querySnapshot => {
+        var myData = querySnapshot.docs;
+        for(var i = 0; i < 5; i++){
+            var myDocData = myData[i].data();
+
+            xAccelArray.push(myDocData.xAccel);
+            yAccelArray.push(myDocData.yAccel);
+            zAccelArray.push(myDocData.zAccel);
+
+            //covert unix to time 
+            var convertUnix = formatDateAndTime(myDocData.timeStamp);
+            timeStampArray.push(convertUnix);
+        }
+
+        generateChart(xAccelArray, yAccelArray,zAccelArray, timeStampArray);
 
     }); 
+
+    
 }
 
 getMostRecentTests();
