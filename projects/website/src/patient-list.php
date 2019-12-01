@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title id="titlePatientProfile">Patient Profile</title>
+	<title id="titlePatientProfile">Patient List</title>
 	<?php include("includes/head-tag-contents.php");?>
-	<script type="application/javascript" src="includes/javascript/patient-profile.js"></script>
+	<script type="application/javascript" src="includes/javascript/patient-list.js"></script>
 </head>
 <body>
 
@@ -16,7 +16,7 @@
 <div class="container" id="main-content">
 	<div>
 		<p>Hello World</p>
-		<div id="patient-profiles">
+		<div id="patient-list">
 			
 		</div>
 	</div>

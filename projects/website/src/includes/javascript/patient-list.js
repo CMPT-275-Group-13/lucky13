@@ -1,24 +1,32 @@
 /**
  * patient-profile.js
  */
-console.log("Ready");
 $(document).ready(function() {
-    console.log("Ready");
     firebase.auth().onAuthStateChanged(function(user) {
-        console.log("Hello World");
         if (user) {
-            console.log("Hello World");
             var db = firebase.firestore();
             var userEmail = firebaseGetUserEmail(user);
             var docRef = db.collection("doctors").doc(userEmail);
 
             // Grab all assigned patients
             docRef.get().then(function(doc) {
-                docData = doc.data();
-                patients = docData.patient;
-                console.log(patients);
+                var docData = doc.data();
+                var patientEmails = docData.patient;
+                var patientArr = [];
 
-                displayPatients(patients);
+                for (patientEmail in patientEmails) {
+                    patientRef = ddb.collection("patient").doc(patientEmail);
+                    patient.get().then(function(doc) {
+
+                    }).catch(function(error) {
+                        console.log(error);
+                    });
+                }
+
+                
+
+
+                displayPatients(patientArr);
             }).catch(function(error) {
                 console.log(error);
             });
@@ -28,20 +36,25 @@ $(document).ready(function() {
 
 /**
  * Display patients as HTML text
- * @param {array} patients - Array of patients
+ * @param {array} patientEmails - Array of Patients
  */
 function displayPatients(patients) {
     var patientMsg = '';
 
-    patients.forEach(function(patient) {
+    patientEmails.forEach(function(patients) {
+        console.log(patient);
+
+
         var firstName = patient.firstName;
         var lastName = patient.lastName
-        var phone = str(patient.phone);
+        var phone = String(patient.phone);
+        var emailAddress = patient.emailAddress;
 
         patientMsg += '<div>';
         patientMsg += '<div>' + firstName + '</div>';
         patientMsg += '<div>' + lastName + '</div>';
         patientMsg += '<div>' + phone + '</div>';
+        patientMsg += '<div>' + emailAddress + '</div>';
         patientMsg += '</div>';
 
         $("#patient-profiles").text(patientMsg);
