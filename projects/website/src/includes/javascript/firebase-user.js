@@ -1,8 +1,17 @@
 /**
  * firebase-user.js
+ * 
+ * User-related functions. This involves, on serverr-side, both authentication and firebase
  */
 
-// Create doctor
+/**
+ * Store user information into firestore as doctor
+ * @param {string} email 
+ * @param {string} firstName 
+ * @param {string} lastName 
+ * @param {string} uid 
+ * @param {string} phoneNumber 
+ */
 function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 	var db = firebase.firestore();
 	console.log("Create doctor");
@@ -22,6 +31,14 @@ function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 	});
 }
 
+/**
+ * Store user information into firestore as patient
+ * @param {string} email 
+ * @param {string} firstName 
+ * @param {string} lastName 
+ * @param {string} uid 
+ * @param {string} phoneNumber 
+ */
 function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
 	var db = firebase.firestore();
 	console.log("Create patient");
@@ -41,6 +58,10 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
 	});
 }
 
+/**
+ * Display patient data onto HTML ID tag
+ * @param {array} patientData 
+ */
 function firestoreDisplaySinglePatientAttributes(patientData) {
 	$('#profile-email').val(patientData["email"]);
 	$('#profile-first-name').val(patientData["firstName"]);
@@ -48,6 +69,10 @@ function firestoreDisplaySinglePatientAttributes(patientData) {
 	$('#profile-phone').val(patientData["phone"]);
 }
 
+/**
+ * Display doctor data onto HTML ID tag
+ * @param {array} doctorData 
+ */
 function firestoreDisplaySingleDoctorAttributes(doctorData) {
 	$('#profile-email').val(doctorData["email"]);
 	$('#profile-first-name').val(doctorData["firstName"]);
@@ -56,6 +81,11 @@ function firestoreDisplaySingleDoctorAttributes(doctorData) {
 	$('#profile-phone').val(doctorData["phone"]);
 }
 
+/**
+ * Display user information
+ * @param {string} email 
+ * @param {string} userType 
+ */
 function firestoreDisplayUser(email, userType="doctors") {
 	var db = firebase.firestore();
 
@@ -84,6 +114,11 @@ function firestoreDisplayUser(email, userType="doctors") {
   });
 }
 
+/**
+ * Update the user information
+ * @param {array} docData 
+ * @param {string} userType 
+ */
 function firestoreUpdateUser(docData, userType="doctors") {
   firebase.auth().onAuthStateChanged(function(user) {
   var db = firebase.firestore();

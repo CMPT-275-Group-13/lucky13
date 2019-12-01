@@ -21,6 +21,12 @@
 	});
  });
 
+ /**
+  * Send message from doctor to patient
+  * @param {string} doctorID 
+  * @param {string} patientID 
+  * @param {string} body 
+  */
 function firebaseDoctorSendMessage(doctorID, patientID, body) {
 	var db = firebase.firestore();
 	var docRef = db.collection("messages").doc(doctorID).collection(patientID);
@@ -42,6 +48,11 @@ function firebaseDoctorSendMessage(doctorID, patientID, body) {
 	});
 }
 
+/**
+  * Retrieve messages from doctor-patient interaction. Will write update to #messages
+  * @param {string} doctorID 
+  * @param {string} patientID 
+  */
 function firebaseDoctorRetrieveMessages(doctorID, patientID) {
 	var db = firebase.firestore();
 

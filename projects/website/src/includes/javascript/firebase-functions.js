@@ -4,7 +4,9 @@
  * Main collection of firebase functions
  */
 
-// Checks the auth state and initialises it. Will redirect page if needed
+/**
+ * Checks the auth state and initialises it. Will redirect page if needed
+ */
 function firebaseCheckAuthState() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
@@ -36,6 +38,9 @@ function firebaseCheckAuthState() {
 	});
 }
 
+/**
+ * Sign out the current user. Redirect to login page upon success
+ */
 function firebaseAccountSignOut() {
   firebase.auth().signOut().then(function() {
     console.log('Signout Succesfull');
@@ -45,6 +50,10 @@ function firebaseAccountSignOut() {
   redirectPath("login.php");
 }
 
+/**
+ * Reset the user's email address
+ * @param {string} emailAddress 
+ */
 function firebaseResetUserPassword(emailAddress) {
 	firebase.auth.sendPasswordResetEmail(emailAddress).then(function() {
 	  // Email sent.
@@ -53,6 +62,9 @@ function firebaseResetUserPassword(emailAddress) {
 	});
 }
 
+/**
+ * Login using your Google Account
+ */
 function firebaseGoogleSignin() {
 	$("#login-status").text();
 	$("#login-status").hide();
@@ -77,6 +89,15 @@ function firebaseGoogleSignin() {
 	});
 }
 
+/**
+ * 
+ */
+
+
+/**
+ * Returns the user's ID, based on firebase's user object
+ * @param {firebase.user} user 
+ */
 function firebaseGetUID(user) {
 	if (user != null) {
 		return user.uid;
@@ -85,6 +106,10 @@ function firebaseGetUID(user) {
 	return null;	
 }
 
+/**
+ * Returns the user's email, based on firebase's user object
+ * @param {firebase.user} user
+ */
 function firebaseGetUserEmail(user) {
 	if (user != null) {
 		return user.email;
@@ -93,6 +118,15 @@ function firebaseGetUserEmail(user) {
 	return null;
 }
 
-function firebaseGetUserType(user) {
-	// To-do: Get user type
+/**
+ * Returns the user's type, based on firebase's user object
+ * @param {firebase.user} user
+ */
+function fireuserGetUserType(user) {
+	userType = null
+	if (user != null) {
+
+	}
+
+	return userType;
 }

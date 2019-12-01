@@ -2,9 +2,11 @@
  *  index.js
  */
 
-$(document).ready(function() {
-    firebaseCheckAuthState();
-    var userEmail = firebaseGetUserEmail();
+ /**
+  * Display welcome message for the current user
+  */ 
+ function displayWelcomeMessage(user) {
+    var userEmail = firebaseGetUserEmail(user);
 
     if (userEmail) {
         var db = firebase.firestore();
@@ -47,4 +49,14 @@ $(document).ready(function() {
     else {
         console.log("No value for user email!");
     }
+ }
+
+$(document).ready(function() {
+    // Get the current user when it finishes initialisation
+    firebase.auth().onAuthStateChanged(function(user) {
+		// User is signed in
+		if (user) {
+            displayWelcomeMessage(user);
+		}
+	});
 });
