@@ -52,6 +52,7 @@ $(document).ready(function() {
 				}
 			});
 		}
+		firebaseCheckAuthState();
 		return false;
 	});
 });

@@ -2,10 +2,9 @@
  *  index.js
  */
 
-$(document).ready(function() {
-    firebaseCheckAuthState();
+var auth = firebaseCheckAuthState()
 
-    console.log("Document ready");
+$(document).ready(function() {
     var userEmail = firebaseGetUserEmail();
 
     if (userEmail) {

@@ -3,17 +3,18 @@
  *
  * Main collection of firebase functions
  */
+
+// Checks the auth state and initialises it. Will redirect page if needed
 function firebaseCheckAuthState() {
-	firebase.auth().onAuthStateChanged(function(user) {
+	return firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
-		console.log("Auth");
 
 		// User is signed in
 		if (user) {
 			console.log("User is signed in");
 			if (currentPathName.includes("register.php")) {
 				console.log(user.uid);
-				redirectPath("index.php");
+				redirectPath("index.php?index=" + user.uid);
 			}
 			else if (currentPathName.includes("login.php")) {
 				console.log("Redirect to index.php");
@@ -44,7 +45,15 @@ function firebaseAccountSignOut() {
   redirectPath("index.php");
 }
 
-function googleSignin() {
+function firebaseResetUserPassword(emailAddress) {
+	firebase.auth.sendPasswordResetEmail(emailAddress).then(function() {
+	  // Email sent.
+	}).catch(function(error) {
+	  // An error happened.
+	});
+}
+
+function firebaseGoogleSignin() {
 	$("#login-status").text();
 	$("#login-status").hide();
 
@@ -68,30 +77,22 @@ function googleSignin() {
 	});
 }
 
-function firebaseResetUserPassword(emailAddress) {
-	firebase.auth.sendPasswordResetEmail(emailAddress).then(function() {
-	  // Email sent.
-	}).catch(function(error) {
-	  // An error happened.
-	});
-}
-
-function firebaseGetUID() {
-	var user = firebase.auth().currentUser;
+function firebaseGetUID(user) {
 	if (user != null) {
 		return user.uid;
 	}
-
 	console.log("ERROR! Unable to find user!");
 	return null;	
 }
 
-function firebaseGetUserEmail() {
-	var user = firebase.auth().currentUser;
+function firebaseGetUserEmail(user) {
 	if (user != null) {
 		return user.email;
 	}
-
 	console.log("ERROR! Unable to find user!");	
 	return null;
+}
+
+function firebaseGetUserType(user) {
+	// To-do: Get user type
 }

@@ -12,39 +12,48 @@ $(document).ready(function(){
 		var firstName = $("input#first-name").val();
 		var lastName = $("input#last-name").val();
 		var phoneNumber = $("input#phoneNumber").val();
-		var title = $("input#title").val();
+		var userType = $("select#userType").val();
 
+		// Check email is a valid email
 		if (!validateEmail(email)) {
 			$("#register-status").show();
 			$("#register-status").text("Invalid email address format");
 		}
-
+		// Check password is a valid password
 		else if (!validatePassword(password)) {
 			$("#register-status").show();
 			$("#register-status").text("Invalid password");
 		}
 
-		else {		
+		else {
 			firebase.auth().createUserWithEmailAndPassword(email, password).then(function success(userData) {
 				var uid = userData.user.uid;
-				firestoreCreateUser(email, firstName, lastName, uid, phoneNumber, title);
-				// Handle Errors here.
+
+				// Create a doctor user account
+				if (userType == "doctor") {
+					firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber);
+				}
+
+				// Create a patient user account
+				else {
+					firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber);
+				}
 				
-			}).catch(function(error) {
-				//Error Handling
-				var errorCode = error.code;
-				var errorMessage = error.message;
+				// Handle Errors here.
+				}).catch(function(error) {
+					//Error Handling
+					var errorCode = error.code;
+					var errorMessage = error.message;
 
-				console.log('Error Code: ' + errorCode);
-				console.log('Error Message: ' + errorMessage);
+					console.log('Error Code: ' + errorCode);
+					console.log('Error Message: ' + errorMessage);
 
-				if (errorCode) {
-					$("#register-status").show();
-					$("#register-status").text(errorMessage);
+					if (errorCode) {
+						$("#register-status").show();
+						$("#register-status").text(errorMessage);
 				}
 			});
 		}
-
 		return false;
 	});
 });

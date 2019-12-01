@@ -2,15 +2,35 @@
  * firebase-user.js
  */
 
-function firestoreCreateUser(email, firstName, lastName, uid, phoneNumber, title) {
+// Create doctor
+function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 	var db = firebase.firestore();
+	console.log("Create doctor");
 
 	db.collection("doctors").doc(email).set({
 		email: email,
 		firstName: firstName,
 		lastName: lastName,
 		phoneNumber: phoneNumber,
-		title: title,
+		uid: uid
+	})
+	.then(function(docRef) {
+		console.log("Document written with ID: ", docRef.id);
+	})
+	.catch(function(error) {
+		console.error("Error adding document: ", error);
+	});
+}
+
+function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
+	var db = firebase.firestore();
+	console.log("Create patient");
+
+	db.collection("patient").doc(email).set({
+		email: email,
+		firstName: firstName,
+		lastName: lastName,
+		phoneNumber: phoneNumber,
 		uid: uid
 	})
 	.then(function(docRef) {

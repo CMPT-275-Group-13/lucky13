@@ -5,5 +5,5 @@
  */
 
  $(document).ready(function() {
- 	firebaseCheckAuthState();
+	var auth = firebaseCheckAuthState()
  });
