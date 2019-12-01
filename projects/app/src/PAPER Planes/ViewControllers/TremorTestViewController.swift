@@ -15,8 +15,13 @@ class TremorTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        TremorTest.startAccelerometer()
-        startCountdown()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Lock orientation to landscape
+        AppUtility.lockOrientation(.portrait)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -27,10 +32,33 @@ class TremorTestViewController: UIViewController {
         endCountdown()
     }
     
+    
+    @IBOutlet weak var testInstructionLabel: UILabel!
+    
+    // Start the tremor test by pressing the middle button
+    var isTestBegan = false
+    @IBAction func startButton(_ sender: UIButton) {
+        if !isTestBegan {
+            isTestBegan = true  // Set true to ignore button later
+            TremorTest.startAccelerometer()
+            startCountdown()
+            // Displaying label for test progress
+            testInstructionLabel.text = "Please hold your phone for 30 seconds"
+            self.testInstructionLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2982127568)
+            self.uploadStatusLabel.text = "Testing"
+            self.uploadStatusLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2982127568)
+            self.testCountDownLabel.text = "\(totalTime)"
+            self.testCountDownLabel.font = UIFont(descriptor: testCountDownLabel.font.fontDescriptor, size: 30)
+        } else {
+            // Ignore other tap
+        }
+    }
+    
     // Setting the tremor test timer
     var totalTime = 30
     // Initializing timer variable
     var countdownTimer = Timer()
+    
     
     @IBOutlet weak var testCountDownLabel: UILabel!
     // Starting the test countdown
@@ -39,11 +67,10 @@ class TremorTestViewController: UIViewController {
     }
     // Support function for startCountdown and endCountdown
     @objc func updateCountdown() {
-        // countdownLabel.text = "Countdown: \(totalTime)"
         
         if totalTime != 0 {
             totalTime -= 1
-            testCountDownLabel.text = "Hold your phone for: \(totalTime)"
+            testCountDownLabel.text = "\(totalTime)"
         } else {
             endTestCountDown()
         }
@@ -94,19 +121,15 @@ class TremorTestViewController: UIViewController {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
-                self.uploadStatusLabel.text = "Upload Status: Uploaded to the doctors!"
+                self.uploadStatusLabel.text = "Tremor test done. Good job 😎"
+            self.uploadStatusLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2982127568)
                 
                 // Outputting the test results to the view
-                self.xValueLabel.text = "X Value: \(xAccel)"
-                self.yValueLabel.text = "Y Value: \(yAccel)"
-                self.zValueLabel.text = "Z Value: \(zAccel)"
+
             }
         }
     }
     
     @IBOutlet weak var uploadStatusLabel: UILabel!
-    @IBOutlet weak var xValueLabel: UILabel!
-    @IBOutlet weak var yValueLabel: UILabel!
-    @IBOutlet weak var zValueLabel: UILabel!
 }
 
