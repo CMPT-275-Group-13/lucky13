@@ -11,7 +11,7 @@
 	  </li>
 	  <li class="nav-item">
 	  	<?php $patientProfile = "patient-profile.php/";?>
-	    <a class="nav-link <?php if ($CURRENT_PAGE == "Patient Profile") {?>active<?php }?>" href="patient-profile.php" target="">Patient</a>
+	    <a class="nav-link <?php if ($CURRENT_PAGE == "Patient Profile") {?>active<?php }?>" href="patient-list.php" target="">Patient List</a>
 	  </li>
 	  <li class="nav-item">
 	    <a class="nav-link <?php if ($CURRENT_PAGE == "Patient Messaging") {?>active<?php }?>" href="message.php" target="">Message</a>

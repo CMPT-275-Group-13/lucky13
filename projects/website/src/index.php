@@ -54,11 +54,11 @@
 	</div>
 	<div class="card">
 		<div class="card-body">
-			<h5 class="card-title">View Patient Profile</h5>
-			<p class="card-text">See patients information</p>
+			<h5 class="card-title">View Patient List</h5>
+			<p class="card-text">See patients' information</p>
 		</div>
 		<div class="card-footer">
-			<button type="submit" onclick="window.location.href='patient-profile.php?index='+  firebaseGetUID()" class="btn btn-primary">Profiles</button>
+			<button type="submit" onclick="window.location.href='patient-list.php?index='+  firebaseGetUID()" class="btn btn-primary">Patients</button>
 		</div>
 	</div>
 

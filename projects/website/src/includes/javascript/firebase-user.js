@@ -21,7 +21,8 @@ function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 		firstName: firstName,
 		lastName: lastName,
 		phoneNumber: phoneNumber,
-		uid: uid
+		uid: uid,
+		keyword: firestoreGenerateKeywords(email, firstName, lastName)
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -48,7 +49,8 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
 		firstName: firstName,
 		lastName: lastName,
 		phoneNumber: phoneNumber,
-		uid: uid
+		uid: uid,
+		keyword: firestoreGenerateKeywords(email, firstName, lastName)
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -120,11 +122,8 @@ function firestoreDisplayUser(email, userType="doctors") {
  * @param {string} userType 
  */
 function firestoreUpdateUser(docData, userType="doctors") {
-  firebase.auth().onAuthStateChanged(function(user) {
-	  var db = firebase.firestore();
-	  
+  firebase.auth().onAuthStateChanged(function(user) {	  
 	  if (user) {
-		// To-do: Change profile picture
 
 		// To-do: Update email
 		// var oldEmail = user.email;
@@ -144,4 +143,36 @@ function firestoreUpdateUser(docData, userType="doctors") {
 			console.log("Document successfully written!");
 		});
 	}});
+}
+
+function firestoreGenerateKeywords(email, firstName, lastName) {
+	var keywords = [firstName, lastName, firstName + " " + lastName, email];
+	return keywords;
+}
+
+function firestoreInsertMedication(email, amount, medName, medTime) {
+	firebase.auth().onAuthStateChanged(function(user) {
+		var db = firebase.firestore();
+		
+		if (user) {
+			var email = firebaseGetUserEmail(user);
+
+			var db = firebase.firestore();
+			var docRef = db.collection("doctors").doc(email);
+			var medRef = db.collection("medication").doc(email).collection("dailyMedications");
+			
+			docRef.get().then(function(doc) {
+				docData = doc.data();
+				firstName = docData.firstName;
+				lastName = docData.lastName;
+
+				medRef.set({
+					amount: amount,
+					docFirstName: firstName,
+					docLastName: lastName,
+					name: medName,
+					time: medTime
+				});
+			});
+	  }});
 }
