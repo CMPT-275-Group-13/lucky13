@@ -1,45 +1,61 @@
-var db = firebase.firestore();
-var welcomeMessage = document.querySelector("#welcomeMessage");
-var docRef = db.collection('doctors');
+/**
+ *  index.js
+ */
 
-displayWelcome = function() {
-   var urlParams =  new URLSearchParams(window.location.search);
-   console.log("URL " + urlParams);
-   var user = urlParams.get('index');
-   console.log(user);
-   docRef.where("uid", "==", user)
-    .get().then(function(querySnapshot) {
-        var welcomeMessageStr = '';
+ /**
+  * Display welcome message for the current user
+  */ 
+ function displayWelcomeMessage(user) {
+    var userEmail = firebaseGetUserEmail(user);
+    console.log(userEmail);
 
-        if (!querySnapshot.empty) {
-            var docs = querySnapshot.docs[0].data();
-           
-            var title = '';
-            var firstName = '';
-            var lastName = '';
+    if (userEmail) {
+        var db = firebase.firestore();
+        var welcomeMessage = document.querySelector("#welcomeMessage");
+        var docRef = db.collection("doctors").doc(userEmail);
 
-            if (docs.title) {
-                title = docs.title;
+        docRef.get().then(function(doc) {
+            var welcomeMessageStr = '';
+            if (doc.exists) {
+                docData = doc.data();
+                var firstName = '';
+                var lastName = '';
+                var title = '';
+    
+                if (docData.title) {
+                    title = docData.title;
+                }
+                if (docData.firstName) {
+                    firstName = docData.firstName;
+                    console.log("Doctor's first name: " + firstName);
+                }
+                if (docData.lastName) {
+                    lastName = docData.lastName;
+                }
+    
+                welcomeMessageStr = "Welcome " + title + " " + firstName + " " + lastName;
+                welcomeMessageStr.trim();
+                welcomeMessageStr += "!";
             }
-            if (docs.firstName) {
-                firstName = docs.firstName;
-                console.log("Doctor's first name: " + firstName);
+            else {
+                console.error("User does not exist");
+                welcomeMessageStr = "Welcome Doctor!";
             }
-            if (docs.lastName) {
-                lastName = docs.lastName;
-            }
+    
+            welcomeMessage.innerText = welcomeMessageStr;
+        });
+    }
+    else {
+        console.log("No value for user email!");
+    }
+ }
 
-            welcomeMessageStr = "Welcome " + title + " " + firstName + " " + lastName;
-            welcomeMessageStr.trim();
-            welcomeMessageStr += "!";
-        }
-        else {
-            console.error("User does not exist");
-            welcomeMessageStr = "Welcome Doctor!";
-        }
-
-        welcomeMessage.innerText = welcomeMessageStr;
-    });
-}
-
-displayWelcome();
+$(document).ready(function() {
+    // Get the current user when it finishes initialisation
+    firebase.auth().onAuthStateChanged(function(user) {
+		// User is signed in
+		if (user) {
+            displayWelcomeMessage(user);
+		}
+	});
+});

@@ -1,3 +1,13 @@
+/**
+ * helper.js
+ *
+ * Collection of helper functions
+ */
+
+ /**
+ * Returns true if it is a valid email. Return false otherwise
+ * @param {string} email
+ */
 function validateEmail(email) {
    atpos = email.indexOf("@");
    dotpos = email.lastIndexOf(".");
@@ -10,11 +20,20 @@ function validateEmail(email) {
    return true;
 }
 
+/**
+ * Returns true if it is a valid password. Return false otherwise
+ * @param {string} password 
+ */
 function validatePassword(password) {
    // Needs work
    return true;
 }
 
+/**
+ * Redirect page based on path using the method
+ * @param {*} path - Defaults at 'index.php'
+ * @param {*} method - Default method is 'replace'
+ */
 function redirectPath(path="index.php", method="replace") {
 	console.log("Path: " + path);
 	switch(method) {
@@ -32,6 +51,10 @@ function redirectPath(path="index.php", method="replace") {
 	return false; // should not be called
 }
 
+/**
+ * Convert date object to a valid timestamp
+ * @param {date.date} date 
+ */
 function convertDateToTimestamp(date) {
 	var year = String(date.getFullYear());
 	var month = String(date.getMonth());
