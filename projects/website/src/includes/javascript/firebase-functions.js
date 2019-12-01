@@ -13,30 +13,44 @@ function firebaseCheckAuthState() {
 
 		// User is signed in
 		if (user) {
-			console.log("User is signed in");
-			var userType = fireuserGetUserType(user);
-			console.log(userType);
+			var userEmail = firebaseGetUserEmail(user);
+			var userType = '';
 
-			// Doctor user
-			if (userType == 'doctors') {
-				if (currentPathName.includes("register.php")) {
-					console.log("Doctor is signed in!");
-					console.log(user.uid);
-					redirectPath("index.php?index=" + user.uid);
-				}
-				else if (currentPathName.includes("login.php")) {
-					console.log("Redirect to index.php");
-					redirectPath("index.php?index=" + user.uid);    
-				}
-			}
-			// Patient user
-			else {
-				// Redirect to patient user page if current page isn't
-				if (!currentPathName.includes("patient-user.php")) {
-					console.log("Patient is signed in!");
-					console.log("Redirect to patient-user.php");
-					redirectPath("patient-user.php"); 
-				}
+			// Check what user account type
+			if (userEmail != null) {
+				var db = firebase.firestore();
+				var docRef = db.collection("doctors").doc(userEmail);
+
+				// Check if registration
+				
+				docRef.get().then(function(doc) {
+					docData = doc.data();
+					// Doctor
+					if (docData) {
+						if (currentPathName.includes("register.php") || currentPathName.includes("patient-user.php")) {
+							console.log("Doctor is signed in!");
+							console.log(user.uid);
+							redirectPath("index.php?index=" + user.uid);
+						}
+						else if (currentPathName.includes("login.php")) {
+							console.log("Redirect to index.php");
+							redirectPath("index.php?index=" + user.uid);    
+						}
+					}
+					// Patient
+					else {
+						console.log("Patient is signed in!");
+
+						// Redirect to patient user page if current page isn't
+						if (!currentPathName.includes("patient-user.php")) {
+							console.log("Patient is signed in!");
+							console.log("Redirect to patient-user.php");
+							redirectPath("patient-user.php"); 
+						}
+					}
+				}).catch(function(error) {
+					console.log(error);
+				});
 			}
 		}
 
@@ -127,33 +141,4 @@ function firebaseGetUserEmail(user) {
 	}
 	console.log("ERROR! Unable to find user!");	
 	return null;
-}
-
-/**
- * Returns the user's type, based on firebase's user object
- * @param {firebase.user} user
- */
-function fireuserGetUserType(user) {
-	var userType = '';
-	var userEmail = firebaseGetUserEmail(user);
-	
-	if (userEmail != null) {
-		console.log(userEmail);
-		var db = firebase.firestore();
-		var docRef = db.collection("doctors").doc(userEmail);
-		docRef.get().then(function(doc) {
-			if (doc.exists) {
-				userType = "doctors";
-			}
-	
-			else {
-				userType = "patient";
-			}
-		}).catch(function(error) {
-			console.log("Error getting document:", error);
-		});
-	}
-
-	console.log(userType);
-	return userType;
 }
