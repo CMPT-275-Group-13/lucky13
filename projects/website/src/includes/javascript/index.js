@@ -2,9 +2,8 @@
  *  index.js
  */
 
-var auth = firebaseCheckAuthState()
-
 $(document).ready(function() {
+    firebaseCheckAuthState();
     var userEmail = firebaseGetUserEmail();
 
     if (userEmail) {

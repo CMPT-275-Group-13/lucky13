@@ -6,7 +6,7 @@
 
 // Checks the auth state and initialises it. Will redirect page if needed
 function firebaseCheckAuthState() {
-	return firebase.auth().onAuthStateChanged(function(user) {
+	firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
 
 		// User is signed in
@@ -42,7 +42,7 @@ function firebaseAccountSignOut() {
   }, function(error) {
     console.log('Signout Failed');
   });
-  redirectPath("index.php");
+  redirectPath("login.php");
 }
 
 function firebaseResetUserPassword(emailAddress) {

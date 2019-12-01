@@ -1,7 +1,6 @@
 <?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
