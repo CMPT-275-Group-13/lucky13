@@ -21,7 +21,8 @@ function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 		firstName: firstName,
 		lastName: lastName,
 		phoneNumber: phoneNumber,
-		uid: uid
+		uid: uid,
+		keyword: firestoreGenerateKeywords(email, firstName, lastName)
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -48,7 +49,8 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
 		firstName: firstName,
 		lastName: lastName,
 		phoneNumber: phoneNumber,
-		uid: uid
+		uid: uid,
+		keyword: firestoreGenerateKeywords(email, firstName, lastName)
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -144,4 +146,9 @@ function firestoreUpdateUser(docData, userType="doctors") {
 			console.log("Document successfully written!");
 		});
 	}});
+}
+
+function firestoreGenerateKeywords(email, firstName, lastName) {
+	var keywords = [firstName, lastName, firstName + " " + lastName, email];
+	return keywords;
 }
