@@ -22,15 +22,15 @@
                 var lastName = '';
                 var title = '';
     
-                if (docData['title']) {
-                    title = docData['title'];
+                if (docData.title) {
+                    title = docData.title;
                 }
-                if (docData['firstName']) {
-                    firstName = docData['firstName'];
+                if (docData.firstName) {
+                    firstName = docData.firstName;
                     console.log("Doctor's first name: " + firstName);
                 }
-                if (docData['lastName']) {
-                    lastName = docData['lastName'];
+                if (docData.lastName) {
+                    lastName = docData.lastName;
                 }
     
                 welcomeMessageStr = "Welcome " + title + " " + firstName + " " + lastName;
