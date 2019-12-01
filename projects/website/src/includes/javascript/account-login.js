@@ -5,7 +5,6 @@ $(document).ready(function() {
 	$("#login-status").text();
 	$("#login-status").hide();
 
-
 	$("#login-btn").click(function() {
 		$("#email-status").text();
 		$("#email-status").hide();
@@ -51,8 +50,10 @@ $(document).ready(function() {
 					$('#email-status').text("User does not exist");
 				}
 			});
+
+			var auth = firebaseCheckAuthState();
 		}
-		firebaseCheckAuthState();
+		
 		return false;
 	});
 });
