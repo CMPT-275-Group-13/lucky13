@@ -63,10 +63,10 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
  * @param {array} patientData 
  */
 function firestoreDisplaySinglePatientAttributes(patientData) {
-	$('#profile-email').val(patientData["email"]);
-	$('#profile-first-name').val(patientData["firstName"]);
-	$('#profile-last-name').val(patientData["lastName"]);
-	$('#profile-phone').val(patientData["phone"]);
+	$('#profile-email').val(patientData.email);
+	$('#profile-first-name').val(patientData.firstName);
+	$('#profile-last-name').val(patientData.lastName);
+	$('#profile-phone').val(patientData.phone);
 }
 
 /**
@@ -74,11 +74,11 @@ function firestoreDisplaySinglePatientAttributes(patientData) {
  * @param {array} doctorData 
  */
 function firestoreDisplaySingleDoctorAttributes(doctorData) {
-	$('#profile-email').val(doctorData["email"]);
-	$('#profile-first-name').val(doctorData["firstName"]);
-	$('#profile-last-name').val(doctorData["lastName"]);
-	$('#profile-title').val(doctorData["title"]);
-	$('#profile-phone').val(doctorData["phone"]);
+	$('#profile-email').val(doctorData.email);
+	$('#profile-first-name').val(doctorData.firstName);
+	$('#profile-last-name').val(doctorData.lastName);
+	$('#profile-title').val(doctorData.title);
+	$('#profile-phone').val(doctorData.phone);
 }
 
 /**
@@ -140,8 +140,8 @@ function firestoreUpdateUser(docData, userType="doctors") {
 
 		// To-do: Reset password
 
-		db.collection(userType).doc(docData['email']).set(docData).then(function() {
-		console.log("Document successfully written!");
+		db.collection(userType).doc(docData.email).set(docData).then(function() {
+			console.log("Document successfully written!");
 		});
 	}});
 }
