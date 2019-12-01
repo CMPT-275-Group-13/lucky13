@@ -22,7 +22,6 @@ function firebaseCheckAuthState() {
 				var docRef = db.collection("doctors").doc(userEmail);
 
 				// Check if registration
-				
 				docRef.get().then(function(doc) {
 					docData = doc.data();
 					// Doctor

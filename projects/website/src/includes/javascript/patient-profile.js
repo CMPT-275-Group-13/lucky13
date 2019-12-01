@@ -1,27 +1,49 @@
-var firestore = firebase.firestore();
-const patientName = document.querySelector("#patients");
-const profile = document.querySelector("#details");
-const message = document.querySelector("#messageBody"); 
-const patientRef = firestore.doc("/patient/csmith");
-const messageRef = firestore.collection("/messages/csmith/John_Doe");
+/**
+ * patient-profile.js
+ */
+console.log("Ready");
+$(document).ready(function() {
+    console.log("Ready");
+    firebase.auth().onAuthStateChanged(function(user) {
+        console.log("Hello World");
+        if (user) {
+            console.log("Hello World");
+            var db = firebase.firestore();
+            var userEmail = firebaseGetUserEmail(user);
+            var docRef = db.collection("doctors").doc(userEmail);
 
+            // Grab all assigned patients
+            docRef.get().then(function(doc) {
+                docData = doc.data();
+                patients = docData.patient;
+                console.log(patients);
 
-
-getRealtimeUpdates = function(){
-    patientRef.onSnapshot(function(doc){
-        if (doc && doc.exists) {
-            const myData = doc.data();
-            
-            patientName.innerText = myData.firstName +  " " + myData.lastName;
-            profile.innerText = "email address: " + myData.emailAddress + "\n" +
-                                "phone number: " + myData.phoneNumber;
-
-            messageRef.get().then(querySnapshot => {
-                const queryDocumentSnapshot = querySnapshot.docs[0].data().Body;
-                message.innerText = queryDocumentSnapshot;
+                displayPatients(patients);
+            }).catch(function(error) {
+                console.log(error);
             });
         }
     });
-};
+});
 
-getRealtimeUpdates();
+/**
+ * Display patients as HTML text
+ * @param {array} patients - Array of patients
+ */
+function displayPatients(patients) {
+    var patientMsg = '';
+
+    patients.forEach(function(patient) {
+        var firstName = patient.firstName;
+        var lastName = patient.lastName
+        var phone = str(patient.phone);
+
+        patientMsg += '<div>';
+        patientMsg += '<div>' + firstName + '</div>';
+        patientMsg += '<div>' + lastName + '</div>';
+        patientMsg += '<div>' + phone + '</div>';
+        patientMsg += '</div>';
+
+        $("#patient-profiles").text(patientMsg);
+    });
+}

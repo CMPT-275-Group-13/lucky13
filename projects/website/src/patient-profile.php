@@ -6,6 +6,7 @@
 <head>
 	<title id="titlePatientProfile">Patient Profile</title>
 	<?php include("includes/head-tag-contents.php");?>
+	<script type="application/javascript" src="includes/javascript/patient-profile.js"></script>
 </head>
 <body>
 
@@ -14,33 +15,14 @@
 
 <div class="container" id="main-content">
 	<div>
-		<h3 id="patients"></h3>
-		<span id = "details"></span>
-			<p>
-				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#messageBody" aria-expanded="false" aria-controls="collapseExample">
-					<span id="message"></span>  
-					View Latest Note
-				</button>
-		  	</p>
-		  		<div class="collapse" id="messageBody">
-					<div class="card card-body">
-						
-					</div>
-		  		</div>
-			</div>
+		<p>Hello World</p>
+		<div id="patient-profiles">
+			
 		</div>
-	</div>
-	<div>
-		<!-- Chat with patient -->
-	</div>
-	<div>
-		<!-- View Patient's Tests -->
 	</div>
 </div>
 
 <?php include("includes/footer.php");?>
-
-<script src="includes/javascript/patient-profile.js"></script>
 
 </body>
 </html>
