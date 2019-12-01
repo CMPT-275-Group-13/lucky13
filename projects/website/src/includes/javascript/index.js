@@ -2,36 +2,35 @@
  *  index.js
  */
 
-$(document).ready(function() {
-    firebaseCheckAuthState();
-
-    console.log("Document ready");
-    var userEmail = firebaseGetUserEmail();
+ /**
+  * Display welcome message for the current user
+  */ 
+ function displayWelcomeMessage(user) {
+    var userEmail = firebaseGetUserEmail(user);
+    console.log(userEmail);
 
     if (userEmail) {
         var db = firebase.firestore();
         var welcomeMessage = document.querySelector("#welcomeMessage");
-        var docRef = db.collection('doctors');
+        var docRef = db.collection("doctors").doc(userEmail);
 
-        docRef.doc(userEmail).get(function(querySnapshot) {
+        docRef.get().then(function(doc) {
             var welcomeMessageStr = '';
-    
-            if (!querySnapshot.empty) {
-                var docs = querySnapshot.docs[0].data();
-               
-                var title = '';
+            if (doc.exists) {
+                docData = doc.data();
                 var firstName = '';
                 var lastName = '';
+                var title = '';
     
-                if (docs.title) {
-                    title = docs.title;
+                if (docData.title) {
+                    title = docData.title;
                 }
-                if (docs.firstName) {
-                    firstName = docs.firstName;
+                if (docData.firstName) {
+                    firstName = docData.firstName;
                     console.log("Doctor's first name: " + firstName);
                 }
-                if (docs.lastName) {
-                    lastName = docs.lastName;
+                if (docData.lastName) {
+                    lastName = docData.lastName;
                 }
     
                 welcomeMessageStr = "Welcome " + title + " " + firstName + " " + lastName;
@@ -49,4 +48,14 @@ $(document).ready(function() {
     else {
         console.log("No value for user email!");
     }
+ }
+
+$(document).ready(function() {
+    // Get the current user when it finishes initialisation
+    firebase.auth().onAuthStateChanged(function(user) {
+		// User is signed in
+		if (user) {
+            displayWelcomeMessage(user);
+		}
+	});
 });

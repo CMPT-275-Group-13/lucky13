@@ -5,7 +5,6 @@ $(document).ready(function() {
 	$("#login-status").text();
 	$("#login-status").hide();
 
-
 	$("#login-btn").click(function() {
 		$("#email-status").text();
 		$("#email-status").hide();
@@ -15,11 +14,12 @@ $(document).ready(function() {
 
 		console.log("email:" + email);
 
+		// Check email is a valid email
 		if (!validateEmail(email)) {
 			$("#email-status").show();
 			$("#email-status").text("Invalid email address format");
 		}
-
+		// Check password is a valid password
 		else if (!validatePassword(password)) {
 			$("#login-status").show();
 			$("#login-status").text("Invalid password");
@@ -46,12 +46,15 @@ $(document).ready(function() {
 					$("#password-status").text("Incorrect password");
 				}
 
-				if(errorCode == "auth/user-not-found"){
+				if(errorCode == "auth/user-not-found") {
 					$('#email-status').show();
 					$('#email-status').text("User does not exist");
 				}
 			});
+
+			var auth = firebaseCheckAuthState();
 		}
+		
 		return false;
 	});
 });

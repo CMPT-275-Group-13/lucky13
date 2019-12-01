@@ -3,21 +3,53 @@
  *
  * Main collection of firebase functions
  */
+
+/**
+ * Checks the auth state and initialises it. Will redirect page if needed
+ */
 function firebaseCheckAuthState() {
 	firebase.auth().onAuthStateChanged(function(user) {
 		var currentPathName = location.pathname;
-		console.log("Auth");
 
 		// User is signed in
 		if (user) {
-			console.log("User is signed in");
-			if (currentPathName.includes("register.php")) {
-				console.log(user.uid);
-				redirectPath("index.php");
-			}
-			else if (currentPathName.includes("login.php")) {
-				console.log("Redirect to index.php");
-				redirectPath("index.php?index=" + user.uid);    
+			var userEmail = firebaseGetUserEmail(user);
+			var userType = '';
+
+			// Check what user account type
+			if (userEmail != null) {
+				var db = firebase.firestore();
+				var docRef = db.collection("doctors").doc(userEmail);
+
+				// Check if registration
+				docRef.get().then(function(doc) {
+					docData = doc.data();
+					// Doctor
+					if (docData) {
+						if (currentPathName.includes("register.php") || currentPathName.includes("patient-user.php")) {
+							console.log("Doctor is signed in!");
+							console.log(user.uid);
+							redirectPath("index.php?index=" + user.uid);
+						}
+						else if (currentPathName.includes("login.php")) {
+							console.log("Redirect to index.php");
+							redirectPath("index.php?index=" + user.uid);    
+						}
+					}
+					// Patient
+					else {
+						console.log("Patient is signed in!");
+
+						// Redirect to patient user page if current page isn't
+						if (!currentPathName.includes("patient-user.php")) {
+							console.log("Patient is signed in!");
+							console.log("Redirect to patient-user.php");
+							redirectPath("patient-user.php"); 
+						}
+					}
+				}).catch(function(error) {
+					console.log(error);
+				});
 			}
 		}
 
@@ -35,16 +67,34 @@ function firebaseCheckAuthState() {
 	});
 }
 
+/**
+ * Sign out the current user. Redirect to login page upon success
+ */
 function firebaseAccountSignOut() {
   firebase.auth().signOut().then(function() {
     console.log('Signout Succesfull');
   }, function(error) {
     console.log('Signout Failed');
   });
-  redirectPath("index.php");
+  redirectPath("login.php");
 }
 
-function googleSignin() {
+/**
+ * Reset the user's email address
+ * @param {string} emailAddress 
+ */
+function firebaseResetUserPassword(emailAddress) {
+	firebase.auth.sendPasswordResetEmail(emailAddress).then(function() {
+	  // Email sent.
+	}).catch(function(error) {
+	  // An error happened.
+	});
+}
+
+/**
+ * Login using your Google Account
+ */
+function firebaseGoogleSignin() {
 	$("#login-status").text();
 	$("#login-status").hide();
 
@@ -68,30 +118,26 @@ function googleSignin() {
 	});
 }
 
-function firebaseResetUserPassword(emailAddress) {
-	firebase.auth.sendPasswordResetEmail(emailAddress).then(function() {
-	  // Email sent.
-	}).catch(function(error) {
-	  // An error happened.
-	});
-}
-
-function firebaseGetUID() {
-	var user = firebase.auth().currentUser;
+/**
+ * Returns the user's ID, based on firebase's user object
+ * @param {firebase.user} user 
+ */
+function firebaseGetUID(user) {
 	if (user != null) {
 		return user.uid;
 	}
-
 	console.log("ERROR! Unable to find user!");
 	return null;	
 }
 
-function firebaseGetUserEmail() {
-	var user = firebase.auth().currentUser;
+/**
+ * Returns the user's email, based on firebase's user object
+ * @param {firebase.user} user
+ */
+function firebaseGetUserEmail(user) {
 	if (user != null) {
 		return user.email;
 	}
-
 	console.log("ERROR! Unable to find user!");	
 	return null;
 }
