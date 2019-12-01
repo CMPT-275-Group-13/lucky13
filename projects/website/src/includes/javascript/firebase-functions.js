@@ -14,13 +14,29 @@ function firebaseCheckAuthState() {
 		// User is signed in
 		if (user) {
 			console.log("User is signed in");
-			if (currentPathName.includes("register.php")) {
-				console.log(user.uid);
-				redirectPath("index.php?index=" + user.uid);
+			var userType = fireuserGetUserType(user);
+			console.log(userType);
+
+			// Doctor user
+			if (userType == 'doctors') {
+				if (currentPathName.includes("register.php")) {
+					console.log("Doctor is signed in!");
+					console.log(user.uid);
+					redirectPath("index.php?index=" + user.uid);
+				}
+				else if (currentPathName.includes("login.php")) {
+					console.log("Redirect to index.php");
+					redirectPath("index.php?index=" + user.uid);    
+				}
 			}
-			else if (currentPathName.includes("login.php")) {
-				console.log("Redirect to index.php");
-				redirectPath("index.php?index=" + user.uid);    
+			// Patient user
+			else {
+				// Redirect to patient user page if current page isn't
+				if (!currentPathName.includes("patient-user.php")) {
+					console.log("Patient is signed in!");
+					console.log("Redirect to patient-user.php");
+					redirectPath("patient-user.php"); 
+				}
 			}
 		}
 
@@ -118,10 +134,26 @@ function firebaseGetUserEmail(user) {
  * @param {firebase.user} user
  */
 function fireuserGetUserType(user) {
-	userType = null
-	if (user != null) {
-
+	var userType = '';
+	var userEmail = firebaseGetUserEmail(user);
+	
+	if (userEmail != null) {
+		console.log(userEmail);
+		var db = firebase.firestore();
+		var docRef = db.collection("doctors").doc(userEmail);
+		docRef.get().then(function(doc) {
+			if (doc.exists) {
+				userType = "doctors";
+			}
+	
+			else {
+				userType = "patient";
+			}
+		}).catch(function(error) {
+			console.log("Error getting document:", error);
+		});
 	}
 
+	console.log(userType);
 	return userType;
 }

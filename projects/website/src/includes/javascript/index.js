@@ -7,11 +7,12 @@
   */ 
  function displayWelcomeMessage(user) {
     var userEmail = firebaseGetUserEmail(user);
+    console.log(userEmail);
 
     if (userEmail) {
         var db = firebase.firestore();
         var welcomeMessage = document.querySelector("#welcomeMessage");
-        var docRef = db.collection('doctors').doc(userEmail);
+        var docRef = db.collection("doctors").doc(userEmail);
 
         docRef.get().then(function(doc) {
             var welcomeMessageStr = '';

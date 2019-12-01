@@ -9,8 +9,8 @@
 <?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
 
-<div class="container" id="main-content">
-    <div>
+<div class="container" id="nav-card-content">
+    <div class="container">
         <p>Please login into the app</p>
     </div>
 </div>
