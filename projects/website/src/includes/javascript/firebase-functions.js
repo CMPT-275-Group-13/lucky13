@@ -90,11 +90,6 @@ function firebaseGoogleSignin() {
 }
 
 /**
- * 
- */
-
-
-/**
  * Returns the user's ID, based on firebase's user object
  * @param {firebase.user} user 
  */

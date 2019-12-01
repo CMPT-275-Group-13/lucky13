@@ -121,28 +121,27 @@ function firestoreDisplayUser(email, userType="doctors") {
  */
 function firestoreUpdateUser(docData, userType="doctors") {
   firebase.auth().onAuthStateChanged(function(user) {
-  var db = firebase.firestore();
+	  var db = firebase.firestore();
+	  
+	  if (user) {
+		// To-do: Change profile picture
 
-  if (user) {
-  	// To-do: Change profile picture
+		// To-do: Update email
+		// var oldEmail = user.email;
+		//  if (oldEmail != "" && docData['email'] != oldEmail) {
+		//    var oldEmail = user.email;
 
-  	// To-do: Update email
-  	// var oldEmail = user.email;
-   //  if (oldEmail != "" && docData['email'] != oldEmail) {
-   //    var oldEmail = user.email;
+		//    user.updateEmail(docData['email']).then(function() {
+		//    }).catch(function(error) {
+		//    });
 
-   //    user.updateEmail(docData['email']).then(function() {
-   //    }).catch(function(error) {
-   //    });
+		//    // Delete old document
+		//  }
 
-   //    // Delete old document
-   //  }
+		// To-do: Reset password
 
-   // To-do: Reset password
-
-    db.collection(userType).doc(docData['email']).set(docData).then(function() {
-      console.log("Document successfully written!");
-    });
-  }
-	});
+		db.collection(userType).doc(docData['email']).set(docData).then(function() {
+		console.log("Document successfully written!");
+		});
+	}});
 }

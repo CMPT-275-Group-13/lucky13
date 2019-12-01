@@ -11,27 +11,25 @@
     if (userEmail) {
         var db = firebase.firestore();
         var welcomeMessage = document.querySelector("#welcomeMessage");
-        var docRef = db.collection('doctors');
+        var docRef = db.collection('doctors').doc(userEmail);
 
-        docRef.doc(userEmail).get(function(querySnapshot) {
+        docRef.get().then(function(doc) {
             var welcomeMessageStr = '';
-    
-            if (!querySnapshot.empty) {
-                var docs = querySnapshot.docs[0].data();
-               
-                var title = '';
+            if (doc.exists) {
+                docData = doc.data();
                 var firstName = '';
                 var lastName = '';
+                var title = '';
     
-                if (docs.title) {
-                    title = docs.title;
+                if (docData['title']) {
+                    title = docData['title'];
                 }
-                if (docs.firstName) {
-                    firstName = docs.firstName;
+                if (docData['firstName']) {
+                    firstName = docData['firstName'];
                     console.log("Doctor's first name: " + firstName);
                 }
-                if (docs.lastName) {
-                    lastName = docs.lastName;
+                if (docData['lastName']) {
+                    lastName = docData['lastName'];
                 }
     
                 welcomeMessageStr = "Welcome " + title + " " + firstName + " " + lastName;
