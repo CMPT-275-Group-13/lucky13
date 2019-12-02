@@ -2,16 +2,9 @@ var db = firebase.firestore();
 var results = document.querySelector(".results");
 var docArray = []
 
-//decode uri query
-var urlParams = new URLSearchParams(window.location.search);
-var patient = urlParams.get('email');
-patient = decodeURIComponent(patient);
-
-var brainTestRef = db.collection("tests").doc(patient).collection("brain-test");
-var patientRef = db.collection("patient").doc(patient);
+//TO DO: need to query from url string
+var brainTestRef = db.collection("tests/csmith@gmail.com/brain-test");
 var TEST_LIMIT = 3;
-
-var brainTestTitle = document.querySelector("#titleBrainTestResults");
 
 formatDateAndTime = function(unixTime) {
     var date = new Date(unixTime * 1000); //convert to datetime from unix
@@ -54,14 +47,6 @@ displayTests = function(){
 
 //gets the latest 3 tests, maybe give the doctor the option to view more
 getMostRecentTests = function (){
-
-    //getting patient information
-    patientRef.get().then( function(doc) {
-        var myData = doc.data();
-        brainTestTitle.innerText = "B.R.A.I.N Test Results for " + myData.firstName + " " + myData.lastName; 
-    });
-
-    //getting brain test information
     brainTestRef.orderBy("timeStamp", "desc").limit(TEST_LIMIT)
         .get().then(querySnapshot =>
             {

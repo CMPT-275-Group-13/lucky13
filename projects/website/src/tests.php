@@ -1,4 +1,3 @@
-<?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
 
 <!DOCTYPE html>
@@ -13,6 +12,10 @@
 
 <div class="container" id="main-content">
 	<div>
+		<a href="brain-test-results.php"><p>B.R.A.I.N Test Result</p></a>
+	</div>
+	<div>
+		<a href=""><p>Tremor Test Result</p></a>
 	</div>
 </div>
 

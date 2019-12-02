@@ -1,18 +1,36 @@
-/**
- * patient-profile.js
- */
+var firestore = firebase.firestore();
+const patientName = document.querySelector("#patients");
+const profile = document.querySelector("#details");
+const message = document.querySelector("#messageBody"); 
+const patientRef = firestore.doc("/patient/csmith");
+const messageRef = firestore.collection("/messages/csmith/John_Doe");
 
-$(document).ready(function() {
-    var urlParams =  getURLParameters();
-    var patientEmail = validateString(urlParams.get('email'));
 
-    // Populate Patient Info and Relevant links
-    firestoreDisplayUser(patientEmail, "patient");
-    jQueryGenerateURL("#profile-brain-test-result", 'brain-test-results.php', patientEmail, "Brain Test Results");
-    jQueryGenerateURL("#profile-tremor-test-result", 'tremor-test-results.php', patientEmail, "Tremor Test Results");
-    jQueryGenerateURL("#profile-message", 'message.php', patientEmail, "Message Patient");
-    jQueryGenerateURL("#profile-medication", 'patient-medication.php', patientEmail, "Medication Schedule");
+getRealtimeUpdates = function(){
+    patientRef.onSnapshot(function(doc){
+        if(doc && doc.exists) {
+            const myData = doc.data();
+            
+            patientName.innerText = myData.firstName +  " " + myData.lastName;
+            profile.innerText = "email address: " + myData.emailAddress + "\n" +
+                                "phone number: " + myData.phoneNumber;
 
-    // To-do: Assign and unassign patient to doctor logic
+        }
+    });
 
-});
+    messageRef.get().then(querySnapshot => {
+        const queryDocumentSnapshot = querySnapshot.docs[0].data().Body;
+        message.innerText = queryDocumentSnapshot;
+    });
+   
+
+    // patientRef.onSnapshot(function(doc){
+    //     if(doc && doc.exists){{
+    //         const myData = doc.data();
+    //         patient2.innerText = "Email: " + myData.emailAddress + "\n" + "Phone Number: " + myData.phoneNumber;
+            
+    //     }}
+    // });
+};
+
+getRealtimeUpdates();

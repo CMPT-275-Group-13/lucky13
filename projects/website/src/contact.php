@@ -1,6 +1,4 @@
-<?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,8 +10,6 @@
 <?php include("includes/navigation.php");?>
 
 <div class="container" id="main-content">
-	<div>
-	</div>
 </div>
 
 <?php include("includes/footer.php");?>

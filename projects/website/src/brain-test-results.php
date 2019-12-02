@@ -13,7 +13,7 @@
 <div class="container" id="main-content">
 	<div>
 		<div class="container">
-				<h2 id="titleBrainTestResults"></h2>
+				<h2>B.R.A.I.N Test Results for CSMITH</h2>
 				<div class="panel-group" id="accordion">
 				  <div class="panel panel-default">
 					<div class="panel-heading">
