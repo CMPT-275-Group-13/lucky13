@@ -27,7 +27,6 @@ The project was developed with the following software
   - pod 'Firebase/Auth'
   - pod 'MessageKit'
 
-
 ## Website Specifications
 The project was developed with the following:
 - HTML5, CSS3, JavaScript
@@ -60,10 +59,15 @@ Website
 At time of writing, our Google Firebase database allows read and writes from any user. This is intentional for development purposes. It will be closed for the production release.
 
 ## iOS App
-The test account username is "jinn@sfu.ca". The password is "helloworld".
+The test account username is "csmith@gmail.com". The password is "helloworld". The account is a patient.
 
 ## Website
 The test account username is "herbert@test.ca. The password is "helloworld". The account is a doctor and will be able to look up patient accounts.
 
 The patient accounts you may look up are:
 - csmith@gmail.com
+- jsmith@gmail.com
+- jackperalta@aol.com
+
+## More Accounts
+If more accounts need to be created, this can be done by going to the website and navigate to ``register.php``. 
