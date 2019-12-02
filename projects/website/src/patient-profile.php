@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title id="titlePatientProfile">Patient List</title>
+	<title id="titlePatientProfile">Patient Profile</title>
 	<?php include("includes/head-tag-contents.php");?>
 	<script type="application/javascript" src="includes/javascript/patient-profile.js"></script>
 	<link rel="stylesheet" type="text/css" href="includes/styling/patient-profile.css">

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title id="titleTremorTests"></title>
+	<title id="titleTremorTests">Tremor Test</title>
 	<?php include("includes/head-tag-contents.php");?>
 	<script src="includes/packages/node_modules/moment/moment.js" type="text/javascript"></script>
 	<script src="includes/packages/node_modules/chart.js/dist/Chart.js" type="text/javascript"></script>

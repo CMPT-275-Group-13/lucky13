@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="brainTestResults">B.R.A.I.N Test</title>
 	<?php include("includes/head-tag-contents.php");?>
 </head>
 <body>
