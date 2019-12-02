@@ -13,22 +13,6 @@ var TEST_LIMIT = 3;
 
 var brainTestTitle = document.querySelector("#titleBrainTestResults");
 
-formatDateAndTime = function(unixTime) {
-    var date = new Date(unixTime * 1000); //convert to datetime from unix
-    
-    //format date
-    var d = date.getDate().toLocaleString();
-    var m = (date.getMonth() + 1).toLocaleString();
-    var yyyy  = date.getFullYear().toLocaleString();
-
-    //format time
-    var hh = date.getHours().toLocaleString();
-    var mm = date.getMinutes().toLocaleString();
-    var ss = date.getSeconds().toLocaleString();
-
-    yyyy = yyyy.replace(/,/g, "");
-    return yyyy + "-" + m + "-" + d + " " + hh + ":" + mm + ":" + ss;
-}
 
 displayTests = function(){
        $.each(docArray, function(index, value){
@@ -52,7 +36,9 @@ displayTests = function(){
        });   
 }
 
-//gets the latest 3 tests, maybe give the doctor the option to view more
+/**
+ * Displays the three most recent B.R.A.I.N Test Results
+ * */
 getMostRecentTests = function (){
 
     //getting patient information

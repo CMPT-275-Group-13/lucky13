@@ -14,7 +14,13 @@ var patientRef = db.collection('patient').doc(patient);
 
 var tremorTestTitle = document.querySelector("#tremorTitle");
 
-//generates chart for the tremor test
+/**
+ * Generates the plot for the tremor tests
+ * @param {float} xaccel - stdv of the x coordinate
+ * @param {float} yaccel - stdv of the y coordinate
+ * @param {float} zaccel - stdv of the z coordinate
+ * @param {DateTime} tStamp - time the test was taken
+ */
 generateChart = function(xaccel,yaccel, zaccel, tStamp) {
     var ctx = document.getElementById('tremorChart');
     console.log(yaccel);
@@ -73,7 +79,9 @@ generateChart = function(xaccel,yaccel, zaccel, tStamp) {
 
 }
 
-//show the 5 most recent tests for remor tests
+/**
+ * Shows the 5 most recent tests for remor tests
+ * */
 getMostRecentTests = function() {
     var xAccelArray = [];
     var yAccelArray = [];

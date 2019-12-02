@@ -12,7 +12,6 @@ $(document).ready(function() {
             .get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
-                    // doc.data() is never undefined for query doc snapshots
                     patientData = doc.data();
                     displayPatient(patientData);
                 });
@@ -37,13 +36,10 @@ function displayPatient(patient) {
     var email = validateString(patient.email);
     var profileURL = 'patient-profile.php?email=' + email;
 
-    patientMsg += '<div>';
+    patientMsg += '<li class="list-group-item">';
     patientMsg += '<a href="' + profileURL + '">';
-    patientMsg += '<div>' + firstName + ' ' + lastName + '</div>';
-    patientMsg += '<div>' + phone + '</div>';
-    patientMsg += '<div>' + email + '</div>';
-    patientMsg += '</a>';
-    patientMsg += '</div>';
+    patientMsg += firstName + ' ' + lastName + '</li>';
+ 
 
     $("#patient-profiles").html(patientMsg);
 }

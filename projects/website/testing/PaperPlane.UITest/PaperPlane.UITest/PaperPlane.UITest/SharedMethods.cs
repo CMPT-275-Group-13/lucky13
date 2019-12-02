@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Runtime.CompilerServices;
 using System.Threading;
-using OpenQA.Selenium.Chrome;
+
+
 
 
 namespace PaperPlane.UITest
@@ -34,5 +34,7 @@ namespace PaperPlane.UITest
         {
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(seconds);
         }
+
+      
     }
 }

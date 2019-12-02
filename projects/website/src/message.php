@@ -5,11 +5,16 @@
 <head>
 	<title id="titleMessagePage">Messages</title>
 	<?php include("includes/head-tag-contents.php");?>
+	<link rel="stylesheet" type="text/css" href="includes/styling/message.css">
 </head>
-<body>
-
-<?php include("includes/design-top.php");?>
+<body style="background-color:#a7ced9;">
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#99cccc" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/message-header.png">
+</div>
+
+
+
 
 <div class="container" id="main-content">
 	<div>
@@ -19,23 +24,27 @@
 		<div>
 			<form action="" method="POST">
 				<div>
-					<h1>Messages from CSMTIH</h1>
-					<div id="messages">
-						
+					<div class="card" id="messageCard">
+						<h1 class="card-header" id="messageTitle"></h1>
+						<div class="card-body">
+							<div id="messages"></div>
+						</div>
+						<div class="card-footer">
+							<div>
+								<input id="doctor-message" type="textarea" name="message"/>
+								<button id="message-btn" class="btn btn-default btn-primary">Send</button>
+							</div>
+								
+						</div>
 					</div>
 				</div>
-				<div>
-					<input id="doctor-message" type="textarea" name="message"/>
-				</div>
-				<div>
-					<button id="message-btn" class="btn btn-default">Send</button>
-				</div>
+				
+				
 			</form>
 		</div>
 	</div>
 </div>
 
-<?php include("includes/footer.php");?>
 
 <script src="includes/javascript/message.js" text="text/javascript"></script>
 
