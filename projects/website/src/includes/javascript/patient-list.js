@@ -39,8 +39,7 @@ function displayPatient(patient) {
 
     patientMsg += '<div>';
     patientMsg += '<a href="' + profileURL + '">'
-    patientMsg += '<div>' + firstName + '</div>';
-    patientMsg += '<div>' + lastName + '</div>';
+    patientMsg += '<div>' + firstName + ' ' + lastName + '</div>';
     patientMsg += '<div>' + phone + '</div>';
     patientMsg += '<div>' + email + '</div>';
     patientMsg += '</a>'

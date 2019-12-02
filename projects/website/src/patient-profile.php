@@ -20,8 +20,9 @@
 				<h2>Patient Profile</h1>
 			</div>
 			<div id="profile-email"></div>
-			<div id="profile-first-name"></div>
-			<div id="profile-last-name"></div>
+			<div id="profile-name">
+				<span id="profile-first-name"></span> <span id="profile-last-name"></span> 
+			</div>
 			<div id="profile-phone"></div>
 		</div>
 	</div>
