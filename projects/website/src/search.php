@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titleSearchPage">Search Patients</title>
 	<?php include("includes/head-tag-contents.php");?>
 </head>
 <body>
@@ -16,12 +17,6 @@
 		<form action="" method="_GET">
 			<div class="container">
 				<div>
-					<span id = "details"></span><p></p>
-					<?php //$patientUrl = 'patient-profile.php?patient-id=' . urlencode("csmith"); ?>
-					<?php $patientUrl = 'patient-profile.php'; // Placeholder for now ?>
-					<div style="cursor: pointer;" onclick="window.location='<?php print $patientUrl; ?>'">
-						<div id = "results"></div>
-					</div>
 					<div>
 						<div>
 							<label><h1>Username</h1></label>
@@ -32,9 +27,21 @@
 			</div>
 			<div class="container">
 				<div>
+					<span id="helpBlock" class="help-block">Keywords suggestion: First Name, Last Name, Email</span>
+				</div>
+				<div>
 					<button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" id="searchButton"> 
 						Search
 					</button>
+				</div>
+			</div>
+
+			<div class="containter" id="results-content">
+						<div class="panel-group">
+								<div class="searchResults"></div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</form>

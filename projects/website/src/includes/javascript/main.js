@@ -5,5 +5,5 @@
  */
 
  $(document).ready(function() {
- 	firebaseCheckAuthState();
+	firebaseCheckAuthState();
  });
