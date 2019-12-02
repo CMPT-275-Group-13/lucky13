@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -168,6 +168,9 @@
                                                         <integer key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="stabilizerToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c03-hR-6an"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -185,7 +188,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Wuf-3N-5eW"/>
                     <connections>
+                        <outlet property="allRotation" destination="IOJ-zN-QJg" id="6lR-dD-LGp"/>
+                        <outlet property="bottomMargin" destination="QR7-4C-V8c" id="oKG-7F-Hmg"/>
+                        <outlet property="leftMargin" destination="r0d-VH-VUB" id="sXX-wQ-vRc"/>
                         <outlet property="nameLabel" destination="kir-ZA-qK3" id="Xil-M5-YBa"/>
+                        <outlet property="rightMargin" destination="dI7-4G-d67" id="MSb-mu-caC"/>
+                        <outlet property="stabilizerToggle" destination="SC8-hJ-BFb" id="9RI-eL-8mA"/>
+                        <outlet property="topMargin" destination="yJZ-pa-yzk" id="Ax6-6X-qYk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
