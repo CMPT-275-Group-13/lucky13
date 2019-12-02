@@ -38,5 +38,7 @@
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> --> <!-- Needs work -->
 <script type="application/javascript" src="includes/javascript/main.js"></script>
 
+<!--assets-->
 <link rel="icon" type="image/png" href ="images/assets/icon.png">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 

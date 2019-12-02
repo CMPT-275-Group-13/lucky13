@@ -49,9 +49,6 @@
   </div>
 </div>
         
-
-<?php include("includes/footer.php");?>
-
 <script src="includes/javascript/account-login.js"></script>
 </body>
 </html>

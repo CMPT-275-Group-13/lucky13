@@ -44,7 +44,6 @@
 	</div>
 </div>
 
-<?php include("includes/footer.php");?>
 
 <script src="includes/javascript/message.js" text="text/javascript"></script>
 

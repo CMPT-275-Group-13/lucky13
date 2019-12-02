@@ -36,7 +36,7 @@
 </div>
 
 <?php include("includes/footer.php");?>
-<script src="includes/javascript/tremor-test-results.js"></script>
+
 
 </body>
 </html>

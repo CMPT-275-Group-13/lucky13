@@ -17,14 +17,9 @@ $(document).ready(function(){
     });
 });
 
-getPatientEmail = function(patient){
-    patientRef.where(firebase.firestore.FieldPath.documentId(), '==', patient)
-    .get().then(function(snapshot){
-        var patientDocs = snapshot.docs[0].data();
-        console.log(patientDocs.firstName);
-        name.innerText = patientDocs.firstName + " " + patientDocs.lastName;
-    });
-}
+/**
+ * Pulls the patient's information from the database
+ */
 
 getPatientInfo = function(){
     docRef.where("uid", "==", doctor)
@@ -37,5 +32,23 @@ getPatientInfo = function(){
         }
     });
 }
+
+
+/**
+ * Gets patient's email from the doctor's database
+ * and uses it to get the patient information from the patient's database
+ * loading the firstName and lastName attribute into the title
+ * @param {string} patient - Patient's email
+ */
+
+getPatientEmail = function(patient){
+    patientRef.where(firebase.firestore.FieldPath.documentId(), '==', patient)
+    .get().then(function(snapshot){
+        var patientDocs = snapshot.docs[0].data();
+        console.log(patientDocs.firstName);
+        name.innerText = patientDocs.firstName + " " + patientDocs.lastName;
+    });
+}
+
 
 getPatientInfo();

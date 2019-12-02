@@ -51,7 +51,6 @@
 </div>
 
 <script src="includes/javascript/search.js"></script>
-<?php include("includes/footer.php");?>
 
 </body>
 </html>

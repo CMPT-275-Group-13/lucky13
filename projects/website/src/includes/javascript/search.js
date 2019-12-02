@@ -1,3 +1,7 @@
+/**
+ * search.js
+ */
+
 var db = firebase.firestore();
 var btnSearch = document.querySelector("#searchButton");
 var txtSearch = document.querySelector("#inputSearch");
@@ -5,7 +9,6 @@ var results = document.querySelector(".searchResults");
 
 var patientRef = db.collection('patient');
 var docArray = [];
-
 
 btnSearch.addEventListener("click", function() {
         var txtSearchInput = txtSearch.value.toLowerCase();
@@ -35,6 +38,9 @@ btnSearch.addEventListener("click", function() {
 
     });
 
+ /**
+  * Displays the search results
+  *   */ 
 
 displayPatient = function (){
 

@@ -10,6 +10,13 @@
   vertical-align: baseline;
 }
 
-.collapsible {
-    background-color:#339999;
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #339999;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+h4 {
+  color:white;
 }

@@ -11,6 +11,8 @@
 <?php include("includes/navigation.php");?>
 <div class="hero-image" style="background-color:#9ec7d2" id="logo-content">
   <img class="img-fluid mx-auto d-block" src="images/assets/brain-test-header.png">
+  <scipt src="includes/javascript/helper.js" type="text/javascript"></script>
+
 </div>
 
 <div class="container" id="main-content">

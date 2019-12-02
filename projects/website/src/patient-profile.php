@@ -20,12 +20,11 @@
 	<div>
 		<div class="accordion" id="accordionExample">
   			<div class="card">
-   				<div class="card-header" id="headingOne">
-     	 			<h2 class="mb-0">
-        				<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsible">
-							PROFILE
+   				<div class="card-header z-depth-1 teal lighten-4" id="headingOne">
+        			<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="collapsible">
+						<h4 class="mb-0 text-center font-weight-bold">PROFILE</h4>
         				</button>
-      				</h2>
+      				
     			</div>
 
    			 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -33,18 +32,18 @@
 			  		<span id="profile-first-name"></span> <span id="profile-last-name"></span> 
 				<p id="profile-email"></p>
 				<p id="profile-phone"></p>
-				<p><button class="btn btn-default btn-primary" id="patient-assignment-toggle">Toggle</p>
+				<button class="btn btn-default btn-primary" id="patient-assignment">Toggle
 				</div>
      		 </div>
     	</div>
   	</div>
   	<div class="card">
     	<div class="card-header" id="headingTwo">
-      		<h2 class="mb-0">
         		<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
-					TREMOR TEST
+					<h4 class="mb-0 text-center font-weight-bold">TREMOR TEST</h4>
+
         		</button>
-      		</h2>
+      	
     	</div>
     		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       		<div class="card-body">
@@ -55,11 +54,9 @@
   	</div>
   	<div class="card">
     	<div class="card-header" id="headingThree">
-      		<h2 class="mb-0">
         	<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-				B.R.A.I.N TEST
+				<h4 class="mb-0 text-center font-weight-bold">B.R.A.I.N Test</h4>
         	</button>
-      	</h2>
     	</div>
     	<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       		<div class="card-body">
@@ -71,10 +68,8 @@
 
 	  <div class="card">
     	<div class="card-header" id="headingFour">
-      		<h2 class="mb-0">
         	<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsible">
-				MEDICATION
-        	</button>
+			<h4 class="mb-0 text-center font-weight-bold">PROFILE</h4>
       	</h2>
     	</div>
     	<div id="collapseFour" class="collapse" aria-labelledby="collapseFour" data-parent="#accordionExample">
@@ -86,11 +81,10 @@
 		
 		<div class="card">
     	<div class="card-header" id="headingFive">
-      		<h2 class="mb-0">
         	<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-				MESSAGES
+				<h4 class="mb-0 text-center font-weight-bold">MESSAGES</h4>
         	</button>
-      	</h2>
+      	
     	</div>
     	<div id="collapseFive" class="collapse" aria-labelledby="collapseFive" data-parent="#accordionExample">
       		<div class="card-body">
@@ -100,43 +94,7 @@
     	</div>
   	</div>
 	</div>
-		<!-- <div class="" id="profile">
-			<div>
-				<h2>Profile</h1>
-			</div>
-			<div id="profile-email"></div>
-			<div id="profile-name">
-				<span id="profile-first-name"></span> <span id="profile-last-name"></span> 
-			</div>
-			<div id="profile-phone"></div>
-		</div>
-	</div>
 
-	<div>
-		<div id="profile-test-results">
-			<div id="profile-test-results-header">
-				 <h2>Test Results</h2> -->
-			<!-- </div>
-			
-			<div id="profile-test-results">
-				<div id="profile-brain-test-result"></div>
-				<div id="profile-tremor-test-result"></div>
-			</div>
-		</div>
-	</div>
-
-	<div>
-		<div id="profile-medication">
-		</div>
-	</div> -->
-
-	<!-- <div>
-		<div id="profile-message"></div>
-	</div>  -->
-
-	<div>
-		<button id="patient-assignment"></button>
-	</div>
 </div>
 
 <?php include("includes/footer.php");?>
