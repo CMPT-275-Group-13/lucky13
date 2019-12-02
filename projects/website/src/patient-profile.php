@@ -50,7 +50,7 @@
 	</div>
 
 	<div>
-		<button id="patient-assignment-toggle">Toggle</button>
+		<button id="patient-assignment"></button>
 	</div>
 </div>
 
