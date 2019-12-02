@@ -1,57 +1,76 @@
+<?php require_once("includes/helper.php");?>
 <?php include("includes/config.php");?>
 
 <!DOCTYPE html>
 <html>
 <head>
+	<title id="titleRegisterPage">Register</title>
 	<?php include("includes/head-tag-contents.php");?>
-	<script type="text/javascript" src="includes/javascript/account-register.js"></script>
+	<script type="text/javascript" src="includes/javascript/register.js"></script>
 </head>
-<body>
+<div class="containter" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/website-logo.png">
+</div>
+<body style="background-color:#a7cfda">
 
-<?php include("includes/design-top.php");?>
-<?php //include("includes/navigation.php");?>
+<!--register page modified using this template: https://startbootstrap.com/snippets/login/"-->
 
-<div class="container" id="main-content">
-	<div>
-		<div class="" id="">
-			<div class="" id="register-status">
-			</div>
-			<form id="register-form" class="form-inline" action="" method="POST">
-				<div class="form-group">
-					<div>
-						<label><b>Email</b></label>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+		<div class="card card-signin my-5" >
+			<div class="card-body">
+			<h5 class="card-title text-center">Sign Up</h5>
+			<form class="form-signup">
+				<div class="form-row">
+					<div class="col form-group">
+						<label>First Name</label>
+						<input type="text" id="first-name" class="form-control" placeholder="First Name" required>
+							
 					</div>
-					<div>
-						<input class="form-control" type="textbox" name="email" id="email" required/>
+					<div class="col form-group">
+						<label>Last Name</label>
+						<input type="text" id="last-name" class="form-control" placeholder="Last Name" required>
+									
 					</div>
 				</div>
-				<div>
-					<label><b>Password</b></label>
+				<div class="form-label-group">
+					<label for="email">Email address</label>
+					<input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
 				</div>
-				<div>
-					<input class="form-control" type="password" name="password" id="password" required/>
+				<div class="form-label-group">
+					<label for="password">Password</label>
+					<input type="password" id="password" class="form-control" placeholder="Password" required>
 				</div>
-				<div>
-					<label><b>First Name</b></label>
+
+				<div class="form-label-group">
+					<label for="phoneNumber">Phone Number</label>
+					<input type="text" id="phoneNumber" class="form-control" placeholder="Phone Number" required>
 				</div>
-				<div>
-					<input class="form-control" type="text" name="first-name" id="first-name" required/>
+
+				<div class="form-label-group">
+					<label for="userType">Account Type</label>
+					<div>
+						<select id="userType" name="userType">
+							<option value="doctor" selected>Doctor</option>
+							<option value="patient">Patient</option>
+						</select>
+					</div>
 				</div>
-				<div>
-					<label><b>Last Name</b></label>
-				</div>
-				<div>
-					<input class="form-control" type="text" name="last-name" id="last-name" required/>
-				</div>
-				<div class="form-group">
-					<button id="register-btn" class="btn btn-default">Register</button>
+
+				<p></p>
+				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="register-btn" style="background-color:#66cccc">Register</button>
+				<div class="modal-footer">
+					<div class="options text-center text-md-right mt-1">
+						Have an account? <a href="login.php" class="blue-text">Sign In</a>
+					</div>
 				</div>
 			</form>
+			</div>
+		</div>
 		</div>
 	</div>
 </div>
-
-<?php include("includes/footer.php");?>
 
 </body>
 </html>

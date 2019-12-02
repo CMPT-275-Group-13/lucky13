@@ -11,3 +11,12 @@
 	font-size: 14px;
 	text-align: center;
 }
+
+a:hover{
+	color:#339999;
+}
+
+button.btn.btn-primary{
+	background-color:#009999;
+	border-color: #009999;
+}

@@ -6,17 +6,20 @@ $(document).ready(function() {
 	$("#login-status").hide();
 
 	$("#login-btn").click(function() {
-		$("#login-status").text();
-		$("#login-status").hide();
+		$("#email-status").text();
+		$("#email-status").hide();
 
 		var email = $("input#email").val();
 		var password = $("input#password").val();
 
-		if (!validateEmail(email)) {
-			$("#login-status").show();
-			$("#login-status").text("Invalid email address format");
-		}
+		console.log("email:" + email);
 
+		// Check email is a valid email
+		if (!validateEmail(email)) {
+			$("#email-status").show();
+			$("#email-status").text("Invalid email address format");
+		}
+		// Check password is a valid password
 		else if (!validatePassword(password)) {
 			$("#login-status").show();
 			$("#login-status").text("Invalid password");
@@ -38,12 +41,20 @@ $(document).ready(function() {
 				console.log('Error Code: ' + errorCode);
 				console.log('Error Message: ' + errorMessage);
 
-				if (errorCode) {
-					$("#login-status").show();
-					$("#login-status").text(errorMessage);
+				if (errorCode == "auth/wrong-password") {
+					$("#password-status").show();
+					$("#password-status").text("Incorrect password");
+				}
+
+				if(errorCode == "auth/user-not-found") {
+					$('#email-status').show();
+					$('#email-status').text("User does not exist");
 				}
 			});
+
+			var auth = firebaseCheckAuthState();
 		}
+		
 		return false;
 	});
 });
