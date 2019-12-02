@@ -159,6 +159,7 @@ function firestoreCreateMedication(email, medicationFrequency, medicationName, m
 		case 'daily':
 		default:
 			medicationType = 'dailyMedications';
+			break;
 	}
 
 	firebase.auth().onAuthStateChanged(function(user) {	  

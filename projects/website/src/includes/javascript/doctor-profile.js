@@ -19,7 +19,6 @@ $(document).ready(function() {
 
     var docData = {
       email: jQueryReadValfromHTML("input#profile-email"),
-      email: jQueryReadValfromHTML("input#profile-email"),
       firstName:jQueryReadValfromHTML("input#profile-first-name"),
       lastName: jQueryReadValfromHTML("input#profile-last-name"),
       title: jQueryReadValfromHTML("input#profile-title"),

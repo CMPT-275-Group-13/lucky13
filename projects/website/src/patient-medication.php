@@ -21,6 +21,7 @@
 		<div>
 			<form class="form-create-new-medication" action="" method="POST">
 				<div class="form-label-group">
+					<label for="medication-frequency">Medication Frequency</label>
 					<select name="medication-frequency" id="medication-frequency">
 						<option name="daily">Daily</option>
 					</select>
