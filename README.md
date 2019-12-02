@@ -15,14 +15,18 @@ Paper Plane will work with the following  specifications:
 
 ## iOS Specifications
 The project was developed with the following software
-- XCode IDE 8.4+
+- XCode IDE 11.2+
 - Swift 4.2+
 - CocoaPods 1.84+
+  - pod 'FirebaseUI/Auth'
+  - pod 'FirebaseUI/Email'
+  - pod 'FirebaseUI/Google'
   - pod 'Firebase/Analytics'
-  - pod 'Firebase/Messaging'
   - pod 'Firebase/Core'
   - pod 'Firebase/Firestore'
-  - pod 'FirebaseFirestoreSwift'
+  - pod 'Firebase/Auth'
+  - pod 'MessageKit'
+
 
 ## Website Specifications
 The project was developed with the following:
@@ -41,11 +45,9 @@ Website
 # Building from Source
 ## iOS Instructions
 1. Download the project into a folder.
-2. Navigate to Paperplane > Signing & Capabilities > All
-3. Make sure that "Automatically manage signing" is not checked.
-4. Ensure that the bundle identifier is "com.anguskan.PAPER-Planes"
-5. Navigate to PaperPLANES > Build Settings > Signing.
-6. Ensure the field 'Development Team' has the value "YB2CH8LMF6"
+2. Open PAPER Planes.xcworkspace in Xcode
+3. Build and run on emulator/iOS device
+4. If running on iOS device, must ensure project team is set in Project Settings > Signing & Capabilities
 
 ## Web Instructions
 1. Download MAMP.
@@ -64,4 +66,4 @@ The test account username is "jinn@sfu.ca". The password is "helloworld".
 The test account username is "herbert@test.ca. The password is "helloworld". The account is a doctor and will be able to look up patient accounts.
 
 The patient accounts you may look up are:
-- jinn@sfu.ca
+- csmith@gmail.com
