@@ -29,19 +29,17 @@ class BrainTestClass {
     private let wrongTapScore = 2
     private let reallyWrongTapScore = 3
     
-    
     private func incrementTapScore(typeTap score: Int) {
         self.sumOfScore += score
     }
     
+    // Resetting the accuracy score
     private func resetTapScore() {
         self.sumOfScore = 0
     }
     
     // Button logic for the BRAIN test
     // If first enter the test, wait for the user to touch the screen
-    
-    
     
     // Timers for timeHeld
     private var timeHeldSeconds = 0.0

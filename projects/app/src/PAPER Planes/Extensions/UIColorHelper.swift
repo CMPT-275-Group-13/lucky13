@@ -8,6 +8,7 @@
 
 import UIKit
 
+//UIColor extension that allows the use of hex codes
 extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1) {
         assert(hex[hex.startIndex] == "#", "Expected hex string of format #RRGGBB")
