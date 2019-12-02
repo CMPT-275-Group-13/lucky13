@@ -31,6 +31,7 @@
 
 <!-- Website-Specific Js -->
 <script type="application/javascript" src="includes/javascript/helper.js"></script>
+<script type="application/javascript" src="includes/javascript/jquery-helper.js"></script>
 <script type="application/javascript" src="includes/javascript/firebase-functions.js"></script>
 <script type="application/javascript" src="includes/javascript/firebase-user.js"></script>
 <script type="application/javascript" src="includes/javascript/firebase-config.js"></script>

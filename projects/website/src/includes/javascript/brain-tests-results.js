@@ -4,7 +4,7 @@ var docArray = []
 
 //decode uri query
 var urlParams = new URLSearchParams(window.location.search);
-var patient = urlParams.get('index');
+var patient = urlParams.get('email');
 patient = decodeURIComponent(patient);
 
 var brainTestRef = db.collection("tests").doc(patient).collection("brain-test");

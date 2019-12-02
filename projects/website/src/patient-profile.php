@@ -28,8 +28,11 @@
 	</div>
 
 	<div>
-		<div>
-			<h2>Test Results</h2>
+		<div id="profile-test-results">
+			<div id="profile-test-results-header">
+				<!-- <h2>Test Results</h2> -->
+			</div>
+			
 			<div id="profile-test-results">
 				<div id="profile-brain-test-result"></div>
 				<div id="profile-tremor-test-result"></div>
@@ -38,9 +41,16 @@
 	</div>
 
 	<div>
-		<div>
-			<h2>Message Patient</h2>
+		<div id="profile-medication">
 		</div>
+	</div>
+
+	<div>
+		<div id="profile-message"></div>
+	</div>
+
+	<div>
+		<button id="patient-assignment-toggle">Toggle</button>
 	</div>
 </div>
 
