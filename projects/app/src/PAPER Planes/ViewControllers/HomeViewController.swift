@@ -35,8 +35,6 @@ class HomeViewController: UIViewController {
     var currentYRotation = CGFloat()
     var currentZRotation = CGFloat()
     
-    
-    @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
