@@ -15,6 +15,7 @@
 function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 	var db = firebase.firestore();
 	console.log("Create doctor");
+	var patientArray = []; // deliberately empty
 
 	db.collection("doctors").doc(email).set({
 		email: email,
@@ -22,6 +23,7 @@ function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 		lastName: lastName,
 		phoneNumber: phoneNumber,
 		uid: uid,
+		patient: patientArray,
 		keyword: firestoreGenerateKeywords(email, firstName, lastName)
 	})
 	.then(function(docRef) {
@@ -43,6 +45,7 @@ function firestoreCreateDoctor(email, firstName, lastName, uid, phoneNumber) {
 function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
 	var db = firebase.firestore();
 	console.log("Create patient");
+	var doctorArray = []; // deliberately empty
 
 	db.collection("patient").doc(email).set({
 		email: email,
@@ -50,6 +53,7 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
 		lastName: lastName,
 		phoneNumber: phoneNumber,
 		uid: uid,
+		doctor: doctorArray,
 		keyword: firestoreGenerateKeywords(email, firstName, lastName)
 	})
 	.then(function(docRef) {
@@ -128,32 +132,32 @@ function firestoreUpdateUser(docData, userType="doctors") {
 	firebase.auth().onAuthStateChanged(function(user) {	  
 		if (user) {
 			var db = firebase.firestore();
-		  
-			// To-do: Update email
-			// var oldEmail = user.email;
-			//  if (oldEmail != "" && docData['email'] != oldEmail) {
-			//    var oldEmail = user.email;
-
-			//    user.updateEmail(docData['email']).then(function() {
-			//    }).catch(function(error) {
-			//    });
-
-			//    // Delete old document
-			//  }
-
-			// To-do: Reset password
-
-			db.collection(userType).doc(docData.email).set(docData).then(function() {
-			console.log("Document successfully written!");
-		});
-	}});
+			db.collection(userType).doc(docData.email).set(docData).
+			then(function() {
+				console.log("Document successfully written!");
+			});
+		}
+	});
 }
 
+/**
+ * Generate keywords to assist searching
+ * @param {string} email 
+ * @param {string} firstName 
+ * @param {string} lastName 
+ */
 function firestoreGenerateKeywords(email, firstName, lastName) {
 	var keywords = [firstName, lastName, firstName + " " + lastName, email];
 	return keywords;
 }
 
+/**
+ * Insert medication into firebase
+ * @param {string} email 
+ * @param {string} amount 
+ * @param {string} medName 
+ * @param {number} medTime 
+ */
 function firestoreInsertMedication(email, amount, medName, medTime) {
 	firebase.auth().onAuthStateChanged(function(user) {
 		var db = firebase.firestore();
@@ -178,5 +182,6 @@ function firestoreInsertMedication(email, amount, medName, medTime) {
 					time: medTime
 				});
 			});
-	  }});
+	  }
+	});
 }

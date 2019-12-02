@@ -1,9 +1,11 @@
 /**
  * patient-medication.js
+ * 
+ * Medication for patient
  */
 
 
-
+// When the document is ready
 $(document).ready(function() {
     var urlParams = getURLParameters();
     var patientEmail = validateString(urlParams.get('email'));
@@ -28,7 +30,9 @@ $(document).ready(function() {
         var medicationFrequency = jQueryReadValfromHTML("input#medication-frequency");
         var medicationName = jQueryReadValfromHTML("input#medication-name");
         var medicationAmount = jQueryReadValfromHTML("input#medication-amount");
-        var medicationTime = jQueryReadValfromHTML("input#medication-time"); // Change this to a number
+        var medicationTime = jQueryReadValfromHTML("input#medication-time");
+        medicationTime = parseInt(medicationTime);
+        console.log(medicationTime);
 
         firestoreCreateMedication(patientEmail, medicationFrequency, medicationName, medicationAmount, medicationTime);
     });
