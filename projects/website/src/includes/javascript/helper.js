@@ -30,6 +30,28 @@ function validatePassword(password) {
 }
 
 /**
+ *  Returns a valid string of the input. Otherwise, returns ''.
+ * @param {variable} input 
+ */
+function validateString(input) {
+	var result = '';
+
+	if (!input) {
+		return result;
+	}
+
+	if (typeof(input) == 'string') {
+		result = input;
+	}
+
+	if (typeof(input) == 'number') {
+		result = input.toString();
+	}
+
+	return result;
+}
+
+/**
  * Redirect page based on path using the method
  * @param {*} path - Defaults at 'index.php'
  * @param {*} method - Default method is 'replace'
@@ -68,7 +90,49 @@ function convertDateToTimestamp(date) {
 	return result;
 }
 
-// function getURLParameters(){
-// 	var urlParams = new URLSearchParams(window.location.search);
-// 	return urlParams.get('index');
-// }
+/**
+ * Grab the parameters from the URL.
+ */
+function getURLParameters() {
+	var urlParams = new URLSearchParams(window.location.search);
+	return urlParams;
+}
+
+/**
+ * Replaces the text and value based on ID with a string
+ * @param {string} id - Do not include '#'
+ * @param {string} str 
+ */
+function jQueryWriteToText(id, str) {
+	$('#' + validateString(id)).text(validateString(str));
+	$('#' + validateString(id)).val(validateString(str));
+}
+
+/**
+ * Replaces the HTML text based based on ID
+ * @param {string} id - Do not include '#'
+ * @param {string} htmlText
+ */
+function jQueryWriteToHTML(id, htmlText) {
+	$('#' + validateString(id)).html(validateString(htmlText));
+}
+
+/**
+ * Creates a link to the webpage by writing to the HTML tag based on ID
+ * @param {string} id - Do not include '#'
+ * @param {string} destination - .php or .html page that exists
+ * @param {string} email - Params specified by email
+ * @param {string} htmlText - HTML text to put in-between <a></a>
+ */
+function jQueryGenerateURL(id, destination, email, htmlText) {
+	htmlResult = '';
+	urlLink = validateString(destination) + "?email=" + validateString(email);
+
+	htmlResult += '<div>';
+	htmlResult += '<a href="' + urlLink + '">';
+	htmlResult += validateString(htmlText);
+	htmlResult += '</a>';
+	htmlResult += '</div>';
+
+	jQueryWriteToHTML(id, htmlResult);
+}

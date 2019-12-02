@@ -15,9 +15,8 @@
 
 <div class="container" id="main-content">
 	<div>
-		<p>Hello World</p>
-		<div id="patient-list">
-			
+		<div id="patient-profiles">
+		
 		</div>
 	</div>
 </div>

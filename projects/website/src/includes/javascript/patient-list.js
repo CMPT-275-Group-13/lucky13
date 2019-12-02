@@ -1,62 +1,49 @@
 /**
- * patient-profile.js
+ * patient-list.js
  */
 $(document).ready(function() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             var db = firebase.firestore();
             var userEmail = firebaseGetUserEmail(user);
-            var docRef = db.collection("doctors").doc(userEmail);
 
-            // Grab all assigned patients
-            docRef.get().then(function(doc) {
-                var docData = doc.data();
-                var patientEmails = docData.patient;
-                var patientArr = [];
-
-                for (patientEmail in patientEmails) {
-                    patientRef = ddb.collection("patient").doc(patientEmail);
-                    patient.get().then(function(doc) {
-
-                    }).catch(function(error) {
-                        console.log(error);
-                    });
-                }
-
-                
-
-
-                displayPatients(patientArr);
-            }).catch(function(error) {
-                console.log(error);
+            // Grab patients assigned to doctor
+            var patientsRef = db.collection("patient").where("doctor", 'array-contains', userEmail)
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    patientData = doc.data();
+                    displayPatient(patientData);
+                });
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
             });
         }
     });
 });
 
 /**
- * Display patients as HTML text
- * @param {array} patientEmails - Array of Patients
+ * Display patient as HTML text
+ * @param {array} patient - Array of Patients and their data
  */
-function displayPatients(patients) {
-    var patientMsg = '';
+function displayPatient(patient) {
+    var patientMsg = $("#patient-profiles").html();
 
-    patientEmails.forEach(function(patients) {
-        console.log(patient);
+    var firstName = validateString(patient.firstName);
+    var lastName = validateString(patient.lastName);
+    var phone = validateString(patient.phone);
+    var email = validateString(patient.email);
+    var profileURL = 'patient-profile.php?email=' + email;
 
+    patientMsg += '<div>';
+    patientMsg += '<a href="' + profileURL + '">';
+    patientMsg += '<div>' + firstName + ' ' + lastName + '</div>';
+    patientMsg += '<div>' + phone + '</div>';
+    patientMsg += '<div>' + email + '</div>';
+    patientMsg += '</a>';
+    patientMsg += '</div>';
 
-        var firstName = patient.firstName;
-        var lastName = patient.lastName
-        var phone = String(patient.phone);
-        var emailAddress = patient.emailAddress;
-
-        patientMsg += '<div>';
-        patientMsg += '<div>' + firstName + '</div>';
-        patientMsg += '<div>' + lastName + '</div>';
-        patientMsg += '<div>' + phone + '</div>';
-        patientMsg += '<div>' + emailAddress + '</div>';
-        patientMsg += '</div>';
-
-        $("#patient-profiles").text(patientMsg);
-    });
+    $("#patient-profiles").html(patientMsg);
 }

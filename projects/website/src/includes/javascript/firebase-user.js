@@ -65,10 +65,10 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
  * @param {array} patientData 
  */
 function firestoreDisplaySinglePatientAttributes(patientData) {
-	$('#profile-email').val(patientData.email);
-	$('#profile-first-name').val(patientData.firstName);
-	$('#profile-last-name').val(patientData.lastName);
-	$('#profile-phone').val(patientData.phone);
+	jQueryWriteToText('profile-email', patientData.email);
+	jQueryWriteToText('profile-first-name', patientData.firstName);
+	jQueryWriteToText('profile-last-name', patientData.lastName);
+	jQueryWriteToText('profile-phone', patientData.phone);
 }
 
 /**
@@ -76,11 +76,11 @@ function firestoreDisplaySinglePatientAttributes(patientData) {
  * @param {array} doctorData 
  */
 function firestoreDisplaySingleDoctorAttributes(doctorData) {
-	$('#profile-email').val(doctorData.email);
-	$('#profile-first-name').val(doctorData.firstName);
-	$('#profile-last-name').val(doctorData.lastName);
-	$('#profile-title').val(doctorData.title);
-	$('#profile-phone').val(doctorData.phone);
+	jQueryWriteToText('profile-email', patientData.email);
+	jQueryWriteToText('profile-first-name', patientData.firstName);
+	jQueryWriteToText('profile-last-name', patientData.lastName);
+	jQueryWriteToText('profile-phone', patientData.phone);
+	jQueryWriteToText('profile-title', patientData.title);
 }
 
 /**
@@ -94,10 +94,8 @@ function firestoreDisplayUser(email, userType="doctors") {
 	var docRef = db.collection(userType).doc(email);
 	docRef.get().then(function(doc) {
 		if (doc.exists) {
-			console.log("Document data:", doc.data());
-
 			switch(userType) {
-				case "patients":
+				case "patient":
 					firestoreDisplaySinglePatientAttributes(doc.data());
 					break;
 				default:
