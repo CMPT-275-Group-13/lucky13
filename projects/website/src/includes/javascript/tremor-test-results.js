@@ -26,7 +26,6 @@ generateChart = function(xaccel,yaccel, zaccel, tStamp) {
             datasets: [{
                 label: 'x',
                 data: xaccel,
-                fill: false,
                 borderColor: "#3e95cd",
                 fill: false,
                 borderWidth: 2

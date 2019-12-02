@@ -30,14 +30,12 @@ getPatientInfo = function(){
     docRef.where("uid", "==", doctor)
     .get().then(function(querySnapshot){
         var patientArray = querySnapshot.docs[0].data().patient;
-        for(i in patientArray){
+        for (i in patientArray){
             getPatientEmail(patientArray[i]);
             patientURI = encodeURIComponent(patientArray[i]);
             
         }
-
     });
-    
 }
 
 getPatientInfo();
