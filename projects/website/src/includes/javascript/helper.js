@@ -52,8 +52,8 @@ function validateString(input) {
 
 /**
  * Redirect page based on path using the method
- * @param {*} path - Defaults at 'index.php'
- * @param {*} method - Default method is 'replace'
+ * @param {string} path - Defaults at 'index.php'
+ * @param {string} method - Default method is 'replace'
  */
 function redirectPath(path="index.php", method="replace") {
 	console.log("Path: " + path);
@@ -89,7 +89,10 @@ function convertDateToTimestamp(date) {
 	return result;
 }
 
-
+/**
+ * Format unixtime into a date format
+ * @param {number} unixTime - Time since 1970 in seconds
+ */
 function formatDateAndTime(unixTime) {
     var date = new Date(unixTime * 1000); //convert to datetime from unix
     
@@ -107,12 +110,6 @@ function formatDateAndTime(unixTime) {
     return yyyy + "-" + m + "-" + d + " " + hh + ":" + mm + ":" + ss;
 }
 
-function getURLParams(){
-	
-	var urlParams = new URLSearchParams(window.location.search);
-	var user = urlParams.get('index');
-	return decodeURIComponent(user);
-}
 /**
  * Grab the parameters from the URL.
  */

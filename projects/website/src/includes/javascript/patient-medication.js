@@ -1,9 +1,11 @@
 /**
  * patient-medication.js
+ * 
+ * Medication for patient
  */
 
 
-
+// When the document is ready
 $(document).ready(function() {
     var urlParams = getURLParameters();
     var patientEmail = validateString(urlParams.get('email'));
