@@ -39,7 +39,7 @@
 					<input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
 				</div>
 				<div class="form-label-group">
-						<label for="password">Password</label>
+					<label for="password">Password</label>
 					<input type="password" id="password" class="form-control" placeholder="Password" required>
 				</div>
 

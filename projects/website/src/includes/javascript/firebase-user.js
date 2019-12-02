@@ -65,10 +65,10 @@ function firestoreCreatePatient(email, firstName, lastName, uid, phoneNumber) {
  * @param {array} patientData 
  */
 function firestoreDisplaySinglePatientAttributes(patientData) {
-	jQueryWriteToText('profile-email', patientData.email);
-	jQueryWriteToText('profile-first-name', patientData.firstName);
-	jQueryWriteToText('profile-last-name', patientData.lastName);
-	jQueryWriteToText('profile-phone', patientData.phone);
+	jQueryWriteTextToHTML('#profile-email', patientData.email);
+	jQueryWriteTextToHTML('#profile-first-name', patientData.firstName);
+	jQueryWriteTextToHTML('#profile-last-name', patientData.lastName);
+	jQueryWriteTextToHTML('#profile-phone', patientData.phoneNumber);
 }
 
 /**
@@ -76,11 +76,11 @@ function firestoreDisplaySinglePatientAttributes(patientData) {
  * @param {array} doctorData 
  */
 function firestoreDisplaySingleDoctorAttributes(doctorData) {
-	jQueryWriteToText('profile-email', patientData.email);
-	jQueryWriteToText('profile-first-name', patientData.firstName);
-	jQueryWriteToText('profile-last-name', patientData.lastName);
-	jQueryWriteToText('profile-phone', patientData.phone);
-	jQueryWriteToText('profile-title', patientData.title);
+	jQueryWriteValToHTML('#profile-email', doctorData.email);
+	jQueryWriteValToHTML('#profile-first-name', doctorData.firstName);
+	jQueryWriteValToHTML('#profile-last-name', doctorData.lastName);
+	jQueryWriteValToHTML('#profile-phone', doctorData.phoneNumber);
+	jQueryWriteValToHTML('#profile-title', doctorData.title);
 }
 
 /**
@@ -89,12 +89,17 @@ function firestoreDisplaySingleDoctorAttributes(doctorData) {
  * @param {string} userType 
  */
 function firestoreDisplayUser(email, userType="doctors") {
+	var validatedEmail = validateString(email);
+	var validatedUserType = validateString(userType);
+
 	var db = firebase.firestore();
 
-	var docRef = db.collection(userType).doc(email);
+	var docRef = db.collection(validatedUserType).doc(validatedEmail);
 	docRef.get().then(function(doc) {
 		if (doc.exists) {
-			switch(userType) {
+
+			// Display attributes based on user account type
+			switch(validatedUserType) {
 				case "patient":
 					firestoreDisplaySinglePatientAttributes(doc.data());
 					break;
@@ -106,9 +111,9 @@ function firestoreDisplayUser(email, userType="doctors") {
 		}
 
 		else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
+			// doc.data() will be undefined in this case
+			console.log("No such document!");
+		}
 	}).catch(function(error) {
     console.log("Error getting document:", error);
   });
@@ -120,24 +125,25 @@ function firestoreDisplayUser(email, userType="doctors") {
  * @param {string} userType 
  */
 function firestoreUpdateUser(docData, userType="doctors") {
-  firebase.auth().onAuthStateChanged(function(user) {	  
-	  if (user) {
+	firebase.auth().onAuthStateChanged(function(user) {	  
+		if (user) {
+			var db = firebase.firestore();
+		  
+			// To-do: Update email
+			// var oldEmail = user.email;
+			//  if (oldEmail != "" && docData['email'] != oldEmail) {
+			//    var oldEmail = user.email;
 
-		// To-do: Update email
-		// var oldEmail = user.email;
-		//  if (oldEmail != "" && docData['email'] != oldEmail) {
-		//    var oldEmail = user.email;
+			//    user.updateEmail(docData['email']).then(function() {
+			//    }).catch(function(error) {
+			//    });
 
-		//    user.updateEmail(docData['email']).then(function() {
-		//    }).catch(function(error) {
-		//    });
+			//    // Delete old document
+			//  }
 
-		//    // Delete old document
-		//  }
+			// To-do: Reset password
 
-		// To-do: Reset password
-
-		db.collection(userType).doc(docData.email).set(docData).then(function() {
+			db.collection(userType).doc(docData.email).set(docData).then(function() {
 			console.log("Document successfully written!");
 		});
 	}});

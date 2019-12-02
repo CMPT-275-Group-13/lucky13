@@ -112,8 +112,7 @@ function firebaseGoogleSignin() {
 		console.log('Error Message: ' + errorMessage);
 
 		if (errorCode) {
-			$("#login-status").show();
-			$("#login-status").text(errorMessage);
+			jQueryWriteTextToHTML("#login-status", errorMessage);
 		}
 	});
 }
@@ -136,8 +135,73 @@ function firebaseGetUID(user) {
  */
 function firebaseGetUserEmail(user) {
 	if (user != null) {
-		return user.email;
+		return validateString(user.email);
 	}
 	console.log("ERROR! Unable to find user!");	
 	return null;
+}
+
+/**
+ * Creates a new record of medication
+ * @param {str} email 
+ * @param {str} medicationFrequency 
+ * @param {str} medicationName 
+ * @param {str} medicationAmount 
+ * @param {number} medicationTime 
+ */
+function firestoreCreateMedication(email, medicationFrequency, medicationName, medicationAmount, medicationTime) {
+	var medicationType = '';
+	var doctorFirstName = '';
+	var doctorLastName = '';
+	var db = firebase.firestore();
+
+	switch(validateString(medicationFrequency)) {
+		case 'daily':
+		default:
+			medicationType = 'dailyMedications';
+			break;
+	}
+
+	firebase.auth().onAuthStateChanged(function(user) {	  
+		if (user) {
+			// Grab current user (doctor)
+			var doctorEmail = firebaseGetUserEmail(user);
+			var doctorRef = db.collection("doctors").doc(doctorEmail);
+			doctorRef.get().then(function(doc) {
+				if (doc.exists) {
+					// Grab first name and last name
+					var docData = doc.data();
+					doctorFirstName = validateString(docData.firstName);
+					doctorLastName = validateString(docData.lastName);
+
+					// Create a new medication
+					var medicationRef = db.collection("medication").doc(userEmail).collection(medicationType).doc();
+					medicationRef.set({
+						amount: medicationAmount,
+						name: medicationName,
+						time: medicationTime,
+						docFirstName: doctorFirstName,
+						docLastName: doctorLastName,
+						docEmail: doctorEmail
+					})
+					.then(function(docRef) {
+						console.log("Document written with ID: ", docRef.id);
+					})
+					.catch(function(error) {
+						console.error("Error adding document: ", error);
+					});
+				}
+				else {
+					// doc.data() will be undefined in this case
+					console.log("No such document!");
+				}
+			}).catch(function(error) {
+				console.log("Error getting document:", error);
+			});
+		}
+
+		else {
+			console.log("Error unable to find user!");
+		}
+	});
 }
