@@ -6,7 +6,7 @@ var db = firebase.firestore();
 
 //get patient info from url
 var urlParams = new URLSearchParams(window.location.search);
-var patient = urlParams.get('index');
+var patient = urlParams.get('email');
 patient = decodeURIComponent(patient);
 
 var tremorTestRef = db.collection('tests').doc(patient).collection('tremor-test');
@@ -109,4 +109,4 @@ getMostRecentTests = function() {
     
 }
 
-getMostRecentTests();l
+getMostRecentTests();
