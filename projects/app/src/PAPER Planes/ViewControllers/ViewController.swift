@@ -8,18 +8,28 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-
-        //Listen for Keyboard Events
         
     }
     
+    // Locking orientation to portrait
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        AppUtility.lockOrientation(.all)
+    }
 
 
 
