@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 /**
  * Display patient as HTML text
- * @param {array} patient - Array of Patients and their data
+ * @param {array} patient - Array of the patient's information
  */
 function displayPatient(patient) {
     var patientMsg = $("#patient-profiles").html();
