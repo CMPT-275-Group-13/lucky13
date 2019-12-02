@@ -52,10 +52,10 @@ class HomeViewController: UIViewController {
             let lastName = document.get("lastName") as! String
             localUserName = firstName + " " + lastName
         } else {
-            localUserName = "No patient profile found, contact your doctor"
+            localUserName = "No Patient Profile Found"
         }
             
-        self.nameLabel.text = localUserName
+        self.title = localUserName
         
         self.stabilizerToggle.backgroundColor = UIColor.init(red: 0.76078431372, green: 0.86666666666, blue: 0.89411764705, alpha: 1)
         }

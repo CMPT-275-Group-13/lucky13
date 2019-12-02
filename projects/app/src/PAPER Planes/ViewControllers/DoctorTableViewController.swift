@@ -39,7 +39,11 @@ class DoctorTableViewController: UITableViewController {
       print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
       return
     }
-    let data = snapshot.get("doctor") as! NSArray
+    guard let data = snapshot.get("doctor") else
+    {
+        print("No Patient Profile Found")
+        return
+    }
     let dataArray = (data as! [String])
     self.DoctorNameArray = []
     self.DoctorEmailArray = dataArray

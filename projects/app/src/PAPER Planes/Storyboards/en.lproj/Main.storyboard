@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F4d-ee-uOf">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,14 +61,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="348" height="113.66666666666667"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-Kf-Dto">
-                                                        <rect key="frame" x="0.0" y="0.0" width="174" height="113.66666666666667"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="348" height="113.66666666666667"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kir-ZA-qK3">
-                                                        <rect key="frame" x="174" y="0.0" width="174" height="113.66666666666667"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                        <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
-                                                    </label>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q4J-ud-uZm">
@@ -191,7 +185,6 @@
                         <outlet property="allRotation" destination="IOJ-zN-QJg" id="6lR-dD-LGp"/>
                         <outlet property="bottomMargin" destination="QR7-4C-V8c" id="oKG-7F-Hmg"/>
                         <outlet property="leftMargin" destination="r0d-VH-VUB" id="sXX-wQ-vRc"/>
-                        <outlet property="nameLabel" destination="kir-ZA-qK3" id="Xil-M5-YBa"/>
                         <outlet property="rightMargin" destination="dI7-4G-d67" id="MSb-mu-caC"/>
                         <outlet property="stabilizerToggle" destination="SC8-hJ-BFb" id="9RI-eL-8mA"/>
                         <outlet property="topMargin" destination="yJZ-pa-yzk" id="Ax6-6X-qYk"/>
