@@ -21,7 +21,7 @@ namespace PaperPlane.UITest
         public void BeforeEachTest()
         {
             driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http://localhost/lucky13/projects/website/src");
+            driver.Navigate().GoToUrl("http://cmpt275-paperplane.cjinng.com/");
         }
         
         [Test]
