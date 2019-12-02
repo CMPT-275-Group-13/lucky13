@@ -37,6 +37,8 @@ class TremorTestViewController: UIViewController {
     
     // Start the tremor test by pressing the middle button
     var isTestBegan = false
+    
+    @IBOutlet var testCountDownLabelButton: UIButton!
     @IBAction func startButton(_ sender: UIButton) {
         if !isTestBegan {
             isTestBegan = true  // Set true to ignore button later
@@ -45,12 +47,14 @@ class TremorTestViewController: UIViewController {
             // Displaying label for test progress
             testInstructionLabel.text = "Please hold your phone for 30 seconds"
             self.testInstructionLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2982127568)
+            
             self.uploadStatusLabel.text = "Testing"
             self.uploadStatusLabel.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.2982127568)
-            self.testCountDownLabel.text = "\(totalTime)"
-            self.testCountDownLabel.font = UIFont(descriptor: testCountDownLabel.font.fontDescriptor, size: 30)
+            
+            testCountDownLabelButton.setTitle("\(totalTime)", for: UIControl.State.normal)
+            testCountDownLabelButton.titleLabel?.font =  UIFont(name: "HelveticaNeue-Thin", size: 30)
         } else {
-            // Ignore other tap
+            // Ignore future press
         }
     }
     
@@ -60,7 +64,6 @@ class TremorTestViewController: UIViewController {
     var countdownTimer = Timer()
     
     
-    @IBOutlet weak var testCountDownLabel: UILabel!
     // Starting the test countdown
     func startCountdown() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
@@ -70,7 +73,7 @@ class TremorTestViewController: UIViewController {
         
         if totalTime != 0 {
             totalTime -= 1
-            testCountDownLabel.text = "\(totalTime)"
+            testCountDownLabelButton.setTitle("\(totalTime)", for: UIControl.State.normal)
         } else {
             endTestCountDown()
         }
@@ -79,7 +82,7 @@ class TremorTestViewController: UIViewController {
     // End the countdown
     func endCountdown() {
         countdownTimer.invalidate()
-        testCountDownLabel.text = "Test Finished"
+        testCountDownLabelButton.setTitle("Test Finished!", for: UIControl.State.disabled)
         TremorTest.stopAccelerometer()
     }
     
