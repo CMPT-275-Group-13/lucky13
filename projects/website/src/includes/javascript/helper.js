@@ -9,15 +9,15 @@
  * @param {string} email
  */
 function validateEmail(email) {
-   atpos = email.indexOf("@");
-   dotpos = email.lastIndexOf(".");
+	var parsedEmail = validateString(email);
+	var atpos = email.indexOf("@");
+	var dotpos = email.lastIndexOf(".");
 
-   // Check that it is a valid email
-   if (atpos < 1 || ( dotpos - atpos < 2 )) {
-      return false;
-   }
-
-   return true;
+	// Check that it is a valid email
+	if (atpos < 1 || ( dotpos - atpos < 2 )) {
+		return false;
+	}
+	return true;
 }
 
 /**
@@ -25,8 +25,11 @@ function validateEmail(email) {
  * @param {string} password 
  */
 function validatePassword(password) {
-   // Needs work
-   return true;
+	var parsedPassword = validateString(password);
+	if (parsedPassword.length) {
+		return true;
+	}
+	return false;
 }
 
 /**
@@ -52,8 +55,8 @@ function validateString(input) {
 
 /**
  * Redirect page based on path using the method
- * @param {*} path - Defaults at 'index.php'
- * @param {*} method - Default method is 'replace'
+ * @param {string} path - Defaults at 'index.php'
+ * @param {string} method - Default method is 'replace'
  */
 function redirectPath(path="index.php", method="replace") {
 	console.log("Path: " + path);
@@ -89,7 +92,10 @@ function convertDateToTimestamp(date) {
 	return result;
 }
 
-
+/**
+ * Format unixtime into a date format
+ * @param {number} unixTime - Time since 1970 in seconds
+ */
 function formatDateAndTime(unixTime) {
     var date = new Date(unixTime * 1000); //convert to datetime from unix
     
@@ -107,12 +113,6 @@ function formatDateAndTime(unixTime) {
     return yyyy + "-" + m + "-" + d + " " + hh + ":" + mm + ":" + ss;
 }
 
-function getURLParams(){
-	
-	var urlParams = new URLSearchParams(window.location.search);
-	var user = urlParams.get('index');
-	return decodeURIComponent(user);
-}
 /**
  * Grab the parameters from the URL.
  */

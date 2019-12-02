@@ -134,7 +134,9 @@
 		<div id="profile-message"></div>
 	</div>  -->
 
-	
+	<div>
+		<button id="patient-assignment"></button>
+	</div>
 </div>
 
 <?php include("includes/footer.php");?>
