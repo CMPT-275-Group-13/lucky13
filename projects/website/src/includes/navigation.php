@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/index.php">Home </a>
-      <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/profile.php">Profile <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/profile.php">Profile</a>
       <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/search.php">Search</a>
       <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/patient-list.php">Patient List</a>
     </div>
