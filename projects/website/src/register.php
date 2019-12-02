@@ -8,10 +8,7 @@
 	<?php include("includes/head-tag-contents.php");?>
 	<script type="text/javascript" src="includes/javascript/register.js"></script>
 </head>
-<body>
-
-<?php include("includes/design-top.php");?>
-<?php //include("includes/navigation.php");?>
+<body style="background-color:#66cccc">
 
 <!--register page modified using this template: https://startbootstrap.com/snippets/login/"-->
 
@@ -60,7 +57,7 @@
 
 				<div class="custom-control custom-checkbox mb-3">
 					<input type="checkbox" class="custom-control-input" id="customCheck1">
-					<label class="custom-control-label" for="customCheck1">I agree to the Terms & Conditions.</label>
+					<label class="custom-control-label" for="customCheck1"  required>I agree to the Terms & Conditions.</label>
 				</div>
 				
 				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="register-btn">Register</button>
