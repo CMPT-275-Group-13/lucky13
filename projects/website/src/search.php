@@ -17,7 +17,6 @@
 		<form action="" method="_GET">
 			<div class="container">
 				<div>
-					
 					<div>
 						<div>
 							<label><h1>Username</h1></label>
@@ -28,6 +27,9 @@
 			</div>
 			<div class="container">
 				<div>
+					<span id="helpBlock" class="help-block">Keywords suggestion: First Name, Last Name, Email</span>
+				</div>
+				<div>
 					<button class="btn btn-primary" type="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" id="searchButton"> 
 						Search
 					</button>
@@ -35,7 +37,6 @@
 			</div>
 
 			<div class="containter" id="results-content">
-
 						<div class="panel-group">
 								<div class="searchResults"></div>
 							</div>
