@@ -34,8 +34,9 @@ $(document).ready(function(){
 				if (user) {
 					firebaseDoctorSendMessage(user.email, patientEmail, body);
 				}
-		});
+			});
 		}
+		return false;
 	});
  });
 
@@ -71,7 +72,9 @@ function firebaseDoctorSendMessage(doctorEmail, patientEmail, body) {
 
 			messageDocumentRef.doc(timestamp).set(messageData)
 			.then(function(docRef) {
-				console.log("Document written with ID: ", docRef.id);
+				// console.log("Document written with ID: ", docRef.id);
+				// Refresh the current page on successful write
+				refreshCurrentPage();
 			})
 			.catch(function(error) {
 				console.error("Error adding document: ", error);

@@ -16,6 +16,7 @@ $(document).ready(function() {
     .get()
     .then(function(querySnapshot) {
 		querySnapshot.forEach(function(doc) {
+            console.log('Display medication');
             var medicationData = doc.data();
             displayMedication(medicationData);
         })
@@ -32,9 +33,9 @@ $(document).ready(function() {
         var medicationAmount = jQueryReadValfromHTML("input#medication-amount");
         var medicationTime = jQueryReadValfromHTML("input#medication-time");
         medicationTime = parseInt(medicationTime);
-        console.log(medicationTime);
 
         firestoreCreateMedication(patientEmail, medicationFrequency, medicationName, medicationAmount, medicationTime);
+        return false;
     });
 });
 

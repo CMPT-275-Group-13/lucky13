@@ -34,12 +34,9 @@
 								<input id="doctor-message" type="textarea" name="message"/>
 								<button id="message-btn" class="btn btn-default btn-primary">Send</button>
 							</div>
-								
 						</div>
 					</div>
 				</div>
-				
-				
 			</form>
 		</div>
 	</div>

@@ -120,3 +120,10 @@ function getURLParameters() {
 	var urlParams = new URLSearchParams(window.location.search);
 	return urlParams;
 }
+
+/**
+ * Refreshes the current page
+ */
+function refreshCurrentPage() {
+	window.location.replace(window.location.href);
+}

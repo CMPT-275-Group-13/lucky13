@@ -18,7 +18,7 @@
 <div class="container" id="main-content">
 	<div>
 		<div>
-			<form class="form-create-new-medication" action="" method="POST">
+			<form class="form-create-new-medication" method="POST">
 				<div class="form-label-group">
 					<label for="medication-frequency">Medication Frequency</label>
 					<select name="medication-frequency" id="medication-frequency">
@@ -37,8 +37,8 @@
 					<label for="medication-time">Time</label>
 					<input type="medication-time" id="medication-time" class="form-control" placeholder="Medication Time" required>
 				</div>
-				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="create-medication-btn" style="background-color:#66cccc">Create</button>
 			</form>
+			<button class="btn btn-lg btn-primary btn-block text-uppercase" id="create-medication-btn" style="background-color:#66cccc">Create</button>
 		</div>
 		<p></p>
 		<h2 class="text-center">LIST OF MEDICATION </h2>
