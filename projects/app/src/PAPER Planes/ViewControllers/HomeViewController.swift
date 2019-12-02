@@ -13,9 +13,6 @@ import CoreMotion
 import CoreGraphics
 
 class HomeViewController: UIViewController {
-
-    // global variable that toggles stabilization
-    var isStabilizing = false
     
     var motionManager = CMMotionManager()
     @IBOutlet weak var stabilizerToggle: UIButton!
@@ -68,7 +65,7 @@ class HomeViewController: UIViewController {
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
             if let myData = data
             {
-                if self.isStabilizing == true {
+                if isStabilizing == true {
                     //print(myData)
                     //print("Values \(myData.userAcceleration.y * 500)")
                     
@@ -125,14 +122,7 @@ class HomeViewController: UIViewController {
                     
                     // rotation update
                     self.allRotation.transform = CGAffineTransform(a: pow(cos(self.currentYRotation * 0.01), -1),b:sin(self.currentZRotation * 0.01),c:-sin(self.currentZRotation * 0.01),d:pow(cos(self.currentXRotation * 0.01),-1),tx:0,ty:0)
-                    
-                    print(self.currentXRotation)
-                    print(self.currentYRotation)
-                    print(self.currentZRotation)
                 }
-                
-               //animateButton.leftAnchor.constant = myData.acceleration.y * 50
-                //}
             }
         }
     }
@@ -152,7 +142,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func stabilizerToggle(_ sender: Any) {
         if isStabilizing == true {
-            self.isStabilizing = false
+            isStabilizing = false
             
             self.stabilizerToggle.backgroundColor = UIColor.init(red: 0.76078431372, green: 0.86666666666, blue: 0.89411764705, alpha: 1)
             
@@ -176,7 +166,7 @@ class HomeViewController: UIViewController {
             self.allRotation.transform = CGAffineTransform(a:1,b:0,c:0,d:1,tx:0,ty:0)
         }
         else if isStabilizing == false {
-            self.isStabilizing = true
+            isStabilizing = true
             
             self.stabilizerToggle.backgroundColor = UIColor.init(red: 0.4, green: 0.6, blue: 0.7, alpha: 1)
         }
