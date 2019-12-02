@@ -132,25 +132,12 @@ function firestoreUpdateUser(docData, userType="doctors") {
 	firebase.auth().onAuthStateChanged(function(user) {	  
 		if (user) {
 			var db = firebase.firestore();
-		  
-			// To-do: Update email
-			// var oldEmail = user.email;
-			//  if (oldEmail != "" && docData['email'] != oldEmail) {
-			//    var oldEmail = user.email;
-
-			//    user.updateEmail(docData['email']).then(function() {
-			//    }).catch(function(error) {
-			//    });
-
-			//    // Delete old document
-			//  }
-
-			// To-do: Reset password
-
-			db.collection(userType).doc(docData.email).set(docData).then(function() {
-			console.log("Document successfully written!");
-		});
-	}});
+			db.collection(userType).doc(docData.email).set(docData).
+			then(function() {
+				console.log("Document successfully written!");
+			});
+		}
+	});
 }
 
 /**
@@ -195,5 +182,6 @@ function firestoreInsertMedication(email, amount, medName, medTime) {
 					time: medTime
 				});
 			});
-	  }});
+	  }
+	});
 }

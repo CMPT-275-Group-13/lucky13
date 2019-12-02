@@ -9,15 +9,15 @@
  * @param {string} email
  */
 function validateEmail(email) {
-   atpos = email.indexOf("@");
-   dotpos = email.lastIndexOf(".");
+	var parsedEmail = validateString(email);
+	var atpos = email.indexOf("@");
+	var dotpos = email.lastIndexOf(".");
 
-   // Check that it is a valid email
-   if (atpos < 1 || ( dotpos - atpos < 2 )) {
-      return false;
-   }
-
-   return true;
+	// Check that it is a valid email
+	if (atpos < 1 || ( dotpos - atpos < 2 )) {
+		return false;
+	}
+	return true;
 }
 
 /**
@@ -25,8 +25,11 @@ function validateEmail(email) {
  * @param {string} password 
  */
 function validatePassword(password) {
-   // Needs work
-   return true;
+	var parsedPassword = validateString(password);
+	if (parsedPassword.length) {
+		return true;
+	}
+	return false;
 }
 
 /**
