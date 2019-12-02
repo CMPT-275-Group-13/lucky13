@@ -14,12 +14,12 @@ class TestSelectionViewController: UIViewController {
     
     var motionManager = CMMotionManager()
 
-    
     @IBOutlet weak var topMargin: NSLayoutConstraint!
     @IBOutlet weak var leftMargin: NSLayoutConstraint!
     @IBOutlet weak var rightMargin: NSLayoutConstraint!
     @IBOutlet weak var bottomMargin: NSLayoutConstraint!
     
+    // Outlet for all the buttons at once, to apply rotation to
     @IBOutlet weak var allRotation: UIStackView!
     
     var currentXVelocity = CGFloat()
@@ -38,18 +38,14 @@ class TestSelectionViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 0.01
         
         motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) {(data, error) in
-            if let myData = data
+            if let gyroData = data
             {
                 if isStabilizing == true {
-                    //print(myData)
-                    //print("Values \(myData.userAcceleration.y * 500)")
-                    
-                    //self.animateButton() {
-                    self.currentXVelocity += CGFloat(myData.userAcceleration.x * 5)
-                    self.currentYVelocity -= CGFloat(myData.userAcceleration.y * 5)
-                    self.currentXRotationRate += CGFloat(myData.rotationRate.x * 0.07)
-                    self.currentYRotationRate += CGFloat(myData.rotationRate.y * 0.07)
-                    self.currentZRotationRate += CGFloat(myData.rotationRate.z * 0.07)
+                    self.currentXVelocity += CGFloat(gyroData.userAcceleration.x * 5)
+                    self.currentYVelocity -= CGFloat(gyroData.userAcceleration.y * 5)
+                    self.currentXRotationRate += CGFloat(gyroData.rotationRate.x * 0.07)
+                    self.currentYRotationRate += CGFloat(gyroData.rotationRate.y * 0.07)
+                    self.currentZRotationRate += CGFloat(gyroData.rotationRate.z * 0.07)
                     
                     self.currentX += self.currentXVelocity
                     self.currentY += self.currentYVelocity
