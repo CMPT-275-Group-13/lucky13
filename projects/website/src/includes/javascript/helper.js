@@ -30,6 +30,28 @@ function validatePassword(password) {
 }
 
 /**
+ *  Returns a valid string of the input. Otherwise, returns ''.
+ * @param {variable} input 
+ */
+function validateString(input) {
+	var result = '';
+
+	if (!input) {
+		return result;
+	}
+
+	if (typeof(input) == 'string') {
+		result = input;
+	}
+
+	if (typeof(input) == 'number') {
+		result = input.toString();
+	}
+
+	return result;
+}
+
+/**
  * Redirect page based on path using the method
  * @param {*} path - Defaults at 'index.php'
  * @param {*} method - Default method is 'replace'
