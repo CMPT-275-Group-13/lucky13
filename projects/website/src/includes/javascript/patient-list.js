@@ -15,7 +15,7 @@ $(document).ready(function() {
                 var patientArr = [];
 
                 for (patientEmail in patientEmails) {
-                    patientRef = ddb.collection("patient").doc(patientEmail);
+                    patientRef = db.collection("patient").doc(patientEmail);
                     patient.get().then(function(doc) {
 
                     }).catch(function(error) {

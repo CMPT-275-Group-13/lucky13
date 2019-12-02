@@ -85,3 +85,10 @@ function formatDateAndTime(unixTime) {
     yyyy = yyyy.replace(/,/g, "");
     return yyyy + "-" + m + "-" + d + " " + hh + ":" + mm + ":" + ss;
 }
+
+function getURLParams(){
+	
+	var urlParams = new URLSearchParams(window.location.search);
+	var user = urlParams.get('index');
+	return decodeURIComponent(user);
+}
