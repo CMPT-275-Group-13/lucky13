@@ -10,6 +10,7 @@
       <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/profile.php"style="font-family:Roboto;">Profile</a>
       <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/search.php"style="font-family:Roboto;">Search</a>
       <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/patient-list.php"style="font-family:Roboto;">Patient List</a>
+      <a class="nav-item nav-link" href="https://github.com/CMPT-275-Group-13/"style="font-family:Roboto;">About Us</a>
       <button onclick="firebaseAccountSignOut()" class="btn btn-default btn-primary">SIGN OUT</button>
     </div>
   </div>
