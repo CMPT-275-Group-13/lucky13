@@ -452,60 +452,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwv-nr-smv">
-                                <rect key="frame" x="52" y="584" width="310" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-xM-5WV">
-                                <rect key="frame" x="5" y="410.66666666666669" width="404" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="m6Z-hv-9Ov"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="startButton:" destination="SuH-L8-JwY" eventType="touchUpInside" id="hFN-sk-JjM"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to start the test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWn-cZ-O7b">
-                                <rect key="frame" x="5" y="410.66666666666669" width="404" height="75"/>
-                                <color key="backgroundColor" white="1" alpha="0.30326947773972601" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="uO4-RA-2SR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxM-EE-hHS">
-                                <rect key="frame" x="32" y="310.66666666666669" width="350" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="350" id="AQO-gF-Sjj"/>
-                                    <constraint firstAttribute="height" constant="50" id="UA9-7j-XWS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Bkx-br-Qbd">
+                                <rect key="frame" x="25" y="93" width="364" height="764"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxM-EE-hHS">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="188"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-xM-5WV">
+                                        <rect key="frame" x="0.0" y="288" width="364" height="188"/>
+                                        <color key="backgroundColor" white="1" alpha="0.30297517123287671" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Tap here to start the test">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startButton:" destination="SuH-L8-JwY" eventType="touchUpInside" id="hFN-sk-JjM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwv-nr-smv">
+                                        <rect key="frame" x="0.0" y="576" width="364" height="188"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.65490196078431373" green="0.80784313725490198" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vhW-9o-A94" firstAttribute="trailing" secondItem="8dG-xM-5WV" secondAttribute="trailing" constant="5" id="6xg-8m-JTT"/>
-                            <constraint firstItem="vhW-9o-A94" firstAttribute="trailing" secondItem="ZWn-cZ-O7b" secondAttribute="trailing" constant="5" id="K2V-YV-jry"/>
-                            <constraint firstItem="8dG-xM-5WV" firstAttribute="centerY" secondItem="zyZ-g8-rwq" secondAttribute="centerY" id="Lur-SZ-EH8"/>
-                            <constraint firstItem="8dG-xM-5WV" firstAttribute="leading" secondItem="vhW-9o-A94" secondAttribute="leading" constant="5" id="MjZ-qO-SLV"/>
-                            <constraint firstItem="ZWn-cZ-O7b" firstAttribute="centerY" secondItem="zyZ-g8-rwq" secondAttribute="centerY" id="Rad-lJ-XFH"/>
-                            <constraint firstItem="ZWn-cZ-O7b" firstAttribute="leading" secondItem="vhW-9o-A94" secondAttribute="leading" constant="5" id="dev-jA-hrd"/>
-                            <constraint firstItem="dxM-EE-hHS" firstAttribute="centerX" secondItem="zyZ-g8-rwq" secondAttribute="centerX" id="tKx-e7-baZ"/>
-                            <constraint firstItem="8dG-xM-5WV" firstAttribute="top" secondItem="dxM-EE-hHS" secondAttribute="bottom" constant="50" id="ufK-lB-8Gf"/>
+                            <constraint firstItem="vhW-9o-A94" firstAttribute="trailing" secondItem="Bkx-br-Qbd" secondAttribute="trailing" constant="25" id="XeX-Kx-gnl"/>
+                            <constraint firstItem="Bkx-br-Qbd" firstAttribute="leading" secondItem="vhW-9o-A94" secondAttribute="leading" constant="25" id="Y9U-eG-NUG"/>
+                            <constraint firstItem="vhW-9o-A94" firstAttribute="bottom" secondItem="Bkx-br-Qbd" secondAttribute="bottom" constant="5" id="fYd-yf-Rtf"/>
+                            <constraint firstItem="Bkx-br-Qbd" firstAttribute="top" secondItem="vhW-9o-A94" secondAttribute="top" constant="5" id="oCA-DA-F3m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vhW-9o-A94"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tremor Test" id="duw-gh-gtc"/>
                     <connections>
-                        <outlet property="testCountDownLabel" destination="ZWn-cZ-O7b" id="lMd-bP-5ow"/>
+                        <outlet property="testCountDownLabelButton" destination="8dG-xM-5WV" id="7z0-id-5tb"/>
                         <outlet property="testInstructionLabel" destination="dxM-EE-hHS" id="11n-9e-ZcL"/>
                         <outlet property="uploadStatusLabel" destination="fwv-nr-smv" id="Jzp-iU-12Y"/>
                     </connections>

@@ -48,7 +48,6 @@ class HomeViewController: UIViewController {
             let firstName = document.get("firstName") as! String
             let lastName = document.get("lastName") as! String
             localUserName = firstName + " " + lastName
-            print(localUserName)
         } else {
             localUserName = "No patient profile found, contact your doctor"
         }
@@ -57,10 +56,6 @@ class HomeViewController: UIViewController {
         
         self.stabilizerToggle.backgroundColor = UIColor.init(red: 0.76078431372, green: 0.86666666666, blue: 0.89411764705, alpha: 1)
         }
-        
-
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool)
