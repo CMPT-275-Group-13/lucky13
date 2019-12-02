@@ -143,13 +143,13 @@ function firebaseGetUserEmail(user) {
 
 /**
  * Creates a new record of medication
- * @param {str} email 
- * @param {str} medicationFrequency 
- * @param {str} medicationName 
- * @param {str} medicationAmount 
- * @param {number} medicationTime 
+ * @param {str} patientEmail - Patient's email
+ * @param {str} medicationFrequency - For now, daily
+ * @param {str} medicationName - Medication Name
+ * @param {str} medicationAmount - Medication Amount
+ * @param {number} medicationTime - 24-hour format
  */
-function firestoreCreateMedication(email, medicationFrequency, medicationName, medicationAmount, medicationTime) {
+function firestoreCreateMedication(patientEmail, medicationFrequency, medicationName, medicationAmount, medicationTime) {
 	var medicationType = '';
 	var doctorFirstName = '';
 	var doctorLastName = '';
@@ -173,16 +173,17 @@ function firestoreCreateMedication(email, medicationFrequency, medicationName, m
 					var docData = doc.data();
 					doctorFirstName = validateString(docData.firstName);
 					doctorLastName = validateString(docData.lastName);
-
+					
 					// Create a new medication
-					var medicationRef = db.collection("medication").doc(userEmail).collection(medicationType).doc();
+					var medicationRef = db.collection("medication").doc(patientEmail).collection(medicationType).doc();
 					medicationRef.set({
 						amount: medicationAmount,
 						name: medicationName,
 						time: medicationTime,
 						docFirstName: doctorFirstName,
 						docLastName: doctorLastName,
-						docEmail: doctorEmail
+						docEmail: doctorEmail,
+						patientEmail: patientEmail
 					})
 					.then(function(docRef) {
 						console.log("Document written with ID: ", docRef.id);
