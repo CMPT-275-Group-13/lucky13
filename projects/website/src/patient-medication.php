@@ -15,12 +15,30 @@
 
 <div class="container" id="main-content">
 	<div>
-        <form>
-            
-        </form>
-		<p>Hello World</p>
-		<div id="patient-list">
+		<div id="medication-list">
 			
+		</div>
+		<div>
+			<form class="form-create-new-medication" action="" method="POST">
+				<div class="form-label-group">
+					<select name="medication-frequency" id="medication-frequency">
+						<option name="daily">Daily</option>
+					</select>
+				</div>
+				<div class="form-label-group">
+					<label for="medication-name">Medication Name</label>
+					<input type="medication-name" id="medication-name" class="form-control" placeholder="Medication Name" required autofocus>
+				</div>
+				<div class="form-label-group">
+					<label for="medication-amount">Amount</label>
+					<input type="medication-amount" id="medication-amount" class="form-control" placeholder="Medication Amount" required>
+				</div>
+				<div class="form-label-group">
+					<label for="medication-time">Time</label>
+					<input type="medication-time" id="medication-time" class="form-control" placeholder="Medication Time" required>
+				</div>
+				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="create-medication-btn">Create</button>
+			</form>
 		</div>
 	</div>
 </div>
