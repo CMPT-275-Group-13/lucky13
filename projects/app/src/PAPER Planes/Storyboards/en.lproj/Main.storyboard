@@ -432,6 +432,13 @@
                         <viewLayoutGuide key="safeArea" id="Uou-kw-bep"/>
                     </view>
                     <navigationItem key="navigationItem" title="Test Selection" id="fwq-mE-1D7"/>
+                    <connections>
+                        <outlet property="allRotation" destination="dWp-C0-DiS" id="yA4-US-P9X"/>
+                        <outlet property="bottomMargin" destination="qn9-kX-Qg3" id="oPt-8b-183"/>
+                        <outlet property="leftMargin" destination="vIM-jm-wcX" id="Kzl-xV-oOM"/>
+                        <outlet property="rightMargin" destination="xBP-RX-bsV" id="lEi-cu-o1e"/>
+                        <outlet property="topMargin" destination="Nc7-Pr-st5" id="32l-42-aMJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csq-7R-qfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
