@@ -12,4 +12,6 @@ $(document).ready(function() {
     jQueryGenerateURL("profile-tremor-test-result", 'tremor-test-results.php', patientEmail, "Tremor Test Results");
     jQueryGenerateURL("profile-message", 'message.php', patientEmail, "Message Patient");
 
+    // To-do: Assign and unassign patient to doctor logic
+
 });
