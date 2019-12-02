@@ -15,7 +15,7 @@ class BrainTestViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Lock orientation to landscape
-        AppUtility.lockOrientation(.landscape)
+        AppUtility.lockOrientation(.landscapeRight, andRotateTo: .landscapeRight)
         
         // Disabling swipe back for BRAIN test
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
