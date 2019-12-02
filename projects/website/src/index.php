@@ -34,7 +34,7 @@
 			<p class="card-text">See all the patients using PAPER PLANE</p>
 		</div>
 		<div class="card-footer">
-			<button  type="submit" onclick="window.location.href='search.php'" class="btn btn-primary">Search</button>
+			<button  type="submit" onclick="window.location.href='search.php'" class="btn btn-primary" id="btnSearch">Search</button>
 		</div>
 	</div>
 	<div class="card">
@@ -43,7 +43,7 @@
 			<p class="card-text">See patients' information</p>
 		</div>
 		<div class="card-footer">
-			<button type="submit" onclick="window.location.href='patient-list.php'" class="btn btn-primary">Patients</button>
+			<button type="submit" onclick="window.location.href='patient-list.php'" class="btn btn-primary" id="btnPatients">Patients</button>
 		</div>
 	</div>
 
