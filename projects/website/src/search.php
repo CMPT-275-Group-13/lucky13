@@ -9,8 +9,10 @@
 </head>
 <body>
 
-<?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#9ec7d2" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/search-page-header.png">
+</div>>
 
 <div class="container" id="main-content">
 	<div class="container" id="search-filter-form">

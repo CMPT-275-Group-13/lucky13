@@ -6,6 +6,17 @@
 var urlParams = getURLParameters();
 var patientEmail = validateString(urlParams.get('email'));
 
+$(document).ready(function(){
+	var db = firebase.firestore();
+	var patientRef = db.collection('patient').doc(patientEmail);
+	var patientTitle = document.querySelector("#messageTitle");
+
+	patientRef.onSnapshot(querySnapshot =>{
+		var myData = querySnapshot.data();
+		patientTitle.innerText = "Messages from " + myData.firstName + " " + myData.lastName;
+	});
+})
+
  $(document).ready(function() {
  	firebase.auth().onAuthStateChanged(function(user) {
 	  if (user) {
@@ -98,13 +109,13 @@ function firebaseDoctorRetrieveMessages(doctorEmail, patientEmail) {
 				var date = '<i>Unknown</i>';
 			}
 
-			showMessages += '<div>';
+			showMessages += '<div style="color:blue">';
 			showMessages += date;
 			showMessages += '</div>';
 
-			showMessages += '<div>';
+			showMessages += '<div><strong>';
 			showMessages += validateString(docData.authorName);
-			showMessages += '</div>';
+			showMessages += ': </strong></div>';
 
 			showMessages += '<div>';
 			showMessages += validateString(docData.body);

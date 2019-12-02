@@ -37,3 +37,6 @@
 <script type="application/javascript" src="includes/javascript/firebase-config.js"></script>
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> --> <!-- Needs work -->
 <script type="application/javascript" src="includes/javascript/main.js"></script>
+
+<link rel="icon" type="image/png" href ="images/assets/icon.png">
+

@@ -1,20 +1,15 @@
-<div class="container">
-	<ul class="nav nav-pills">
-	  <li class="nav-item">
-	    <a class="nav-link <?php if ($CURRENT_PAGE == "Index") {?>active<?php }?>" href="index.php" target="">Home</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link <?php if ($CURRENT_PAGE == "Profile") {?>active<?php }?>" href="profile.php" target="">Profile</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link <?php if ($CURRENT_PAGE == "Patient") {?>active<?php }?>" href="search.php" target="">Search</a>
-	  </li>
-	  <li class="nav-item">
-	  	<?php $patientProfile = "patient-profile.php/";?>
-	    <a class="nav-link <?php if ($CURRENT_PAGE == "Patient Profile") {?>active<?php }?>" href="patient-list.php" target="">Patient List</a>
-	  </li>
-	  <li class="nav item">
-	  	<a class="nav-link" onclick="firebaseAccountSignOut()" target="">Sign Out</a>
-	  </li>
-	</ul>
-</div>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#e6f0f3;">
+  <a class="navbar-brand" href="http://cmpt275-paperplane.cjinng.com/index.php" class="pull-left"><img src="../src/images/assets/icon.png">PAPER Plane</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/index.php">Home </a>
+      <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/profile.php">Profile <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/search.php">Search</a>
+      <a class="nav-item nav-link" href="http://cmpt275-paperplane.cjinng.com/patient-list.php">Patient List</a>
+    </div>
+  </div>
+</nav>

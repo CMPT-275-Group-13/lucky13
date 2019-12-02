@@ -45,10 +45,10 @@ function displayMedication(medication) {
     var name = validateString(medication.name);
     var medicationTime = validateString(medication.time);
 
-    medicationMsg += '<div>';
-    medicationMsg += '<div>Amount: ' + amount + '</div>';
-    medicationMsg += '<div>Name: ' + name + '</div>';
-    medicationMsg += '<div>Time: ' + medicationTime + '</div>';
+    medicationMsg += '<div class="card">';
+    medicationMsg +=  '<div class="card-header">' + name + '</div>';
+    medicationMsg +=  '<div class="card-body">Amount: ' + amount + '<br>';
+    medicationMsg += 'Time: ' + medicationTime + '</div>';
     medicationMsg += '</div>';
 
     $("#medication-list").html(medicationMsg);

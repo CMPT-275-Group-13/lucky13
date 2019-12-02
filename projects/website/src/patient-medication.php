@@ -9,15 +9,14 @@
 	<script type="application/javascript" src="includes/javascript/patient-medication.js"></script>
 </head>
 <body>
-
-<?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#9ec7d2" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/medication-header.png">
+</div>
+
 
 <div class="container" id="main-content">
 	<div>
-		<div id="medication-list">
-			
-		</div>
 		<div>
 			<form class="form-create-new-medication" action="" method="POST">
 				<div class="form-label-group">
@@ -38,8 +37,14 @@
 					<label for="medication-time">Time</label>
 					<input type="medication-time" id="medication-time" class="form-control" placeholder="Medication Time" required>
 				</div>
-				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="create-medication-btn">Create</button>
+				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="create-medication-btn" style="background-color:#66cccc">Create</button>
 			</form>
+		</div>
+		<p></p>
+		<h2 class="text-center">LIST OF MEDICATION </h2>
+		<div class="card-deck">
+			 <p><span id="medication-list"></span></p>
+			   
 		</div>
 	</div>
 </div>

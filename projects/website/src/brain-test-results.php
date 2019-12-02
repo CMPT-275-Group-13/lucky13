@@ -7,13 +7,25 @@
 </head>
 <body>
 
-<?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#9ec7d2" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/brain-test-header.png">
+</div>
 
 <div class="container" id="main-content">
 	<div>
 		<div class="container">
-				<h2 id="titleBrainTestResults"></h2>
+				<div class="card">
+					<div class="card-body">
+					<h2 class="card-title" id="titleBrainTestResults"></h2>
+					<p class="card-text">
+						 B.R.A.I.N Test or Bradykinesia Akinesia Incoordination test measures the patient's response by performing
+						 a series of alternating taps on our companion app. Below are the three most recent results from the B.R.A.I.N Test.
+					</p>
+						
+					</div>
+				</div>
+				
 				<div class="panel-group" id="accordion">
 				  <div class="panel panel-default">
 					<div class="panel-heading">
@@ -119,12 +131,6 @@
 	</div>
 </div>
 
-<div class="footer" id="footer">
-	<div class="" id="footer-line">
-		<span id="site-map"><a href="">Site Map</a></span>
-		<span id="copyright">&copy;2019 CMPT 275 Lucky13</span>
-	</div>
-</div>
 
 <!-- <script src="./config.js"></script> -->
 <script src="includes/javascript/brain-tests-results.js"></script>
@@ -132,7 +138,6 @@
 </html>
 </div>
 
-<?php include("includes/footer.php");?>
 
 </body>
 </html>

@@ -14,15 +14,23 @@
 </head>
 <body>
 
-<?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#9ec7d2" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/tremor-test-header.png">
+</div>
 
 <div class="container" id="main-content">
-	<h3 id="tremorTitle"></h3>
-	<p><h6> The plot shows the standard deviations of the x-y-x coordinates taken from
-		the last five tests on an iPhone gyroscope. </h6> 
-	</p>
-	<div class="jumbotron" id="tremor-results">
+	<div class="card">
+		<div class="card-body">
+		<h3 class="card-title" id="tremorTitle"></h3>
+			<p class="card-text">The Tremor test measures the resting tremors of a PD patient. This is conducted through our companion iOS app, using the 
+				iPhone's built-in gyroscope feature. From the test, the standard deviation of the x,y,z coordinates are calculated. The plot below
+				shows the five most recent tests.
+			</p>
+		</div>
+	</div>
+	
+	<div class="card" id="tremor-results">
 		<canvas id="tremorChart"></canvas>
 	<div>
 </div>

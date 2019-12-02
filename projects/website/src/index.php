@@ -10,11 +10,14 @@
 	<script type="application/javascript" src="includes/javascript/index.js"></script>
 </head>
 <body>
-<div class ="jumbotron jumbotron-fluid">
-	<div class="container">
-		<h1 id="welcomeMessage"><h1>
-		<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
-		<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
+<div class ="jumbotron jumbotron-fluid" style="background-color:#99cccc;">
+	<div class="hero-image" style="background-color:#99cccc; font-family:Roboto; height:50%;">
+		<div class="hero-text" style="text-align:center;">
+			<h1 id="welcomeMessage" style="color:white"><h1>
+			<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
+			<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
+		</div>
+		
 	</div>
 </div>
 <!-- <?php //include("includes/design-top.php");?>
