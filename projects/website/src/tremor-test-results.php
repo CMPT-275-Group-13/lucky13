@@ -34,7 +34,7 @@
 		<canvas id="tremorChart"></canvas>
 	<div>
 </div>
-
+<script src="includes/javascript/tremor-test-results.js" text=application/javascript></script>
 
 
 </body>
