@@ -69,7 +69,7 @@
 	  <div class="card">
     	<div class="card-header" id="headingFour">
         	<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="collapsible">
-			<h4 class="mb-0 text-center font-weight-bold">PROFILE</h4>
+			<h4 class="mb-0 text-center font-weight-bold">MEDICATION</h4>
       	</h2>
     	</div>
     	<div id="collapseFour" class="collapse" aria-labelledby="collapseFour" data-parent="#accordionExample">
