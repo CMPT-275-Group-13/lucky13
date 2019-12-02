@@ -38,11 +38,11 @@ function displayPatient(patient) {
     var profileURL = 'patient-profile.php?email=' + email;
 
     patientMsg += '<div>';
-    patientMsg += '<a href="' + profileURL + '">'
+    patientMsg += '<a href="' + profileURL + '">';
     patientMsg += '<div>' + firstName + ' ' + lastName + '</div>';
     patientMsg += '<div>' + phone + '</div>';
     patientMsg += '<div>' + email + '</div>';
-    patientMsg += '</a>'
+    patientMsg += '</a>';
     patientMsg += '</div>';
 
     $("#patient-profiles").html(patientMsg);
