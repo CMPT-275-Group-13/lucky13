@@ -76,6 +76,8 @@ function checkAssignment() {
             var db = firebase.firestore();
             var doctorEmail = firebaseGetUserEmail(user);
             var patientRef = db.collection("patient").doc(patientEmail);
+            var patientAssignedToDoctor = false;
+
             patientRef.get().then(function(doc) {
                 // Check if patient is assigned
                 var docData = doc.data();
