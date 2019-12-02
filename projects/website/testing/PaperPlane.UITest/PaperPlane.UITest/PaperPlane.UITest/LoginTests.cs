@@ -21,7 +21,7 @@ namespace PaperPlane.UITest
         public void BeforeEachTest()
         {
             driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http://cmpt275-paperplane.cjinng.com/");
+            driver.Navigate().GoToUrl("http://localhost/lucky13/projects/website/src");
         }
         
         [Test]
@@ -33,21 +33,9 @@ namespace PaperPlane.UITest
             driver.FindElement(By.Id("login-btn")).Click();
 
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);            
-            var results = driver.FindElement(By.XPath("/html/body/div[2]/ul"));
+            var results = driver.FindElement(By.XPath("/html/body/div[1]/div"));
+
             Assert.IsTrue(results.Displayed);
-        }
-
-        [Test]
-        public void ValidateInvalidLogin()
-        {
-
-            //test incorrect password-email match
-            SharedMethods.Login(driver, "qa.test1@paperplane.com", "Password123");
-            var results = driver.FindElement(By.Id("login-status"));
-            Thread.Sleep(5000);
-            Assert.IsTrue(results.Text.Contains("The password is invalid or the user does not have a password."));
-
-  
         }
 
         [TearDown]

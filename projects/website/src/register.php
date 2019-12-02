@@ -8,10 +8,10 @@
 	<?php include("includes/head-tag-contents.php");?>
 	<script type="text/javascript" src="includes/javascript/register.js"></script>
 </head>
-<body>
-
-<?php include("includes/design-top.php");?>
-<?php //include("includes/navigation.php");?>
+<div class="containter" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/website-logo.png">
+</div>
+<body style="background-color:#a7cfda">
 
 <!--register page modified using this template: https://startbootstrap.com/snippets/login/"-->
 
@@ -58,12 +58,8 @@
 					</div>
 				</div>
 
-				<div class="custom-control custom-checkbox mb-3">
-					<input type="checkbox" class="custom-control-input" id="customCheck1">
-					<label class="custom-control-label" for="customCheck1">I agree to the Terms & Conditions.</label>
-				</div>
-				
-				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="register-btn">Register</button>
+				<p></p>
+				<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="register-btn" style="background-color:#66cccc">Register</button>
 				<div class="modal-footer">
 					<div class="options text-center text-md-right mt-1">
 						Have an account? <a href="login.php" class="blue-text">Sign In</a>
@@ -75,8 +71,6 @@
 		</div>
 	</div>
 </div>
-
-<?php include("includes/footer.php");?>
 
 </body>
 </html>

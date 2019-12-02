@@ -10,18 +10,20 @@
 </head>
 <body>
 
-<?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#9ec7d2" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/patient-list-header.png">
+</div>
 
 <div class="container" id="main-content">
 	<div>
-		<div id="patient-profiles">
-		
-		</div>
+		<ul class="list-group">
+			<div id="patient-profiles"></div>
+		</ul>
+
 	</div>
 </div>
 
-<?php include("includes/footer.php");?>
 
 </body>
 </html>

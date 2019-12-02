@@ -17,30 +17,71 @@ namespace PaperPlane.UITest
         public void BeforeEachTest()
         {
             driver = new ChromeDriver();
-            driver.Navigate().GoToUrl("http://cmpt275-paperplane.cjinng.com/");
+            driver.Navigate().GoToUrl("http://localhost/lucky13/projects/website/src/");
         }
         
         [Test]
-        public void ValidateSearchByName()
+        public void ValidateSearch()
         {
             
             SharedMethods.Login(driver);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            driver.FindElement(By.XPath("/html/body/div[2]/ul"));
-         
+            driver.FindElement(By.XPath("/html/body/div[1]/div"));
+
             //go to search page
-            driver.FindElement(By.XPath("/html/body/div[2]/ul/li[3]/a")).Click();
+            driver.FindElement(By.Id("btnSearch")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driver.FindElement(By.Id("search-filter-form")).FindElement(By.XPath("/form/div[1]/div/div[2]/div/label/h1"));
+            driver.FindElement(By.Id("inputSearch"));
 
             //search by name
             driver.FindElement(By.Id("inputSearch")).SendKeys("chelsie smith");
-            driver.FindElement(By.Id("buttonSearch")).Click();
+            driver.FindElement(By.Id("searchButton")).Click();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
+         
+            var searchResults = driver.FindElement(By.XPath("/html/body/div[2]/div/form/div[3]/div/div/div"));
 
+            Assert.IsTrue(searchResults.Displayed);
 
         }
-        
+
+        [Test]
+        public void ValidateSearchProfile() {
+
+            SharedMethods.Login(driver);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.FindElement(By.XPath("/html/body/div[1]/div"));
+
+            //go to search page
+            driver.FindElement(By.Id("btnSearch")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.FindElement(By.Id("inputSearch"));
+
+            //search by name
+            driver.FindElement(By.Id("inputSearch")).SendKeys("chelsie smith");
+            driver.FindElement(By.Id("searchButton")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            driver.FindElement(By.XPath("/html/body/div[2]/div/form/div[3]/div/div/div/p[2]/a")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+
+            //in patient's profile page
+            var results = driver.FindElement(By.Id("accordionExample"));
+
+
+            Assert.IsTrue(results.Displayed);
+
+     
+        }
+
+        [TearDown]
+        public void CleanUp()
+        {
+            if (driver != null)
+            {
+                driver.Quit();
+            }
+        }
+
     }
 }

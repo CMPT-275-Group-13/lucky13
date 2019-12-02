@@ -35,12 +35,6 @@ The project was developed with the following:
 ## Database Specifications
 - Firebase
 
-## Automation testing
-The following tools were used to test the project:
-Website
-- Selenium C#
-- NUnit Test
-
 # Building from Source
 ## iOS Instructions
 1. Download the project into a folder.
@@ -59,7 +53,7 @@ Website
 At time of writing, our Google Firebase database allows read and writes from any user. This is intentional for development purposes. It will be closed for the production release.
 
 ## iOS App
-The test account username is "csmith@gmail.com". The password is "helloworld". The account is a patient.
+The test account username is "csmith@gmail.com". The password is "123456". The account is a patient.
 
 ## Website
 The test account username is "herbert@test.ca. The password is "helloworld". The account is a doctor and will be able to look up patient accounts.

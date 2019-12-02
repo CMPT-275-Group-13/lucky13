@@ -122,8 +122,8 @@ function removePatientInformation() {
  */
 function showPatientInformation() {
     jQueryWriteTextToHTML("#patient-assignment", "Unassign");
-    jQueryGenerateURL("#profile-brain-test-result", 'brain-test-results.php', patientEmail, "Brain Test Results");
-    jQueryGenerateURL("#profile-tremor-test-result", 'tremor-test-results.php', patientEmail, "Tremor Test Results");
-    jQueryGenerateURL("#profile-message", 'message.php', patientEmail, "Message Patient");
-    jQueryGenerateURL("#profile-medication", 'patient-medication.php', patientEmail, "Medication Schedule");
+    jQueryGenerateURL("#profile-brain-test-result", 'brain-test-results.php', patientEmail, "Brain Test");
+    jQueryGenerateURL("#profile-tremor-test-result", 'tremor-test-results.php', patientEmail, "Tremor Test");
+    jQueryGenerateURL("#profile-message", 'message.php', patientEmail, "Messages");
+    jQueryGenerateURL("#profile-medication", 'patient-medication.php', patientEmail, "Medication");
 }

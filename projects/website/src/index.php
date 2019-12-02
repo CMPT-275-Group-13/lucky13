@@ -10,11 +10,14 @@
 	<script type="application/javascript" src="includes/javascript/index.js"></script>
 </head>
 <body>
-<div class ="jumbotron jumbotron-fluid">
-	<div class="container">
-		<h1 id="welcomeMessage"><h1>
-		<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
-		<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
+<div class ="jumbotron jumbotron-fluid" style="background-color:#99cccc;">
+	<div class="hero-image" style="background-color:#99cccc; font-family:Roboto; height:50%;">
+		<div class="hero-text" style="text-align:center;">
+			<h1 id="welcomeMessage" style="color:white"><h1>
+			<button type="submit" onclick="window.location.href='profile.php'" class="btn btn-primary">EDIT PROFILE</button>
+			<button onclick="firebaseAccountSignOut()" class="btn btn-primary">SIGN OUT</button>
+		</div>
+		
 	</div>
 </div>
 <!-- <?php //include("includes/design-top.php");?>
@@ -31,7 +34,7 @@
 			<p class="card-text">See all the patients using PAPER PLANE</p>
 		</div>
 		<div class="card-footer">
-			<button  type="submit" onclick="window.location.href='search.php'" class="btn btn-primary">Search</button>
+			<button  type="submit" onclick="window.location.href='search.php'" class="btn btn-primary" id="btnSearch">Search</button>
 		</div>
 	</div>
 	<div class="card">
@@ -40,14 +43,12 @@
 			<p class="card-text">See patients' information</p>
 		</div>
 		<div class="card-footer">
-			<button type="submit" onclick="window.location.href='patient-list.php'" class="btn btn-primary">Patients</button>
+			<button type="submit" onclick="window.location.href='patient-list.php'" class="btn btn-primary" id="btnPatients">Patients</button>
 		</div>
 	</div>
 
 	</div>
 </div>
-
-<?php include("includes/footer.php");?>
 
 </body>
 </html>

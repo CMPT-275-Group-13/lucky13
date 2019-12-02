@@ -30,10 +30,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <!-- Website-Specific Js -->
+<script type="application/javascript" src="includes/javascript/firebase-config.js"></script>
 <script type="application/javascript" src="includes/javascript/helper.js"></script>
 <script type="application/javascript" src="includes/javascript/jquery-helper.js"></script>
 <script type="application/javascript" src="includes/javascript/firebase-functions.js"></script>
 <script type="application/javascript" src="includes/javascript/firebase-user.js"></script>
-<script type="application/javascript" src="includes/javascript/firebase-config.js"></script>
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> --> <!-- Needs work -->
 <script type="application/javascript" src="includes/javascript/main.js"></script>
+
+<!--assets-->
+<link rel="icon" type="image/png" href ="images/assets/icon.png">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+

@@ -167,6 +167,7 @@ function firestoreCreateMedication(patientEmail, medicationFrequency, medication
 			// Grab current user (doctor)
 			var doctorEmail = firebaseGetUserEmail(user);
 			var doctorRef = db.collection("doctors").doc(doctorEmail);
+
 			doctorRef.get().then(function(doc) {
 				if (doc.exists) {
 					// Grab first name and last name
@@ -186,14 +187,17 @@ function firestoreCreateMedication(patientEmail, medicationFrequency, medication
 						patientEmail: patientEmail
 					})
 					.then(function(docRef) {
-						console.log("Document written with ID: ", docRef.id);
+						console.log("Document written with ID: ", medicationRef.id);
+
+						// Refresh the current page on successful write
+						refreshCurrentPage();
 					})
 					.catch(function(error) {
 						console.error("Error adding document: ", error);
 					});
 				}
 				else {
-					// doc.data() will be undefined in this case
+					// doc will be undefined in this case
 					console.log("No such document!");
 				}
 			}).catch(function(error) {
