@@ -112,8 +112,7 @@ function firebaseGoogleSignin() {
 		console.log('Error Message: ' + errorMessage);
 
 		if (errorCode) {
-			$("#login-status").show();
-			$("#login-status").text(errorMessage);
+			jQueryWriteTextToHTML("#login-status", errorMessage);
 		}
 	});
 }

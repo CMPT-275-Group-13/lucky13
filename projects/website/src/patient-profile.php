@@ -41,9 +41,12 @@
 	</div>
 
 	<div>
-		<div id="profile-messaging">
-			<div id="profile-message"></div>
+		<div id="profile-medication">
 		</div>
+	</div>
+
+	<div>
+		<div id="profile-message"></div>
 	</div>
 
 	<div>

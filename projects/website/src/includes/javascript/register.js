@@ -7,22 +7,20 @@ $(document).ready(function(){
 		$("#register-status").text();
 		$("#register-status").hide();
 
-		var email = $("input#email").val();
-		var password = $("input#password").val();
-		var firstName = $("input#first-name").val();
-		var lastName = $("input#last-name").val();
-		var phoneNumber = $("input#phoneNumber").val();
-		var userType = $("select#userType").val();
+		var email = jQueryReadValfromHTML("input#email");
+		var password = jQueryReadValfromHTML("input#password");
+		var firstName = jQueryReadValfromHTML("input#first-name");
+		var lastName = jQueryReadValfromHTML("input#last-name");
+		var phoneNumber = jQueryReadValfromHTML("input#phoneNumber");
+		var userType = jQueryReadValfromHTML("select#userType");
 
 		// Check email is a valid email
 		if (!validateEmail(email)) {
-			$("#register-status").show();
-			$("#register-status").text("Invalid email address format");
+			jQueryWriteTextToHTML("#register-status", "Invalid email address format");
 		}
 		// Check password is a valid password
 		else if (!validatePassword(password)) {
-			$("#register-status").show();
-			$("#register-status").text("Invalid password");
+			jQueryWriteTextToHTML("#register-status", "Invalid password");
 		}
 
 		else {
@@ -49,8 +47,7 @@ $(document).ready(function(){
 					console.log('Error Message: ' + errorMessage);
 
 					if (errorCode) {
-						$("#register-status").show();
-						$("#register-status").text(errorMessage);
+						jQueryWriteTextToHTML("#register-status", errorMessage);
 				}
 			});
 		}
