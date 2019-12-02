@@ -53,7 +53,7 @@ The project was developed with the following:
 At time of writing, our Google Firebase database allows read and writes from any user. This is intentional for development purposes. It will be closed for the production release.
 
 ## iOS App
-The test account username is "csmith@gmail.com". The password is "helloworld". The account is a patient.
+The test account username is "csmith@gmail.com". The password is "123456". The account is a patient.
 
 ## Website
 The test account username is "herbert@test.ca. The password is "helloworld". The account is a doctor and will be able to look up patient accounts.
