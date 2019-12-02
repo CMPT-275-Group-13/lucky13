@@ -8,9 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="includes/styling/message.css">
 </head>
 <body style="background-color:#a7ced9;">
-<?php include("includes/design-top.php");?>
-
 <?php include("includes/navigation.php");?>
+<div class="hero-image" style="background-color:#99cccc" id="logo-content">
+  <img class="img-fluid mx-auto d-block" src="images/assets/message-header.png">
+</div>
 
 
 
