@@ -1,5 +1,5 @@
 # Lucky13
-iOS app to assist people with Parkinson's
+iOS app to assist people with Parkinson's Disease. This project has been completed and is archived.
 
 ## Description
 Paper plane is a iOS app and website combo aim to assist doctors to check-in with their patients that have Parkinson's Disease. It provides doctors the means to communicate with their patients and monitor their symptoms.
